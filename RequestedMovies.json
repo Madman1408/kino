@@ -1,0 +1,94 @@
+{
+  "MadMan1408": [
+    {
+      "id": 1,
+      "title": "Матрица",
+      "year": "1999",
+      "type": "Фильм",
+      "runtime": "2 ч 16 мин",
+      "genres": "боевик, фантастика",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 Village Roadshow Pictures, 🟢 Groucho II Film Partnership, 🟢 Silver Pictures",
+      "budget": "63.000.000 $",
+      "revenue": "463.517.383 $",
+      "tmdbRating": "8.25",
+      "overview": "Жизнь Томаса Андерсона разделена на две части: днём он — самый обычный офисный работник, получающий нагоняи от начальства, а ночью превращается в хакера по имени Нео, и нет места в сети, куда он бы не смог проникнуть. Но однажды всё меняется. Томас узнаёт ужасающую правду о реальности.",
+      "dateRequested": "05.07.2026 18:26",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/kEDbym5htJgDQNenjUtSJxAHysB.jpg",
+      "tagline": "«Добро пожаловать в реальный мир»",
+      "backdrop": "https://image.tmdb.org/t/p/original/tlm8UkiQsitc8rSuIAscQDCnP8d.jpg",
+      "cast": [
+        {
+          "name": "Киану Ривз",
+          "photo": "https://image.tmdb.org/t/p/w185/kEoUZKEG7dzbCESDjd0CKAN1r0n.jpg"
+        },
+        {
+          "name": "Лоренс Фишбёрн",
+          "photo": "https://image.tmdb.org/t/p/w185/2GbXERENPpl5MmlqOLlPVaVtifD.jpg"
+        },
+        {
+          "name": "Кэрри-Энн Мосс",
+          "photo": "https://image.tmdb.org/t/p/w185/xD4jTA3KmVp5Rq3aHcymL9DUGjD.jpg"
+        },
+        {
+          "name": "Хьюго Уивинг",
+          "photo": "https://image.tmdb.org/t/p/w185/lSC8Et0PYi5zeQb3IpPkFje7hgR.jpg"
+        }
+      ],
+      "director": {
+        "name": "Ларри Вачовски",
+        "photo": "https://image.tmdb.org/t/p/w185/4nE4ttPQBuw1virOz0LYT08c1Vm.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=YihPA42fdQ8",
+      "ageRating": "16+",
+      "collection": "Матрица (Коллекция)",
+      "keywords": "man vs machine, martial arts, fortune teller, artificial intelligence (a.i.), saving the world"
+    },
+    {
+      "id": 2,
+      "title": "Мстители",
+      "year": "2012",
+      "type": "Фильм",
+      "runtime": "2 ч 17 мин",
+      "genres": "фантастика, боевик, приключения",
+      "studios": "🟢 Marvel Studios",
+      "budget": "220.000.000 $",
+      "revenue": "1.518.815.515 $",
+      "tmdbRating": "8.052",
+      "overview": "В погоне за могуществом бог Локи вступает в сговор с воинственной расой Читаури, которая обещает ему армию для захвата Земли в обмен на Тессеракт – небольшой куб, содержащий в себе огромную силу. Проникнув в секретный центр организации «Щ.И.Т.», он объявляет о своих намерениях, после чего похищает Тессеракт и берет под контроль нескольких агентов, обеспечивших ему побег. В ответ на угрозу глава «Щ.И.Т.’а» Ник Фьюри созывает сильнейших супергероев планеты, которыми оказываются Железный человек, Черная вдова, Капитан Америка, Халк и Тор. Чтобы дать противнику достойный отпор, им придется отложить все свои разногласия и научиться работать в команде, иначе человечество ждет неминуемая гибель…",
+      "dateRequested": "05.07.2026 22:30",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/ztkYgL0zHJLnEPY5VabK9OlmXxx.jpg",
+      "tagline": "​«Мстители, общий сбор!»",
+      "backdrop": "https://image.tmdb.org/t/p/original/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+      "cast": [
+        {
+          "name": "Роберт Дауни мл.",
+          "photo": "https://image.tmdb.org/t/p/w185/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"
+        },
+        {
+          "name": "Крис Эванс",
+          "photo": "https://image.tmdb.org/t/p/w185/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"
+        },
+        {
+          "name": "Марк Руффало",
+          "photo": "https://image.tmdb.org/t/p/w185/5GilHMOt5PAQh6rlUKZzGmaKEI7.jpg"
+        },
+        {
+          "name": "Крис Хемсворт",
+          "photo": "https://image.tmdb.org/t/p/w185/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джосс Уидон",
+        "photo": "https://image.tmdb.org/t/p/w185/6PJwHV17KTuTRQaqrXBtVCwchcU.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=5iw-hJ6xteE",
+      "ageRating": "12+",
+      "collection": "Мстители (Коллекция)",
+      "keywords": "new york city, superhero, shield, based on comic, alien invasion"
+    }
+  ]
+}
