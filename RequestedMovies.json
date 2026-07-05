@@ -90,5 +90,52 @@
       "collection": "Аватар (Коллекция)",
       "keywords": "paraplegic, attachment to nature, culture clash, indigenous, space travel"
     }
+  ],
+  "cross_loss": [
+    {
+      "id": 1,
+      "title": "Стюарт Литтл",
+      "year": "1999",
+      "type": "Фильм",
+      "runtime": "1 ч 24 мин",
+      "genres": "семейный, фэнтези, комедия, приключения",
+      "studios": "🟢 Franklin/Waterman Productions, 🟢 Columbia Pictures, 🟢 Global Medien KG, 🟢 Red Wagon Entertainment",
+      "budget": "133.000.000 $",
+      "revenue": "300.135.367 $",
+      "tmdbRating": "6.079",
+      "overview": "Когда Джордж попросил своих родителей усыновить ему маленького братишку, чета Литтл восприняла его просьбу слишком буквально. И в один прекрасный день в их большом доме появился… крошечный мышонок Стюарт, который одет в модный костюмчик и умеет разговаривать.С этого момента начинаются непредсказуемые, веселые, а иногда и опасные приключения Стюарта Литтла. За малышом охотятся все коты в округе, его похищают мошенники, и чтобы вернуться домой, новому члену семьи придется стать настоящим героем.",
+      "dateRequested": "05.07.2026 22:40",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/w7Izo70NSfqqC72sNoDsWGF22Eh.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/dECKGAenue36W50HYhd3Jh1OJs.jpg",
+      "cast": [
+        {
+          "name": "Майкл Дж. Фокс",
+          "photo": "https://image.tmdb.org/t/p/w185/2JB4FMgQmnhbBlQ4SxWFN9EIVDi.jpg"
+        },
+        {
+          "name": "Джина Дэвис",
+          "photo": "https://image.tmdb.org/t/p/w185/jNsZLedzKPuyUmgnvpRpP5oG3Wr.jpg"
+        },
+        {
+          "name": "Хью Лори",
+          "photo": "https://image.tmdb.org/t/p/w185/akArncggHnusP5jxzMBKmJDRrMo.jpg"
+        },
+        {
+          "name": "Jonathan Lipnicki",
+          "photo": "https://image.tmdb.org/t/p/w185/sCFCCqFNm5Xyl2eyhzoHH1L8zxF.jpg"
+        }
+      ],
+      "director": {
+        "name": "Роб Минкофф",
+        "photo": "https://image.tmdb.org/t/p/w185/fn5QA0bqJn6tk4Wt1QonjojFPjd.jpg"
+      },
+      "trailer": "",
+      "ageRating": "PG",
+      "collection": "Стюарт Литтл (Коллекция)",
+      "keywords": "sibling relationship, based on novel or book, cat, gangster, orphanage"
+    }
   ]
 }
