@@ -47,48 +47,48 @@
     },
     {
       "id": 2,
-      "title": "Мстители",
-      "year": "2012",
+      "title": "Аватар",
+      "year": "2009",
       "type": "Фильм",
-      "runtime": "2 ч 17 мин",
+      "runtime": "2 ч 42 мин",
       "genres": "фантастика, боевик, приключения",
-      "studios": "🟢 Marvel Studios",
-      "budget": "220.000.000 $",
-      "revenue": "1.518.815.515 $",
-      "tmdbRating": "8.052",
-      "overview": "В погоне за могуществом бог Локи вступает в сговор с воинственной расой Читаури, которая обещает ему армию для захвата Земли в обмен на Тессеракт – небольшой куб, содержащий в себе огромную силу. Проникнув в секретный центр организации «Щ.И.Т.», он объявляет о своих намерениях, после чего похищает Тессеракт и берет под контроль нескольких агентов, обеспечивших ему побег. В ответ на угрозу глава «Щ.И.Т.’а» Ник Фьюри созывает сильнейших супергероев планеты, которыми оказываются Железный человек, Черная вдова, Капитан Америка, Халк и Тор. Чтобы дать противнику достойный отпор, им придется отложить все свои разногласия и научиться работать в команде, иначе человечество ждет неминуемая гибель…",
-      "dateRequested": "05.07.2026 22:30",
+      "studios": "🟢 Dune Entertainment, 🟢 Lightstorm Entertainment, 🟢 20th Century Fox, 🟢 Ingenious Film Partners",
+      "budget": "237.000.000 $",
+      "revenue": "2.923.706.026 $",
+      "tmdbRating": "7.608",
+      "overview": "Джейк Салли, бывший морской пехотинец, прикованный к инвалидному креслу. Несмотря на немощное тело, Джейк в душе по-прежнему остаётся воином. Он получает задание совершить путешествие в несколько световых лет к базе землян на планете Пандора, где корпорации добывают редкий минерал, имеющий огромное значение для выхода Земли из энергетического кризиса.",
+      "dateRequested": "05.07.2026 22:36",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/ztkYgL0zHJLnEPY5VabK9OlmXxx.jpg",
-      "tagline": "​«Мстители, общий сбор!»",
-      "backdrop": "https://image.tmdb.org/t/p/original/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/lUKcrcO3wEPhNnzGq06JIX7GIEb.jpg",
+      "tagline": "«Это Новый Мир»",
+      "backdrop": "https://image.tmdb.org/t/p/original/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg",
       "cast": [
         {
-          "name": "Роберт Дауни мл.",
-          "photo": "https://image.tmdb.org/t/p/w185/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"
+          "name": "Сэм Уортингтон",
+          "photo": "https://image.tmdb.org/t/p/w185/vM1WIfYQ1HUBtlVPwB9Hp9fLcn8.jpg"
         },
         {
-          "name": "Крис Эванс",
-          "photo": "https://image.tmdb.org/t/p/w185/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"
+          "name": "Зои Салдана",
+          "photo": "https://image.tmdb.org/t/p/w185/fCJuIn1PMUQtYdRRSnnoZeMJVWs.jpg"
         },
         {
-          "name": "Марк Руффало",
-          "photo": "https://image.tmdb.org/t/p/w185/5GilHMOt5PAQh6rlUKZzGmaKEI7.jpg"
+          "name": "Сигурни Уивер",
+          "photo": "https://image.tmdb.org/t/p/w185/wTSnfktNBLd6kwQxgvkqYw6vEon.jpg"
         },
         {
-          "name": "Крис Хемсворт",
-          "photo": "https://image.tmdb.org/t/p/w185/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg"
+          "name": "Стивен Лэнг",
+          "photo": "https://image.tmdb.org/t/p/w185/gnO5VfkDgA2fsHweD0622LUY3Hu.jpg"
         }
       ],
       "director": {
-        "name": "Джосс Уидон",
-        "photo": "https://image.tmdb.org/t/p/w185/6PJwHV17KTuTRQaqrXBtVCwchcU.jpg"
+        "name": "Джеймс Кэмерон",
+        "photo": "https://image.tmdb.org/t/p/w185/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg"
       },
-      "trailer": "https://www.youtube.com/watch?v=5iw-hJ6xteE",
+      "trailer": "https://www.youtube.com/watch?v=uXC_0wE6k7k",
       "ageRating": "12+",
-      "collection": "Мстители (Коллекция)",
-      "keywords": "new york city, superhero, shield, based on comic, alien invasion"
+      "collection": "Аватар (Коллекция)",
+      "keywords": "paraplegic, attachment to nature, culture clash, indigenous, space travel"
     }
   ]
 }
