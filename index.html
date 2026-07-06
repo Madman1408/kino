@@ -101,7 +101,7 @@
         .movie-genres { font-size: 13px; color: var(--text-muted); }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
 
-        /* --- Карточка зрителя (Настоящая аватарка) --- */
+        /* --- Карточка зрителя (Кликабельная ссылка на Twitch) --- */
         .requester-badge {
             display: flex;
             align-items: center;
@@ -111,7 +111,12 @@
             padding: 6px 12px;
             border-radius: 8px;
             width: fit-content;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
         }
+        .requester-badge:hover { background: rgba(255, 255, 255, 0.08); }
+        .requester-badge:active { transform: scale(0.95); }
+
         .req-avatar {
             width: 28px; height: 26px;
             border-radius: 50%;
@@ -172,6 +177,10 @@
         .grid-item { font-size: 13px; }
         .grid-label { color: #64748b; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
         .grid-value { color: #e2e8f0; font-weight: 500; }
+        
+        /* Ссылка на Twitch в модалке */
+        .modal-requester-link { cursor: pointer; transition: opacity 0.2s; display: inline-block; }
+        .modal-requester-link:hover { opacity: 0.8; text-decoration: underline; }
 
         .trailer-container { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); margin-top: 20px; }
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
@@ -223,6 +232,7 @@
     </table>
 </div>
 
+<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-btn" onclick="closeModal(true)">&times;</div>
@@ -236,7 +246,8 @@
                 <div class="modal-grid">
                     <div class="grid-item">
                         <div class="grid-label">Заказал</div>
-                        <div class="grid-value" id="modalRequester" style="color: var(--accent);">Ник</div>
+                        <!-- Добавили класс для эффекта ссылки при наведении -->
+                        <div class="grid-value modal-requester-link" id="modalRequester" style="color: var(--accent);" title="Перейти на канал Twitch">Ник</div>
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Студии</div>
@@ -392,13 +403,10 @@
             const cleanNick = movie.requestedBy.replace('@', '').trim();
             const userColor = stringToColor(cleanNick);
 
-            // 🔥 ПРОВЕРКА НАЛИЧИЯ НАСТОЯЩЕЙ АВАТАРКИ ТВИЧА 🔥
             let avatarMarkup = '';
             if (movie.userAvatar && movie.userAvatar.startsWith('http')) {
-                // Если бот сохранил ссылку на Твич, выводим изображение с цветной рамкой
                 avatarMarkup = `<img src="${movie.userAvatar}" class="req-avatar" style="border: 2px solid ${userColor};" alt="${cleanNick}">`;
             } else {
-                // Иначе оставляем красивый текстовый кружок-заглушку
                 const userInitials = getInitials(cleanNick);
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor}; font-size: 11px; color: #fff;">${userInitials}</div>`;
             }
@@ -420,9 +428,10 @@
                     </div>
                 </td>
                 <td>
-                    <div class="requester-badge">
+                    <!-- 🔥 Кликабельная плашка (event.stopPropagation не даст открыться модалке при клике на ник) 🔥 -->
+                    <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();" title="Перейти на канал ${cleanNick}">
                         ${avatarMarkup}
-                        <span class="req-name" style="color: ${userColor};">@${cleanNick}</span>
+                        <span class="req-name" style="color: ${userColor};">${cleanNick}</span> <!-- Убрали собачку @ -->
                     </div>
                     <div style="font-size: 10px; color: #64748b; margin-top: 5px; margin-left: 5px;">${movie.dateRequested || ''}</div>
                 </td>
@@ -453,8 +462,12 @@
         document.getElementById('modalOverview').textContent = movie.overview;
         
         const cleanNick = movie.requestedBy.replace('@', '').trim();
-        document.getElementById('modalRequester').textContent = "@" + cleanNick;
-        document.getElementById('modalRequester').style.color = stringToColor(cleanNick);
+        const requesterEl = document.getElementById('modalRequester');
+        
+        // Вставляем ник без собачки @ и делаем его кликабельным
+        requesterEl.textContent = cleanNick;
+        requesterEl.style.color = stringToColor(cleanNick);
+        requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
 
         document.getElementById('modalStudios').innerHTML = movie.studios;
         document.getElementById('modalBudget').textContent = movie.budget;
