@@ -285,5 +285,53 @@
       "episodes": "241",
       "tvStatus": "Ended"
     }
+  ],
+  "cross_loss": [
+    {
+      "id": 1,
+      "title": "Начало",
+      "year": "2010",
+      "type": "Фильм",
+      "runtime": "2 ч 28 мин",
+      "genres": "боевик, фантастика, приключения",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 Legendary Pictures, 🟢 Syncopy",
+      "budget": "160.000.000 $",
+      "revenue": "839.030.630 $",
+      "tmdbRating": "8.372",
+      "overview": "Дом Кобб — талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадёт ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил.  И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть всё назад, но для этого ему нужно совершить невозможное — инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача — не украсть идею, а внедрить её. Если у них получится, это и станет идеальным преступлением.  Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.",
+      "dateRequested": "06.07.2026 20:03",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/piQXcdOGgv1O9HQ07pI0tnjkGJw.jpg",
+      "tagline": "«Твой разум – место преступления»",
+      "backdrop": "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+      "cast": [
+        {
+          "name": "Леонардо ДиКаприо",
+          "photo": "https://image.tmdb.org/t/p/w185/mkdRcVIQl4WZhDf1vXKWTD7HZrZ.jpg"
+        },
+        {
+          "name": "Джозеф Гордон-Левитт",
+          "photo": "https://image.tmdb.org/t/p/w185/z2FA8js799xqtfiFjBTicFYdfk.jpg"
+        },
+        {
+          "name": "Кэн Ватанабэ",
+          "photo": "https://image.tmdb.org/t/p/w185/psAXOYp9SBOXvg6AXzARDedNQ9P.jpg"
+        },
+        {
+          "name": "Том Харди",
+          "photo": "https://image.tmdb.org/t/p/w185/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg"
+        }
+      ],
+      "director": {
+        "name": "Кристофер Нолан",
+        "photo": "https://image.tmdb.org/t/p/w185/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=RlKr_lO45Nc",
+      "ageRating": "12+",
+      "collection": "",
+      "keywords": "mission, dreams, kidnapping, spy, allegory",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png"
+    }
   ]
 }
