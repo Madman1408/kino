@@ -92,7 +92,8 @@
         /* Визуальное разделение зрителей */
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        .poster-wrapper { width: 70px; height: 105px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; }
+        /* 🔥 УВЕЛИЧЕННЫЕ ПОСТЕРЫ НА ГЛАВНОЙ СТРАНИЦЕ 🔥 */
+        .poster-wrapper { width: 100px; height: 150px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .movie-info { display: flex; flex-direction: column; gap: 6px; }
@@ -130,7 +131,7 @@
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
         .avatar-container { position: relative; display: inline-block; }
         .avatar { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; border: 2px solid #1a1d24; background-color: #2e3340; }
-        .cast-group { display: flex; align-items: center; gap: 8px; } /* Добавлен отступ между актерами 8px */
+        .cast-group { display: flex; align-items: center; gap: 8px; }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
@@ -208,7 +209,6 @@
     <div class="header">
         <div class="header-left">
             <h1>🍿 Очередь</h1>
-            <!-- 🔥 ПЛАШКА СОЗДАТЕЛЯ 🔥 -->
             <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
                 <div class="creator-info">
@@ -237,9 +237,8 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 70px;">Постер</th>
+                <th style="width: 100px;">Постер</th>
                 <th>Информация о фильме</th>
-                <!-- Фиксированная ширина для смещения правых столбцов ближе к центру -->
                 <th style="width: 200px;">Заказал</th>
                 <th style="width: 120px;">Время</th>
                 <th style="width: 180px;">Статус</th>
@@ -251,7 +250,6 @@
     </table>
 </div>
 
-<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-btn" onclick="closeModal(true)">&times;</div>
@@ -272,12 +270,10 @@
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Дата заказа</div>
-                        <!-- Жирный увеличенный шрифт для модалки -->
                         <div class="grid-value" id="modalDateReq" style="font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
                     <div class="grid-item" id="modalDateWatchedBlock">
                         <div class="grid-label">Дата просмотра</div>
-                        <!-- Жирный увеличенный шрифт для модалки -->
                         <div class="grid-value" id="modalDateWatched" style="color: #10b981; font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
                     <div class="grid-item">
@@ -303,7 +299,6 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
 
-    // Загрузка аватарки Создателя
     async function loadCreatorAvatar() {
         try {
             const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
@@ -479,8 +474,6 @@
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
             const statusText = isWatched ? `Смотрели (Наша: ⭐ ${movie.ourRating || '-'})` : 'Не смотрели';
-            
-            // 🔥 Крупная жирная дата просмотра с красивой плашкой 🔥
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; font-weight: 700; color: #10b981; margin-top: 8px; display: inline-block; background: rgba(16, 185, 129, 0.1); padding: 5px 10px; border-radius: 6px;">✅ ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
@@ -513,7 +506,6 @@
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
 
-            // 🔥 Крупная жирная дата заказа с полупрозрачным фоном 🔥
             const dateReqHTML = `<div style="font-size: 13px; font-weight: 700; color: #94a3b8; margin-top: 8px; display: inline-block; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 6px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>`;
 
             tr.innerHTML = `
