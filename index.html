@@ -78,7 +78,7 @@
         
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
         
-        /* Чередование фона для разных зрителей (светлее, чем было) */
+        /* Чередование фона для разных зрителей */
         tr.alt-bg { background-color: rgba(255, 255, 255, 0.05); } 
         tr.movie-row:hover { background-color: #252a36 !important; } 
         tr.movie-row:active { transform: scale(0.99); }
@@ -223,8 +223,8 @@
 
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
                 <option value="user" selected>👤 По зрителям</option>
-                <option value="oldest">⏳ Сначала старые</option>
-                <option value="newest">✨ Сначала новые</option>
+                <option value="oldest">⏳ По дате заказа (старые)</option>
+                <option value="newest">✨ По дате заказа (новые)</option>
                 <option value="waiting">👀 Только "Не смотрели"</option>
                 <option value="watched">✅ Только "Смотрели"</option>
             </select>
@@ -235,9 +235,10 @@
             <tr>
                 <th style="width: 70px;">Постер</th>
                 <th>Информация о фильме</th>
-                <th>Заказал</th>
-                <th>Хронометраж</th>
-                <th>Статус</th>
+                <!-- Фиксированная ширина для смещения левее -->
+                <th style="width: 200px;">Заказал</th>
+                <th style="width: 120px;">Время</th>
+                <th style="width: 180px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -529,7 +530,8 @@
                         ${avatarMarkup}
                         <span class="req-name" style="color: ${userColor};">${cleanNick}</span>
                     </div>
-                    <div style="font-size: 10px; color: #64748b; margin-top: 5px; margin-left: 5px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>
+                    <!-- УВЕЛИЧЕННЫЙ ШРИФТ ДАТЫ ЗАКАЗА ДО 12px -->
+                    <div style="font-size: 12px; color: #64748b; margin-top: 6px; margin-left: 5px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>
                 </td>
                 <td>${runtimeDisplay}</td>
                 <td>
