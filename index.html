@@ -34,6 +34,7 @@
             border: 1px solid var(--border);
         }
 
+        /* --- Шапка и Плашка стримера --- */
         .header {
             padding: 24px 30px;
             background: linear-gradient(135deg, #1e222a 0%, #1a1d24 100%);
@@ -42,10 +43,23 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
         }
 
+        .header-left { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
         .header h1 { margin: 0; font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+
+        .creator-badge {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
+        .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); background-color: #2e3340; }
+        .creator-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .creator-label { font-size: 10px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .creator-name { font-size: 15px; font-weight: 700; color: #ffffff; }
 
         /* --- Панель управления --- */
         .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
@@ -63,12 +77,15 @@
         td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
         
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
-        tr.movie-row:hover { background-color: #1e222b; }
+        
+        /* Чередование фона для разных зрителей */
+        tr.alt-bg { background-color: rgba(255, 255, 255, 0.025); } /* Светло-серый фон */
+        tr.movie-row:hover { background-color: #252a36 !important; } /* Единый цвет при наведении */
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
 
         /* Визуальное разделение зрителей (разрыв в таблице) */
-        tr.user-separator td { border-top: 8px solid var(--bg-color); }
+        tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
         .poster-wrapper { width: 70px; height: 105px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
@@ -176,7 +193,7 @@
             .modal-body { flex-direction: column; margin-top: -20px; }
             .modal-poster { width: 100px; }
             .modal-grid { grid-template-columns: 1fr; }
-            .header { flex-direction: column; align-items: flex-start; }
+            .header-left { flex-direction: column; align-items: flex-start; gap: 10px; }
             .search-box { width: 100%; }
         }
     </style>
@@ -185,7 +202,17 @@
 
 <div class="container">
     <div class="header">
-        <h1>🍿 Очередь заказов</h1>
+        <div class="header-left">
+            <h1>🍿 Очередь</h1>
+            <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
+                <div class="creator-info">
+                    <span class="creator-label">Стример</span>
+                    <span class="creator-name">MadMan1408</span>
+                </div>
+            </div>
+        </div>
+        
         <div class="controls-panel">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск фильма или ника..." oninput="applyFilters()">
             
@@ -229,8 +256,7 @@
                 <div class="modal-meta" id="modalMeta">2023 • 120 мин</div>
                 <div class="modal-overview" id="modalOverview">Описание фильма...</div>
                 
-                <div class="modal-crew-section" id="modalCrewSection">
-                    </div>
+                <div class="modal-crew-section" id="modalCrewSection"></div>
 
                 <div class="modal-grid">
                     <div class="grid-item">
@@ -267,6 +293,21 @@
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
+
+    // 🔥 ФУНКЦИЯ ДЛЯ ЗАГРУЗКИ ТВОЕЙ АВАТАРКИ СОЗДАТЕЛЯ (через IVR API) 🔥
+    async function loadCreatorAvatar() {
+        try {
+            const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
+            const data = await res.json();
+            if (data && data.length > 0 && data[0].logo) {
+                // Берем качественную версию фото
+                document.getElementById('creatorAvatar').src = data[0].logo.replace('300x300', '150x150');
+            }
+        } catch (e) {
+            console.log('Не удалось загрузить аватарку стримера.');
+        }
+    }
+    loadCreatorAvatar();
 
     function stringToColor(str) {
         let hash = 0;
@@ -324,13 +365,11 @@
         }
     }
 
-    // Сбор уникальных юзеров и добавление их в фильтр
     function populateUserFilter() {
         const filterEl = document.getElementById('userFilter');
         filterEl.innerHTML = '<option value="all">🎭 Все зрители</option>';
         
         const uniqueUsers = [...new Set(rawMoviesData.map(m => m.requestedBy))];
-        // Сортировка зрителей по алфавиту
         uniqueUsers.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
         
         uniqueUsers.forEach(u => {
@@ -349,12 +388,10 @@
         
         let filtered = [...rawMoviesData];
 
-        // 1. Фильтр по конкретному зрителю
         if (userFilterVal !== 'all') {
             filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         }
 
-        // 2. Поиск по строке
         if (searchQuery.trim() !== '') {
             filtered = filtered.filter(m => 
                 m.title.toLowerCase().includes(searchQuery) || 
@@ -362,7 +399,6 @@
             );
         }
 
-        // 3. Сортировка
         if (sortMode === 'waiting') {
             filtered = filtered.filter(m => m.status === 'Не смотрели');
             filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
@@ -378,7 +414,6 @@
             filtered.sort((a, b) => a.parsedDate - b.parsedDate);
         }
         else if (sortMode === 'user') {
-            // Сортировка по имени, а внутри одного имени - по дате
             filtered.sort((a, b) => {
                 const userCompare = a.requestedBy.localeCompare(b.requestedBy, undefined, {sensitivity: 'base'});
                 if (userCompare !== 0) return userCompare;
@@ -400,6 +435,7 @@
         }
 
         let prevUser = null;
+        let isAltBg = false;
 
         dataArray.forEach((movie, index) => {
             const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -408,9 +444,13 @@
             const tr = document.createElement('tr');
             tr.className = 'movie-row';
             
-            // Если включена группировка или просто сменился зритель — делаем визуальный разрыв
+            // Логика смены фона для разных зрителей
             if (prevUser !== null && prevUser !== currentUser) {
                 tr.classList.add('user-separator');
+                isAltBg = !isAltBg; // Переключаем цвет фона
+            }
+            if (isAltBg) {
+                tr.classList.add('alt-bg');
             }
             prevUser = currentUser;
 
