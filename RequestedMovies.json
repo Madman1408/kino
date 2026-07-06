@@ -90,6 +90,52 @@
       "collection": "Аватар (Коллекция)",
       "keywords": "paraplegic, attachment to nature, culture clash, indigenous, space travel",
       "dateWatched": "05.07.2026 22:41"
+    },
+    {
+      "id": 3,
+      "title": "Падение Лондона",
+      "year": "2016",
+      "type": "Фильм",
+      "runtime": "1 ч 40 мин",
+      "genres": "боевик, триллер",
+      "studios": "🟢 Millennium Media, 🟢 Gramercy Pictures, 🟢 G-BASE, 🟢 LHF Film, 🟢 Nu Boyana Film Studios",
+      "budget": "60.000.000 $",
+      "revenue": "205.754.447 $",
+      "tmdbRating": "6.2",
+      "overview": "Действие фильма начинается в Лондоне, где премьер-министр Великобритании погибает при загадочных обстоятельствах. На похоронах безусловно присутствуют руководители западного мира. Но то, что начиналось как наиболее безопасное событие на земле, превращается в опаснейшее покушение на самых мощных мировых лидеров, что в свою очередь ставит под угрозу будущее всего мира. Только три человека сохраняют надежду на предотвращение катастрофы: президент США, его верный помощник — агент спецслужбы и английский агент МИ-6, который никому не доверяет.",
+      "dateRequested": "06.07.2026 18:17",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/gVJWKaSrWQW66g0WfblZUANF4I5.jpg",
+      "tagline": "«Приготовься к кровавому аду»",
+      "backdrop": "https://image.tmdb.org/t/p/original/2aXAK6WNg9ihJm8qRSrguKzgaB7.jpg",
+      "cast": [
+        {
+          "name": "Джерард Батлер",
+          "photo": "https://image.tmdb.org/t/p/w185/i54XoxYieuff2w6MwyfwVUBvmR0.jpg"
+        },
+        {
+          "name": "Аарон Екгарт",
+          "photo": "https://image.tmdb.org/t/p/w185/u5JjnRMr9zKEVvOP7k3F6gdcwT6.jpg"
+        },
+        {
+          "name": "Анджела Бассетт",
+          "photo": "https://image.tmdb.org/t/p/w185/tKnuviliyeKNGlo26IU5gIrJAtd.jpg"
+        },
+        {
+          "name": "Морган Фримен",
+          "photo": "https://image.tmdb.org/t/p/w185/jPsLqiYGSofU4s6BjrxnefMfabb.jpg"
+        }
+      ],
+      "director": {
+        "name": "Бабак Наджафи",
+        "photo": "https://image.tmdb.org/t/p/w185/cY5WshSHPm8pRfmqgcze0nmF3ko.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=FaecL7BsSSA",
+      "ageRating": "16+",
+      "collection": "Падение Олимпа (Коллекция)",
+      "keywords": "london, england, usa president, sequel, terrorism, political assassination",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     }
   ],
   "cross_loss": [
