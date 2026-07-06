@@ -187,48 +187,48 @@
     },
     {
       "id": 5,
-      "title": "Авиатор",
-      "year": "2004",
+      "title": "День сурка",
+      "year": "1993",
       "type": "Фильм",
-      "runtime": "2 ч 43 мин",
-      "genres": "драма",
-      "studios": "🔴 Warner Bros. Pictures | 🟢 Miramax, 🟢 Initial Entertainment Group, 🟢 Forward Pass, 🟢 Appian Way, 🟢 IMF",
-      "budget": "110.000.000 $",
-      "revenue": "213.719.942 $",
-      "tmdbRating": "7.218",
-      "overview": "Получив от отца небольшую фабрику, Говард Хьюз превратил ее в гигантское, фантастически прибыльное предприятие. Став владельцем огромной кинокомпании, он снял самый дорогой для своего времени фильм и покорил сердца прелестнейших голливудских актрис. Ему принадлежали самые престижные казино Лас-Вегаса и он установил рекорд скоростных полетов, приобрел вторую по величине коммерческую авиакомпанию… Деньги жгут сердце Хьюза, они не дают ему покоя, а душа его рвется ввысь. Только там, на высоте нескольких тысяч метров он счастлив по-настоящему. Только там, где все решает лишь мастерство пилота и Бог, ничто не ценится так дорого, как верность и честь.",
+      "runtime": "1 ч 41 мин",
+      "genres": "мелодрама, фэнтези, комедия",
+      "studios": "🟢 Columbia Pictures",
+      "budget": "14.600.000 $",
+      "revenue": "71.108.778 $",
+      "tmdbRating": "7.632",
+      "overview": "Телевизионный комментатор Фил Коннорс каждый год приезжает в маленький городок в штате Пенсильвания на празднование Дня сурка. Но на этот раз веселье рискует зайти слишком далеко. Время сыграло с ним злую шутку: оно взяло да и остановилось. Теперь на календаре Фила чернеет одна и та же дата - 2 февраля, из которой он никак не может выбраться. Неунывающий ведущий пытается извлечь выгоду из своего комичного положения: впереди у него уйма времени и безмятежное предсказуемое будущее. Отныне с ним не случится ничего плохого... и ничего хорошего. У Фила осталась одна заветная мечта, простая и незамысловатая - 3 февраля...",
       "dateRequested": "06.07.2026 19:32",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/1RATBZSeVH1tLOBYUBd6dN5O1bo.jpg",
-      "tagline": "Представьте себе жизнь без пределов",
-      "backdrop": "https://image.tmdb.org/t/p/original/6KLKdhk9wZvJ6OcTzDCoxup0Kmh.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/yo91LPlSzskGGNo273us7ScuKIH.jpg",
+      "tagline": "«Это худший день в вашей жизни. Может быть, пережить его снова?»",
+      "backdrop": "https://image.tmdb.org/t/p/original/4W6RYDNe4OByNryOCvJprrutm9h.jpg",
       "cast": [
         {
-          "name": "Леонардо ДиКаприо",
-          "photo": "https://image.tmdb.org/t/p/w185/mkdRcVIQl4WZhDf1vXKWTD7HZrZ.jpg"
+          "name": "Билл Мюррей",
+          "photo": "https://image.tmdb.org/t/p/w185/nnCsJc9x3ZiG3AFyiyc3FPehppy.jpg"
         },
         {
-          "name": "Кейт Бланшетт",
-          "photo": "https://image.tmdb.org/t/p/w185/vUuEHiAR0eD3XEJhg2DWIjymUAA.jpg"
+          "name": "Энди МакДауэлл",
+          "photo": "https://image.tmdb.org/t/p/w185/akeheO4i3cR1HpSU8yu9HrLcsKm.jpg"
         },
         {
-          "name": "Кейт Бекинсейл",
-          "photo": "https://image.tmdb.org/t/p/w185/lveqQgmEzW6ak5unOQi4md677kM.jpg"
+          "name": "Крис Эллиот",
+          "photo": "https://image.tmdb.org/t/p/w185/oZFGgyDCZaanGfco1UdfxM4rHAJ.jpg"
         },
         {
-          "name": "Джон Си Райли",
-          "photo": "https://image.tmdb.org/t/p/w185/iDQ8w4qcxU3le5ZWoCKpHs1QNok.jpg"
+          "name": "Стивен Тоболовски",
+          "photo": "https://image.tmdb.org/t/p/w185/uL8yfcm0dCFYFQt052kczVQVvac.jpg"
         }
       ],
       "director": {
-        "name": "Мартин Скорсезе",
-        "photo": "https://image.tmdb.org/t/p/w185/g3DjfKsgZQWZiw30I20hZVk1oMX.jpg"
+        "name": "Гарольд Рамис",
+        "photo": "https://image.tmdb.org/t/p/w185/kmTMTxthkDAsygk3Am4IUSVYYRi.jpg"
       },
-      "trailer": "https://www.youtube.com/watch?v=o_hxmstc00c",
+      "trailer": "https://www.youtube.com/watch?v=W9gqmWLocP0",
       "ageRating": "16+",
       "collection": "",
-      "keywords": "ladykiller, pilot, biography, based on true story, womanizer",
+      "keywords": "deja vu, groundhog, weather forecast, telecaster, pennsylvania, usa",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
