@@ -2,187 +2,49 @@
   "MadMan1408": [
     {
       "id": 1,
-      "title": "Матрица",
-      "year": "1999",
+      "title": "Мумия",
+      "year": "2026",
       "type": "Фильм",
-      "runtime": "2 ч 16 мин",
-      "genres": "боевик, фантастика",
-      "studios": "🔴 Warner Bros. Pictures | 🟢 Village Roadshow Pictures, 🟢 Groucho II Film Partnership, 🟢 Silver Pictures",
-      "budget": "63.000.000 $",
-      "revenue": "463.517.383 $",
-      "tmdbRating": "8.25",
-      "overview": "Жизнь Томаса Андерсона разделена на две части: днём он — самый обычный офисный работник, получающий нагоняи от начальства, а ночью превращается в хакера по имени Нео, и нет места в сети, куда он бы не смог проникнуть. Но однажды всё меняется. Томас узнаёт ужасающую правду о реальности.",
-      "dateRequested": "05.07.2026 18:26",
+      "runtime": "2 ч 15 мин",
+      "genres": "ужасы, детектив",
+      "studios": "🔴 New Line Cinema | 🟢 Atomic Monster, 🟢 Blumhouse Productions, 🟢 Domain Entertainment, 🟢 Wicked/Good",
+      "budget": "22.000.000 $",
+      "revenue": "90.552.113 $",
+      "tmdbRating": "8.009",
+      "overview": "Семью работающего в Каире американского журналиста Чарли Кэннона постигает трагедия — бесследно пропадает его маленькая дочь Кэти. Поиски ни к чему не приводят, полиция бессильно разводит руками. Восемь лет спустя Кэнноны живут в Нью-Мексико и внезапно получают обнадёживающее известие: Кэти нашлась. Девочку обнаружили в древнем саркофаге, она не говорит и очень плохо выглядит.",
+      "dateRequested": "06.07.2026 18:35",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/kEDbym5htJgDQNenjUtSJxAHysB.jpg",
-      "tagline": "«Добро пожаловать в реальный мир»",
-      "backdrop": "https://image.tmdb.org/t/p/original/tlm8UkiQsitc8rSuIAscQDCnP8d.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/vOyM4rebbIan7wANnFyCKr460mS.jpg",
+      "tagline": "«Есть вещи, которые лучше не тревожить»",
+      "backdrop": "https://image.tmdb.org/t/p/original/s3tHm62ohyb0I5vSnPrpczCBtSX.jpg",
       "cast": [
         {
-          "name": "Киану Ривз",
-          "photo": "https://image.tmdb.org/t/p/w185/kEoUZKEG7dzbCESDjd0CKAN1r0n.jpg"
+          "name": "Джек Рейнор",
+          "photo": "https://image.tmdb.org/t/p/w185/ti7IuuwBP66kntCCp6t38xzOcT4.jpg"
         },
         {
-          "name": "Лоренс Фишбёрн",
-          "photo": "https://image.tmdb.org/t/p/w185/2GbXERENPpl5MmlqOLlPVaVtifD.jpg"
+          "name": "Лайа Коста",
+          "photo": "https://image.tmdb.org/t/p/w185/kSbdpHWLlfzvOfZKJ0dgP0ieVL6.jpg"
         },
         {
-          "name": "Кэрри-Энн Мосс",
-          "photo": "https://image.tmdb.org/t/p/w185/xD4jTA3KmVp5Rq3aHcymL9DUGjD.jpg"
+          "name": "Мэй Каламави",
+          "photo": "https://image.tmdb.org/t/p/w185/5S3nNkH5p85xK7k7AaXBZ0ouyOR.jpg"
         },
         {
-          "name": "Хьюго Уивинг",
-          "photo": "https://image.tmdb.org/t/p/w185/lSC8Et0PYi5zeQb3IpPkFje7hgR.jpg"
+          "name": "Натали Грэйс",
+          "photo": "https://image.tmdb.org/t/p/w185/uoJRUulO6A9By4IhNrDdiKevAOj.jpg"
         }
       ],
       "director": {
-        "name": "Ларри Вачовски",
-        "photo": "https://image.tmdb.org/t/p/w185/4nE4ttPQBuw1virOz0LYT08c1Vm.jpg"
+        "name": "Ли Кронин",
+        "photo": "https://image.tmdb.org/t/p/w185/qRJgpkLTXE1EkmmHvmD4AnvrFap.jpg"
       },
-      "trailer": "https://www.youtube.com/watch?v=YihPA42fdQ8",
-      "ageRating": "16+",
-      "collection": "Матрица (Коллекция)",
-      "keywords": "man vs machine, martial arts, fortune teller, artificial intelligence (a.i.), saving the world"
-    },
-    {
-      "id": 2,
-      "title": "Аватар",
-      "year": "2009",
-      "type": "Фильм",
-      "runtime": "2 ч 42 мин",
-      "genres": "фантастика, боевик, приключения",
-      "studios": "🟢 Dune Entertainment, 🟢 Lightstorm Entertainment, 🟢 20th Century Fox, 🟢 Ingenious Film Partners",
-      "budget": "237.000.000 $",
-      "revenue": "2.923.706.026 $",
-      "tmdbRating": "7.608",
-      "overview": "Джейк Салли, бывший морской пехотинец, прикованный к инвалидному креслу. Несмотря на немощное тело, Джейк в душе по-прежнему остаётся воином. Он получает задание совершить путешествие в несколько световых лет к базе землян на планете Пандора, где корпорации добывают редкий минерал, имеющий огромное значение для выхода Земли из энергетического кризиса.",
-      "dateRequested": "05.07.2026 22:36",
-      "status": "Смотрели",
-      "ourRating": "9",
-      "poster": "https://image.tmdb.org/t/p/w500/lUKcrcO3wEPhNnzGq06JIX7GIEb.jpg",
-      "tagline": "«Это Новый Мир»",
-      "backdrop": "https://image.tmdb.org/t/p/original/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg",
-      "cast": [
-        {
-          "name": "Сэм Уортингтон",
-          "photo": "https://image.tmdb.org/t/p/w185/vM1WIfYQ1HUBtlVPwB9Hp9fLcn8.jpg"
-        },
-        {
-          "name": "Зои Салдана",
-          "photo": "https://image.tmdb.org/t/p/w185/fCJuIn1PMUQtYdRRSnnoZeMJVWs.jpg"
-        },
-        {
-          "name": "Сигурни Уивер",
-          "photo": "https://image.tmdb.org/t/p/w185/wTSnfktNBLd6kwQxgvkqYw6vEon.jpg"
-        },
-        {
-          "name": "Стивен Лэнг",
-          "photo": "https://image.tmdb.org/t/p/w185/gnO5VfkDgA2fsHweD0622LUY3Hu.jpg"
-        }
-      ],
-      "director": {
-        "name": "Джеймс Кэмерон",
-        "photo": "https://image.tmdb.org/t/p/w185/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=uXC_0wE6k7k",
-      "ageRating": "12+",
-      "collection": "Аватар (Коллекция)",
-      "keywords": "paraplegic, attachment to nature, culture clash, indigenous, space travel",
-      "dateWatched": "05.07.2026 22:41"
-    },
-    {
-      "id": 3,
-      "title": "Падение Лондона",
-      "year": "2016",
-      "type": "Фильм",
-      "runtime": "1 ч 40 мин",
-      "genres": "боевик, триллер",
-      "studios": "🟢 Millennium Media, 🟢 Gramercy Pictures, 🟢 G-BASE, 🟢 LHF Film, 🟢 Nu Boyana Film Studios",
-      "budget": "60.000.000 $",
-      "revenue": "205.754.447 $",
-      "tmdbRating": "6.2",
-      "overview": "Действие фильма начинается в Лондоне, где премьер-министр Великобритании погибает при загадочных обстоятельствах. На похоронах безусловно присутствуют руководители западного мира. Но то, что начиналось как наиболее безопасное событие на земле, превращается в опаснейшее покушение на самых мощных мировых лидеров, что в свою очередь ставит под угрозу будущее всего мира. Только три человека сохраняют надежду на предотвращение катастрофы: президент США, его верный помощник — агент спецслужбы и английский агент МИ-6, который никому не доверяет.",
-      "dateRequested": "06.07.2026 18:17",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/gVJWKaSrWQW66g0WfblZUANF4I5.jpg",
-      "tagline": "«Приготовься к кровавому аду»",
-      "backdrop": "https://image.tmdb.org/t/p/original/2aXAK6WNg9ihJm8qRSrguKzgaB7.jpg",
-      "cast": [
-        {
-          "name": "Джерард Батлер",
-          "photo": "https://image.tmdb.org/t/p/w185/i54XoxYieuff2w6MwyfwVUBvmR0.jpg"
-        },
-        {
-          "name": "Аарон Екгарт",
-          "photo": "https://image.tmdb.org/t/p/w185/u5JjnRMr9zKEVvOP7k3F6gdcwT6.jpg"
-        },
-        {
-          "name": "Анджела Бассетт",
-          "photo": "https://image.tmdb.org/t/p/w185/tKnuviliyeKNGlo26IU5gIrJAtd.jpg"
-        },
-        {
-          "name": "Морган Фримен",
-          "photo": "https://image.tmdb.org/t/p/w185/jPsLqiYGSofU4s6BjrxnefMfabb.jpg"
-        }
-      ],
-      "director": {
-        "name": "Бабак Наджафи",
-        "photo": "https://image.tmdb.org/t/p/w185/cY5WshSHPm8pRfmqgcze0nmF3ko.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=FaecL7BsSSA",
-      "ageRating": "16+",
-      "collection": "Падение Олимпа (Коллекция)",
-      "keywords": "london, england, usa president, sequel, terrorism, political assassination",
+      "trailer": "https://www.youtube.com/watch?v=rs-cKDx3h2w",
+      "ageRating": "Нет данных",
+      "collection": "",
+      "keywords": "journalist, egypt, monster, ritual, kidnapping",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
-    }
-  ],
-  "cross_loss": [
-    {
-      "id": 1,
-      "title": "Стюарт Литтл",
-      "year": "1999",
-      "type": "Фильм",
-      "runtime": "1 ч 24 мин",
-      "genres": "семейный, фэнтези, комедия, приключения",
-      "studios": "🟢 Franklin/Waterman Productions, 🟢 Columbia Pictures, 🟢 Global Medien KG, 🟢 Red Wagon Entertainment",
-      "budget": "133.000.000 $",
-      "revenue": "300.135.367 $",
-      "tmdbRating": "6.079",
-      "overview": "Когда Джордж попросил своих родителей усыновить ему маленького братишку, чета Литтл восприняла его просьбу слишком буквально. И в один прекрасный день в их большом доме появился… крошечный мышонок Стюарт, который одет в модный костюмчик и умеет разговаривать.С этого момента начинаются непредсказуемые, веселые, а иногда и опасные приключения Стюарта Литтла. За малышом охотятся все коты в округе, его похищают мошенники, и чтобы вернуться домой, новому члену семьи придется стать настоящим героем.",
-      "dateRequested": "05.07.2026 22:40",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/w7Izo70NSfqqC72sNoDsWGF22Eh.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/dECKGAenue36W50HYhd3Jh1OJs.jpg",
-      "cast": [
-        {
-          "name": "Майкл Дж. Фокс",
-          "photo": "https://image.tmdb.org/t/p/w185/2JB4FMgQmnhbBlQ4SxWFN9EIVDi.jpg"
-        },
-        {
-          "name": "Джина Дэвис",
-          "photo": "https://image.tmdb.org/t/p/w185/jNsZLedzKPuyUmgnvpRpP5oG3Wr.jpg"
-        },
-        {
-          "name": "Хью Лори",
-          "photo": "https://image.tmdb.org/t/p/w185/akArncggHnusP5jxzMBKmJDRrMo.jpg"
-        },
-        {
-          "name": "Jonathan Lipnicki",
-          "photo": "https://image.tmdb.org/t/p/w185/sCFCCqFNm5Xyl2eyhzoHH1L8zxF.jpg"
-        }
-      ],
-      "director": {
-        "name": "Роб Минкофф",
-        "photo": "https://image.tmdb.org/t/p/w185/fn5QA0bqJn6tk4Wt1QonjojFPjd.jpg"
-      },
-      "trailer": "",
-      "ageRating": "PG",
-      "collection": "Стюарт Литтл (Коллекция)",
-      "keywords": "sibling relationship, based on novel or book, cat, gangster, orphanage"
     }
   ]
 }
