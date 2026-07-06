@@ -47,38 +47,15 @@
 
         .header h1 { margin: 0; font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
 
-        /* --- Панель управления (Поиск и Фильтры) --- */
-        .controls-panel {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+        /* --- Панель управления --- */
+        .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; }
+        .search-box, .sort-select {
+            background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;
+            padding: 10px 15px; color: var(--text-main); font-size: 14px; outline: none; transition: border-color 0.2s;
         }
-
-        .search-box {
-            background: var(--input-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 15px;
-            color: var(--text-main);
-            font-size: 14px;
-            width: 250px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .search-box:focus { border-color: var(--accent); }
-
-        .sort-select {
-            background: var(--input-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 15px;
-            color: var(--text-main);
-            font-size: 14px;
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-        .sort-select:focus { border-color: var(--accent); }
+        .search-box { width: 250px; }
+        .search-box:focus, .sort-select:focus { border-color: var(--accent); }
+        .sort-select { cursor: pointer; }
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
@@ -101,31 +78,19 @@
         .movie-genres { font-size: 13px; color: var(--text-muted); }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
 
-        /* --- Карточка зрителя (Кликабельная ссылка на Twitch) --- */
+        /* --- Карточка зрителя --- */
         .requester-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 8px;
-            width: fit-content;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border); padding: 6px 12px; border-radius: 8px; width: fit-content;
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
         }
         .requester-badge:hover { background: rgba(255, 255, 255, 0.08); }
         .requester-badge:active { transform: scale(0.95); }
 
         .req-avatar {
-            width: 28px; height: 26px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 11px; color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            object-fit: cover;
-            flex-shrink: 0;
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 11px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3); object-fit: cover; flex-shrink: 0;
         }
         .req-name { font-weight: 600; font-size: 14px; }
         
@@ -133,7 +98,7 @@
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* --- Аватарки актеров --- */
+        /* --- Аватарки актеров в таблице --- */
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
         .avatar-container { position: relative; display: inline-block; }
         .avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #1a1d24; background-color: #2e3340; }
@@ -167,20 +132,29 @@
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--container-bg) 0%, transparent 100%); }
 
         .modal-body { padding: 0 30px 30px 30px; position: relative; margin-top: -60px; z-index: 2; display: flex; gap: 20px; }
-        .modal-poster { width: 140px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid var(--border); }
+        .modal-poster { width: 140px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid var(--border); align-self: flex-start; }
         .modal-info-main { flex: 1; }
         .modal-title { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 14px; }
         .modal-overview { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
 
+        /* --- Актеры в модалке --- */
+        .modal-crew-section { margin-bottom: 20px; }
+        .modal-crew-list { display: flex; gap: 15px; flex-wrap: wrap; }
+        .crew-card { display: flex; flex-direction: column; align-items: center; width: 65px; text-align: center; }
+        .crew-card img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); margin-bottom: 6px; background-color: #2e3340; }
+        .crew-card.director img { border-color: #3b82f6; } /* Синяя обводка для режиссера */
+        .crew-card span { font-size: 11px; color: #cbd5e1; line-height: 1.2; word-break: break-word; }
+
         .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; background: #1e222b; padding: 15px; border-radius: 8px; }
         .grid-item { font-size: 13px; }
-        .grid-label { color: #64748b; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .grid-label { color: #64748b; margin-bottom: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
         .grid-value { color: #e2e8f0; font-weight: 500; }
         
-        /* Ссылка на Twitch в модалке */
-        .modal-requester-link { cursor: pointer; transition: opacity 0.2s; display: inline-block; }
-        .modal-requester-link:hover { opacity: 0.8; text-decoration: underline; }
+        /* Ссылка на Twitch в модалке с аватаркой */
+        .modal-requester-link { cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .modal-requester-link:hover { opacity: 0.8; }
+        .modal-requester-link span:hover { text-decoration: underline; }
 
         .trailer-container { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); margin-top: 20px; }
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
@@ -243,11 +217,25 @@
                 <h2 class="modal-title" id="modalTitle">Название</h2>
                 <div class="modal-meta" id="modalMeta">2023 • 120 мин • ⭐ 8.5/10</div>
                 <div class="modal-overview" id="modalOverview">Описание фильма...</div>
+                
+                <!-- Блок актеров и режиссера в модалке -->
+                <div class="modal-crew-section" id="modalCrewSection">
+                    <div class="grid-label">Режиссер и в ролях</div>
+                    <div class="modal-crew-list" id="modalCrewList"></div>
+                </div>
+
                 <div class="modal-grid">
                     <div class="grid-item">
                         <div class="grid-label">Заказал</div>
-                        <!-- Добавили класс для эффекта ссылки при наведении -->
-                        <div class="grid-value modal-requester-link" id="modalRequester" style="color: var(--accent);" title="Перейти на канал Twitch">Ник</div>
+                        <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал Twitch"></div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="grid-label">Дата заказа</div>
+                        <div class="grid-value" id="modalDateReq">Нет данных</div>
+                    </div>
+                    <div class="grid-item" id="modalDateWatchedBlock">
+                        <div class="grid-label">Дата просмотра</div>
+                        <div class="grid-value" id="modalDateWatched" style="color: #10b981;">Нет данных</div>
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Студии</div>
@@ -262,6 +250,7 @@
                         <div class="grid-value" id="modalRevenue">0 $</div>
                     </div>
                 </div>
+                
                 <div id="trailerWrapper" style="display: none;">
                     <div class="grid-label" style="margin-bottom: 10px;">Официальный трейлер</div>
                     <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
@@ -381,6 +370,9 @@
             const isWatched = movie.status === "Смотрели";
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             const statusText = isWatched ? `Смотрели (⭐ ${movie.ourRating || '-'})` : 'Не смотрели';
+            
+            // Если фильм просмотрен, добавляем дату просмотра в таблицу
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 10px; color: #10b981; margin-top: 5px;">✅ ${movie.dateWatched}</div>` : '';
 
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="age-rating">${movie.ageRating}</span>` : '';
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
@@ -408,7 +400,7 @@
                 avatarMarkup = `<img src="${movie.userAvatar}" class="req-avatar" style="border: 2px solid ${userColor};" alt="${cleanNick}">`;
             } else {
                 const userInitials = getInitials(cleanNick);
-                avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor}; font-size: 11px; color: #fff;">${userInitials}</div>`;
+                avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
 
             tr.innerHTML = `
@@ -428,15 +420,17 @@
                     </div>
                 </td>
                 <td>
-                    <!-- 🔥 Кликабельная плашка (event.stopPropagation не даст открыться модалке при клике на ник) 🔥 -->
                     <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();" title="Перейти на канал ${cleanNick}">
                         ${avatarMarkup}
-                        <span class="req-name" style="color: ${userColor};">${cleanNick}</span> <!-- Убрали собачку @ -->
+                        <span class="req-name" style="color: ${userColor};">${cleanNick}</span>
                     </div>
-                    <div style="font-size: 10px; color: #64748b; margin-top: 5px; margin-left: 5px;">${movie.dateRequested || ''}</div>
+                    <div style="font-size: 10px; color: #64748b; margin-top: 5px; margin-left: 5px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>
                 </td>
                 <td>${runtimeDisplay}</td>
-                <td><span class="${badgeClass}">${statusText}</span></td>
+                <td>
+                    <span class="${badgeClass}">${statusText}</span>
+                    ${watchedDateHTML}
+                </td>
             `;
             tbody.appendChild(tr);
         });
@@ -461,13 +455,62 @@
         document.getElementById('modalMeta').textContent = metaText;
         document.getElementById('modalOverview').textContent = movie.overview;
         
+        // --- ДАТЫ В МОДАЛКЕ ---
+        document.getElementById('modalDateReq').textContent = movie.dateRequested || 'Нет данных';
+        const dateWatchedBlock = document.getElementById('modalDateWatchedBlock');
+        if (movie.status === 'Смотрели' && movie.dateWatched) {
+            document.getElementById('modalDateWatched').textContent = movie.dateWatched;
+            dateWatchedBlock.style.display = 'block';
+        } else {
+            dateWatchedBlock.style.display = 'none';
+        }
+
+        // --- АВАТАРКА ЗРИТЕЛЯ В МОДАЛКЕ ---
         const cleanNick = movie.requestedBy.replace('@', '').trim();
-        const requesterEl = document.getElementById('modalRequester');
+        const userColor = stringToColor(cleanNick);
         
-        // Вставляем ник без собачки @ и делаем его кликабельным
-        requesterEl.textContent = cleanNick;
-        requesterEl.style.color = stringToColor(cleanNick);
+        let avatarMarkup = '';
+        if (movie.userAvatar && movie.userAvatar.startsWith('http')) {
+            avatarMarkup = `<img src="${movie.userAvatar}" class="req-avatar" style="border: 2px solid ${userColor}; width: 22px; height: 22px;" alt="${cleanNick}">`;
+        } else {
+            const userInitials = getInitials(cleanNick);
+            avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor}; width: 22px; height: 22px; font-size: 10px;">${userInitials}</div>`;
+        }
+
+        const requesterEl = document.getElementById('modalRequester');
+        requesterEl.innerHTML = `${avatarMarkup} <span>${cleanNick}</span>`;
+        requesterEl.style.color = userColor;
         requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
+
+        // --- РЕЖИССЕР И АКТЕРЫ В МОДАЛКЕ ---
+        let crewHtml = '';
+        if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
+            crewHtml += `
+                <div class="crew-card director" title="Режиссер: ${movie.director.name}">
+                    <img src="${movie.director.photo}" alt="${movie.director.name}">
+                    <span>${movie.director.name}</span>
+                </div>
+            `;
+        }
+        if (Array.isArray(movie.cast) && movie.cast.length > 0) {
+            movie.cast.forEach(actor => {
+                crewHtml += `
+                    <div class="crew-card" title="В ролях: ${actor.name}">
+                        <img src="${actor.photo}" alt="${actor.name}">
+                        <span>${actor.name}</span>
+                    </div>
+                `;
+            });
+        }
+        
+        const crewListEl = document.getElementById('modalCrewList');
+        const crewSectionEl = document.getElementById('modalCrewSection');
+        if (crewHtml !== '') {
+            crewListEl.innerHTML = crewHtml;
+            crewSectionEl.style.display = 'block';
+        } else {
+            crewSectionEl.style.display = 'none';
+        }
 
         document.getElementById('modalStudios').innerHTML = movie.studios;
         document.getElementById('modalBudget').textContent = movie.budget;
