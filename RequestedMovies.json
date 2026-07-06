@@ -516,6 +516,55 @@
       "seasons": "7",
       "episodes": "76",
       "tvStatus": "Returning Series"
+    },
+    {
+      "id": 12,
+      "title": "Телохранитель",
+      "year": "2005",
+      "type": "Сериал",
+      "runtime": "48 мин",
+      "genres": "драма",
+      "studios": "🟢 TV Azteca",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "7,0",
+      "overview": "Его зовут Хуан Мануэль, он - сельский житель. Ее зовут Паз, она – крупная землевладелица. Он спас ей жизнь. Она хочет, чтобы он стал ее телохранителем и был с ней рядом каждую минуту. Она жаждет заполучить его любой ценой. Он не продается... но судьба вновь сводит их вместе. И теперь жизнь героев уже никогда не будет прежней. Несмотря на то, что они оба женаты и самым главным в жизни для них являются их дочери, любовь вот-вот вспыхнет между ними и будет сильнее всего на свете. Его зовут Николас Пачеко, он - профессиональный телохранитель. Ее зовут Барбара Базтеррика, она - богатая и избалованная девушка. С первого же взгляда они возненавидят друг друга... но, спустя время, полюбят, несмотря на разное социальное положение, совершенно противоположные характеры, несмотря на милую и добрую Татьяну, идеально подходящую Николасу. Она - единственная, кто может сделать его счастливым. Может быть, она еще поборется за свою любовь, может быть...",
+      "dateRequested": "07.07.2026 01:31",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/vU99HM3Zff6RJPP0n3OO6kfAlwF.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/2gKIt8wPVylCnMfofgWzwD8H6Jm.jpg",
+      "cast": [
+        {
+          "name": "Margarita Gralia",
+          "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+        },
+        {
+          "name": "Паола Нуньес",
+          "photo": "https://image.tmdb.org/t/p/w185/5k8tBBvoV43iK6u0k2YUSVXPmuK.jpg"
+        },
+        {
+          "name": "Sergio Basañez",
+          "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+        },
+        {
+          "name": "Adriana Louvier",
+          "photo": "https://image.tmdb.org/t/p/w185/5f3KNlFRnQD8NwTYhRE9gTHNf1V.jpg"
+        }
+      ],
+      "director": {
+        "name": "Emilia Lamothe",
+        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "collection": "",
+      "keywords": "romance, telenovela",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "seasons": "1",
+      "episodes": "236",
+      "tvStatus": "Ended"
     }
   ],
   "cross_loss": [
