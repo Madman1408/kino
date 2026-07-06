@@ -34,7 +34,7 @@
             border: 1px solid var(--border);
         }
 
-        /* --- Шапка и Плашка стримера --- */
+        /* --- Шапка и Плашка создателя --- */
         .header {
             padding: 24px 30px;
             background: linear-gradient(135deg, #1e222a 0%, #1a1d24 100%);
@@ -78,9 +78,9 @@
         
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
         
-        /* Чередование фона для разных зрителей */
-        tr.alt-bg { background-color: rgba(255, 255, 255, 0.025); } /* Светло-серый фон */
-        tr.movie-row:hover { background-color: #252a36 !important; } /* Единый цвет при наведении */
+        /* Чередование фона для разных зрителей (светлее, чем было) */
+        tr.alt-bg { background-color: rgba(255, 255, 255, 0.05); } 
+        tr.movie-row:hover { background-color: #252a36 !important; } 
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
 
@@ -204,10 +204,11 @@
     <div class="header">
         <div class="header-left">
             <h1>🍿 Очередь</h1>
+            <!-- 🔥 ПЛАШКА СОЗДАТЕЛЯ 🔥 -->
             <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
                 <div class="creator-info">
-                    <span class="creator-label">Стример</span>
+                    <span class="creator-label">Создатель</span>
                     <span class="creator-name">MadMan1408</span>
                 </div>
             </div>
@@ -221,9 +222,9 @@
             </select>
 
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
+                <option value="user" selected>👤 По зрителям</option>
                 <option value="oldest">⏳ Сначала старые</option>
                 <option value="newest">✨ Сначала новые</option>
-                <option value="user">👤 По зрителям</option>
                 <option value="waiting">👀 Только "Не смотрели"</option>
                 <option value="watched">✅ Только "Смотрели"</option>
             </select>
@@ -245,6 +246,7 @@
     </table>
 </div>
 
+<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-btn" onclick="closeModal(true)">&times;</div>
@@ -294,13 +296,12 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
 
-    // 🔥 ФУНКЦИЯ ДЛЯ ЗАГРУЗКИ ТВОЕЙ АВАТАРКИ СОЗДАТЕЛЯ (через IVR API) 🔥
+    // Загрузка аватарки Создателя
     async function loadCreatorAvatar() {
         try {
             const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
             const data = await res.json();
             if (data && data.length > 0 && data[0].logo) {
-                // Берем качественную версию фото
                 document.getElementById('creatorAvatar').src = data[0].logo.replace('300x300', '150x150');
             }
         } catch (e) {
@@ -414,10 +415,22 @@
             filtered.sort((a, b) => a.parsedDate - b.parsedDate);
         }
         else if (sortMode === 'user') {
+            // Умная сортировка: сначала зрители с самыми старыми заказами
+            const userEarliestDate = {};
+            filtered.forEach(m => {
+                const nick = m.requestedBy.toLowerCase();
+                if (!userEarliestDate[nick] || m.parsedDate < userEarliestDate[nick]) {
+                    userEarliestDate[nick] = m.parsedDate;
+                }
+            });
+
             filtered.sort((a, b) => {
-                const userCompare = a.requestedBy.localeCompare(b.requestedBy, undefined, {sensitivity: 'base'});
-                if (userCompare !== 0) return userCompare;
-                return a.parsedDate - b.parsedDate; 
+                const nickA = a.requestedBy.toLowerCase();
+                const nickB = b.requestedBy.toLowerCase();
+                if (nickA !== nickB) {
+                    return userEarliestDate[nickA] - userEarliestDate[nickB]; 
+                }
+                return a.parsedDate - b.parsedDate; // Внутри одного зрителя по порядку заказов
             });
         }
 
