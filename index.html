@@ -48,12 +48,12 @@
         .header h1 { margin: 0; font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
 
         /* --- Панель управления --- */
-        .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; }
+        .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
         .search-box, .sort-select {
             background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;
             padding: 10px 15px; color: var(--text-main); font-size: 14px; outline: none; transition: border-color 0.2s;
         }
-        .search-box { width: 250px; }
+        .search-box { width: 220px; }
         .search-box:focus, .sort-select:focus { border-color: var(--accent); }
         .sort-select { cursor: pointer; }
 
@@ -66,6 +66,9 @@
         tr.movie-row:hover { background-color: #1e222b; }
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
+
+        /* Визуальное разделение зрителей (разрыв в таблице) */
+        tr.user-separator td { border-top: 8px solid var(--bg-color); }
 
         .poster-wrapper { width: 70px; height: 105px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
@@ -101,7 +104,7 @@
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* --- Аватарки актеров в таблице (Сделали квадратами с углами) --- */
+        /* --- Аватарки актеров в таблице --- */
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
         .avatar-container { position: relative; display: inline-block; }
         .avatar { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; border: 2px solid #1a1d24; background-color: #2e3340; }
@@ -141,21 +144,17 @@
         .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 14px; }
         .modal-overview { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
 
-        /* --- Актеры и Режиссер в модалке (Разделено и Скругленные квадраты) --- */
         .modal-crew-section { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 25px; }
         .modal-crew-group { display: flex; flex-direction: column; gap: 8px; }
         .modal-crew-list { display: flex; gap: 15px; flex-wrap: wrap; }
         
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 65px; text-align: center; }
-        /* Квадратные фото с закругленными краями (border-radius: 12px) */
         .crew-card img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 2px solid var(--border); margin-bottom: 6px; background-color: #2e3340; }
-        .crew-card.director img { border-color: #3b82f6; } /* Синяя обводка для режиссера */
+        .crew-card.director img { border-color: #3b82f6; } 
         .crew-card span { font-size: 11px; color: #cbd5e1; line-height: 1.2; word-break: break-word; }
 
-        /* --- Сетка деталей --- */
         .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; background: #1e222b; padding: 15px; border-radius: 8px; }
         .grid-item { font-size: 13px; }
-        /* Студии растягиваются на всю ширину сетки (на 2 колонки) */
         .grid-item.full-width { grid-column: 1 / -1; } 
         .grid-label { color: #64748b; margin-bottom: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
         .grid-value { color: #e2e8f0; font-weight: 500; }
@@ -188,11 +187,16 @@
     <div class="header">
         <h1>🍿 Очередь заказов</h1>
         <div class="controls-panel">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск по фильму или нику..." oninput="applyFilters()">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск фильма или ника..." oninput="applyFilters()">
             
+            <select id="userFilter" class="sort-select" onchange="applyFilters()">
+                <option value="all">🎭 Все зрители</option>
+            </select>
+
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                <option value="oldest">⏳ Сначала старые (По дате)</option>
-                <option value="newest">✨ Сначала новые (По дате)</option>
+                <option value="oldest">⏳ Сначала старые</option>
+                <option value="newest">✨ Сначала новые</option>
+                <option value="user">👤 По зрителям</option>
                 <option value="waiting">👀 Только "Не смотрели"</option>
                 <option value="watched">✅ Только "Смотрели"</option>
             </select>
@@ -311,6 +315,7 @@
                 });
             }
 
+            populateUserFilter();
             applyFilters();
 
         } catch (error) {
@@ -319,12 +324,37 @@
         }
     }
 
+    // Сбор уникальных юзеров и добавление их в фильтр
+    function populateUserFilter() {
+        const filterEl = document.getElementById('userFilter');
+        filterEl.innerHTML = '<option value="all">🎭 Все зрители</option>';
+        
+        const uniqueUsers = [...new Set(rawMoviesData.map(m => m.requestedBy))];
+        // Сортировка зрителей по алфавиту
+        uniqueUsers.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
+        
+        uniqueUsers.forEach(u => {
+            const opt = document.createElement('option');
+            opt.value = u.toLowerCase();
+            const clean = u.replace('@', '').trim();
+            opt.textContent = `👤 ${clean}`;
+            filterEl.appendChild(opt);
+        });
+    }
+
     function applyFilters() {
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
         const sortMode = document.getElementById('sortSelect').value;
+        const userFilterVal = document.getElementById('userFilter').value;
         
         let filtered = [...rawMoviesData];
 
+        // 1. Фильтр по конкретному зрителю
+        if (userFilterVal !== 'all') {
+            filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
+        }
+
+        // 2. Поиск по строке
         if (searchQuery.trim() !== '') {
             filtered = filtered.filter(m => 
                 m.title.toLowerCase().includes(searchQuery) || 
@@ -332,6 +362,7 @@
             );
         }
 
+        // 3. Сортировка
         if (sortMode === 'waiting') {
             filtered = filtered.filter(m => m.status === 'Не смотрели');
             filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
@@ -345,6 +376,14 @@
         }
         else if (sortMode === 'oldest') {
             filtered.sort((a, b) => a.parsedDate - b.parsedDate);
+        }
+        else if (sortMode === 'user') {
+            // Сортировка по имени, а внутри одного имени - по дате
+            filtered.sort((a, b) => {
+                const userCompare = a.requestedBy.localeCompare(b.requestedBy, undefined, {sensitivity: 'base'});
+                if (userCompare !== 0) return userCompare;
+                return a.parsedDate - b.parsedDate; 
+            });
         }
 
         currentViewData = filtered;
@@ -360,25 +399,33 @@
             return;
         }
 
+        let prevUser = null;
+
         dataArray.forEach((movie, index) => {
+            const cleanNick = movie.requestedBy.replace('@', '').trim();
+            const currentUser = cleanNick.toLowerCase();
+
             const tr = document.createElement('tr');
             tr.className = 'movie-row';
+            
+            // Если включена группировка или просто сменился зритель — делаем визуальный разрыв
+            if (prevUser !== null && prevUser !== currentUser) {
+                tr.classList.add('user-separator');
+            }
+            prevUser = currentUser;
+
             tr.onclick = () => openModal(index); 
             
             const posterUrl = movie.poster && movie.poster.startsWith('http') ? movie.poster : 'https://via.placeholder.com/150x225?text=No+Poster';
             const isWatched = movie.status === "Смотрели";
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
-            // Если смотрели, пишем "Смотрели (Наша: ⭐ 9)", иначе просто "Не смотрели"
             const statusText = isWatched ? `Смотрели (Наша: ⭐ ${movie.ourRating || '-'})` : 'Не смотрели';
-            
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 10px; color: #10b981; margin-top: 5px;">✅ ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="age-rating">${movie.ageRating}</span>` : '';
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
-            
-            // Вывод студий в таблицу
             const studiosHTML = movie.studios ? `<div class="movie-studios-list">${movie.studios}</div>` : '';
 
             let castHtml = '';
@@ -396,7 +443,6 @@
             let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px;">${movie.runtime}</div>`;
             if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
 
-            const cleanNick = movie.requestedBy.replace('@', '').trim();
             const userColor = stringToColor(cleanNick);
 
             let avatarMarkup = '';
@@ -421,7 +467,8 @@
                         </div>
                         <div class="movie-genres">${movie.genres}</div>
                         ${tagline}
-                        ${studiosHTML} <div class="crew-section">${directorHtml}${castHtml}</div>
+                        ${studiosHTML}
+                        <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
                 <td>
@@ -456,7 +503,6 @@
         document.getElementById('modalPoster').src = movie.poster && movie.poster.startsWith('http') ? movie.poster : 'https://via.placeholder.com/150x225?text=No+Poster';
         document.getElementById('modalTitle').textContent = movie.title;
         
-        // --- ЧЕТКОЕ РАЗДЕЛЕНИЕ ОЦЕНОК В МОДАЛКЕ ---
         let metaText = `${movie.year} • ${movie.type} • ${movie.runtime}`;
         if (movie.tmdbRating) {
             metaText += ` • <span style="color:#f59e0b;">TMDB: ⭐ ${movie.tmdbRating}</span>`;
@@ -468,7 +514,6 @@
         
         document.getElementById('modalOverview').textContent = movie.overview;
         
-        // Даты
         document.getElementById('modalDateReq').textContent = movie.dateRequested || 'Нет данных';
         const dateWatchedBlock = document.getElementById('modalDateWatchedBlock');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
@@ -478,7 +523,6 @@
             dateWatchedBlock.style.display = 'none';
         }
 
-        // Аватарка
         const cleanNick = movie.requestedBy.replace('@', '').trim();
         const userColor = stringToColor(cleanNick);
         let avatarMarkup = '';
@@ -494,7 +538,6 @@
         requesterEl.style.color = userColor;
         requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
 
-        // --- РАЗДЕЛЕННЫЙ РЕЖИССЕР И АКТЕРЫ ---
         let directorSection = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
             directorSection = `
@@ -526,7 +569,6 @@
         
         document.getElementById('modalCrewSection').innerHTML = directorSection + castSection;
 
-        // Финансы (Бюджет и Сборы в одну строку)
         document.getElementById('modalFinances').textContent = `${movie.budget} / ${movie.revenue}`;
         document.getElementById('modalStudios').innerHTML = movie.studios;
 
