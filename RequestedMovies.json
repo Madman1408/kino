@@ -45,6 +45,55 @@
       "collection": "",
       "keywords": "journalist, egypt, monster, ritual, kidnapping",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
+    },
+    {
+      "id": 2,
+      "title": "Светлячок",
+      "year": "2002",
+      "type": "Сериал",
+      "runtime": "Неизвестно",
+      "genres": "драма, Боевик и Приключения, НФ и Фэнтези",
+      "studios": "🟢 Mutant Enemy Productions, 🟢 20th Century Fox Television",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.343",
+      "overview": "Капитан Малькольм «Мэл» Рейнольдс — закаленный в боях ветеран галактической гражданской войны, сражавшийся на проигравшей, в итоге, стороне, зарабатывает на жизнь мелкими преступлениями и перевозит грузы на своем корабле «Серенити». Он возглавляет небольшую разношерстную команду, которая порядком смахивает на самую обычную семью — её члены вечно ссорятся, не соблюдают дисциплину, но никогда не предадут своего капитана и пойдут за ним хоть на край света.",
+      "dateRequested": "06.07.2026 19:02",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/2Cz9tloMXDK4rY3KMvd3VjQeNaB.jpg",
+      "tagline": "«Познакомьтесь с самой чокнутой командой во всей галактике»",
+      "backdrop": "https://image.tmdb.org/t/p/original/te4VJNMipsFQofCkiytuyswGDlV.jpg",
+      "cast": [
+        {
+          "name": "Нейтан Филлион",
+          "photo": "https://image.tmdb.org/t/p/w185/aW6vCxkUZtwb6iH2Wf88Uq0XNVv.jpg"
+        },
+        {
+          "name": "Джина Торрес",
+          "photo": "https://image.tmdb.org/t/p/w185/ukDNHgvEgdU95eaw6pngiAPucv4.jpg"
+        },
+        {
+          "name": "Алан Тьюдик",
+          "photo": "https://image.tmdb.org/t/p/w185/jUuUbPuMGonFT5E2pcs4alfqaCN.jpg"
+        },
+        {
+          "name": "Морена Баккарин",
+          "photo": "https://image.tmdb.org/t/p/w185/4gyHyg6FJ1oFczOm5pmMkdEEo2J.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джосс Уидон",
+        "photo": "https://image.tmdb.org/t/p/w185/6PJwHV17KTuTRQaqrXBtVCwchcU.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "collection": "",
+      "keywords": "spacecraft, future, outlaw, space, heist",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "seasons": "1",
+      "episodes": "11",
+      "tvStatus": "Canceled"
     }
   ]
 }
