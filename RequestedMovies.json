@@ -235,6 +235,55 @@
       "collection": "",
       "keywords": "ladykiller, pilot, biography, based on true story, womanizer",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
+    },
+    {
+      "id": 6,
+      "title": "Зеленое золото",
+      "year": "2017",
+      "type": "Сериал",
+      "runtime": "50 мин",
+      "genres": "драма, Мыльная опера",
+      "studios": "🟢 Plural Entertainment",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "5.5",
+      "overview": "",
+      "dateRequested": "06.07.2026 19:56",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/2hJN6OVo8FL0C9mXl3DJ3uM96Sj.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/vFIPUxlfCEBDCodOtgu22N8pbjG.jpg",
+      "cast": [
+        {
+          "name": "Diogo Morgado",
+          "photo": "https://image.tmdb.org/t/p/w185/KsnfgusybjgPfxGnwokID6Dqu5.jpg"
+        },
+        {
+          "name": "Manuela Couto",
+          "photo": "https://image.tmdb.org/t/p/w185/7uaTeY5wSxGgCEkPCJWKEGoZFNa.jpg"
+        },
+        {
+          "name": "Ana Sofia Martins",
+          "photo": "https://image.tmdb.org/t/p/w185/mpgeNE9BOupjiW7SpGL0G41rOup.jpg"
+        },
+        {
+          "name": "Rodrigo Paganelli",
+          "photo": "https://image.tmdb.org/t/p/w185/oUPfyV8sQoc46uUVgdWwDhiDQqh.jpg"
+        }
+      ],
+      "director": {
+        "name": "Maria João Costa",
+        "photo": "https://image.tmdb.org/t/p/w185/pjQfWaKnJdLEQOIjmNniAVOu76g.jpg"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "collection": "",
+      "keywords": "portugal, revenge, telenovela",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "seasons": "1",
+      "episodes": "241",
+      "tvStatus": "Ended"
     }
   ]
 }
