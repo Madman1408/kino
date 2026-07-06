@@ -298,8 +298,8 @@
       "tmdbRating": "8.506",
       "overview": "Пол Эджкомб — начальник блока смертников в тюрьме «Холодная гора», каждый из узников которого однажды проходит «зеленую милю» по пути к месту казни. Пол повидал много заключённых и надзирателей за время работы. Однако гигант Джон Коффи, обвинённый в страшном преступлении, стал одним из самых необычных обитателей блока.",
       "dateRequested": "06.07.2026 21:28",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
+      "status": "Смотрели",
+      "ourRating": "8",
       "poster": "https://image.tmdb.org/t/p/w500/lHxe8t4B0CKv4DO0C0B4rsuiG95.jpg",
       "tagline": "«Пол Эджкомб не верил в чудеса. Пока не столкнулся с одним из них»",
       "backdrop": "https://image.tmdb.org/t/p/original/b6HWTOxn1xevvyHU2K9ICvaRU6g.jpg",
@@ -329,7 +329,8 @@
       "ageRating": "18+",
       "collection": "",
       "keywords": "mentally disabled, death penalty, based on novel or book, southern usa, psychopath",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "dateWatched": "06.07.2026 21:31"
     }
   ],
   "cross_loss": [
