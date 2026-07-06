@@ -94,6 +94,55 @@
       "seasons": "1",
       "episodes": "11",
       "tvStatus": "Canceled"
+    },
+    {
+      "id": 3,
+      "title": "Доктор Хаус",
+      "year": "2004",
+      "type": "Сериал",
+      "runtime": "44 мин",
+      "genres": "драма",
+      "studios": "🟢 Universal Television, 🟢 Bad Hat Harry Productions, 🟢 Heel & Toe Films, 🟢 Shore Z Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.566",
+      "overview": "Сериал рассказывает о команде врачей, которые должны правильно поставить диагноз пациенту и спасти его. Возглавляет команду доктор Грегори Хаус, который ходит с тростью после того, как его мышечный инфаркт в правой ноге слишком поздно правильно диагностировали. Как врач Хаус просто гений, но сам не отличается проникновенностью в общении с больными и с удовольствием избегает их, если только есть возможность. Он сам всё время проводит в борьбе с собственной болью, а трость в его руке только подчеркивает его жесткую, ядовитую манеру общения. Порой его поведение можно назвать почти бесчеловечным, и при этом он прекрасный врач, обладающий нетипичным умом и безупречным инстинктом, что снискало ему глубокое уважение. Будучи инфекционистом, он ещё и замечательный диагност, который любит разгадывать медицинские загадки, чтобы спасти кому-то жизнь. Если бы все было по его воле, то Хаус лечил бы больных не выходя из своего кабинета.",
+      "dateRequested": "06.07.2026 19:23",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/hXoGcvNOeWZkxbaitu7ZvEM0hQJ.jpg",
+      "tagline": "Уже лучше?",
+      "backdrop": "https://image.tmdb.org/t/p/original/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
+      "cast": [
+        {
+          "name": "Хью Лори",
+          "photo": "https://image.tmdb.org/t/p/w185/akArncggHnusP5jxzMBKmJDRrMo.jpg"
+        },
+        {
+          "name": "Роберт Шон Леонард",
+          "photo": "https://image.tmdb.org/t/p/w185/jXehZM0AWLJ2OIz4o0jFtHEzcMI.jpg"
+        },
+        {
+          "name": "Омар Эппс",
+          "photo": "https://image.tmdb.org/t/p/w185/iURSiniuHrfOCtjVMAw9HKxJh6z.jpg"
+        },
+        {
+          "name": "Джесси Спенсер",
+          "photo": "https://image.tmdb.org/t/p/w185/nFqghuc1WaM6HxYZYc86A06wJbC.jpg"
+        }
+      ],
+      "director": {
+        "name": "Дэвид Шор",
+        "photo": "https://image.tmdb.org/t/p/w185/5xVWN3KCGtGjGkEIrHqHrx8UikG.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "collection": "",
+      "keywords": "medicine, drug addiction, misanthrophy, hospital, doctor",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "seasons": "8",
+      "episodes": "176",
+      "tvStatus": "Ended"
     }
   ]
 }
