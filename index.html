@@ -73,9 +73,14 @@
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
-        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        /* Центрируем все заголовки TH */
+        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
+        /* Центрируем ячейки (кроме Описания Фильма) для симметрии */
+        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
+        td:nth-child(2) { text-align: left; }
+
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
         
         /* Чередование фона для разных зрителей */
@@ -84,10 +89,10 @@
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
 
-        /* Визуальное разделение зрителей (разрыв в таблице) */
+        /* Визуальное разделение зрителей */
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        .poster-wrapper { width: 70px; height: 105px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; }
+        .poster-wrapper { width: 70px; height: 105px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .movie-info { display: flex; flex-direction: column; gap: 6px; }
@@ -105,7 +110,7 @@
         .requester-badge {
             display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border); padding: 6px 12px; border-radius: 8px; width: fit-content;
-            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            cursor: pointer; transition: background 0.2s, transform 0.1s; margin: 0 auto;
         }
         .requester-badge:hover { background: rgba(255, 255, 255, 0.08); }
         .requester-badge:active { transform: scale(0.95); }
@@ -117,16 +122,15 @@
         }
         .req-name { font-weight: 600; font-size: 14px; }
         
-        .badge { padding: 6px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-align: center; display: inline-block; }
+        .badge { padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; display: inline-block; }
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* --- Аватарки актеров в таблице --- */
+        /* --- Аватарки актеров в таблице (Без наслоения, с отступом) --- */
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
         .avatar-container { position: relative; display: inline-block; }
         .avatar { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; border: 2px solid #1a1d24; background-color: #2e3340; }
-        .cast-group { display: flex; align-items: center; }
-        .cast-group .avatar-container:not(:first-child) { margin-left: -10px; }
+        .cast-group { display: flex; align-items: center; gap: 8px; } /* Добавлен отступ между актерами 8px */
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
@@ -235,7 +239,7 @@
             <tr>
                 <th style="width: 70px;">Постер</th>
                 <th>Информация о фильме</th>
-                <!-- Фиксированная ширина для смещения левее -->
+                <!-- Фиксированная ширина для смещения правых столбцов ближе к центру -->
                 <th style="width: 200px;">Заказал</th>
                 <th style="width: 120px;">Время</th>
                 <th style="width: 180px;">Статус</th>
@@ -268,11 +272,13 @@
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Дата заказа</div>
-                        <div class="grid-value" id="modalDateReq">Нет данных</div>
+                        <!-- Жирный увеличенный шрифт для модалки -->
+                        <div class="grid-value" id="modalDateReq" style="font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
                     <div class="grid-item" id="modalDateWatchedBlock">
                         <div class="grid-label">Дата просмотра</div>
-                        <div class="grid-value" id="modalDateWatched" style="color: #10b981;">Нет данных</div>
+                        <!-- Жирный увеличенный шрифт для модалки -->
+                        <div class="grid-value" id="modalDateWatched" style="color: #10b981; font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Бюджет / Сборы</div>
@@ -416,7 +422,6 @@
             filtered.sort((a, b) => a.parsedDate - b.parsedDate);
         }
         else if (sortMode === 'user') {
-            // Умная сортировка: сначала зрители с самыми старыми заказами
             const userEarliestDate = {};
             filtered.forEach(m => {
                 const nick = m.requestedBy.toLowerCase();
@@ -431,7 +436,7 @@
                 if (nickA !== nickB) {
                     return userEarliestDate[nickA] - userEarliestDate[nickB]; 
                 }
-                return a.parsedDate - b.parsedDate; // Внутри одного зрителя по порядку заказов
+                return a.parsedDate - b.parsedDate; 
             });
         }
 
@@ -458,10 +463,9 @@
             const tr = document.createElement('tr');
             tr.className = 'movie-row';
             
-            // Логика смены фона для разных зрителей
             if (prevUser !== null && prevUser !== currentUser) {
                 tr.classList.add('user-separator');
-                isAltBg = !isAltBg; // Переключаем цвет фона
+                isAltBg = !isAltBg;
             }
             if (isAltBg) {
                 tr.classList.add('alt-bg');
@@ -475,7 +479,9 @@
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
             const statusText = isWatched ? `Смотрели (Наша: ⭐ ${movie.ourRating || '-'})` : 'Не смотрели';
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 10px; color: #10b981; margin-top: 5px;">✅ ${movie.dateWatched}</div>` : '';
+            
+            // 🔥 Крупная жирная дата просмотра с красивой плашкой 🔥
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; font-weight: 700; color: #10b981; margin-top: 8px; display: inline-block; background: rgba(16, 185, 129, 0.1); padding: 5px 10px; border-radius: 6px;">✅ ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="age-rating">${movie.ageRating}</span>` : '';
@@ -494,7 +500,7 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 10px;"></div>';
             }
 
-            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px;">${movie.runtime}</div>`;
+            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
             if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
 
             const userColor = stringToColor(cleanNick);
@@ -506,6 +512,9 @@
                 const userInitials = getInitials(cleanNick);
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
+
+            // 🔥 Крупная жирная дата заказа с полупрозрачным фоном 🔥
+            const dateReqHTML = `<div style="font-size: 13px; font-weight: 700; color: #94a3b8; margin-top: 8px; display: inline-block; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 6px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>`;
 
             tr.innerHTML = `
                 <td>
@@ -530,12 +539,11 @@
                         ${avatarMarkup}
                         <span class="req-name" style="color: ${userColor};">${cleanNick}</span>
                     </div>
-                    <!-- УВЕЛИЧЕННЫЙ ШРИФТ ДАТЫ ЗАКАЗА ДО 12px -->
-                    <div style="font-size: 12px; color: #64748b; margin-top: 6px; margin-left: 5px;" title="Дата заказа">🕒 ${movie.dateRequested || ''}</div>
+                    ${dateReqHTML}
                 </td>
                 <td>${runtimeDisplay}</td>
                 <td>
-                    <span class="${badgeClass}">${statusText}</span>
+                    <span class="${badgeClass}">${statusText}</span><br>
                     ${watchedDateHTML}
                 </td>
             `;
