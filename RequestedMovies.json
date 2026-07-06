@@ -377,6 +377,52 @@
       "collection": "",
       "keywords": "paris, france, vampire, beheading, parfum, gargoyle",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
+    },
+    {
+      "id": 9,
+      "title": "Дракула",
+      "year": "1979",
+      "type": "Фильм",
+      "runtime": "1 ч 49 мин",
+      "genres": "мелодрама, драма, фэнтези, ужасы",
+      "studios": "🟢 The Mirisch Company, 🟢 Universal Pictures",
+      "budget": "12.200.000 $",
+      "revenue": "31.158.970 $",
+      "tmdbRating": "6.4",
+      "overview": "Граф Дракула переезжает из Трансильвании в Англию. Его корабль терпит крушение, и команда гибнет.  Сам Дракула, единственный оставшийся в живых, найден хозяином находящейся неподалёку психиатрической больницы. Там графа встречают как почётного гостя. С его появлением вокруг начинают происходить страшные события.",
+      "dateRequested": "06.07.2026 21:33",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/ttMz0n3ZRmKROxZ4Te9FojRPEDZ.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/9aDnMjUHhfX0WaCicEaejdKgvlV.jpg",
+      "cast": [
+        {
+          "name": "Frank Langella",
+          "photo": "https://image.tmdb.org/t/p/w185/145DHaPUSFLjJWuJUJOHMLaG2qU.jpg"
+        },
+        {
+          "name": "Лоренс Оливье",
+          "photo": "https://image.tmdb.org/t/p/w185/kziWbtgEJB0dFZA6kPyzoaYEyQ5.jpg"
+        },
+        {
+          "name": "Дональд Плезенс",
+          "photo": "https://image.tmdb.org/t/p/w185/eVJGFCd8ikP6w0XjkuiTbsm65eD.jpg"
+        },
+        {
+          "name": "Кейт Неллиган",
+          "photo": "https://image.tmdb.org/t/p/w185/a2BUOy9A9WlvTfe8s4gn0MZfPa5.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джон Бэдэм",
+        "photo": "https://image.tmdb.org/t/p/w185/hh0EssedcgUOICkZywbVuwVOJO4.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=3fR4YrrxuzQ",
+      "ageRating": "R",
+      "collection": "",
+      "keywords": "based on novel or book, vampire, insane asylum, remake, gothic horror",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     }
   ],
   "cross_loss": [
