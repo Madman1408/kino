@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Очередь заказов кино</title>
+    <title>Афиша нашего Чатика</title>
     <style>
         /* --- Базовые стили --- */
         :root {
@@ -34,26 +34,43 @@
             border: 1px solid var(--border);
         }
 
-        /* --- Шапка и Плашка создателя --- */
+        /* --- Новая двухэтажная Шапка --- */
         .header {
             padding: 24px 30px;
             background: linear-gradient(135deg, #1e222a 0%, #1a1d24 100%);
             border-bottom: 1px solid var(--border);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .header-left { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
-        .header h1 { margin: 0; font-size: 24px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Название по центру */
+        .header-top h1 { 
+            margin: 0; 
+            font-size: 26px; 
+            font-weight: 700; 
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            white-space: nowrap;
+        }
 
         .creator-badge {
             display: flex; align-items: center; gap: 12px;
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
+            z-index: 2; /* Чтобы кнопка нажималась поверх заголовка */
         }
         .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
         .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); background-color: #2e3340; }
@@ -61,8 +78,18 @@
         .creator-label { font-size: 10px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
         .creator-name { font-size: 15px; font-weight: 700; color: #ffffff; }
 
-        /* --- Панель управления --- */
-        .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
+        /* --- Панель управления на 2 строке --- */
+        .controls-panel { 
+            display: flex; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+            align-items: center; 
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.15); /* Темная подложка для фильтров */
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
         .search-box, .sort-select {
             background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;
             padding: 10px 15px; color: var(--text-main); font-size: 14px; outline: none; transition: border-color 0.2s;
@@ -73,39 +100,55 @@
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        /* Центрируем все заголовки TH */
         th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
-        /* Центрируем ячейки (кроме Описания Фильма) для симметрии */
-        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
         td:nth-child(2) { text-align: left; }
 
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
         
-        /* Чередование фона для разных зрителей */
         tr.alt-bg { background-color: rgba(255, 255, 255, 0.05); } 
         tr.movie-row:hover { background-color: #252a36 !important; } 
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
 
-        /* Визуальное разделение зрителей */
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        /* 🔥 УВЕЛИЧЕННЫЕ ПОСТЕРЫ НА ГЛАВНОЙ СТРАНИЦЕ 🔥 */
-        .poster-wrapper { width: 100px; height: 150px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; }
+        /* 🔥 Еще больше увеличенные постеры 🔥 */
+        .poster-wrapper { width: 115px; height: 172px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .movie-info { display: flex; flex-direction: column; gap: 6px; }
         .movie-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .movie-title { font-size: 18px; font-weight: 600; color: #ffffff; }
+        .movie-title { font-size: 19px; font-weight: 700; color: #ffffff; }
         .movie-year { color: var(--text-muted); font-size: 15px; }
         .age-rating { border: 1px solid #475569; color: #94a3b8; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); margin-left: 2px; }
         
-        .movie-genres { font-size: 13px; color: var(--text-muted); }
+        .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
-        .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.4; }
+        .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
+
+        /* 🔥 Умное описание (Разворачивается при наведении) 🔥 */
+        .movie-overview-wrapper {
+            margin-top: 6px;
+            max-height: 38px; /* Ровно 2 строчки */
+            overflow: hidden;
+            transition: max-height 0.5s ease; /* Плавное увеличение */
+        }
+        .movie-row:hover .movie-overview-wrapper {
+            max-height: 150px; /* Раскрываем блок */
+        }
+        .movie-overview-text {
+            font-size: 13px;
+            line-height: 1.45;
+            color: #8492a6;
+            transition: color 0.3s ease;
+        }
+        .movie-row:hover .movie-overview-text {
+            color: #e2e8f0; /* Текст становится ярче */
+        }
 
         /* --- Карточка зрителя --- */
         .requester-badge {
@@ -127,11 +170,29 @@
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* --- Аватарки актеров в таблице (Без наслоения, с отступом) --- */
-        .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 8px; }
-        .avatar-container { position: relative; display: inline-block; }
-        .avatar { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; border: 2px solid #1a1d24; background-color: #2e3340; }
-        .cast-group { display: flex; align-items: center; gap: 8px; }
+        /* 🔥 Аватарки актеров с эффектом увеличения 🔥 */
+        .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+        .avatar-container { position: relative; display: inline-block; z-index: 1; }
+        
+        .avatar { 
+            width: 36px; height: 36px; border-radius: 8px; object-fit: cover; 
+            border: 2px solid #1a1d24; background-color: #2e3340; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
+        }
+        
+        .cast-group { display: flex; align-items: center; gap: 10px; } /* Отступы между 4 актерами */
+        
+        /* Эффект увеличения при наведении мышки на строку фильма */
+        .movie-row:hover .avatar {
+            transform: scale(1.25);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 10;
+            position: relative;
+        }
+        .movie-row:hover .director-avatar {
+            border-color: #3b82f6; /* Режиссер сохраняет синюю обводку */
+        }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
@@ -198,7 +259,9 @@
             .modal-body { flex-direction: column; margin-top: -20px; }
             .modal-poster { width: 100px; }
             .modal-grid { grid-template-columns: 1fr; }
-            .header-left { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .header-top { flex-direction: column; gap: 15px; }
+            .header-top h1 { position: static; transform: none; text-align: center; }
+            .creator-badge { margin: 0 auto; }
             .search-box { width: 100%; }
         }
     </style>
@@ -207,17 +270,22 @@
 
 <div class="container">
     <div class="header">
-        <div class="header-left">
-            <h1>🍿 Очередь</h1>
+        <!-- Первый этаж: Кнопка и Название -->
+        <div class="header-top">
             <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
                 <div class="creator-info">
-                    <span class="creator-label">Создатель</span>
+                    <span class="creator-label">Created by</span>
                     <span class="creator-name">MadMan1408</span>
                 </div>
             </div>
+            
+            <h1>🎟️ Афиша нашего Чатика</h1>
+            
+            <div style="width: 140px; display: none;" class="desktop-spacer"></div> <!-- Spacer для баланса по центру -->
         </div>
         
+        <!-- Второй этаж: Фильтры -->
         <div class="controls-panel">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск фильма или ника..." oninput="applyFilters()">
             
@@ -237,11 +305,12 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 100px;">Постер</th>
+                <th style="width: 115px;">Постер</th>
                 <th>Информация о фильме</th>
-                <th style="width: 200px;">Заказал</th>
-                <th style="width: 120px;">Время</th>
-                <th style="width: 180px;">Статус</th>
+                <!-- Уменьшена ширина, чтобы сдвинуть столбцы левее (к центру) -->
+                <th style="width: 170px;">Заказал</th>
+                <th style="width: 110px;">Время</th>
+                <th style="width: 160px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -250,6 +319,7 @@
     </table>
 </div>
 
+<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-btn" onclick="closeModal(true)">&times;</div>
@@ -299,6 +369,7 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
 
+    // Загрузка аватарки Создателя
     async function loadCreatorAvatar() {
         try {
             const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
@@ -361,6 +432,11 @@
 
             populateUserFilter();
             applyFilters();
+
+            // Показываем спейсер на десктопе для балансировки заголовка по центру
+            if (window.innerWidth > 768) {
+                document.querySelector('.desktop-spacer').style.display = 'block';
+            }
 
         } catch (error) {
             console.error('Ошибка:', error);
@@ -481,16 +557,24 @@
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
             const studiosHTML = movie.studios ? `<div class="movie-studios-list">${movie.studios}</div>` : '';
 
+            // Описание, которое разворачивается при наведении
+            const overviewHTML = movie.overview ? `
+                <div class="movie-overview-wrapper">
+                    <div class="movie-overview-text">${movie.overview}</div>
+                </div>
+            ` : '';
+
+            // 🔥 Выводим 4 актера вместо 3 🔥
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
-                const avatars = movie.cast.slice(0, 3).map(actor => `<div class="avatar-container"><img src="${actor.photo}" class="avatar" alt="${actor.name}"></div>`).join('');
+                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name}"><img src="${actor.photo}" class="avatar" alt="${actor.name}"></div>`).join('');
                 castHtml = `<div class="cast-group">${avatars}</div>`;
             }
 
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
-                directorHtml = `<img src="${movie.director.photo}" class="avatar" style="border-color: #3b82f6;" alt="${movie.director.name}">`;
-                if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 10px;"></div>';
+                directorHtml = `<img src="${movie.director.photo}" class="avatar director-avatar" style="border-color: #3b82f6;" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
+                if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 5px;"></div>';
             }
 
             let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
@@ -523,6 +607,7 @@
                         <div class="movie-genres">${movie.genres}</div>
                         ${tagline}
                         ${studiosHTML}
+                        ${overviewHTML}
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
