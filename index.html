@@ -70,7 +70,7 @@
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
-            z-index: 2;
+            z-index: 2; /* Чтобы кнопка нажималась поверх заголовка */
         }
         .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
         .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); background-color: #2e3340; }
@@ -85,7 +85,7 @@
             flex-wrap: wrap; 
             align-items: center; 
             justify-content: center;
-            background: rgba(0, 0, 0, 0.15); 
+            background: rgba(0, 0, 0, 0.15); /* Темная подложка для фильтров */
             padding: 15px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -115,13 +115,8 @@
 
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        /* 🔥 Постеры на главной (Теперь с курсором) 🔥 */
-        .poster-wrapper { 
-            width: 115px; height: 172px; border-radius: 8px; overflow: hidden; 
-            background-color: #2e3340; flex-shrink: 0; margin: 0 auto; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            cursor: pointer; /* Подсказываем, что сюда надо наводить */
-        }
+        /* 🔥 Увеличенные на 30px постеры 🔥 */
+        .poster-wrapper { width: 145px; height: 218px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .movie-info { display: flex; flex-direction: column; gap: 6px; }
@@ -135,7 +130,7 @@
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
 
-        /* 🔥 Умное описание 🔥 */
+        /* 🔥 Умное описание (Разворачивается при наведении на постер) 🔥 */
         .movie-overview-wrapper {
             margin-top: 6px;
             max-height: 38px; /* Ровно 2 строчки */
@@ -287,7 +282,7 @@
             
             <h1>🎟️ Афиша нашего Чатика</h1>
             
-            <div style="width: 140px; display: none;" class="desktop-spacer"></div>
+            <div style="width: 140px; display: none;" class="desktop-spacer"></div> <!-- Spacer для баланса по центру -->
         </div>
         
         <!-- Второй этаж: Фильтры -->
@@ -310,8 +305,9 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 115px;">Постер</th>
+                <th style="width: 145px;">Постер</th>
                 <th>Информация о фильме</th>
+                <!-- Уменьшена ширина, чтобы сдвинуть столбцы левее (к центру) -->
                 <th style="width: 170px;">Заказал</th>
                 <th style="width: 110px;">Время</th>
                 <th style="width: 160px;">Статус</th>
@@ -451,6 +447,7 @@
             populateUserFilter();
             applyFilters();
 
+            // Показываем спейсер на десктопе для балансировки заголовка по центру
             if (window.innerWidth > 768) {
                 document.querySelector('.desktop-spacer').style.display = 'block';
             }
@@ -567,14 +564,20 @@
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
             // 🔥 Оценка на новой строке, как на скрине 🔥
-            const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; font-weight: 700; color: #10b981; margin-top: 8px; display: inline-block; background: rgba(16, 185, 129, 0.1); padding: 5px 10px; border-radius: 6px;">✅ ${movie.dateWatched}</div>` : '';
+            const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
+            
+            // 🔥 Нейтральный цвет даты просмотра в таблице 🔥
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; display: inline-block; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 6px;">✅ ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="age-rating">${movie.ageRating}</span>` : '';
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
-            const studiosHTML = movie.studios ? `<div class="movie-studios-list">${movie.studios}</div>` : '';
+            
+            // 🔥 Студии: Проверка на пустоту 🔥
+            let displayStudios = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
+            const studiosHTML = `<div class="movie-studios-list">${displayStudios}</div>`;
 
+            // Описание, которое разворачивается при наведении
             const overviewHTML = movie.overview ? `
                 <div class="movie-overview-wrapper">
                     <div class="movie-overview-text">${movie.overview}</div>
@@ -672,14 +675,14 @@
         
         document.getElementById('modalDateReq').textContent = movie.dateRequested || 'Нет данных';
         
-        // 🔥 Правильное сохранение порядка "Дата просмотра" 🔥
+        // 🔥 Правильное сохранение порядка "Дата просмотра" с красным цветом если не смотрели 🔥
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
             dateWatchedEl.textContent = movie.dateWatched;
-            dateWatchedEl.style.color = '#10b981';
+            dateWatchedEl.style.color = '#cbd5e1'; // Нейтральный цвет
         } else {
-            dateWatchedEl.textContent = 'Нет данных';
-            dateWatchedEl.style.color = '#e2e8f0'; // Стандартный серый цвет, если нет даты
+            dateWatchedEl.textContent = 'Еще не смотрели';
+            dateWatchedEl.style.color = '#ef4444'; // Красный цвет
         }
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -729,7 +732,9 @@
         document.getElementById('modalCrewSection').innerHTML = directorSection + castSection;
 
         document.getElementById('modalFinances').textContent = `${movie.budget} / ${movie.revenue}`;
-        document.getElementById('modalStudios').innerHTML = movie.studios;
+        
+        // 🔥 Студии в модалке 🔥
+        document.getElementById('modalStudios').innerHTML = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper');
         const trailerIframe = document.getElementById('modalTrailer');
