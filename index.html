@@ -165,25 +165,36 @@
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
         /* --- Аватарки актеров --- */
-        .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+        /* 🔥 Добавлена анимация отступов (gap) 🔥 */
+        .crew-section { 
+            display: flex; align-items: center; gap: 8px; margin-top: 10px; 
+            transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
         .avatar-container { position: relative; display: inline-block; z-index: 1; }
         
-        /* 🔥 Мягкая и тонкая обводка 🔥 */
         .avatar { 
             width: 36px; height: 36px; border-radius: 8px; object-fit: cover; 
             border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; 
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
         }
         
-        /* 🔥 Увеличенный отступ между актерами (14px) 🔥 */
-        .cast-group { display: flex; align-items: center; gap: 14px; }
+        /* 🔥 В покое актеры стоят плотнее (5px) 🔥 */
+        .cast-group { 
+            display: flex; align-items: center; gap: 5px; 
+            transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
 
-        /* ЭФФЕКТЫ РАБОТАЮТ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР */
+        /* 🔥 ЭФФЕКТЫ РАБОТАЮТ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР 🔥 */
         .movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper {
             max-height: 150px;
         }
         .movie-row:has(.poster-wrapper:hover) .movie-overview-text {
             color: #e2e8f0;
+        }
+        /* 🔥 При наведении актеры плавно разъезжаются (15px) 🔥 */
+        .movie-row:has(.poster-wrapper:hover) .crew-section,
+        .movie-row:has(.poster-wrapper:hover) .cast-group {
+            gap: 15px;
         }
         .movie-row:has(.poster-wrapper:hover) .avatar {
             transform: scale(1.25);
@@ -193,7 +204,7 @@
             position: relative;
         }
         .movie-row:has(.poster-wrapper:hover) .director-avatar {
-            border-color: rgba(59, 130, 246, 0.8); /* Ярче при наведении */
+            border-color: rgba(59, 130, 246, 0.8); 
         }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
@@ -234,7 +245,6 @@
         .modal-crew-list { display: flex; gap: 15px; flex-wrap: wrap; }
         
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 65px; text-align: center; }
-        /* 🔥 Мягкая и тонкая обводка в модалке 🔥 */
         .crew-card img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 6px; background-color: #2e3340; }
         .crew-card.director img { border-color: rgba(59, 130, 246, 0.6); } 
         .crew-card span { font-size: 11px; color: #cbd5e1; line-height: 1.2; word-break: break-word; }
@@ -295,7 +305,6 @@
             </select>
 
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                <!-- 🔥 Изменен порядок по умолчанию и тексты кнопок 🔥 -->
                 <option value="oldest" selected>⏳ По дате заказа (По порядку)</option>
                 <option value="user">👤 По зрителям</option>
                 <option value="newest">✨ По дате заказа (Новые)</option>
@@ -587,9 +596,9 @@
 
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
-                // Синяя обводка для режиссера тоже стала мягче и прозрачнее
+                // 🔥 Убрал внешний margin у разделителя, чтобы flex-gap отрабатывал безупречно 🔥
                 directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: rgba(59, 130, 246, 0.5);" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
-                if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 5px;"></div>';
+                if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
             let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
