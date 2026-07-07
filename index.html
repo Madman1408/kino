@@ -70,7 +70,7 @@
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
-            z-index: 2; /* Чтобы кнопка нажималась поверх заголовка */
+            z-index: 2;
         }
         .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
         .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); background-color: #2e3340; }
@@ -85,7 +85,7 @@
             flex-wrap: wrap; 
             align-items: center; 
             justify-content: center;
-            background: rgba(0, 0, 0, 0.15); /* Темная подложка для фильтров */
+            background: rgba(0, 0, 0, 0.15); 
             padding: 15px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -115,8 +115,13 @@
 
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        /* 🔥 Еще больше увеличенные постеры 🔥 */
-        .poster-wrapper { width: 115px; height: 172px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        /* 🔥 Постеры на главной (Теперь с курсором) 🔥 */
+        .poster-wrapper { 
+            width: 115px; height: 172px; border-radius: 8px; overflow: hidden; 
+            background-color: #2e3340; flex-shrink: 0; margin: 0 auto; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer; /* Подсказываем, что сюда надо наводить */
+        }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         .movie-info { display: flex; flex-direction: column; gap: 6px; }
@@ -130,24 +135,18 @@
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
 
-        /* 🔥 Умное описание (Разворачивается при наведении) 🔥 */
+        /* 🔥 Умное описание 🔥 */
         .movie-overview-wrapper {
             margin-top: 6px;
             max-height: 38px; /* Ровно 2 строчки */
             overflow: hidden;
-            transition: max-height 0.5s ease; /* Плавное увеличение */
-        }
-        .movie-row:hover .movie-overview-wrapper {
-            max-height: 150px; /* Раскрываем блок */
+            transition: max-height 0.5s ease;
         }
         .movie-overview-text {
             font-size: 13px;
             line-height: 1.45;
             color: #8492a6;
             transition: color 0.3s ease;
-        }
-        .movie-row:hover .movie-overview-text {
-            color: #e2e8f0; /* Текст становится ярче */
         }
 
         /* --- Карточка зрителя --- */
@@ -166,11 +165,11 @@
         }
         .req-name { font-weight: 600; font-size: 14px; }
         
-        .badge { padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; display: inline-block; }
+        .badge { padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; display: inline-block; line-height: 1.4; }
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* 🔥 Аватарки актеров с эффектом увеличения 🔥 */
+        /* --- Аватарки актеров --- */
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
         .avatar-container { position: relative; display: inline-block; z-index: 1; }
         
@@ -180,18 +179,24 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
         }
         
-        .cast-group { display: flex; align-items: center; gap: 10px; } /* Отступы между 4 актерами */
-        
-        /* Эффект увеличения при наведении мышки на строку фильма */
-        .movie-row:hover .avatar {
+        .cast-group { display: flex; align-items: center; gap: 10px; }
+
+        /* 🔥 ЭФФЕКТЫ РАБОТАЮТ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР 🔥 */
+        .movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper {
+            max-height: 150px;
+        }
+        .movie-row:has(.poster-wrapper:hover) .movie-overview-text {
+            color: #e2e8f0;
+        }
+        .movie-row:has(.poster-wrapper:hover) .avatar {
             transform: scale(1.25);
             border-color: var(--accent);
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             z-index: 10;
             position: relative;
         }
-        .movie-row:hover .director-avatar {
-            border-color: #3b82f6; /* Режиссер сохраняет синюю обводку */
+        .movie-row:has(.poster-wrapper:hover) .director-avatar {
+            border-color: #3b82f6; 
         }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
@@ -282,7 +287,7 @@
             
             <h1>🎟️ Афиша нашего Чатика</h1>
             
-            <div style="width: 140px; display: none;" class="desktop-spacer"></div> <!-- Spacer для баланса по центру -->
+            <div style="width: 140px; display: none;" class="desktop-spacer"></div>
         </div>
         
         <!-- Второй этаж: Фильтры -->
@@ -307,7 +312,6 @@
             <tr>
                 <th style="width: 115px;">Постер</th>
                 <th>Информация о фильме</th>
-                <!-- Уменьшена ширина, чтобы сдвинуть столбцы левее (к центру) -->
                 <th style="width: 170px;">Заказал</th>
                 <th style="width: 110px;">Время</th>
                 <th style="width: 160px;">Статус</th>
@@ -342,9 +346,10 @@
                         <div class="grid-label">Дата заказа</div>
                         <div class="grid-value" id="modalDateReq" style="font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
-                    <div class="grid-item" id="modalDateWatchedBlock">
+                    <!-- Блок всегда на месте, чтобы сохранялся порядок -->
+                    <div class="grid-item">
                         <div class="grid-label">Дата просмотра</div>
-                        <div class="grid-value" id="modalDateWatched" style="color: #10b981; font-weight: 700; font-size: 14px;">Нет данных</div>
+                        <div class="grid-value" id="modalDateWatched" style="font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
                     <div class="grid-item">
                         <div class="grid-label">Бюджет / Сборы</div>
@@ -369,7 +374,20 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
 
-    // Загрузка аватарки Создателя
+    // 🔥 Универсальные заглушки для фото 🔥
+    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2394a3b8'%3EНет фото%3C/text%3E%3C/svg%3E";
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
+
+    function getSafePhoto(url) {
+        if (!url || url.includes('via.placeholder.com')) return fallbackImage;
+        return url;
+    }
+    
+    function getSafePoster(url) {
+        if (!url || url.includes('via.placeholder.com')) return fallbackPoster;
+        return url;
+    }
+
     async function loadCreatorAvatar() {
         try {
             const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
@@ -433,7 +451,6 @@
             populateUserFilter();
             applyFilters();
 
-            // Показываем спейсер на десктопе для балансировки заголовка по центру
             if (window.innerWidth > 768) {
                 document.querySelector('.desktop-spacer').style.display = 'block';
             }
@@ -545,11 +562,12 @@
 
             tr.onclick = () => openModal(index); 
             
-            const posterUrl = movie.poster && movie.poster.startsWith('http') ? movie.poster : 'https://via.placeholder.com/150x225?text=No+Poster';
+            const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
-            const statusText = isWatched ? `Смотрели (Наша: ⭐ ${movie.ourRating || '-'})` : 'Не смотрели';
+            // 🔥 Оценка на новой строке, как на скрине 🔥
+            const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; font-weight: 700; color: #10b981; margin-top: 8px; display: inline-block; background: rgba(16, 185, 129, 0.1); padding: 5px 10px; border-radius: 6px;">✅ ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
@@ -557,23 +575,21 @@
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
             const studiosHTML = movie.studios ? `<div class="movie-studios-list">${movie.studios}</div>` : '';
 
-            // Описание, которое разворачивается при наведении
             const overviewHTML = movie.overview ? `
                 <div class="movie-overview-wrapper">
                     <div class="movie-overview-text">${movie.overview}</div>
                 </div>
             ` : '';
 
-            // 🔥 Выводим 4 актера вместо 3 🔥
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
-                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name}"><img src="${actor.photo}" class="avatar" alt="${actor.name}"></div>`).join('');
+                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name}"><img src="${getSafePhoto(actor.photo)}" class="avatar" alt="${actor.name}"></div>`).join('');
                 castHtml = `<div class="cast-group">${avatars}</div>`;
             }
 
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
-                directorHtml = `<img src="${movie.director.photo}" class="avatar director-avatar" style="border-color: #3b82f6;" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
+                directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: #3b82f6;" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 5px;"></div>';
             }
 
@@ -640,7 +656,7 @@
             heroEl.style.display = 'none'; 
         }
 
-        document.getElementById('modalPoster').src = movie.poster && movie.poster.startsWith('http') ? movie.poster : 'https://via.placeholder.com/150x225?text=No+Poster';
+        document.getElementById('modalPoster').src = getSafePoster(movie.poster);
         document.getElementById('modalTitle').textContent = movie.title;
         
         let metaText = `${movie.year} • ${movie.type} • ${movie.runtime}`;
@@ -655,12 +671,15 @@
         document.getElementById('modalOverview').textContent = movie.overview;
         
         document.getElementById('modalDateReq').textContent = movie.dateRequested || 'Нет данных';
-        const dateWatchedBlock = document.getElementById('modalDateWatchedBlock');
+        
+        // 🔥 Правильное сохранение порядка "Дата просмотра" 🔥
+        const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
-            document.getElementById('modalDateWatched').textContent = movie.dateWatched;
-            dateWatchedBlock.style.display = 'block';
+            dateWatchedEl.textContent = movie.dateWatched;
+            dateWatchedEl.style.color = '#10b981';
         } else {
-            dateWatchedBlock.style.display = 'none';
+            dateWatchedEl.textContent = 'Нет данных';
+            dateWatchedEl.style.color = '#e2e8f0'; // Стандартный серый цвет, если нет даты
         }
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -684,7 +703,7 @@
                 <div class="modal-crew-group">
                     <div class="grid-label">Режиссер</div>
                     <div class="crew-card director" title="Режиссер: ${movie.director.name}">
-                        <img src="${movie.director.photo}" alt="${movie.director.name}">
+                        <img src="${getSafePhoto(movie.director.photo)}" alt="${movie.director.name}">
                         <span>${movie.director.name}</span>
                     </div>
                 </div>
@@ -695,7 +714,7 @@
         if (Array.isArray(movie.cast) && movie.cast.length > 0) {
             let castCards = movie.cast.map(actor => `
                 <div class="crew-card" title="В ролях: ${actor.name}">
-                    <img src="${actor.photo}" alt="${actor.name}">
+                    <img src="${getSafePhoto(actor.photo)}" alt="${actor.name}">
                     <span>${actor.name}</span>
                 </div>
             `).join('');
