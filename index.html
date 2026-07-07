@@ -70,7 +70,7 @@
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
-            z-index: 2; /* Чтобы кнопка нажималась поверх заголовка */
+            z-index: 2;
         }
         .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
         .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent); background-color: #2e3340; }
@@ -85,7 +85,7 @@
             flex-wrap: wrap; 
             align-items: center; 
             justify-content: center;
-            background: rgba(0, 0, 0, 0.15); /* Темная подложка для фильтров */
+            background: rgba(0, 0, 0, 0.15); 
             padding: 15px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
@@ -115,7 +115,7 @@
 
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
-        /* 🔥 Увеличенные на 30px постеры 🔥 */
+        /* 🔥 Увеличенные постеры 🔥 */
         .poster-wrapper { width: 145px; height: 218px; border-radius: 8px; overflow: hidden; background-color: #2e3340; flex-shrink: 0; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -130,10 +130,10 @@
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
 
-        /* 🔥 Умное описание (Разворачивается при наведении на постер) 🔥 */
+        /* 🔥 Умное описание 🔥 */
         .movie-overview-wrapper {
             margin-top: 6px;
-            max-height: 38px; /* Ровно 2 строчки */
+            max-height: 38px; 
             overflow: hidden;
             transition: max-height 0.5s ease;
         }
@@ -168,14 +168,15 @@
         .crew-section { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
         .avatar-container { position: relative; display: inline-block; z-index: 1; }
         
-        /* 🔥 Обводка уменьшена до 1px 🔥 */
+        /* 🔥 Мягкая и тонкая обводка 🔥 */
         .avatar { 
             width: 36px; height: 36px; border-radius: 8px; object-fit: cover; 
-            border: 1px solid rgba(255,255,255,0.1); background-color: #2e3340; 
+            border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; 
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
         }
         
-        .cast-group { display: flex; align-items: center; gap: 10px; }
+        /* 🔥 Увеличенный отступ между актерами (14px) 🔥 */
+        .cast-group { display: flex; align-items: center; gap: 14px; }
 
         /* ЭФФЕКТЫ РАБОТАЮТ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР */
         .movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper {
@@ -192,7 +193,7 @@
             position: relative;
         }
         .movie-row:has(.poster-wrapper:hover) .director-avatar {
-            border-color: #3b82f6; 
+            border-color: rgba(59, 130, 246, 0.8); /* Ярче при наведении */
         }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
@@ -233,9 +234,9 @@
         .modal-crew-list { display: flex; gap: 15px; flex-wrap: wrap; }
         
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 65px; text-align: center; }
-        /* 🔥 Обводка уменьшена до 1px в модалке 🔥 */
-        .crew-card img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 6px; background-color: #2e3340; }
-        .crew-card.director img { border-color: #3b82f6; } 
+        /* 🔥 Мягкая и тонкая обводка в модалке 🔥 */
+        .crew-card img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 6px; background-color: #2e3340; }
+        .crew-card.director img { border-color: rgba(59, 130, 246, 0.6); } 
         .crew-card span { font-size: 11px; color: #cbd5e1; line-height: 1.2; word-break: break-word; }
 
         .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; background: #1e222b; padding: 15px; border-radius: 8px; }
@@ -272,7 +273,6 @@
 
 <div class="container">
     <div class="header">
-        <!-- Первый этаж: Кнопка и Название -->
         <div class="header-top">
             <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
@@ -284,10 +284,9 @@
             
             <h1>🎟️ Афиша нашего Чатика</h1>
             
-            <div style="width: 140px; display: none;" class="desktop-spacer"></div> <!-- Spacer для баланса по центру -->
+            <div style="width: 140px; display: none;" class="desktop-spacer"></div>
         </div>
         
-        <!-- Второй этаж: Фильтры -->
         <div class="controls-panel">
             <input type="text" id="searchInput" class="search-box" placeholder="🔍 Поиск фильма или ника..." oninput="applyFilters()">
             
@@ -296,9 +295,10 @@
             </select>
 
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                <option value="user" selected>👤 По зрителям</option>
-                <option value="oldest">⏳ По дате заказа (старые)</option>
-                <option value="newest">✨ По дате заказа (новые)</option>
+                <!-- 🔥 Изменен порядок по умолчанию и тексты кнопок 🔥 -->
+                <option value="oldest" selected>⏳ По дате заказа (По порядку)</option>
+                <option value="user">👤 По зрителям</option>
+                <option value="newest">✨ По дате заказа (Новые)</option>
                 <option value="waiting">👀 Только "Не смотрели"</option>
                 <option value="watched">✅ Только "Смотрели"</option>
             </select>
@@ -309,7 +309,6 @@
             <tr>
                 <th style="width: 145px;">Постер</th>
                 <th>Информация о фильме</th>
-                <!-- Уменьшена ширина, чтобы сдвинуть столбцы левее (к центру) -->
                 <th style="width: 170px;">Заказал</th>
                 <th style="width: 110px;">Время</th>
                 <th style="width: 160px;">Статус</th>
@@ -344,7 +343,6 @@
                         <div class="grid-label">Дата заказа</div>
                         <div class="grid-value" id="modalDateReq" style="font-weight: 700; font-size: 14px;">Нет данных</div>
                     </div>
-                    <!-- Блок всегда на месте, чтобы сохранялся порядок -->
                     <div class="grid-item">
                         <div class="grid-label">Дата просмотра</div>
                         <div class="grid-value" id="modalDateWatched" style="font-weight: 700; font-size: 14px;">Нет данных</div>
@@ -372,7 +370,7 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
 
-    // 🔥 Универсальные заглушки для фото (Инкогнито силуэт) 🔥
+    // Заглушки для фото
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
 
@@ -449,7 +447,6 @@
             populateUserFilter();
             applyFilters();
 
-            // Показываем спейсер на десктопе для балансировки заголовка по центру
             if (window.innerWidth > 768) {
                 document.querySelector('.desktop-spacer').style.display = 'block';
             }
@@ -565,21 +562,17 @@
             const isWatched = movie.status === "Смотрели";
             const badgeClass = isWatched ? 'badge watched' : 'badge waiting';
             
-            // 🔥 Оценка на новой строке (Наша оценка: ⭐ X) 🔥
             const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             
-            // 🔥 Единый дизайн для дат заказа и просмотра в таблице 🔥
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#10b981" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="9 12 12 15 15 9" stroke="#1a1d24" stroke-width="3"></polyline></svg> ${movie.dateWatched}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="age-rating">${movie.ageRating}</span>` : '';
             const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
             
-            // 🔥 Студии: Проверка на пустоту 🔥
             let displayStudios = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
             const studiosHTML = `<div class="movie-studios-list">${displayStudios}</div>`;
 
-            // Описание, которое разворачивается при наведении
             const overviewHTML = movie.overview ? `
                 <div class="movie-overview-wrapper">
                     <div class="movie-overview-text">${movie.overview}</div>
@@ -594,7 +587,8 @@
 
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
-                directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: #3b82f6;" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
+                // Синяя обводка для режиссера тоже стала мягче и прозрачнее
+                directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: rgba(59, 130, 246, 0.5);" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340; margin: 0 5px;"></div>';
             }
 
@@ -611,7 +605,6 @@
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
 
-            // 🔥 Дата заказа в стиле даты просмотра 🔥
             const dateReqHTML = `<div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;" title="Дата заказа"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> ${movie.dateRequested || ''}</div>`;
 
             tr.innerHTML = `
@@ -678,14 +671,13 @@
         
         document.getElementById('modalDateReq').textContent = movie.dateRequested || 'Нет данных';
         
-        // 🔥 Правильное сохранение порядка "Дата просмотра" с красным цветом если не смотрели 🔥
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
             dateWatchedEl.textContent = movie.dateWatched;
-            dateWatchedEl.style.color = '#cbd5e1'; // Нейтральный цвет
+            dateWatchedEl.style.color = '#cbd5e1'; 
         } else {
             dateWatchedEl.textContent = 'Еще не смотрели';
-            dateWatchedEl.style.color = '#ef4444'; // Красный цвет
+            dateWatchedEl.style.color = '#ef4444'; 
         }
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -736,7 +728,6 @@
 
         document.getElementById('modalFinances').textContent = `${movie.budget} / ${movie.revenue}`;
         
-        // 🔥 Студии в модалке 🔥
         document.getElementById('modalStudios').innerHTML = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper');
