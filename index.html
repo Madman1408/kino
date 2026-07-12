@@ -570,8 +570,8 @@
             
             const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             
-            // 🔥 Отрисовка слова "Плакали" с иконкой tear.png в красивой рамке 🔥
-            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 4px 10px; border-radius: 6px;"><img src="tear.png" style="width: 14px; height: 14px;" onerror="this.style.display='none'"> Плакали</div>` : '';
+            // 🔥 Отрисовка слова "Плакали" с иконкой под словом (fallback на эмодзи 😭) 🔥
+            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>Плакали</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#10b981" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="9 12 12 15 15 9" stroke="#1a1d24" stroke-width="3"></polyline></svg> 
@@ -697,12 +697,12 @@
         }
         document.getElementById('modalDateReq').innerHTML = modalDateReqText;
         
-        // 🔥 Обновление даты просмотра в модалке (добавляем красивую рамку "Плакали") 🔥
+        // 🔥 Обновление даты просмотра в модалке (добавляем вертикальную рамку "Плакали" с Fallback-эмодзи) 🔥
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
             let watchedText = `<div>${movie.dateWatched}</div>`;
             if (movie.cried) {
-                watchedText += `<div style="display: inline-flex; align-items: center; gap: 6px; color: #38bdf8; font-size: 12px; margin-top: 8px; font-weight: 700; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 4px 10px; border-radius: 6px;"><img src="tear.png" style="width: 14px; height: 14px;" onerror="this.style.display='none'"> Плакали</div>`;
+                watchedText += `<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; color: #38bdf8; font-size: 12px; margin-top: 8px; font-weight: 700; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>Плакали</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>`;
             }
             dateWatchedEl.innerHTML = watchedText;
             dateWatchedEl.style.color = '#cbd5e1'; 
