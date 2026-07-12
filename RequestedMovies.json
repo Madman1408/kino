@@ -1,4 +1,52 @@
 {
+  "cross_loss": [
+    {
+      "id": 1,
+      "title": "Начало",
+      "year": "2010",
+      "type": "Фильм",
+      "runtime": "2 ч 28 мин",
+      "genres": "боевик, фантастика, приключения",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 Legendary Pictures, 🟢 Syncopy",
+      "budget": "160.000.000 $",
+      "revenue": "839.030.630 $",
+      "tmdbRating": "8.372",
+      "overview": "Дом Кобб — талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадёт ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил.  И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть всё назад, но для этого ему нужно совершить невозможное — инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача — не украсть идею, а внедрить её. Если у них получится, это и станет идеальным преступлением.  Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.",
+      "dateRequested": "06.07.2026 20:03",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "poster": "https://image.tmdb.org/t/p/w500/piQXcdOGgv1O9HQ07pI0tnjkGJw.jpg",
+      "tagline": "«Твой разум – место преступления»",
+      "backdrop": "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+      "cast": [
+        {
+          "name": "Леонардо ДиКаприо",
+          "photo": "https://image.tmdb.org/t/p/w185/mkdRcVIQl4WZhDf1vXKWTD7HZrZ.jpg"
+        },
+        {
+          "name": "Джозеф Гордон-Левитт",
+          "photo": "https://image.tmdb.org/t/p/w185/z2FA8js799xqtfiFjBTicFYdfk.jpg"
+        },
+        {
+          "name": "Кэн Ватанабэ",
+          "photo": "https://image.tmdb.org/t/p/w185/psAXOYp9SBOXvg6AXzARDedNQ9P.jpg"
+        },
+        {
+          "name": "Том Харди",
+          "photo": "https://image.tmdb.org/t/p/w185/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg"
+        }
+      ],
+      "director": {
+        "name": "Кристофер Нолан",
+        "photo": "https://image.tmdb.org/t/p/w185/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=RlKr_lO45Nc",
+      "ageRating": "12+",
+      "collection": "",
+      "keywords": "mission, dreams, kidnapping, spy, allegory",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png"
+    }
+  ],
   "MadMan1408": [
     {
       "id": 1,
@@ -43,55 +91,6 @@
     },
     {
       "id": 2,
-      "title": "Истории Шрека",
-      "year": "2013",
-      "type": "Фильм",
-      "runtime": "1 ч 12 мин",
-      "genres": "семейный",
-      "studios": "Нет данных",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "8.1",
-      "overview": "Присоединяйтесь к Шреку и его друзьям из Далекого-далекого Королевства, которые поделятся историями о праздничном настроении, жуткими сказками, музыкальным состязанием и незабываемой ночью присмотра за детьми.",
-      "dateRequested": "06.07.2026 19:56",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/j1Ew14NWmwTYqGYNNS7YTWIJXae.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/rzRthZa34uJUmnmvnepxxBSaRw0.jpg",
-      "cast": [
-        {
-          "name": "Майк Майерс",
-          "photo": "https://image.tmdb.org/t/p/w185/gjfDl52Kk02MPgUYFjs9bOy33OY.jpg"
-        },
-        {
-          "name": "Кэмерон Диас",
-          "photo": "https://image.tmdb.org/t/p/w185/tTpQSKwdLrR6xBGHCqg8VcVQZzH.jpg"
-        },
-        {
-          "name": "Эдди Мёрфи",
-          "photo": "https://image.tmdb.org/t/p/w185/qgjMfefsKwSYsyCaIX46uyOXIpy.jpg"
-        },
-        {
-          "name": "Антонио Бандерас",
-          "photo": "https://image.tmdb.org/t/p/w185/fce7zl6elUzsv7wudHFc7RgFtjD.jpg"
-        }
-      ],
-      "director": {
-        "name": "Раман Хуэй",
-        "photo": "https://image.tmdb.org/t/p/w185/r0Jqj3YlO9CuhWExI6rUuQpQJ3x.jpg"
-      },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "collection": "",
-      "keywords": "",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "seasons": "1",
-      "episodes": "241",
-      "tvStatus": "Ended"
-    },
-    {
-      "id": 3,
       "title": "Зелёная миля",
       "year": "1999",
       "type": "Фильм",
@@ -138,7 +137,7 @@
       "dateWatched": "06.07.2026 21:31"
     },
     {
-      "id": 4,
+      "id": 3,
       "title": "Дракула",
       "year": "1979",
       "type": "Фильм",
@@ -184,7 +183,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Симпсоны",
       "year": "1989",
       "type": "Мультфильм",
@@ -233,7 +232,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Маска",
       "year": "2020",
       "type": "Сериал",
@@ -282,7 +281,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "Телохранитель",
       "year": "2005",
       "type": "Сериал",
@@ -331,7 +330,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 8,
+      "id": 7,
       "title": "Красотка",
       "year": "2014",
       "type": "Сериал",
@@ -380,7 +379,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Дракула",
       "year": "2025",
       "type": "Фильм",
@@ -426,54 +425,6 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "dateWatched": "12.07.2026 22:14",
       "cried": true
-    }
-  ],
-  "cross_loss": [
-    {
-      "id": 1,
-      "title": "Начало",
-      "year": "2010",
-      "type": "Фильм",
-      "runtime": "2 ч 28 мин",
-      "genres": "боевик, фантастика, приключения",
-      "studios": "🔴 Warner Bros. Pictures | 🟢 Legendary Pictures, 🟢 Syncopy",
-      "budget": "160.000.000 $",
-      "revenue": "839.030.630 $",
-      "tmdbRating": "8.372",
-      "overview": "Дом Кобб — талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадёт ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил.  И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть всё назад, но для этого ему нужно совершить невозможное — инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача — не украсть идею, а внедрить её. Если у них получится, это и станет идеальным преступлением.  Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.",
-      "dateRequested": "06.07.2026 20:03",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/piQXcdOGgv1O9HQ07pI0tnjkGJw.jpg",
-      "tagline": "«Твой разум – место преступления»",
-      "backdrop": "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
-      "cast": [
-        {
-          "name": "Леонардо ДиКаприо",
-          "photo": "https://image.tmdb.org/t/p/w185/mkdRcVIQl4WZhDf1vXKWTD7HZrZ.jpg"
-        },
-        {
-          "name": "Джозеф Гордон-Левитт",
-          "photo": "https://image.tmdb.org/t/p/w185/z2FA8js799xqtfiFjBTicFYdfk.jpg"
-        },
-        {
-          "name": "Кэн Ватанабэ",
-          "photo": "https://image.tmdb.org/t/p/w185/psAXOYp9SBOXvg6AXzARDedNQ9P.jpg"
-        },
-        {
-          "name": "Том Харди",
-          "photo": "https://image.tmdb.org/t/p/w185/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg"
-        }
-      ],
-      "director": {
-        "name": "Кристофер Нолан",
-        "photo": "https://image.tmdb.org/t/p/w185/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=RlKr_lO45Nc",
-      "ageRating": "12+",
-      "collection": "",
-      "keywords": "mission, dreams, kidnapping, spy, allegory",
-      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png"
     }
   ],
   "weenniee": [
