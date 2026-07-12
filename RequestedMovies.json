@@ -758,5 +758,54 @@
       "keywords": "romance",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/d3038f83-6f62-49b4-932b-4c70d7a151ca-profile_image-600x600.png"
     }
+  ],
+  "sabastat_": [
+    {
+      "id": 1,
+      "title": "Падение Луны",
+      "year": "2022",
+      "type": "Фильм",
+      "runtime": "2 ч 10 мин",
+      "genres": "фантастика, приключения, боевик",
+      "studios": "🟢 Centropolis Entertainment, 🟢 Street Entertainment, 🟢 Lionsgate, 🟢 AGC Studios, 🟢 Huayi Tencent Entertainment, 🟢 Huayi Brothers International",
+      "budget": "146.000.000 $",
+      "revenue": "67.319.703 $",
+      "tmdbRating": "6.249",
+      "overview": "В 2011 году во время рядового ремонта спутника на находившихся в открытом космосе астронавтов напал странный рой, вылетевший из лунного кратера. Один космонавт погиб, а второй — Брайан Харпер — несколько лет после происшествия пытался убедить НАСА, что в случившемся виноват необъяснимый феномен.  12 лет спустя Луна внезапно сходит с орбиты и идёт на столкновение с Землёй, что провоцирует множественные катаклизмы и грозит гибелью человечества. Астроном-самородок, первым заметивший данную аномалию и считающий, что Луна является мегаструктурой, безуспешно пытается достучаться до правительства, поэтому просит помощи у вышедшего в отставку Харпера.",
+      "dateRequested": "12.07.2026 19:17",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "poster": "https://image.tmdb.org/t/p/w500/1ISchVuArjUHuP51pTwHPnsYfxF.jpg",
+      "tagline": "«В 2022 году человечеству предстоит столкнуться с тёмной стороной Луны»",
+      "backdrop": "https://image.tmdb.org/t/p/original/8QpzqK3nPGxpqpKqhe6QasTGBWQ.jpg",
+      "cast": [
+        {
+          "name": "Хэлли Берри",
+          "photo": "https://image.tmdb.org/t/p/w185/yfAJMERSlDIZD1iy6Aab8bArcCK.jpg"
+        },
+        {
+          "name": "Патрик Уилсон",
+          "photo": "https://image.tmdb.org/t/p/w185/oym6H2QD9esk4yABjCHaUoNAOa8.jpg"
+        },
+        {
+          "name": "Джон Брэдли",
+          "photo": "https://image.tmdb.org/t/p/w185/lQuxVtH8GkSLSZQhpmSdIi88DSF.jpg"
+        },
+        {
+          "name": "Чарли Пламмер",
+          "photo": "https://image.tmdb.org/t/p/w185/u2ig0kkgxq36BMbFQ4DEWfu5G3A.jpg"
+        }
+      ],
+      "director": {
+        "name": "Роланд Эммерих",
+        "photo": "https://image.tmdb.org/t/p/w185/mN8x74uv9yQ7dJl8nh2q26mkY8v.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=TtsKOOcHNj0",
+      "ageRating": "12+",
+      "collection": "",
+      "keywords": "moon, looting, space travel, flooding, lost civilisation",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/1a659533-cce8-4d1f-b21b-4aa24f85b890-profile_image-600x600.png"
+    }
   ]
 }
