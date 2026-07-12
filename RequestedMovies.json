@@ -187,52 +187,6 @@
     },
     {
       "id": 5,
-      "title": "День сурка",
-      "year": "1993",
-      "type": "Фильм",
-      "runtime": "1 ч 41 мин",
-      "genres": "мелодрама, фэнтези, комедия",
-      "studios": "🟢 Columbia Pictures",
-      "budget": "14.600.000 $",
-      "revenue": "71.108.778 $",
-      "tmdbRating": "7.632",
-      "overview": "Телевизионный комментатор Фил Коннорс каждый год приезжает в маленький городок в штате Пенсильвания на празднование Дня сурка. Но на этот раз веселье рискует зайти слишком далеко. Время сыграло с ним злую шутку: оно взяло да и остановилось. Теперь на календаре Фила чернеет одна и та же дата - 2 февраля, из которой он никак не может выбраться. Неунывающий ведущий пытается извлечь выгоду из своего комичного положения: впереди у него уйма времени и безмятежное предсказуемое будущее. Отныне с ним не случится ничего плохого... и ничего хорошего. У Фила осталась одна заветная мечта, простая и незамысловатая - 3 февраля...",
-      "dateRequested": "06.07.2026 19:32",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/yo91LPlSzskGGNo273us7ScuKIH.jpg",
-      "tagline": "«Это худший день в вашей жизни. Может быть, пережить его снова?»",
-      "backdrop": "https://image.tmdb.org/t/p/original/4W6RYDNe4OByNryOCvJprrutm9h.jpg",
-      "cast": [
-        {
-          "name": "Билл Мюррей",
-          "photo": "https://image.tmdb.org/t/p/w185/nnCsJc9x3ZiG3AFyiyc3FPehppy.jpg"
-        },
-        {
-          "name": "Энди МакДауэлл",
-          "photo": "https://image.tmdb.org/t/p/w185/akeheO4i3cR1HpSU8yu9HrLcsKm.jpg"
-        },
-        {
-          "name": "Крис Эллиот",
-          "photo": "https://image.tmdb.org/t/p/w185/oZFGgyDCZaanGfco1UdfxM4rHAJ.jpg"
-        },
-        {
-          "name": "Стивен Тоболовски",
-          "photo": "https://image.tmdb.org/t/p/w185/uL8yfcm0dCFYFQt052kczVQVvac.jpg"
-        }
-      ],
-      "director": {
-        "name": "Гарольд Рамис",
-        "photo": "https://image.tmdb.org/t/p/w185/kmTMTxthkDAsygk3Am4IUSVYYRi.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=W9gqmWLocP0",
-      "ageRating": "16+",
-      "collection": "",
-      "keywords": "deja vu, groundhog, weather forecast, telecaster, pennsylvania, usa",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
-    },
-    {
-      "id": 6,
       "title": "Истории Шрека",
       "year": "2013",
       "type": "Фильм",
@@ -281,7 +235,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "Зелёная миля",
       "year": "1999",
       "type": "Фильм",
@@ -328,7 +282,7 @@
       "dateWatched": "06.07.2026 21:31"
     },
     {
-      "id": 8,
+      "id": 7,
       "title": "Дракула",
       "year": "2025",
       "type": "Фильм",
@@ -374,7 +328,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Дракула",
       "year": "1979",
       "type": "Фильм",
@@ -420,7 +374,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
-      "id": 10,
+      "id": 9,
       "title": "Симпсоны",
       "year": "1989",
       "type": "Мультфильм",
@@ -469,7 +423,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 11,
+      "id": 10,
       "title": "Маска",
       "year": "2020",
       "type": "Сериал",
@@ -518,7 +472,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 12,
+      "id": 11,
       "title": "Телохранитель",
       "year": "2005",
       "type": "Сериал",
@@ -567,7 +521,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 13,
+      "id": 12,
       "title": "Красотка",
       "year": "2014",
       "type": "Сериал",
