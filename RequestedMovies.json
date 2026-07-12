@@ -2,52 +2,6 @@
   "MadMan1408": [
     {
       "id": 1,
-      "title": "Мумия",
-      "year": "2026",
-      "type": "Фильм",
-      "runtime": "2 ч 15 мин",
-      "genres": "ужасы, детектив",
-      "studios": "🔴 New Line Cinema | 🟢 Atomic Monster, 🟢 Blumhouse Productions, 🟢 Domain Entertainment, 🟢 Wicked/Good",
-      "budget": "22.000.000 $",
-      "revenue": "90.552.113 $",
-      "tmdbRating": "8.009",
-      "overview": "Семью работающего в Каире американского журналиста Чарли Кэннона постигает трагедия — бесследно пропадает его маленькая дочь Кэти. Поиски ни к чему не приводят, полиция бессильно разводит руками. Восемь лет спустя Кэнноны живут в Нью-Мексико и внезапно получают обнадёживающее известие: Кэти нашлась. Девочку обнаружили в древнем саркофаге, она не говорит и очень плохо выглядит.",
-      "dateRequested": "06.07.2026 18:35",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/vOyM4rebbIan7wANnFyCKr460mS.jpg",
-      "tagline": "«Есть вещи, которые лучше не тревожить»",
-      "backdrop": "https://image.tmdb.org/t/p/original/s3tHm62ohyb0I5vSnPrpczCBtSX.jpg",
-      "cast": [
-        {
-          "name": "Джек Рейнор",
-          "photo": "https://image.tmdb.org/t/p/w185/ti7IuuwBP66kntCCp6t38xzOcT4.jpg"
-        },
-        {
-          "name": "Лайа Коста",
-          "photo": "https://image.tmdb.org/t/p/w185/kSbdpHWLlfzvOfZKJ0dgP0ieVL6.jpg"
-        },
-        {
-          "name": "Мэй Каламави",
-          "photo": "https://image.tmdb.org/t/p/w185/5S3nNkH5p85xK7k7AaXBZ0ouyOR.jpg"
-        },
-        {
-          "name": "Натали Грэйс",
-          "photo": "https://image.tmdb.org/t/p/w185/uoJRUulO6A9By4IhNrDdiKevAOj.jpg"
-        }
-      ],
-      "director": {
-        "name": "Ли Кронин",
-        "photo": "https://image.tmdb.org/t/p/w185/qRJgpkLTXE1EkmmHvmD4AnvrFap.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=rs-cKDx3h2w",
-      "ageRating": "Нет данных",
-      "collection": "",
-      "keywords": "journalist, egypt, monster, ritual, kidnapping",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
-    },
-    {
-      "id": 2,
       "title": "Светлячок",
       "year": "2002",
       "type": "Сериал",
@@ -96,7 +50,7 @@
       "tvStatus": "Canceled"
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "Доктор Хаус",
       "year": "2004",
       "type": "Сериал",
@@ -145,7 +99,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 4,
+      "id": 3,
       "title": "Шерлок",
       "year": "2010",
       "type": "Сериал",
@@ -186,7 +140,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Истории Шрека",
       "year": "2013",
       "type": "Фильм",
@@ -235,7 +189,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Зелёная миля",
       "year": "1999",
       "type": "Фильм",
@@ -282,7 +236,7 @@
       "dateWatched": "06.07.2026 21:31"
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "Дракула",
       "year": "1979",
       "type": "Фильм",
@@ -328,7 +282,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
-      "id": 8,
+      "id": 7,
       "title": "Симпсоны",
       "year": "1989",
       "type": "Мультфильм",
@@ -377,7 +331,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Маска",
       "year": "2020",
       "type": "Сериал",
@@ -426,7 +380,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 10,
+      "id": 9,
       "title": "Телохранитель",
       "year": "2005",
       "type": "Сериал",
@@ -475,7 +429,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 11,
+      "id": 10,
       "title": "Красотка",
       "year": "2014",
       "type": "Сериал",
@@ -524,7 +478,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 12,
+      "id": 11,
       "title": "Дракула",
       "year": "2025",
       "type": "Фильм",
