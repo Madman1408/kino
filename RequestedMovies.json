@@ -683,9 +683,9 @@
       "tmdbRating": "8.086",
       "overview": "Заместитель шерифа Рик Граймс просыпается от комы и обнаруживает, что мир после апокалипсиса захватили плотоядные зомби. Он отправляется на поиски своей семьи и по пути встречает многих других выживших.",
       "dateRequested": "12.07.2026 22:13",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
+      "status": "Смотрели",
+      "ourRating": "7",
+      "cried": true,
       "isAuction": true,
       "poster": "https://image.tmdb.org/t/p/w500/3metsxLVhlJU0mNj5gVfKIih0EF.jpg",
       "tagline": "Сражайся с мертвецами. Бойся живых",
@@ -719,7 +719,8 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/1a659533-cce8-4d1f-b21b-4aa24f85b890-profile_image-600x600.png",
       "seasons": "11",
       "episodes": "177",
-      "tvStatus": "Ended"
+      "tvStatus": "Ended",
+      "dateWatched": "13.07.2026 01:01"
     }
   ]
 }
