@@ -123,6 +123,23 @@
         .movie-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .movie-title { font-size: 19px; font-weight: 700; color: #ffffff; }
         .movie-year { color: var(--text-muted); font-size: 15px; }
+        
+        /* 🔥 Кнопка копирования названия 🔥 */
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
+        .copy-btn.copied { color: #10b981; }
+
         .age-rating { border: 1px solid #475569; color: #94a3b8; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); margin-left: 2px; }
         
@@ -212,8 +229,9 @@
         }
         .modal-overlay.active { display: flex; opacity: 1; }
 
+        /* 🔥 УВЕЛИЧЕННАЯ ШИРИНА МОДАЛКИ (1000px вместо 800px) 🔥 */
         .modal-content {
-            background-color: var(--container-bg); width: 90%; max-width: 800px; max-height: 90vh;
+            background-color: var(--container-bg); width: 95%; max-width: 1000px; max-height: 90vh;
             border-radius: 12px; overflow-y: auto; position: relative;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid var(--border);
             transform: translateY(20px); transition: transform 0.3s ease;
@@ -230,12 +248,13 @@
         .modal-hero { width: 100%; height: 250px; background-size: cover; background-position: center; position: relative; }
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--container-bg) 0%, transparent 100%); }
 
-        .modal-body { padding: 0 30px 30px 30px; position: relative; margin-top: -60px; z-index: 2; display: flex; gap: 20px; }
-        .modal-poster { width: 140px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid var(--border); align-self: flex-start; }
+        .modal-body { padding: 0 40px 40px 40px; position: relative; margin-top: -60px; z-index: 2; display: flex; gap: 30px; }
+        .modal-poster { width: 160px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid var(--border); align-self: flex-start; }
         .modal-info-main { flex: 1; }
-        .modal-title { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-        .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 14px; }
-        .modal-overview { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+        .modal-title-wrapper { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+        .modal-title { font-size: 32px; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 15px; }
+        .modal-overview { color: #cbd5e1; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
 
         .modal-crew-section { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 25px; }
         .modal-crew-group { display: flex; flex-direction: column; gap: 8px; }
@@ -246,10 +265,10 @@
         .crew-card.director img { border-color: rgba(59, 130, 246, 0.6); } 
         .crew-card span { font-size: 11px; color: #cbd5e1; line-height: 1.2; word-break: break-word; }
 
-        .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; background: #1e222b; padding: 15px; border-radius: 8px; }
-        .grid-item { font-size: 13px; }
+        .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; background: #1e222b; padding: 20px; border-radius: 8px; }
+        .grid-item { font-size: 14px; }
         .grid-item.full-width { grid-column: 1 / -1; } 
-        .grid-label { color: #64748b; margin-bottom: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .grid-label { color: #64748b; margin-bottom: 5px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .grid-value { color: #e2e8f0; font-weight: 500; }
         
         .modal-requester-link { cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 8px; }
@@ -302,8 +321,7 @@
             </select>
 
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                <option value="oldest" selected>⏳ По дате заказа (По порядку)</option>
-                <option value="user">👤 По зрителям</option>
+                <option value="oldest">⏳ По дате заказа (По порядку)</option>
                 <option value="newest">✨ По дате заказа (Новые)</option>
                 <option value="waiting">👀 Только "Не смотрели"</option>
                 <option value="watched">✅ Только "Смотрели"</option>
@@ -326,7 +344,6 @@
     </table>
 </div>
 
-<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="close-btn" onclick="closeModal(true)">&times;</div>
@@ -334,7 +351,14 @@
         <div class="modal-body">
             <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
             <div class="modal-info-main">
-                <h2 class="modal-title" id="modalTitle">Название</h2>
+                
+                <div class="modal-title-wrapper">
+                    <h2 class="modal-title" id="modalTitle">Название</h2>
+                    <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Копировать название и год">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+
                 <div class="modal-meta" id="modalMeta">2023 • 120 мин</div>
                 <div class="modal-overview" id="modalOverview">Описание фильма...</div>
                 
@@ -361,6 +385,10 @@
                         <div class="grid-label">Студии</div>
                         <div class="grid-value" id="modalStudios">Студии</div>
                     </div>
+                    <div class="grid-item full-width">
+                        <div class="grid-label">Уникальный ID Заказа</div>
+                        <div class="grid-value" id="modalId" style="color: #a5b4fc; font-weight: 800; font-size: 16px;">#0</div>
+                    </div>
                 </div>
                 
                 <div id="trailerWrapper" style="display: none;">
@@ -375,10 +403,17 @@
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
+    let currentModalMovie = null; // Для кнопки копирования в модалке
 
     // Заглушки для фото
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
+
+    // Восстановление сортировки из localStorage
+    const savedSortMode = localStorage.getItem('movieSortMode');
+    if (savedSortMode) {
+        document.getElementById('sortSelect').value = savedSortMode;
+    }
 
     function getSafePhoto(url) {
         if (!url || url.includes('via.placeholder.com')) return fallbackImage;
@@ -388,6 +423,34 @@
     function getSafePoster(url) {
         if (!url || url.includes('via.placeholder.com')) return fallbackPoster;
         return url;
+    }
+
+    // 🔥 Копирование названия (Без скобок у года) 🔥
+    function copyTextToClipboard(text, btnElement) {
+        navigator.clipboard.writeText(text).then(() => {
+            if (btnElement) {
+                const originalHTML = btnElement.innerHTML;
+                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.classList.add('copied');
+                
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHTML;
+                    btnElement.classList.remove('copied');
+                }, 1000);
+            }
+        });
+    }
+
+    function copyMovieNameFromTable(event, title, year, btnElement) {
+        event.stopPropagation(); // Чтобы не открывалась модалка
+        copyTextToClipboard(`${title} ${year}`, btnElement);
+    }
+
+    function copyMovieNameFromModal() {
+        if (currentModalMovie) {
+            const btn = document.getElementById('modalCopyBtn');
+            copyTextToClipboard(`${currentModalMovie.title} ${currentModalMovie.year}`, btn);
+        }
     }
 
     async function loadCreatorAvatar() {
@@ -484,6 +547,9 @@
         const sortMode = document.getElementById('sortSelect').value;
         const userFilterVal = document.getElementById('userFilter').value;
         
+        // Сохраняем сортировку
+        localStorage.setItem('movieSortMode', sortMode);
+        
         let filtered = [...rawMoviesData];
 
         if (userFilterVal !== 'all') {
@@ -510,24 +576,6 @@
         }
         else if (sortMode === 'oldest') {
             filtered.sort((a, b) => a.parsedDate - b.parsedDate);
-        }
-        else if (sortMode === 'user') {
-            const userEarliestDate = {};
-            filtered.forEach(m => {
-                const nick = m.requestedBy.toLowerCase();
-                if (!userEarliestDate[nick] || m.parsedDate < userEarliestDate[nick]) {
-                    userEarliestDate[nick] = m.parsedDate;
-                }
-            });
-
-            filtered.sort((a, b) => {
-                const nickA = a.requestedBy.toLowerCase();
-                const nickB = b.requestedBy.toLowerCase();
-                if (nickA !== nickB) {
-                    return userEarliestDate[nickA] - userEarliestDate[nickB]; 
-                }
-                return a.parsedDate - b.parsedDate; 
-            });
         }
 
         currentViewData = filtered;
@@ -571,7 +619,7 @@
             const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             
             // 🔥 Отрисовка слова "ПЛАКАЛИ" с иконкой под словом (fallback на эмодзи 😭) 🔥
-            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>ПЛАКАЛИ</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>` : '';
+            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>ПЛАКАЛИ</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#10b981" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="9 12 12 15 15 9" stroke="#1a1d24" stroke-width="3"></polyline></svg> 
@@ -627,6 +675,9 @@
                 </div>
                 ${auctionHTML}
             `;
+            
+            // Защита от кавычек в названии (для правильного копирования)
+            const safeTitle = movie.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             tr.innerHTML = `
                 <td>
@@ -637,6 +688,9 @@
                         <div class="movie-header">
                             <span class="movie-title">${movie.title}</span>
                             <span class="movie-year">(${movie.year})</span>
+                            <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year}', this)" title="Копировать название">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            </button>
                             ${tmdbBadge}
                             ${ageRating}
                         </div>
@@ -666,6 +720,8 @@
 
     function openModal(index) {
         const movie = currentViewData[index]; 
+        currentModalMovie = movie; // Сохраняем для кнопки копирования
+        
         const modal = document.getElementById('movieModal');
         
         const heroEl = document.getElementById('modalHero');
@@ -760,6 +816,10 @@
         document.getElementById('modalFinances').textContent = `${movie.budget} / ${movie.revenue}`;
         
         document.getElementById('modalStudios').innerHTML = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
+        
+        // 🔥 Вывод ID 🔥
+        const idDisplay = movie.id ? `#${movie.id}` : '#0';
+        document.getElementById('modalId').textContent = idDisplay;
 
         const trailerWrapper = document.getElementById('trailerWrapper');
         const trailerIframe = document.getElementById('modalTrailer');
