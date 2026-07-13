@@ -524,6 +524,55 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/d3038f83-6f62-49b4-932b-4c70d7a151ca-profile_image-600x600.png"
     }
   ],
+  "cherteya": [
+    {
+      "id": 1,
+      "title": "Стрелок",
+      "year": "1958",
+      "type": "Сериал",
+      "runtime": "30 мин",
+      "genres": "Боевик и Приключения, вестерн, семейный",
+      "studios": "🟢 Four Stars Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "7.1",
+      "overview": "",
+      "dateRequested": "13.07.2026 13:13",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true,
+      "poster": "https://image.tmdb.org/t/p/w500/tYf5Sc83chWG2nBlo5xKdpBBwlI.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/4zZ0VjYxGERjhf5FdTuB0Y215Pi.jpg",
+      "cast": [
+        {
+          "name": "Чак Коннорс",
+          "photo": "https://image.tmdb.org/t/p/w185/6RfyJxavZhtMR3zLiUwg9M30GmG.jpg"
+        },
+        {
+          "name": "Johnny Crawford",
+          "photo": "https://image.tmdb.org/t/p/w185/osonXywvOUJjGh8ykF9dOD2eR72.jpg"
+        },
+        {
+          "name": "Paul Fix",
+          "photo": "https://image.tmdb.org/t/p/w185/1CTVXkgurzEYeFaJDuuIODaZvFu.jpg"
+        }
+      ],
+      "director": {
+        "name": "Sam Peckinpah",
+        "photo": "https://image.tmdb.org/t/p/w185/hXrHVHdNivFu8dMbyp40ds5YXYD.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-PG",
+      "collection": "",
+      "keywords": "widower",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
+      "seasons": "5",
+      "episodes": "168",
+      "tvStatus": "Ended"
+    }
+  ],
   "sabastat_": [
     {
       "id": 1,
