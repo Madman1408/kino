@@ -25,7 +25,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1150px; /* Сделал контейнер чуть шире для удобства */
             margin: 0 auto;
             background: var(--container-bg);
             border-radius: 12px;
@@ -34,7 +34,7 @@
             border: 1px solid var(--border);
         }
 
-        /* --- Новая двухэтажная Шапка --- */
+        /* --- Шапка --- */
         .header {
             padding: 24px 30px;
             background: linear-gradient(135deg, #1e222a 0%, #1a1d24 100%);
@@ -52,7 +52,6 @@
             position: relative;
         }
 
-        /* Название по центру */
         .header-top h1 { 
             margin: 0; 
             font-size: 26px; 
@@ -65,29 +64,27 @@
             white-space: nowrap;
         }
 
-        /* 🔥 БЕЙДЖ СТРИМЕРА (СЛЕВА СВЕРХУ) 🔥 */
-        .streamer-badge {
+        /* 🔥 БЕЙДЖ СТРИМЕРА И СОЗДАТЕЛЯ 🔥 */
+        .streamer-badge, .creator-badge {
             display: flex; align-items: center; gap: 12px;
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
             z-index: 2;
         }
-        .streamer-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
-        .streamer-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent); background-color: #2e3340; }
+        .streamer-badge:hover, .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
+        .streamer-badge img, .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent); background-color: #2e3340; }
+        
         .streamer-name { font-size: 16px; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .creator-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .creator-label { font-size: 10px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .creator-name { font-size: 15px; font-weight: 700; color: #ffffff; }
 
-        /* --- Панель управления на 2 строке --- */
+        /* --- Панель управления --- */
         .controls-panel { 
-            display: flex; 
-            gap: 15px; 
-            flex-wrap: wrap; 
-            align-items: center; 
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.15); 
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.15); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
         }
         .search-box, .sort-select {
             background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;
@@ -97,21 +94,20 @@
         .search-box:focus, .sort-select:focus { border-color: var(--accent); }
         .sort-select { cursor: pointer; }
 
-        /* --- Таблица --- */
+        /* --- Таблица и Уменьшенные отступы --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 10px; border-bottom: 1px solid var(--border); }
         
-        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        /* 🔥 Уменьшены боковые паддинги для плотности 🔥 */
+        td { padding: 16px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
-        td:nth-child(2) { text-align: left; }
+        td:nth-child(2) { text-align: left; padding-right: 25px; } /* Даем больше места описанию */
 
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
-        
         tr.alt-bg { background-color: rgba(255, 255, 255, 0.05); } 
         tr.movie-row:hover { background-color: #252a36 !important; } 
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
-
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
         /* 🔥 Увеличенные постеры 🔥 */
@@ -123,65 +119,50 @@
         .movie-title { font-size: 19px; font-weight: 700; color: #ffffff; }
         .movie-year { color: var(--text-muted); font-size: 15px; margin-right: 4px; }
         
-        /* 🔥 Кнопка копирования названия 🔥 */
+        /* Кнопка копирования названия */
         .copy-btn {
-            background: none;
-            border: none;
-            color: #64748b;
-            cursor: pointer;
-            padding: 4px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            margin-right: 4px;
+            background: none; border: none; color: #64748b; cursor: pointer; padding: 4px;
+            border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-right: 4px;
         }
         .copy-btn:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
         .copy-btn.copied { color: #10b981; }
 
-        /* 🔥 Бейджи: Оценка, Возраст, ID 🔥 */
-        .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
-        .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
+        /* 🔥 Бейджи: Оценка, Возраст, ID, ВРЕМЯ 🔥 */
+        .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
+        .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
         
         .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
 
-        /* 🔥 Умное описание 🔥 */
+        /* Умное описание */
         .movie-overview-wrapper { margin-top: 6px; max-height: 38px; overflow: hidden; transition: max-height 0.5s ease; }
         .movie-overview-text { font-size: 13px; line-height: 1.45; color: #8492a6; transition: color 0.3s ease; }
 
-        /* --- Карточка зрителя --- */
+        /* Карточка зрителя */
         .requester-badge {
-            display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border); padding: 6px 12px; border-radius: 8px; width: fit-content;
+            display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border); padding: 6px 10px; border-radius: 8px; width: fit-content;
             cursor: pointer; transition: background 0.2s, transform 0.1s; margin: 0 auto;
         }
         .requester-badge:hover { background: rgba(255, 255, 255, 0.08); }
         .requester-badge:active { transform: scale(0.95); }
 
         .req-avatar {
-            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 11px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 10px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             box-shadow: 0 2px 4px rgba(0,0,0,0.3); object-fit: cover; flex-shrink: 0;
         }
-        .req-name { font-weight: 600; font-size: 14px; }
+        .req-name { font-weight: 600; font-size: 13px; }
         
         .badge { padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; display: inline-block; line-height: 1.4; }
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* --- Аватарки актеров --- */
+        /* Аватарки актеров */
         .crew-section { display: flex; align-items: center; gap: 8px; margin-top: 10px; transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .avatar-container { position: relative; display: inline-block; z-index: 1; }
-        
-        .avatar { 
-            width: 36px; height: 36px; border-radius: 8px; object-fit: cover; 
-            border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; 
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
-        }
-        
+        .avatar { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; }
         .cast-group { display: flex; align-items: center; gap: 5px; transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         .movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 150px; }
@@ -223,8 +204,6 @@
         .modal-title-wrapper { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
         .modal-title { font-size: 32px; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         .modal-badges { display: flex; align-items: center; gap: 6px; margin-left: 4px; }
-        .modal-badges .outline-badge { font-size: 13px; padding: 3px 8px; }
-        .modal-badges .tmdb-badge { font-size: 13px; padding: 4px 8px; }
 
         .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 15px; }
         .modal-overview { color: #cbd5e1; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
@@ -251,22 +230,15 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); margin-top: 20px; }
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 🔥 ФУТЕР ДЛЯ АВТОРА 🔥 */
+        /* 🔥 КРАСИВЫЙ ФУТЕР ДЛЯ СОЗДАТЕЛЯ ВНИЗУ 🔥 */
         .footer-credits {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            font-size: 13px;
-            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
             border-top: 1px solid var(--border);
-        }
-        .footer-credits a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-        }
-        .footer-credits a:hover {
-            text-decoration: underline;
         }
 
         .modal-content::-webkit-scrollbar { width: 8px; }
@@ -322,10 +294,10 @@
         <thead>
             <tr>
                 <th style="width: 145px;">Постер</th>
-                <th>Информация о фильме</th>
-                <th style="width: 170px;">Заказал</th>
-                <th style="width: 110px;">Время</th>
-                <th style="width: 160px;">Статус</th>
+                <th style="width: auto;">Информация о фильме</th>
+                <th style="width: 140px;">Заказал</th>
+                <th style="width: 115px;">Время</th>
+                <th style="width: 140px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -334,7 +306,13 @@
     </table>
 
     <div class="footer-credits">
-        Widget created by <a href="https://twitch.tv/MadMan1408" target="_blank">MadMan1408</a>
+        <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
+            <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
+            <div class="creator-info">
+                <span class="creator-label">Created by</span>
+                <span class="creator-name">MadMan1408</span>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -441,7 +419,19 @@
         }
     }
 
-    // Загрузка аватарки стримера (владельца списка)
+    async function loadCreatorAvatar() {
+        try {
+            const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
+            const data = await res.json();
+            if (data && data.length > 0 && data[0].logo) {
+                document.getElementById('creatorAvatar').src = data[0].logo.replace('300x300', '150x150');
+            }
+        } catch (e) {
+            console.log('Не удалось загрузить аватарку создателя.');
+        }
+    }
+    loadCreatorAvatar();
+
     async function loadStreamerAvatar(username) {
         try {
             const res = await fetch(`https://api.ivr.fi/v2/twitch/user?login=${username}`);
@@ -496,14 +486,17 @@
             const data = await response.json();
             rawMoviesData = [];
             
-            // Проверка метаданных на наличие стримера
+            // 🔥 Защита: проверяем, есть ли метаданные стримера
             if (data["_metadata_"] && data["_metadata_"].streamer) {
                 loadStreamerAvatar(data["_metadata_"].streamer);
             }
 
             for (const user in data) {
-                if (user === "_metadata_") continue; // Пропускаем системный блок
+                if (user === "_metadata_") continue; 
                 
+                // 🔥 ЗАЩИТА: Пропускаем всё, что не является массивом фильмов (чтобы не было ошибки) 🔥
+                if (!Array.isArray(data[user])) continue; 
+
                 data[user].forEach(movie => {
                     rawMoviesData.push({ 
                         ...movie, 
@@ -543,50 +536,54 @@
     }
 
     function applyFilters() {
-        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-        const sortMode = document.getElementById('sortSelect').value;
-        const userFilterVal = document.getElementById('userFilter').value;
-        
-        localStorage.setItem('movieSortMode', sortMode);
-        
-        let filtered = [...rawMoviesData];
+        try {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const sortMode = document.getElementById('sortSelect').value;
+            const userFilterVal = document.getElementById('userFilter').value;
+            
+            localStorage.setItem('movieSortMode', sortMode);
+            
+            let filtered = [...rawMoviesData];
 
-        if (userFilterVal !== 'all') {
-            filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
-        }
+            if (userFilterVal !== 'all') {
+                filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
+            }
 
-        if (searchQuery.trim() !== '') {
-            filtered = filtered.filter(m => 
-                m.title.toLowerCase().includes(searchQuery) || 
-                m.requestedBy.toLowerCase().includes(searchQuery)
-            );
-        }
+            if (searchQuery.trim() !== '') {
+                filtered = filtered.filter(m => 
+                    m.title.toLowerCase().includes(searchQuery) || 
+                    m.requestedBy.toLowerCase().includes(searchQuery)
+                );
+            }
 
-        if (sortMode === 'waiting') {
-            filtered = filtered.filter(m => m.status === 'Не смотрели');
-            filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
-        } 
-        else if (sortMode === 'watched') {
-            filtered = filtered.filter(m => m.status === 'Смотрели');
-            filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
-        }
-        else if (sortMode === 'auction') {
-            filtered = filtered.filter(m => m.isAuction === true);
-            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-        }
-        else if (sortMode === 'cried') {
-            filtered = filtered.filter(m => m.cried === true);
-            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-        }
-        else if (sortMode === 'newest') {
-            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-        }
-        else if (sortMode === 'oldest') {
-            filtered.sort((a, b) => a.parsedDate - b.parsedDate);
-        }
+            if (sortMode === 'waiting') {
+                filtered = filtered.filter(m => m.status === 'Не смотрели');
+                filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
+            } 
+            else if (sortMode === 'watched') {
+                filtered = filtered.filter(m => m.status === 'Смотрели');
+                filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
+            }
+            else if (sortMode === 'auction') {
+                filtered = filtered.filter(m => m.isAuction === true);
+                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+            }
+            else if (sortMode === 'cried') {
+                filtered = filtered.filter(m => m.cried === true);
+                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+            }
+            else if (sortMode === 'newest') {
+                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+            }
+            else if (sortMode === 'oldest') {
+                filtered.sort((a, b) => a.parsedDate - b.parsedDate);
+            }
 
-        currentViewData = filtered;
-        renderTable(currentViewData);
+            currentViewData = filtered;
+            renderTable(currentViewData);
+        } catch (e) {
+            console.error('Ошибка при фильтрации:', e);
+        }
     }
 
     function renderTable(dataArray) {
@@ -661,8 +658,15 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
-            if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
+            // 🔥 ВРЕМЯ И СЕЗОНЫ С КРАСИВОЙ ОБВОДКОЙ 🔥
+            let runtimeDisplay = `<div style="display: flex; flex-direction: column; gap: 8px; align-items: center;">`;
+            if (movie.runtime && movie.runtime !== "Неизвестно") {
+                 runtimeDisplay += `<span class="outline-badge" style="font-size: 13px; padding: 4px 10px; border-color: rgba(148, 163, 184, 0.4); color: #e2e8f0; font-weight: 700;">⏱ ${movie.runtime}</span>`;
+            }
+            if (movie.seasons && movie.episodes) {
+                 runtimeDisplay += `<span class="outline-badge" style="font-size: 12px; padding: 4px 10px; border-color: rgba(99, 102, 241, 0.4); color: #a5b4fc; text-align: center; line-height: 1.3;">📺 ${movie.seasons} сез.<br>${movie.episodes} сер.</span>`;
+            }
+            runtimeDisplay += `</div>`;
 
             const userColor = stringToColor(cleanNick);
 
