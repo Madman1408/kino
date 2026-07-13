@@ -25,7 +25,7 @@
         }
 
         .container {
-            max-width: 1150px; /* Сделал контейнер чуть шире для удобства */
+            max-width: 1100px;
             margin: 0 auto;
             background: var(--container-bg);
             border-radius: 12px;
@@ -34,7 +34,7 @@
             border: 1px solid var(--border);
         }
 
-        /* --- Шапка --- */
+        /* --- Новая двухэтажная Шапка --- */
         .header {
             padding: 24px 30px;
             background: linear-gradient(135deg, #1e222a 0%, #1a1d24 100%);
@@ -52,6 +52,7 @@
             position: relative;
         }
 
+        /* Название по центру */
         .header-top h1 { 
             margin: 0; 
             font-size: 26px; 
@@ -64,27 +65,30 @@
             white-space: nowrap;
         }
 
-        /* 🔥 БЕЙДЖ СТРИМЕРА И СОЗДАТЕЛЯ 🔥 */
-        .streamer-badge, .creator-badge {
+        .creator-badge {
             display: flex; align-items: center; gap: 12px;
             background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
             padding: 6px 16px 6px 6px; border-radius: 30px; cursor: pointer;
             transition: all 0.2s;
             z-index: 2;
         }
-        .streamer-badge:hover, .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
-        .streamer-badge img, .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent); background-color: #2e3340; }
-        
-        .streamer-name { font-size: 16px; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; }
-        
+        .creator-badge:hover { background: rgba(99, 102, 241, 0.2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
+        .creator-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent); background-color: #2e3340; }
         .creator-info { display: flex; flex-direction: column; line-height: 1.2; }
         .creator-label { font-size: 10px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
         .creator-name { font-size: 15px; font-weight: 700; color: #ffffff; }
 
-        /* --- Панель управления --- */
+        /* --- Панель управления на 2 строке --- */
         .controls-panel { 
-            display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center;
-            background: rgba(0, 0, 0, 0.15); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
+            display: flex; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+            align-items: center; 
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.15); 
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
         .search-box, .sort-select {
             background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;
@@ -94,20 +98,21 @@
         .search-box:focus, .sort-select:focus { border-color: var(--accent); }
         .sort-select { cursor: pointer; }
 
-        /* --- Таблица и Уменьшенные отступы --- */
+        /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 10px; border-bottom: 1px solid var(--border); }
+        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
-        /* 🔥 Уменьшены боковые паддинги для плотности 🔥 */
-        td { padding: 16px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
-        td:nth-child(2) { text-align: left; padding-right: 25px; } /* Даем больше места описанию */
+        td:nth-child(2) { text-align: left; }
 
         tr.movie-row { cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
+        
         tr.alt-bg { background-color: rgba(255, 255, 255, 0.05); } 
         tr.movie-row:hover { background-color: #252a36 !important; } 
         tr.movie-row:active { transform: scale(0.99); }
         tr:last-child td { border-bottom: none; }
+
         tr.user-separator td { border-top: 6px solid var(--bg-color); }
 
         /* 🔥 Увеличенные постеры 🔥 */
@@ -119,52 +124,68 @@
         .movie-title { font-size: 19px; font-weight: 700; color: #ffffff; }
         .movie-year { color: var(--text-muted); font-size: 15px; margin-right: 4px; }
         
-        /* Кнопка копирования названия */
+        /* 🔥 Кнопка копирования названия 🔥 */
         .copy-btn {
-            background: none; border: none; color: #64748b; cursor: pointer; padding: 4px;
-            border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-right: 4px;
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            margin-right: 4px;
         }
         .copy-btn:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
         .copy-btn.copied { color: #10b981; }
 
-        /* 🔥 Бейджи: Оценка, Возраст, ID, ВРЕМЯ 🔥 */
-        .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
-        .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
+        /* 🔥 Бейджи: Оценка, Возраст, ID 🔥 */
+        .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
+        .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
         
         .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
 
-        /* Умное описание */
+        /* 🔥 Умное описание 🔥 */
         .movie-overview-wrapper { margin-top: 6px; max-height: 38px; overflow: hidden; transition: max-height 0.5s ease; }
         .movie-overview-text { font-size: 13px; line-height: 1.45; color: #8492a6; transition: color 0.3s ease; }
 
-        /* Карточка зрителя */
+        /* --- Карточка зрителя --- */
         .requester-badge {
-            display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border); padding: 6px 10px; border-radius: 8px; width: fit-content;
+            display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border); padding: 6px 12px; border-radius: 8px; width: fit-content;
             cursor: pointer; transition: background 0.2s, transform 0.1s; margin: 0 auto;
         }
         .requester-badge:hover { background: rgba(255, 255, 255, 0.08); }
         .requester-badge:active { transform: scale(0.95); }
 
         .req-avatar {
-            width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 10px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 11px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             box-shadow: 0 2px 4px rgba(0,0,0,0.3); object-fit: cover; flex-shrink: 0;
         }
-        .req-name { font-weight: 600; font-size: 13px; }
+        .req-name { font-weight: 600; font-size: 14px; }
         
         .badge { padding: 6px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; text-align: center; display: inline-block; line-height: 1.4; }
         .badge.waiting { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.watched { background-color: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* Аватарки актеров */
+        /* --- Аватарки актеров --- */
         .crew-section { display: flex; align-items: center; gap: 8px; margin-top: 10px; transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .avatar-container { position: relative; display: inline-block; z-index: 1; }
-        .avatar { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; }
+        
+        .avatar { 
+            width: 36px; height: 36px; border-radius: 8px; object-fit: cover; 
+            border: 1px solid rgba(255,255,255,0.08); background-color: #2e3340; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s; 
+        }
+        
         .cast-group { display: flex; align-items: center; gap: 5px; transition: gap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
+        /* ЭФФЕКТЫ РАБОТАЮТ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР */
         .movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 150px; }
         .movie-row:has(.poster-wrapper:hover) .movie-overview-text { color: #e2e8f0; }
         .movie-row:has(.poster-wrapper:hover) .crew-section, .movie-row:has(.poster-wrapper:hover) .cast-group { gap: 15px; }
@@ -179,6 +200,7 @@
         }
         .modal-overlay.active { display: flex; opacity: 1; }
 
+        /* 🔥 УВЕЛИЧЕННАЯ ШИРИНА МОДАЛКИ (1000px вместо 800px) 🔥 */
         .modal-content {
             background-color: var(--container-bg); width: 95%; max-width: 1000px; max-height: 90vh;
             border-radius: 12px; overflow-y: auto; position: relative;
@@ -187,6 +209,7 @@
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
 
+        /* 🔥 ИСПРАВЛЕННЫЙ ИДЕАЛЬНЫЙ КРЕСТИК 🔥 */
         .close-btn {
             position: absolute; top: 15px; right: 20px; color: #fff; cursor: pointer;
             z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%;
@@ -204,6 +227,8 @@
         .modal-title-wrapper { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
         .modal-title { font-size: 32px; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         .modal-badges { display: flex; align-items: center; gap: 6px; margin-left: 4px; }
+        .modal-badges .outline-badge { font-size: 13px; padding: 3px 8px; }
+        .modal-badges .tmdb-badge { font-size: 13px; padding: 4px 8px; }
 
         .modal-meta { color: var(--accent); font-weight: 600; margin-bottom: 15px; font-size: 15px; }
         .modal-overview { color: #cbd5e1; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
@@ -230,17 +255,6 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); margin-top: 20px; }
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* 🔥 КРАСИВЫЙ ФУТЕР ДЛЯ СОЗДАТЕЛЯ ВНИЗУ 🔥 */
-        .footer-credits {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid var(--border);
-        }
-
         .modal-content::-webkit-scrollbar { width: 8px; }
         .modal-content::-webkit-scrollbar-track { background: var(--container-bg); }
         .modal-content::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
@@ -253,7 +267,7 @@
             .modal-grid { grid-template-columns: 1fr; }
             .header-top { flex-direction: column; gap: 15px; }
             .header-top h1 { position: static; transform: none; text-align: center; }
-            .streamer-badge { margin: 0 auto; }
+            .creator-badge { margin: 0 auto; }
             .search-box { width: 100%; }
         }
     </style>
@@ -263,9 +277,12 @@
 <div class="container">
     <div class="header">
         <div class="header-top">
-            <div class="streamer-badge" id="streamerBadge" style="display: none;">
-                <img src="" id="streamerAvatar" alt="Streamer">
-                <span class="streamer-name" id="streamerNameText">Стример</span>
+            <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
+                <div class="creator-info">
+                    <span class="creator-label">Created by</span>
+                    <span class="creator-name">MadMan1408</span>
+                </div>
             </div>
             
             <h1>🎟️ Афиша нашего Чатика</h1>
@@ -280,6 +297,7 @@
                 <option value="all">🎭 Все зрители</option>
             </select>
 
+            <!-- 🔥 ОБНОВЛЕННЫЕ ФИЛЬТРЫ СОРТИРОВКИ 🔥 -->
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
                 <option value="oldest">⏳ По дате заказа (По порядку)</option>
                 <option value="newest">✨ По дате заказа (Новые)</option>
@@ -294,30 +312,22 @@
         <thead>
             <tr>
                 <th style="width: 145px;">Постер</th>
-                <th style="width: auto;">Информация о фильме</th>
-                <th style="width: 140px;">Заказал</th>
-                <th style="width: 115px;">Время</th>
-                <th style="width: 140px;">Статус</th>
+                <th>Информация о фильме</th>
+                <th style="width: 170px;">Заказал</th>
+                <th style="width: 110px;">Время</th>
+                <th style="width: 160px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
             <tr><td colspan="5" style="text-align: center; padding: 40px; color: #94a3b8;">Загрузка базы данных... ⏳</td></tr>
         </tbody>
     </table>
-
-    <div class="footer-credits">
-        <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')" title="Перейти на канал MadMan1408">
-            <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
-            <div class="creator-info">
-                <span class="creator-label">Created by</span>
-                <span class="creator-name">MadMan1408</span>
-            </div>
-        </div>
-    </div>
 </div>
 
+<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
+        <!-- 🔥 ИДЕАЛЬНЫЙ SVG-КРЕСТИК 🔥 -->
         <div class="close-btn" onclick="closeModal(true)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>
@@ -329,9 +339,11 @@
                 
                 <div class="modal-title-wrapper">
                     <h2 class="modal-title" id="modalTitle">Название</h2>
+                    <!-- Кнопка копирования -->
                     <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Копировать название и год">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
+                    <!-- Блок бейджей в заголовке модалки -->
                     <div id="modalBadges" class="modal-badges"></div>
                 </div>
 
@@ -375,8 +387,13 @@
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
-    let currentModalMovie = null;
+    let currentModalMovie = null; // Для кнопки копирования в модалке
 
+    // Заглушки для фото
+    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
+
+    // Восстановление сортировки из localStorage
     const savedSortMode = localStorage.getItem('movieSortMode');
     if (savedSortMode) {
         document.getElementById('sortSelect').value = savedSortMode;
@@ -392,6 +409,7 @@
         return url;
     }
 
+    // 🔥 Копирование названия (Без скобок у года) 🔥
     function copyTextToClipboard(text, btnElement) {
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
@@ -408,7 +426,7 @@
     }
 
     function copyMovieNameFromTable(event, title, year, btnElement) {
-        event.stopPropagation();
+        event.stopPropagation(); // Чтобы не открывалась модалка
         copyTextToClipboard(`${title} ${year}`, btnElement);
     }
 
@@ -427,27 +445,10 @@
                 document.getElementById('creatorAvatar').src = data[0].logo.replace('300x300', '150x150');
             }
         } catch (e) {
-            console.log('Не удалось загрузить аватарку создателя.');
-        }
-    }
-    loadCreatorAvatar();
-
-    async function loadStreamerAvatar(username) {
-        try {
-            const res = await fetch(`https://api.ivr.fi/v2/twitch/user?login=${username}`);
-            const data = await res.json();
-            if (data && data.length > 0 && data[0].logo) {
-                const badge = document.getElementById('streamerBadge');
-                document.getElementById('streamerAvatar').src = data[0].logo.replace('300x300', '150x150');
-                document.getElementById('streamerNameText').innerText = username;
-                
-                badge.style.display = 'flex';
-                badge.onclick = () => window.open(`https://twitch.tv/${username}`, '_blank');
-            }
-        } catch (e) {
             console.log('Не удалось загрузить аватарку стримера.');
         }
     }
+    loadCreatorAvatar();
 
     function stringToColor(str) {
         let hash = 0;
@@ -485,18 +486,8 @@
             
             const data = await response.json();
             rawMoviesData = [];
-            
-            // 🔥 Защита: проверяем, есть ли метаданные стримера
-            if (data["_metadata_"] && data["_metadata_"].streamer) {
-                loadStreamerAvatar(data["_metadata_"].streamer);
-            }
 
             for (const user in data) {
-                if (user === "_metadata_") continue; 
-                
-                // 🔥 ЗАЩИТА: Пропускаем всё, что не является массивом фильмов (чтобы не было ошибки) 🔥
-                if (!Array.isArray(data[user])) continue; 
-
                 data[user].forEach(movie => {
                     rawMoviesData.push({ 
                         ...movie, 
@@ -535,55 +526,53 @@
         });
     }
 
+    // 🔥 ЛОГИКА ФИЛЬТРАЦИИ И СОРТИРОВКИ 🔥
     function applyFilters() {
-        try {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const sortMode = document.getElementById('sortSelect').value;
-            const userFilterVal = document.getElementById('userFilter').value;
-            
-            localStorage.setItem('movieSortMode', sortMode);
-            
-            let filtered = [...rawMoviesData];
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        const sortMode = document.getElementById('sortSelect').value;
+        const userFilterVal = document.getElementById('userFilter').value;
+        
+        // Сохраняем сортировку
+        localStorage.setItem('movieSortMode', sortMode);
+        
+        let filtered = [...rawMoviesData];
 
-            if (userFilterVal !== 'all') {
-                filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
-            }
-
-            if (searchQuery.trim() !== '') {
-                filtered = filtered.filter(m => 
-                    m.title.toLowerCase().includes(searchQuery) || 
-                    m.requestedBy.toLowerCase().includes(searchQuery)
-                );
-            }
-
-            if (sortMode === 'waiting') {
-                filtered = filtered.filter(m => m.status === 'Не смотрели');
-                filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
-            } 
-            else if (sortMode === 'watched') {
-                filtered = filtered.filter(m => m.status === 'Смотрели');
-                filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
-            }
-            else if (sortMode === 'auction') {
-                filtered = filtered.filter(m => m.isAuction === true);
-                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-            }
-            else if (sortMode === 'cried') {
-                filtered = filtered.filter(m => m.cried === true);
-                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-            }
-            else if (sortMode === 'newest') {
-                filtered.sort((a, b) => b.parsedDate - a.parsedDate);
-            }
-            else if (sortMode === 'oldest') {
-                filtered.sort((a, b) => a.parsedDate - b.parsedDate);
-            }
-
-            currentViewData = filtered;
-            renderTable(currentViewData);
-        } catch (e) {
-            console.error('Ошибка при фильтрации:', e);
+        if (userFilterVal !== 'all') {
+            filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         }
+
+        if (searchQuery.trim() !== '') {
+            filtered = filtered.filter(m => 
+                m.title.toLowerCase().includes(searchQuery) || 
+                m.requestedBy.toLowerCase().includes(searchQuery)
+            );
+        }
+
+        if (sortMode === 'waiting') {
+            filtered = filtered.filter(m => m.status === 'Не смотрели');
+            filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
+        } 
+        else if (sortMode === 'watched') {
+            filtered = filtered.filter(m => m.status === 'Смотрели');
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
+        }
+        else if (sortMode === 'auction') {
+            filtered = filtered.filter(m => m.isAuction === true);
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+        }
+        else if (sortMode === 'cried') {
+            filtered = filtered.filter(m => m.cried === true);
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+        }
+        else if (sortMode === 'newest') {
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate);
+        }
+        else if (sortMode === 'oldest') {
+            filtered.sort((a, b) => a.parsedDate - b.parsedDate);
+        }
+
+        currentViewData = filtered;
+        renderTable(currentViewData);
     }
 
     function renderTable(dataArray) {
@@ -622,6 +611,7 @@
             
             const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             
+            // 🔥 Отрисовка слова "ПЛАКАЛИ" с иконкой под словом (fallback на эмодзи 😭) 🔥
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>ПЛАКАЛИ</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;">
@@ -631,6 +621,7 @@
                 ${criedHTML}
             ` : '';
 
+            // 🔥 БЕЙДЖИ ДЛЯ ШАПКИ 🔥
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             const idBadge = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
@@ -658,15 +649,8 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            // 🔥 ВРЕМЯ И СЕЗОНЫ С КРАСИВОЙ ОБВОДКОЙ 🔥
-            let runtimeDisplay = `<div style="display: flex; flex-direction: column; gap: 8px; align-items: center;">`;
-            if (movie.runtime && movie.runtime !== "Неизвестно") {
-                 runtimeDisplay += `<span class="outline-badge" style="font-size: 13px; padding: 4px 10px; border-color: rgba(148, 163, 184, 0.4); color: #e2e8f0; font-weight: 700;">⏱ ${movie.runtime}</span>`;
-            }
-            if (movie.seasons && movie.episodes) {
-                 runtimeDisplay += `<span class="outline-badge" style="font-size: 12px; padding: 4px 10px; border-color: rgba(99, 102, 241, 0.4); color: #a5b4fc; text-align: center; line-height: 1.3;">📺 ${movie.seasons} сез.<br>${movie.episodes} сер.</span>`;
-            }
-            runtimeDisplay += `</div>`;
+            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
+            if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
 
             const userColor = stringToColor(cleanNick);
 
@@ -678,6 +662,7 @@
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
 
+            // 🔥 Отрисовка плашки "Аукцион" в красивой рамке 🔥
             const auctionHTML = movie.isAuction ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #f59e0b; font-weight: 700; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); padding: 4px 10px; border-radius: 6px;">🔨 Аукцион!</div>` : '';
             const dateReqHTML = `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;" title="Дата заказа">
@@ -687,6 +672,7 @@
                 ${auctionHTML}
             `;
             
+            // Защита от кавычек в названии (для правильного копирования)
             const safeTitle = movie.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             tr.innerHTML = `
@@ -731,7 +717,7 @@
 
     function openModal(index) {
         const movie = currentViewData[index]; 
-        currentModalMovie = movie; 
+        currentModalMovie = movie; // Сохраняем для кнопки копирования
         
         const modal = document.getElementById('movieModal');
         
@@ -746,11 +732,13 @@
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
         document.getElementById('modalTitle').textContent = movie.title;
 
+        // 🔥 Заполнение бейджей в заголовке модалки 🔥
         const tmdbBadgeModal = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
         const ageRatingModal = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
         const idBadgeModal = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
         document.getElementById('modalBadges').innerHTML = `${tmdbBadgeModal}${ageRatingModal}${idBadgeModal}`;
         
+        // Мета-информация (Год, Жанр, Длительность, Оценка)
         let metaText = `${movie.year} • ${movie.type} • ${movie.runtime}`;
         if (movie.status === 'Смотрели' && movie.ourRating) {
             metaText += ` • <span style="color:#10b981;">Наша оценка: ⭐ ${movie.ourRating}</span>`;
@@ -759,12 +747,14 @@
         
         document.getElementById('modalOverview').textContent = movie.overview;
         
+        // 🔥 Обновление даты заказа в модалке 🔥
         let modalDateReqText = `<div>${movie.dateRequested || 'Нет данных'}</div>`;
         if (movie.isAuction) {
             modalDateReqText += `<div style="display: inline-flex; align-items: center; gap: 6px; color: #f59e0b; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-top: 8px; background: rgba(245, 158, 11, 0.1); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(245,158,11,0.2);">🔨 Аукцион!</div>`;
         }
         document.getElementById('modalDateReq').innerHTML = modalDateReqText;
         
+        // 🔥 Обновление даты просмотра в модалке 🔥
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
             let watchedText = `<div>${movie.dateWatched}</div>`;
