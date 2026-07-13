@@ -491,7 +491,7 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false,
+      "isAuction": true,
       "poster": "https://image.tmdb.org/t/p/w500/g7f8GdnJKS0Z3QJ5G6P9BZrqs36.jpg",
       "tagline": "«Бесстрашным Мечтателям Посвящается»",
       "backdrop": "https://image.tmdb.org/t/p/original/nlPCdZlHtRNcF6C9hzUH4ebmV1w.jpg",
