@@ -387,7 +387,7 @@
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
-    let currentModalMovie = null; // Для кнопки копирования в модалке
+    let currentModalMovie = null; 
 
     // Заглушки для фото
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
@@ -409,7 +409,6 @@
         return url;
     }
 
-    // 🔥 Копирование названия (Без скобок у года) 🔥
     function copyTextToClipboard(text, btnElement) {
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
@@ -433,7 +432,7 @@
     function copyMovieNameFromModal() {
         if (currentModalMovie) {
             const btn = document.getElementById('modalCopyBtn');
-            copyTextToClipboard(`${currentModalMovie.title} ${currentModalMovie.year}`, btn);
+            copyTextToClipboard(`${currentModalMovie.title || ''} ${currentModalMovie.year || ''}`, btn);
         }
     }
 
@@ -451,6 +450,7 @@
     loadCreatorAvatar();
 
     function stringToColor(str) {
+        if (!str) return '#6366f1E6';
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
             hash = str.charCodeAt(i) + ((hash << 5) - hash);
@@ -464,12 +464,13 @@
     }
 
     function getInitials(name) {
+        if (!name) return '??';
         let cleanName = name.replace('@', '').trim();
         return cleanName.substring(0, 2).toUpperCase();
     }
 
     function parseDateObj(dateStr) {
-        if (!dateStr) return 0;
+        if (!dateStr || typeof dateStr !== 'string') return 0;
         const parts = dateStr.split(' ');
         if (parts.length !== 2) return 0;
         const dmy = parts[0].split('.');
@@ -482,36 +483,53 @@
         const tbody = document.getElementById('table-body');
         try {
             const response = await fetch('RequestedMovies.json?t=' + new Date().getTime());
-            if (!response.ok) throw new Error('Не удалось загрузить JSON');
+            if (!response.ok) throw new Error(`Не удалось загрузить JSON (Статус: ${response.status})`);
             
             const data = await response.json();
             rawMoviesData = [];
 
-            for (const user in data) {
-                data[user].forEach(movie => {
-                    rawMoviesData.push({ 
-                        ...movie, 
-                        requestedBy: user,
+            // УМНЫЙ АНАЛИЗ СТРУКТУРЫ JSON (Поддержка массивов и объектов)
+            if (Array.isArray(data)) {
+                // Если JSON — это обычный массив [ {фильм1}, {фильм2} ]
+                data.forEach(movie => {
+                    rawMoviesData.push({
+                        ...movie,
+                        requestedBy: movie.requestedBy || 'Аноним',
                         parsedDate: parseDateObj(movie.dateRequested)
                     });
                 });
+            } else if (typeof data === 'object' && data !== null) {
+                // Если JSON сгруппирован по пользователям { "User1": [массив] }
+                for (const user in data) {
+                    if (Array.isArray(data[user])) {
+                        data[user].forEach(movie => {
+                            rawMoviesData.push({ 
+                                ...movie, 
+                                requestedBy: user,
+                                parsedDate: parseDateObj(movie.dateRequested)
+                            });
+                        });
+                    }
+                }
             }
 
             populateUserFilter();
             applyFilters();
 
             if (window.innerWidth > 768) {
-                document.querySelector('.desktop-spacer').style.display = 'block';
+                const spacer = document.querySelector('.desktop-spacer');
+                if (spacer) spacer.style.display = 'block';
             }
 
         } catch (error) {
-            console.error('Ошибка:', error);
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">❌ Ошибка при загрузке данных.</td></tr>';
+            console.error('Ошибка загрузки или обработки данных:', error);
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">❌ Ошибка при загрузке данных.<br><span style="font-size: 12px; color: #94a3b8;">Подробности в консоли браузера (F12)</span></td></tr>`;
         }
     }
 
     function populateUserFilter() {
         const filterEl = document.getElementById('userFilter');
+        if (!filterEl) return;
         filterEl.innerHTML = '<option value="all">🎭 Все зрители</option>';
         
         const uniqueUsers = [...new Set(rawMoviesData.map(m => m.requestedBy))];
@@ -526,13 +544,11 @@
         });
     }
 
-    // 🔥 ЛОГИКА ФИЛЬТРАЦИИ И СОРТИРОВКИ 🔥
     function applyFilters() {
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
         const sortMode = document.getElementById('sortSelect').value;
         const userFilterVal = document.getElementById('userFilter').value;
         
-        // Сохраняем сортировку
         localStorage.setItem('movieSortMode', sortMode);
         
         let filtered = [...rawMoviesData];
@@ -543,8 +559,8 @@
 
         if (searchQuery.trim() !== '') {
             filtered = filtered.filter(m => 
-                m.title.toLowerCase().includes(searchQuery) || 
-                m.requestedBy.toLowerCase().includes(searchQuery)
+                (m.title && m.title.toLowerCase().includes(searchQuery)) || 
+                (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery))
             );
         }
 
@@ -611,7 +627,6 @@
             
             const statusText = isWatched ? `Смотрели<br><span style="font-size: 11px; opacity: 0.85;">(Наша оценка: ⭐ ${movie.ourRating || '-'})</span>` : 'Не смотрели';
             
-            // 🔥 Отрисовка слова "ПЛАКАЛИ" с иконкой под словом (fallback на эмодзи 😭) 🔥
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: #38bdf8; font-weight: 700; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 8px;"><span>ПЛАКАЛИ</span><img src="tear.png" style="width: 28px; height: 28px; object-fit: contain;" onerror="this.outerHTML='<span style=&quot;font-size: 28px; line-height: 1;&quot;>😭</span>'"></div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;">
@@ -621,7 +636,6 @@
                 ${criedHTML}
             ` : '';
 
-            // 🔥 БЕЙДЖИ ДЛЯ ШАПКИ 🔥
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             const idBadge = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
@@ -639,7 +653,7 @@
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
-                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name}"><img src="${getSafePhoto(actor.photo)}" class="avatar" alt="${actor.name}"></div>`).join('');
+                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name || ''}"><img src="${getSafePhoto(actor.photo)}" class="avatar" alt="${actor.name || ''}"></div>`).join('');
                 castHtml = `<div class="cast-group">${avatars}</div>`;
             }
 
@@ -649,7 +663,7 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime}</div>`;
+            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime || 'Нет данных'}</div>`;
             if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
 
             const userColor = stringToColor(cleanNick);
@@ -662,7 +676,6 @@
                 avatarMarkup = `<div class="req-avatar" style="background-color: ${userColor};">${userInitials}</div>`;
             }
 
-            // 🔥 Отрисовка плашки "Аукцион" в красивой рамке 🔥
             const auctionHTML = movie.isAuction ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #f59e0b; font-weight: 700; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); padding: 4px 10px; border-radius: 6px;">🔨 Аукцион!</div>` : '';
             const dateReqHTML = `
                 <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-top: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px;" title="Дата заказа">
@@ -672,8 +685,7 @@
                 ${auctionHTML}
             `;
             
-            // Защита от кавычек в названии (для правильного копирования)
-            const safeTitle = movie.title.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             tr.innerHTML = `
                 <td>
@@ -682,16 +694,16 @@
                 <td>
                     <div class="movie-info">
                         <div class="movie-header">
-                            <span class="movie-title">${movie.title}</span>
-                            <span class="movie-year">(${movie.year})</span>
-                            <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year}', this)" title="Копировать название">
+                            <span class="movie-title">${movie.title || 'Без названия'}</span>
+                            <span class="movie-year">(${movie.year || '----'})</span>
+                            <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Копировать название">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             </button>
                             ${tmdbBadge}
                             ${ageRating}
                             ${idBadge}
                         </div>
-                        <div class="movie-genres">${movie.genres}</div>
+                        <div class="movie-genres">${movie.genres || 'Жанры не указаны'}</div>
                         ${tagline}
                         ${studiosHTML}
                         ${overviewHTML}
@@ -717,11 +729,11 @@
 
     function openModal(index) {
         const movie = currentViewData[index]; 
-        currentModalMovie = movie; // Сохраняем для кнопки копирования
+        currentModalMovie = movie; 
         
         const modal = document.getElementById('movieModal');
-        
         const heroEl = document.getElementById('modalHero');
+        
         if (movie.backdrop) {
             heroEl.style.backgroundImage = `url('${movie.backdrop}')`;
             heroEl.style.display = 'block';
@@ -730,31 +742,27 @@
         }
 
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
-        document.getElementById('modalTitle').textContent = movie.title;
+        document.getElementById('modalTitle').textContent = movie.title || 'Без названия';
 
-        // 🔥 Заполнение бейджей в заголовке модалки 🔥
         const tmdbBadgeModal = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
         const ageRatingModal = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
         const idBadgeModal = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
         document.getElementById('modalBadges').innerHTML = `${tmdbBadgeModal}${ageRatingModal}${idBadgeModal}`;
         
-        // Мета-информация (Год, Жанр, Длительность, Оценка)
-        let metaText = `${movie.year} • ${movie.type} • ${movie.runtime}`;
+        let metaText = `${movie.year || '----'} • ${movie.type || 'Фильм'} • ${movie.runtime || 'Нет данных'}`;
         if (movie.status === 'Смотрели' && movie.ourRating) {
             metaText += ` • <span style="color:#10b981;">Наша оценка: ⭐ ${movie.ourRating}</span>`;
         }
         document.getElementById('modalMeta').innerHTML = metaText;
         
-        document.getElementById('modalOverview').textContent = movie.overview;
+        document.getElementById('modalOverview').textContent = movie.overview || 'Описание отсутствует.';
         
-        // 🔥 Обновление даты заказа в модалке 🔥
         let modalDateReqText = `<div>${movie.dateRequested || 'Нет данных'}</div>`;
         if (movie.isAuction) {
             modalDateReqText += `<div style="display: inline-flex; align-items: center; gap: 6px; color: #f59e0b; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-top: 8px; background: rgba(245, 158, 11, 0.1); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(245,158,11,0.2);">🔨 Аукцион!</div>`;
         }
         document.getElementById('modalDateReq').innerHTML = modalDateReqText;
         
-        // 🔥 Обновление даты просмотра в модалке 🔥
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
             let watchedText = `<div>${movie.dateWatched}</div>`;
@@ -799,9 +807,9 @@
         let castSection = '';
         if (Array.isArray(movie.cast) && movie.cast.length > 0) {
             let castCards = movie.cast.map(actor => `
-                <div class="crew-card" title="В ролях: ${actor.name}">
-                    <img src="${getSafePhoto(actor.photo)}" alt="${actor.name}">
-                    <span>${actor.name}</span>
+                <div class="crew-card" title="В ролях: ${actor.name || ''}">
+                    <img src="${getSafePhoto(actor.photo)}" alt="${actor.name || ''}">
+                    <span>${actor.name || 'Актер'}</span>
                 </div>
             `).join('');
             castSection = `
@@ -813,9 +821,7 @@
         }
         
         document.getElementById('modalCrewSection').innerHTML = directorSection + castSection;
-
-        document.getElementById('modalFinances').textContent = `${movie.budget} / ${movie.revenue}`;
-        
+        document.getElementById('modalFinances').textContent = `${movie.budget || '0 $'} / ${movie.revenue || '0 $'}`;
         document.getElementById('modalStudios').innerHTML = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper');
@@ -834,12 +840,12 @@
         document.body.style.overflow = 'hidden'; 
     }
 
-    function closeModal(force = false) {
-        if (force === true || event.target.id === 'movieModal') {
+    // ИСПРАВЛЕННАЯ ФУНКЦИЯ ЗАКРЫТИЯ МОДАЛКИ (Без багов с event)
+    function closeModal(arg) {
+        if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             const modal = document.getElementById('movieModal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto'; 
-            
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
         }
     }
