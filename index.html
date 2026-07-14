@@ -297,7 +297,6 @@
                 <option value="all">🎭 Все зрители</option>
             </select>
 
-            <!-- 🔥 ОБНОВЛЕННЫЕ ФИЛЬТРЫ СОРТИРОВКИ 🔥 -->
             <select id="sortSelect" class="sort-select" onchange="applyFilters()">
                 <option value="oldest">⏳ По дате заказа (По порядку)</option>
                 <option value="newest">✨ По дате заказа (Новые)</option>
@@ -324,10 +323,8 @@
     </table>
 </div>
 
-<!-- Модальное окно -->
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <!-- 🔥 ИДЕАЛЬНЫЙ SVG-КРЕСТИК 🔥 -->
         <div class="close-btn" onclick="closeModal(true)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>
@@ -339,11 +336,9 @@
                 
                 <div class="modal-title-wrapper">
                     <h2 class="modal-title" id="modalTitle">Название</h2>
-                    <!-- Кнопка копирования -->
                     <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Копировать название и год">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
-                    <!-- Блок бейджей в заголовке модалки -->
                     <div id="modalBadges" class="modal-badges"></div>
                 </div>
 
@@ -392,6 +387,14 @@
     // Заглушки для фото
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
+
+    // 🔥 ФИКС: Функция защиты от XSS
+    function escapeHTML(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>'"]/g, tag => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+        }[tag]));
+    }
 
     // Восстановление сортировки из localStorage
     const savedSortMode = localStorage.getItem('movieSortMode');
@@ -488,9 +491,8 @@
             const data = await response.json();
             rawMoviesData = [];
 
-            // УМНЫЙ АНАЛИЗ СТРУКТУРЫ JSON (Поддержка массивов и объектов)
+            // УМНЫЙ АНАЛИЗ СТРУКТУРЫ JSON
             if (Array.isArray(data)) {
-                // Если JSON — это обычный массив [ {фильм1}, {фильм2} ]
                 data.forEach(movie => {
                     rawMoviesData.push({
                         ...movie,
@@ -499,7 +501,6 @@
                     });
                 });
             } else if (typeof data === 'object' && data !== null) {
-                // Если JSON сгруппирован по пользователям { "User1": [массив] }
                 for (const user in data) {
                     if (Array.isArray(data[user])) {
                         data[user].forEach(movie => {
@@ -640,26 +641,37 @@
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             const idBadge = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
             
-            const tagline = movie.tagline ? `<div class="movie-tagline">«${movie.tagline}»</div>` : '';
-            
             let displayStudios = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
             const studiosHTML = `<div class="movie-studios-list">${displayStudios}</div>`;
 
-            const overviewHTML = movie.overview ? `
+            // 🔥 ФИКС: Экранирование текста от взлома
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const cleanTitle = escapeHTML(movie.title || 'Без названия');
+            const cleanOverview = escapeHTML(movie.overview || '');
+            const cleanTagline = escapeHTML(movie.tagline || '');
+            const cleanGenres = escapeHTML(movie.genres || 'Жанры не указаны');
+
+            const taglineHTML = cleanTagline ? `<div class="movie-tagline">«${cleanTagline}»</div>` : '';
+
+            const overviewHTML = cleanOverview ? `
                 <div class="movie-overview-wrapper">
-                    <div class="movie-overview-text">${movie.overview}</div>
+                    <div class="movie-overview-text">${cleanOverview}</div>
                 </div>
             ` : '';
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
-                const avatars = movie.cast.slice(0, 4).map(actor => `<div class="avatar-container" title="${actor.name || ''}"><img src="${getSafePhoto(actor.photo)}" class="avatar" alt="${actor.name || ''}"></div>`).join('');
+                const avatars = movie.cast.slice(0, 4).map(actor => {
+                    const safeActorName = escapeHTML(actor.name || '');
+                    return `<div class="avatar-container" title="${safeActorName}"><img src="${getSafePhoto(actor.photo)}" class="avatar" alt="${safeActorName}"></div>`;
+                }).join('');
                 castHtml = `<div class="cast-group">${avatars}</div>`;
             }
 
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
-                directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: rgba(59, 130, 246, 0.5);" alt="${movie.director.name}" title="Режиссер: ${movie.director.name}">`;
+                const safeDirName = escapeHTML(movie.director.name);
+                directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" style="border-color: rgba(59, 130, 246, 0.5);" alt="${safeDirName}" title="Режиссер: ${safeDirName}">`;
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
@@ -684,8 +696,6 @@
                 </div>
                 ${auctionHTML}
             `;
-            
-            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             tr.innerHTML = `
                 <td>
@@ -694,7 +704,7 @@
                 <td>
                     <div class="movie-info">
                         <div class="movie-header">
-                            <span class="movie-title">${movie.title || 'Без названия'}</span>
+                            <span class="movie-title">${cleanTitle}</span>
                             <span class="movie-year">(${movie.year || '----'})</span>
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Копировать название">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -703,8 +713,8 @@
                             ${ageRating}
                             ${idBadge}
                         </div>
-                        <div class="movie-genres">${movie.genres || 'Жанры не указаны'}</div>
-                        ${tagline}
+                        <div class="movie-genres">${cleanGenres}</div>
+                        ${taglineHTML}
                         ${studiosHTML}
                         ${overviewHTML}
                         <div class="crew-section">${directorHtml}${castHtml}</div>
@@ -742,6 +752,8 @@
         }
 
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
+        
+        // Здесь используется textContent, который сам по себе безопасен от XSS
         document.getElementById('modalTitle').textContent = movie.title || 'Без названия';
 
         const tmdbBadgeModal = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
@@ -755,6 +767,7 @@
         }
         document.getElementById('modalMeta').innerHTML = metaText;
         
+        // Безопасная вставка текста
         document.getElementById('modalOverview').textContent = movie.overview || 'Описание отсутствует.';
         
         let modalDateReqText = `<div>${movie.dateRequested || 'Нет данных'}</div>`;
@@ -793,12 +806,13 @@
 
         let directorSection = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
+            const safeDirName = escapeHTML(movie.director.name);
             directorSection = `
                 <div class="modal-crew-group">
                     <div class="grid-label">Режиссер</div>
-                    <div class="crew-card director" title="Режиссер: ${movie.director.name}">
-                        <img src="${getSafePhoto(movie.director.photo)}" alt="${movie.director.name}">
-                        <span>${movie.director.name}</span>
+                    <div class="crew-card director" title="Режиссер: ${safeDirName}">
+                        <img src="${getSafePhoto(movie.director.photo)}" alt="${safeDirName}">
+                        <span>${safeDirName}</span>
                     </div>
                 </div>
             `;
@@ -806,12 +820,15 @@
 
         let castSection = '';
         if (Array.isArray(movie.cast) && movie.cast.length > 0) {
-            let castCards = movie.cast.map(actor => `
-                <div class="crew-card" title="В ролях: ${actor.name || ''}">
-                    <img src="${getSafePhoto(actor.photo)}" alt="${actor.name || ''}">
-                    <span>${actor.name || 'Актер'}</span>
+            let castCards = movie.cast.map(actor => {
+                const safeActorName = escapeHTML(actor.name || '');
+                return `
+                <div class="crew-card" title="В ролях: ${safeActorName}">
+                    <img src="${getSafePhoto(actor.photo)}" alt="${safeActorName}">
+                    <span>${safeActorName || 'Актер'}</span>
                 </div>
-            `).join('');
+                `;
+            }).join('');
             castSection = `
                 <div class="modal-crew-group">
                     <div class="grid-label">В ролях</div>
@@ -840,7 +857,6 @@
         document.body.style.overflow = 'hidden'; 
     }
 
-    // ИСПРАВЛЕННАЯ ФУНКЦИЯ ЗАКРЫТИЯ МОДАЛКИ (Без багов с event)
     function closeModal(arg) {
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             const modal = document.getElementById('movieModal');
