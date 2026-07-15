@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "15.07.2026 13:22"
+    "lastUpdated": "15.07.2026 13:24"
   },
   "cross_loss": [
     {
@@ -331,55 +331,6 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "seasons": "1",
       "episodes": "236",
-      "tvStatus": "Ended"
-    },
-    {
-      "id": 8,
-      "title": "Красотка",
-      "year": "2014",
-      "type": "Сериал",
-      "runtime": "45 мин",
-      "genres": "драма",
-      "studios": "Нет данных",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "6.7",
-      "overview": "Ана Лорена Ринкон — молодая и очень красивая девушка, которая живет в Лос-Анджелесе. Ана случайно встречается в магазине с Диего Луханом — наследником рекламного агентства, который так потрясен девушкой, что не может перестать о ней думать. Диего собирается жениться на известной модели Вивиане Роблес, но судьба превращает встречу Диего и Аны в страстную историю любви. За несколько дней до свадьбы Диего снова видит Ану на круизном судне, где она работает официанткой. Проведя вместе время, Диего решает отменить свадьбу и начать новую жизнь с Аной. Но все идет не так, как они ожидали.",
-      "dateRequested": "07.07.2026 01:32",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "poster": "https://image.tmdb.org/t/p/w500/qKrnFOCrVZ5SRFqSY2t0QsPEHsS.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/wfpiyCRN8H3rbDz3ErOWwNUx8i9.jpg",
-      "cast": [
-        {
-          "name": "Christian Meier",
-          "photo": "https://image.tmdb.org/t/p/w185/Aez99BPhe7e63RuOtWGiojrV3rm.jpg"
-        },
-        {
-          "name": "Ana Lorena Sanchez",
-          "photo": "https://image.tmdb.org/t/p/w185/dzqbMMRbvXwUajU06z4nvJaUPbb.jpg"
-        },
-        {
-          "name": "Pedro Moreno",
-          "photo": "https://image.tmdb.org/t/p/w185/aVtc3LeskczNOvcdEH7ZUDyQmSp.jpg"
-        },
-        {
-          "name": "Zuleyka Rivera",
-          "photo": "https://via.placeholder.com/185x278?text=No+Photo"
-        }
-      ],
-      "director": {
-        "name": "Leonardo Padrón",
-        "photo": "https://image.tmdb.org/t/p/w185/4uX82OYBoqCqoOQGS7X25Zj6B1I.jpg"
-      },
-      "trailer": "",
-      "ageRating": "TV-14",
-      "collection": "",
-      "keywords": "",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "seasons": "1",
-      "episodes": "146",
       "tvStatus": "Ended"
     },
     {
