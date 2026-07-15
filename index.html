@@ -6,46 +6,48 @@
     <title>Афиша нашего Чатика</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
-        /* --- ВОЛШЕБНАЯ ПАЛИТРА И ПЕРЕМЕННЫЕ --- */
+        /* --- ВОЛШЕБНАЯ ПАЛИТРА И ПЕРЕМЕННЫЕ (Сделано светлее и теплее) --- */
         :root {
-            --bg-deep: #050202;         /* Глубокий мрак */
-            --bg-sunset: #4a1506;       /* Теплый закатный свет из окна */
-            --bg-velvet: #140506;       /* Темный бархат (фон контейнера) */
+            --bg-deep: #0f0707;         /* Чуть светлее в самых темных участках */
+            --bg-sunset: #732612;       /* Было #4a1506 - сделали сочнее, ярче и светлее */
+            --bg-velvet: #240c0e;       /* Светлее бархатный бордовый */
             
-            --gold-light: #fce8aa;      /* Блик золота */
-            --gold-main: #ce995c;       /* Основное старинное золото */
-            --gold-dark: #6e4418;       /* Тень золота */
+            --gold-light: #fff0c7;      /* Сделали золото ярче */
+            --gold-main: #dfaa6b;       /* Более выразительное теплое золото */
+            --gold-dark: #8c5a2b;       /* Тень золота */
             
-            --blood-red: #8a0303;       /* Кроваво-красный */
-            --text-parchment: #e3d1c1;  /* Цвет старой бумаги для текста */
-            --text-muted: #9c8371;      /* Приглушенный текст */
+            --blood-red: #b30e0e;       /* Светлее кроваво-красный */
+            --text-parchment: #f0e2d5;  /* Более чистый и читаемый цвет пергамента */
+            --text-muted: #b0998b;      /* Светлее приглушенный текст */
             
             --font-title: 'Cinzel Decorative', serif;
             --font-text: 'Cormorant Garamond', serif;
         }
 
         body {
-            /* Эффект закатного освещения из референса */
+            /* Эффект закатного освещения из референса - увеличен радиус */
             background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at 50% 0%, var(--bg-sunset) 0%, var(--bg-velvet) 40%, var(--bg-deep) 100%);
+            background-image: radial-gradient(circle at 50% 0%, var(--bg-sunset) 0%, var(--bg-velvet) 55%, var(--bg-deep) 100%);
             color: var(--text-parchment);
             font-family: var(--font-text);
             margin: 0;
             padding: 50px 20px;
             min-height: 100vh;
             background-attachment: fixed;
+            /* Легкое свечение для всего обычного текста */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 10px rgba(240, 226, 213, 0.05);
         }
 
         /* --- ГЛАВНЫЙ КОНТЕЙНЕР (Гримуар) --- */
         .container {
             max-width: 1150px;
             margin: 0 auto;
-            background: rgba(14, 4, 5, 0.85);
+            background: rgba(26, 11, 12, 0.9); /* Сделали фон чуть светлее и прозрачнее */
             backdrop-filter: blur(12px);
             position: relative;
             box-shadow: 0 20px 60px rgba(0,0,0,0.9), inset 0 0 40px rgba(0,0,0,0.8);
             border: 1px solid var(--gold-dark);
-            padding: 4px; /* Место для внутренней рамки */
+            padding: 4px; 
         }
 
         /* Внутренняя декоративная рамка */
@@ -53,7 +55,7 @@
             content: '';
             position: absolute;
             top: 4px; left: 4px; right: 4px; bottom: 4px;
-            border: 1px solid rgba(206, 153, 92, 0.3);
+            border: 1px solid rgba(223, 170, 107, 0.35);
             pointer-events: none;
             z-index: 10;
         }
@@ -69,7 +71,7 @@
 
         /* Внутренняя обертка контента */
         .content-wrapper {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 2;
         }
@@ -79,8 +81,8 @@
             padding: 40px 30px 30px;
             text-align: center;
             position: relative;
-            background: radial-gradient(ellipse at top, rgba(206, 153, 92, 0.05) 0%, transparent 70%);
-            border-bottom: 1px solid rgba(206, 153, 92, 0.15);
+            background: radial-gradient(ellipse at top, rgba(223, 170, 107, 0.08) 0%, transparent 70%);
+            border-bottom: 1px solid rgba(223, 170, 107, 0.2);
         }
 
         .header::after {
@@ -90,11 +92,11 @@
             transform: translateX(-50%);
             color: var(--gold-main);
             font-size: 14px;
-            background: var(--bg-velvet);
+            background: #240c0e;
             padding: 0 10px;
         }
 
-        /* Главный Заголовок в стиле референса */
+        /* Главный Заголовок */
         .header-top h1 { 
             font-family: var(--font-title);
             font-size: 52px; 
@@ -104,8 +106,8 @@
             position: relative;
             display: inline-block;
 
-            /* Тот самый литой золотой градиент */
-            background: linear-gradient(to bottom, #fce8aa 0%, #ce995c 35%, #965e21 65%, #381503 100%);
+            /* Литой золотой градиент */
+            background: linear-gradient(to bottom, #fce8aa 0%, #dfaa6b 35%, #8c5a2b 65%, #381503 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -113,10 +115,10 @@
             
             /* Темная обводка и волшебное свечение */
             -webkit-text-stroke: 1px #210901;
-            filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 25px rgba(206, 153, 92, 0.25));
+            filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 25px rgba(223, 170, 107, 0.35));
         }
 
-        /* Декоративные вензеля по бокам от заголовка (как на картинке) */
+        /* Декоративные вензеля по бокам от заголовка */
         .header-top h1::before,
         .header-top h1::after {
             content: '— ✥ —';
@@ -129,11 +131,11 @@
             color: var(--gold-main);
             -webkit-text-fill-color: var(--gold-main);
             -webkit-text-stroke: 0px;
-            filter: drop-shadow(0 0 8px rgba(206, 153, 92, 0.4));
+            filter: drop-shadow(0 0 8px rgba(223, 170, 107, 0.5));
             letter-spacing: 0;
         }
 
-        /* Плашка Создателя (стилизована под печать/камею) */
+        /* Плашка Создателя */
         .creator-badge {
             position: absolute;
             top: 25px; left: 30px;
@@ -141,7 +143,7 @@
             background: transparent; 
             padding: 5px; cursor: pointer;
             transition: all 0.4s ease;
-            opacity: 0.8;
+            opacity: 0.85;
         }
         .creator-badge:hover { opacity: 1; filter: drop-shadow(0 0 10px var(--gold-main)); }
         .creator-badge img { 
@@ -180,7 +182,7 @@
         .search-box::placeholder { color: var(--text-muted); font-style: italic; }
         .search-box:focus, .sort-select:focus { 
             border-bottom-color: var(--gold-main); 
-            box-shadow: 0 10px 15px -10px rgba(206, 153, 92, 0.4);
+            box-shadow: 0 10px 15px -10px rgba(223, 170, 107, 0.45);
             color: #fff;
         }
         .sort-select { cursor: pointer; }
@@ -191,19 +193,26 @@
         
         th { 
             text-align: center; 
-            color: var(--gold-dark); 
+            color: var(--gold-main); 
             font-weight: 700; 
             font-size: 13px; 
             text-transform: uppercase; 
             padding: 25px 12px 15px; 
-            border-bottom: 1px solid rgba(206, 153, 92, 0.1); 
+            border-bottom: 1px solid rgba(223, 170, 107, 0.2); 
             font-family: var(--font-title);
             letter-spacing: 2px;
         }
-        td { padding: 25px 15px; vertical-align: top; border-bottom: 1px solid rgba(255,255,255,0.02); }
+        td { padding: 25px 15px; vertical-align: top; border-bottom: 1px solid rgba(255,255,255,0.04); }
         
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
-        td:nth-child(2) { text-align: left; }
+        
+        /* 🔥 СВЕЧЕНИЕ ДЛЯ ТЕКСТА ИСТОРИИ (ВТОРАЯ КОЛОНКА) 🔥 */
+        td:nth-child(2) { 
+            text-align: left; 
+            /* Мягкий янтарный свет, бьющий из-под текста */
+            background: radial-gradient(circle at 15% 50%, rgba(223, 170, 107, 0.1) 0%, transparent 75%);
+            transition: background 0.6s ease;
+        }
 
         tr.movie-row { 
             cursor: pointer; 
@@ -211,17 +220,18 @@
             position: relative;
         }
         
-        tr.movie-row:hover { 
-            background: radial-gradient(ellipse at center, rgba(138, 3, 3, 0.15) 0%, transparent 80%); 
+        /* При наведении фоновое свечение за текстом разгорается багрово-красным пламенем */
+        tr.movie-row:hover td:nth-child(2) { 
+            background: radial-gradient(circle at 15% 50%, rgba(179, 14, 14, 0.18) 0%, transparent 75%); 
         } 
 
-        /* Постеры в стиле картин */
+        /* Постеры */
         .poster-wrapper { 
             width: 140px; height: 210px; 
             overflow: hidden; 
             margin: 0 auto; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.8), 0 0 0 1px var(--gold-dark);
-            border: 4px solid #000; /* Эффект паспарту */
+            border: 4px solid #000; 
             transition: all 0.5s ease;
             position: relative;
         }
@@ -246,33 +256,36 @@
         .copy-btn:hover { color: var(--gold-main); transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); }
         .copy-btn.copied { color: #10b981; }
 
-        /* Эмблемы характеристик (в стиле венков на картинке) */
+        /* Эмблемы характеристик */
         .outline-badge { 
-            border: 1px solid rgba(206, 153, 92, 0.3); color: var(--text-muted); 
+            border: 1px solid rgba(223, 170, 107, 0.4); color: var(--text-muted); 
             padding: 2px 10px; font-size: 12px; font-weight: 600; 
             display: inline-flex; align-items: center; justify-content: center;
             background: rgba(0,0,0,0.5); border-radius: 2px;
             font-family: var(--font-title); letter-spacing: 1px;
+            text-shadow: none;
         }
         .tmdb-badge { 
             color: var(--gold-main); 
             padding: 2px 10px; font-size: 13px; font-weight: 700; 
             border: 1px solid var(--gold-main); display: inline-flex; align-items: center;
-            background: rgba(206, 153, 92, 0.05); border-radius: 2px;
-            box-shadow: inset 0 0 10px rgba(206,153,92,0.1);
+            background: rgba(223, 170, 107, 0.08); border-radius: 2px;
+            box-shadow: inset 0 0 10px rgba(223,170,107,0.15);
             font-family: var(--font-title); letter-spacing: 1px;
+            text-shadow: none;
         }
         
         .content-type-badge { 
-            background: rgba(138, 3, 3, 0.15); 
+            background: rgba(179, 14, 14, 0.2); 
             border: 1px solid var(--blood-red); 
             color: #ffb3b3; 
             padding: 2px 10px; 
             font-size: 12px; font-weight: 700; 
             text-transform: uppercase; letter-spacing: 2px; 
-            box-shadow: 0 0 15px rgba(138, 3, 3, 0.2); 
+            box-shadow: 0 0 15px rgba(179, 14, 14, 0.3); 
             display: inline-flex; align-items: center;
             font-family: var(--font-title); border-radius: 2px;
+            text-shadow: none;
         }
 
         /* Время / Хронометраж */
@@ -283,7 +296,7 @@
             display: inline-flex; align-items: center; gap: 8px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
-        .time-box svg { stroke: var(--gold-main); opacity: 0.7; }
+        .time-box svg { stroke: var(--gold-main); opacity: 0.8; }
         
         .time-box.episodes {
             font-size: 14px;
@@ -294,15 +307,15 @@
 
         .movie-genres { font-size: 17px; color: var(--gold-main); font-style: italic; letter-spacing: 0.5px; }
         .movie-tagline { font-size: 18px; color: var(--text-muted); margin-top: 4px; font-weight: 600; }
-        .movie-studios-list { font-size: 14px; color: #7a6558; margin-top: 4px; text-transform: uppercase; font-family: var(--font-title); letter-spacing: 1px; }
+        .movie-studios-list { font-size: 14px; color: #8f7566; margin-top: 4px; text-transform: uppercase; font-family: var(--font-title); letter-spacing: 1px; }
 
         /* Текст описания */
         .movie-overview-wrapper { margin-top: 10px; max-height: 52px; overflow: hidden; transition: max-height 0.8s ease; position: relative; }
         .movie-overview-wrapper::after {
             content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 25px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); transition: opacity 0.3s;
+            background: linear-gradient(to top, rgba(15, 7, 7, 0.9), transparent); transition: opacity 0.3s;
         }
-        .movie-overview-text { font-size: 19px; line-height: 1.5; color: #8a786b; transition: color 0.4s ease; text-align: justify; }
+        .movie-overview-text { font-size: 19px; line-height: 1.5; color: #a18b7d; transition: color 0.4s ease; text-align: justify; }
 
         /* Кто заказал */
         .requester-badge {
@@ -320,7 +333,7 @@
         }
         .req-name { font-family: var(--font-title); font-size: 15px; font-weight: 700; color: var(--gold-main); letter-spacing: 1px; transition: all 0.3s;}
         
-        /* Статусы (Сургучная печать) */
+        /* Статусы */
         .badge { 
             padding: 6px 15px; font-size: 11px; font-weight: 700; text-align: center; 
             display: inline-block; text-transform: uppercase; letter-spacing: 2px; 
@@ -328,10 +341,10 @@
         }
         .badge.waiting { color: var(--text-muted); border-bottom: 1px solid var(--gold-dark); }
         .badge.watched { 
-            color: #ff9e9e; 
-            background: radial-gradient(ellipse at center, rgba(138, 3, 3, 0.4) 0%, transparent 80%);
-            border: 1px solid rgba(138, 3, 3, 0.6);
-            box-shadow: inset 0 0 10px rgba(138,3,3,0.3);
+            color: #ffb3b3; 
+            background: radial-gradient(ellipse at center, rgba(179, 14, 14, 0.45) 0%, transparent 80%);
+            border: 1px solid rgba(179, 14, 14, 0.7);
+            box-shadow: inset 0 0 10px rgba(179,14,14,0.4);
             border-radius: 2px;
         }
 
@@ -342,27 +355,27 @@
             width: 42px; height: 42px; border-radius: 50%; object-fit: cover; 
             border: 1px solid var(--gold-dark); background-color: #000; 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            filter: grayscale(40%) sepia(20%);
+            filter: grayscale(30%) sepia(10%);
         }
         .cast-group { display: flex; align-items: center; margin-left: 10px; }
-        .cast-group .avatar-container { margin-left: -12px; } /* Перекрытие аватарок */
-
-        /* --- МАГИЯ ПРИ НАВЕДЕНИИ НА СТРОКУ --- */
+        .cast-group .avatar-container { margin-left: -12px; } 
+        
+        /* Эффекты при наведении */
         .movie-row:hover .poster-wrapper { 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.9), 0 0 0 2px var(--gold-main), 0 0 25px rgba(206, 153, 92, 0.3); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.9), 0 0 0 2px var(--gold-main), 0 0 25px rgba(223, 170, 107, 0.35); 
         }
         .movie-row:hover .poster-wrapper img { transform: scale(1.05); }
         .movie-row:hover .movie-overview-wrapper { max-height: 200px; }
         .movie-row:hover .movie-overview-wrapper::after { opacity: 0; }
         .movie-row:hover .movie-overview-text { color: var(--text-parchment); }
         .movie-row:hover .avatar { transform: scale(1.15) translateY(-5px); border-color: var(--gold-light); filter: grayscale(0%) sepia(0%); box-shadow: 0 10px 20px rgba(0,0,0,0.8); z-index: 10; }
-        .movie-row:hover .director-avatar { border-color: var(--blood-red); box-shadow: 0 10px 20px rgba(138, 3, 3, 0.5); }
-        .movie-row:hover .cast-group .avatar-container { margin-left: 5px; } /* Расступаются при наведении */
+        .movie-row:hover .director-avatar { border-color: var(--blood-red); box-shadow: 0 10px 20px rgba(179, 14, 14, 0.5); }
+        .movie-row:hover .cast-group .avatar-container { margin-left: 5px; } 
 
-        /* --- МОДАЛЬНОЕ ОКНО (Раскрытый фолиант) --- */
+        /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(20, 5, 6, 0.9) 0%, rgba(0,0,0,0.98) 100%);
+            background: radial-gradient(circle at center, rgba(36, 12, 14, 0.92) 0%, rgba(15, 7, 7, 0.99) 100%);
             backdrop-filter: blur(10px); z-index: 1000;
             justify-content: center; align-items: center; opacity: 0; transition: opacity 0.5s ease;
         }
@@ -371,15 +384,15 @@
         .modal-content {
             background: var(--bg-deep); width: 90%; max-width: 1050px; max-height: 85vh;
             overflow-y: auto; position: relative;
-            box-shadow: 0 0 80px rgba(0, 0, 0, 1), 0 0 30px rgba(206, 153, 92, 0.1); 
-            border: 1px solid var(--gold-main); padding: 5px; /* Внутренняя рамка */
+            box-shadow: 0 0 80px rgba(0, 0, 0, 1), 0 0 30px rgba(223, 170, 107, 0.15); 
+            border: 1px solid var(--gold-main); padding: 5px; 
             transform: scale(0.95); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .modal-overlay.active .modal-content { transform: scale(1); }
         
         .modal-inner {
             background: var(--bg-velvet);
-            border: 1px solid rgba(206, 153, 92, 0.3);
+            border: 1px solid rgba(223, 170, 107, 0.35);
             min-height: 100%;
         }
 
@@ -390,27 +403,33 @@
         }
         .close-btn:hover { color: var(--blood-red); transform: rotate(90deg) scale(1.2); filter: drop-shadow(0 0 10px var(--blood-red)); }
 
-        .modal-hero { width: 100%; height: 350px; background-size: cover; background-position: top center; position: relative; border-bottom: 2px solid var(--gold-dark); filter: sepia(30%) hue-rotate(-10deg) saturate(120%); }
+        .modal-hero { width: 100%; height: 350px; background-size: cover; background-position: top center; position: relative; border-bottom: 2px solid var(--gold-dark); filter: sepia(20%) saturate(120%); }
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg-velvet) 0%, transparent 100%); }
 
         .modal-body { padding: 0 50px 50px 50px; position: relative; margin-top: -120px; z-index: 2; display: flex; gap: 40px; }
         .modal-poster { width: 220px; box-shadow: 0 20px 50px rgba(0,0,0,0.9); border: 4px solid #000; outline: 1px solid var(--gold-main); align-self: flex-start; }
         
-        .modal-info-main { flex: 1; }
+        /* 🔥 СВЕЧЕНИЕ ЗА ТЕКСТОМ В МОДАЛКЕ 🔥 */
+        .modal-info-main { 
+            flex: 1; 
+            background: radial-gradient(circle at 20% 30%, rgba(223, 170, 107, 0.12) 0%, transparent 70%);
+            padding: 15px;
+            border-radius: 8px;
+        }
         
         .modal-title-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-wrap: wrap; }
         
         .modal-title { 
             font-family: var(--font-title); font-size: 48px; font-weight: 900; margin: 0; letter-spacing: 2px;
-            background: linear-gradient(to bottom, #fce8aa 0%, #ce995c 40%, #965e21 70%, #4a1506 100%);
+            background: linear-gradient(to bottom, #fce8aa 0%, #dfaa6b 40%, #8c5a2b 70%, #4a1506 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #210901;
-            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 30px rgba(206, 153, 92, 0.2));
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 30px rgba(223, 170, 107, 0.25));
         }
 
-        .modal-meta { color: var(--gold-dark); font-size: 20px; font-style: italic; margin-bottom: 25px; border-bottom: 1px solid rgba(206, 153, 92, 0.2); padding-bottom: 15px;}
+        .modal-meta { color: var(--gold-dark); font-size: 20px; font-style: italic; margin-bottom: 25px; border-bottom: 1px solid rgba(223, 170, 107, 0.25); padding-bottom: 15px;}
         .modal-overview { color: var(--text-parchment); font-size: 22px; line-height: 1.6; margin-bottom: 40px; text-align: justify; text-indent: 30px;}
-        .modal-overview::first-letter { font-family: var(--font-title); font-size: 60px; color: var(--gold-main); float: left; line-height: 0.8; margin-right: 8px; text-shadow: 0 0 15px rgba(206,153,92,0.4); }
+        .modal-overview::first-letter { font-family: var(--font-title); font-size: 60px; color: var(--gold-main); float: left; line-height: 0.8; margin-right: 8px; text-shadow: 0 0 15px rgba(223,170,107,0.45); }
 
         .modal-crew-section { display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px; }
         .modal-crew-group { display: flex; flex-direction: column; gap: 15px; }
@@ -418,10 +437,10 @@
         
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 80px; text-align: center; }
         .crew-card img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-dark); margin-bottom: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); }
-        .crew-card.director img { border-color: var(--blood-red); box-shadow: 0 0 15px rgba(138, 3, 3, 0.5); } 
+        .crew-card.director img { border-color: var(--blood-red); box-shadow: 0 0 15px rgba(179, 14, 14, 0.5); } 
         .crew-card span { font-size: 15px; color: var(--text-parchment); line-height: 1.2; font-style: italic; }
 
-        /* Таблица характеристик внутри модалки (Архивные данные) */
+        /* Таблица характеристик */
         .modal-grid { 
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; 
             background: rgba(0,0,0,0.4); padding: 30px; 
@@ -439,7 +458,7 @@
         .modal-requester-link span:hover { color: var(--gold-main); text-shadow: 0 0 10px var(--gold-main); }
 
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--gold-dark); margin-top: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.9); position: relative;}
-        .trailer-container::before { content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: -6px; border: 1px solid rgba(206, 153, 92, 0.3); pointer-events: none;}
+        .trailer-container::before { content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: -6px; border: 1px solid rgba(223, 170, 107, 0.3); pointer-events: none;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
         /* Изящный скроллбар */
@@ -628,11 +647,10 @@
     }
     loadCreatorAvatar();
 
-    // Генерация цвета для пользователя, но теперь в теплой "огненной/золотой" гамме
     function stringToColor(str) {
         let hash = 0;
         for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        const h = Math.abs(hash) % 40; // От красного до золотого
+        const h = Math.abs(hash) % 40; 
         const s = 60 + Math.abs(hash) % 40;
         const l = 40 + Math.abs(hash) % 30;
         return `hsl(${h}, ${s}%, ${l}%)`;
@@ -640,7 +658,7 @@
 
     function getInitials(name) {
         let cleanName = (name || '??').replace('@', '').trim();
-        return cleanName.substring(0, 1).toUpperCase(); // Только 1 заглавная буква для красоты
+        return cleanName.substring(0, 1).toUpperCase(); 
     }
 
     function parseDateObj(dateStr) {
@@ -692,6 +710,7 @@
         });
     }
 
+    // Фильтрация
     function applyFilters() {
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
         const sortMode = document.getElementById('sortSelect').value;
@@ -735,7 +754,7 @@
             
             const statusText = isWatched ? `Познано<br><span style="font-size: 14px; font-style:italic; font-family:var(--font-text); text-transform:none; color:var(--text-parchment);">Оценка: ${movie.ourRating || '-'} / 10</span>` : 'Ждет часа';
             
-            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #ffb3b3; margin-top: 10px; font-family: var(--font-title); letter-spacing: 1px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#8a0303" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
+            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #ffb3b3; margin-top: 10px; font-family: var(--font-title); letter-spacing: 1px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#b30e0e" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 15px; color: var(--gold-main); font-style:italic; margin-top: 8px;">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
@@ -808,6 +827,7 @@
         });
     }
 
+    // Открытие модалки
     function openModal(index) {
         const movie = currentViewData[index]; 
         currentModalMovie = movie; 
