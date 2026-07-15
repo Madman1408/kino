@@ -32,7 +32,7 @@
             padding: 50px 20px;
             min-height: 100vh;
             background-attachment: fixed;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); 
         }
 
         /* --- ГЛАВНЫЙ КОНТЕЙНЕР --- */
@@ -77,7 +77,7 @@
             text-shadow: 0 0 15px var(--gold-main);
         }
 
-        /* Светлый, яркий заголовок */
+        /* 🔥 ИСПРАВЛЕННЫЙ ЯРКИЙ ЗАГОЛОВОК 🔥 */
         .header-top h1 { 
             font-family: var(--font-title);
             font-size: 56px; 
@@ -86,13 +86,18 @@
             letter-spacing: 3px;
             position: relative;
             display: inline-block;
-            background: linear-gradient(to bottom, #fff5d1 0%, #dfaa6b 40%, #a67232 75%, #5c3811 100%);
+            
+            /* Очень яркий золотой градиент с бликами */
+            background: linear-gradient(to bottom, #ffffff 0%, #fce28b 25%, #c78632 45%, #fceda6 50%, #915715 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
-            -webkit-text-stroke: 1px #2e1402;
-            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.9)) drop-shadow(0px 0px 15px rgba(223,170,107,0.5));
+            
+            /* Тонкая обводка, чтобы не "съедала" золото в OBS */
+            -webkit-text-stroke: 0.5px #3d1c01;
+            
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.9)) drop-shadow(0px 0px 20px rgba(223,170,107,0.6));
         }
 
         .header-top h1::before, .header-top h1::after {
@@ -144,17 +149,14 @@
             font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 8px rgba(223,170,107,0.5);
         }
         
-        /* Четкое разделение строк */
         td { padding: 25px 15px; vertical-align: top; border-bottom: 1px solid rgba(223, 170, 107, 0.25); }
         tr:last-child td { border-bottom: none; }
         
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
         
-        /* 🔥 ИСПРАВЛЕНИЕ СЕТКИ: Убрали position: relative у строки! 🔥 */
         tr.movie-row { cursor: pointer; transition: background-color 0.3s ease; }
         tr.movie-row:hover { background-color: rgba(179, 14, 14, 0.05); } 
         
-        /* Свечение за текстом реализовано через колонку Истории, чтобы таблица не ломалась */
         td:nth-child(2) { text-align: left; position: relative; z-index: 1; }
         td:nth-child(2)::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -180,7 +182,6 @@
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; }
         .movie-header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
         
-        /* Светящиеся заголовки фильмов */
         .movie-title { 
             font-size: 34px; font-weight: 700; color: var(--text-parchment); 
             font-family: var(--font-title); 
@@ -195,7 +196,6 @@
         tr.movie-row:hover .copy-btn { opacity: 1; }
         .copy-btn:hover { color: var(--gold-main); filter: drop-shadow(0 0 5px var(--gold-main)); }
 
-        /* Бейджи */
         .badges-container { display: flex; align-items: center; gap: 10px; margin: 4px 0; flex-wrap: wrap; }
         
         .content-type-badge { 
@@ -245,7 +245,6 @@
             text-shadow: 0 0 10px rgba(223, 170, 107, 0.6);
         }
 
-        /* Статусы */
         .badge-status { 
             font-size: 13px; font-weight: 700; text-align: center; 
             display: inline-block; text-transform: uppercase; letter-spacing: 2px; 
@@ -271,16 +270,14 @@
         .cast-group { display: flex; align-items: center; gap: 0; }
         .cast-group .avatar-container { margin-left: -12px; } 
         
-        /* РАЗВОРОТ ПРИ НАВЕДЕНИИ */
         tr.movie-row:hover .poster-wrapper { box-shadow: 0 15px 35px rgba(0,0,0,0.9), 0 0 0 1px var(--gold-main), 0 0 30px rgba(223, 170, 107, 0.4); transform: scale(1.02); }
         tr.movie-row:hover .poster-wrapper img { transform: scale(1.05); }
         tr.movie-row:hover .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:hover .movie-overview-wrapper::after { opacity: 0; }
         tr.movie-row:hover .avatar { transform: scale(1.15) translateY(-2px); filter: grayscale(0%); box-shadow: 0 10px 20px rgba(0,0,0,0.9), 0 0 15px rgba(223,170,107,0.5); z-index: 10; }
         tr.movie-row:hover .director-avatar { box-shadow: 0 10px 20px rgba(0,0,0,0.9), 0 0 25px rgba(211, 26, 26, 0.8); }
-        tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } /* Увеличенные отступы */
+        tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
 
-        /* Время / Хронометраж / Сезоны */
         .time-box {
             color: var(--text-parchment); font-size: 16px; font-style: italic;
             display: inline-flex; align-items: center; gap: 8px;
@@ -327,12 +324,16 @@
         .modal-info-main { flex: 1; padding: 15px; border-radius: 8px; }
         .modal-title-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-wrap: wrap; }
         
+        /* 🔥 ИСПРАВЛЕННЫЙ ЯРКИЙ ЗАГОЛОВОК ФИЛЬМА В ОКНЕ 🔥 */
         .modal-title { 
             font-family: var(--font-title); font-size: 48px; font-weight: 900; margin: 0; letter-spacing: 2px;
-            background: linear-gradient(to bottom, #fff5d1 0%, #dfaa6b 40%, #8c5a2b 70%, #4a1506 100%);
+            
+            background: linear-gradient(to bottom, #ffffff 0%, #fce28b 25%, #c78632 45%, #fceda6 50%, #915715 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            -webkit-text-stroke: 1px #210901;
-            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 25px rgba(223, 170, 107, 0.4));
+            
+            -webkit-text-stroke: 0.5px #3d1c01;
+            
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 25px rgba(223, 170, 107, 0.6));
         }
 
         .modal-meta { color: var(--gold-main); font-size: 20px; font-style: italic; margin-bottom: 25px; border-bottom: 1px solid rgba(223, 170, 107, 0.25); padding-bottom: 15px; text-shadow: 0 0 8px rgba(223,170,107,0.4);}
@@ -348,7 +349,6 @@
         .crew-card.director img { border-color: var(--blood-red); box-shadow: 0 0 20px rgba(211, 26, 26, 0.6); } 
         .crew-card span { font-size: 15px; color: var(--text-parchment); line-height: 1.2; font-style: italic; text-shadow: 0 0 5px rgba(255,255,255,0.3);}
 
-        /* Таблица характеристик */
         .modal-grid { 
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; 
             background: rgba(0,0,0,0.4); padding: 30px; 
