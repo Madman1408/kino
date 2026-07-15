@@ -100,10 +100,11 @@
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        /* 🔥 Ширина колонок: Центр расширен на 15px, остальные сужены 🔥 */
-        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
-        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        /* 🔥 ФИКС ШИРИНЫ КОЛОНОК: Чуть уменьшил padding, чтобы контенту было просторнее 🔥 */
+        th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 12px; border-bottom: 1px solid var(--border); }
+        td { padding: 16px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
         td:nth-child(2) { text-align: left; }
 
@@ -354,11 +355,11 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 145px;">Постер</th>
-                <th>Информация о фильме</th>
-                <th style="width: 150px;">Заказал</th>
-                <th style="width: 90px;">Время</th>
-                <th style="width: 145px;">Статус</th>
+                <th style="width: 145px; min-width: 145px;">Постер</th>
+                <th style="width: 100%;">Информация о фильме</th>
+                <th style="width: 155px; min-width: 155px;">Заказал</th>
+                <th style="width: 110px; min-width: 110px;">Время</th>
+                <th style="width: 145px; min-width: 145px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -428,9 +429,11 @@
     let currentViewData = []; 
     let currentModalMovie = null; 
 
+    // Заглушки для фото
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
 
+    // Функция защиты от XSS
     function escapeHTML(str) {
         if (!str) return '';
         return String(str).replace(/[&<>'"]/g, tag => ({
@@ -713,7 +716,6 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            // 🔥 ЛОГИКА ОТОБРАЖЕНИЯ ВРЕМЕНИ В ТАБЛИЦЕ ("ЗА СЕРИЮ") 🔥
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Нет данных';
             if (isSeries && displayRuntime !== 'Нет данных') {
@@ -821,7 +823,7 @@
         const idBadgeModal = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
         document.getElementById('modalBadges').innerHTML = `${tmdbBadgeModal}${ageRatingModal}${idBadgeModal}`;
         
-        // 🔥 ЛОГИКА ВЫВОДА В МОДАЛЬНОМ ОКНЕ (Скрытие неизвестного времени) 🔥
+        // 🔥 ЛОГИКА ВЫВОДА В МОДАЛЬНОМ ОКНЕ 🔥
         let isSeriesModal = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
         let metaText = `${movie.year || '----'} • ${escapeHTML(movie.type || 'Фильм')}`;
         
