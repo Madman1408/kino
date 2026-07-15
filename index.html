@@ -145,6 +145,9 @@
         .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
         .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
         
+        /* 🔥 Новый стиль для типа контента (Фильм/Сериал) 🔥 */
+        .content-type-badge { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.5px; }
+
         .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
         .movie-studios-list { font-size: 12px; color: #cbd5e1; margin-top: 2px; line-height: 1.4; }
@@ -502,6 +505,7 @@
                 });
             } else if (typeof data === 'object' && data !== null) {
                 for (const user in data) {
+                    if (user === "_metadata_") continue; // Пропускаем метадату!
                     if (Array.isArray(data[user])) {
                         data[user].forEach(movie => {
                             rawMoviesData.push({ 
@@ -637,14 +641,15 @@
                 ${criedHTML}
             ` : '';
 
+            // 🔥 ОБНОВЛЕННЫЕ БЕЙДЖИ ДЛЯ ВТОРОЙ СТРОКИ 🔥
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             const idBadge = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
+            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Фильм')}</span>`;
             
             let displayStudios = movie.studios === "Нет данных" || !movie.studios ? "Нет данных по студиям" : movie.studios;
             const studiosHTML = `<div class="movie-studios-list">${displayStudios}</div>`;
 
-            // 🔥 ФИКС: Экранирование текста от взлома
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const cleanTitle = escapeHTML(movie.title || 'Без названия');
             const cleanOverview = escapeHTML(movie.overview || '');
@@ -709,6 +714,9 @@
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Копировать название">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             </button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px; margin-bottom: 4px; flex-wrap: wrap;">
+                            ${typeLabel}
                             ${tmdbBadge}
                             ${ageRating}
                             ${idBadge}
@@ -753,7 +761,6 @@
 
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
         
-        // Здесь используется textContent, который сам по себе безопасен от XSS
         document.getElementById('modalTitle').textContent = movie.title || 'Без названия';
 
         const tmdbBadgeModal = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
@@ -767,7 +774,6 @@
         }
         document.getElementById('modalMeta').innerHTML = metaText;
         
-        // Безопасная вставка текста
         document.getElementById('modalOverview').textContent = movie.overview || 'Описание отсутствует.';
         
         let modalDateReqText = `<div>${movie.dateRequested || 'Нет данных'}</div>`;
