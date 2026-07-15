@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "13.07.2026 17:01"
+    "lastUpdated": "15.07.2026 13:22"
   },
   "cross_loss": [
     {
@@ -53,7 +53,7 @@
   ],
   "MadMan1408": [
     {
-      "id": 1,
+      "id": 2,
       "title": "Шерлок",
       "year": "2010",
       "type": "Сериал",
@@ -94,7 +94,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Зелёная миля",
       "year": "1999",
       "type": "Фильм",
@@ -141,7 +141,7 @@
       "dateWatched": "06.07.2026 21:31"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Дракула",
       "year": "1979",
       "type": "Фильм",
@@ -187,7 +187,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Симпсоны",
       "year": "1989",
       "type": "Мультфильм",
@@ -236,7 +236,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Маска",
       "year": "2020",
       "type": "Сериал",
@@ -285,7 +285,7 @@
       "tvStatus": "Returning Series"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Телохранитель",
       "year": "2005",
       "type": "Сериал",
@@ -334,7 +334,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Красотка",
       "year": "2014",
       "type": "Сериал",
@@ -383,7 +383,7 @@
       "tvStatus": "Ended"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Дракула",
       "year": "2025",
       "type": "Фильм",
@@ -431,7 +431,7 @@
       "cried": true
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Евротур",
       "year": "2004",
       "type": "Фильм",
@@ -477,11 +477,59 @@
       "collection": "",
       "keywords": "berlin, germany, paris, france, alcohol, pen pals, travel",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png"
+    },
+    {
+      "title": "Тёмный рыцарь",
+      "year": "2008",
+      "type": "Фильм",
+      "runtime": "2 ч 32 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 Legendary Pictures, 🟢 Syncopy, 🟢 DC",
+      "budget": "185.000.000 $",
+      "revenue": "1.004.558.444 $",
+      "tmdbRating": "8.532",
+      "overview": "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер.",
+      "poster": "https://image.tmdb.org/t/p/w500/aPtN76OjnNKLqCJ2FJBnQOIL031.jpg",
+      "tagline": "«Добро пожаловать в мир Хаоса!»",
+      "backdrop": "https://image.tmdb.org/t/p/original/dqK9Hag1054tghRQSqLSfrkvQnA.jpg",
+      "cast": [
+        {
+          "name": "Кристиан Бейл",
+          "photo": "https://image.tmdb.org/t/p/w185/7Pxez9J8fuPd2Mn9kex13YALrCQ.jpg"
+        },
+        {
+          "name": "Хит Леджер",
+          "photo": "https://image.tmdb.org/t/p/w185/AdWKVqyWpkYSfKE5Gb2qn8JzHni.jpg"
+        },
+        {
+          "name": "Аарон Екгарт",
+          "photo": "https://image.tmdb.org/t/p/w185/u5JjnRMr9zKEVvOP7k3F6gdcwT6.jpg"
+        },
+        {
+          "name": "Майкл Кейн",
+          "photo": "https://image.tmdb.org/t/p/w185/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg"
+        }
+      ],
+      "director": {
+        "name": "Кристофер Нолан",
+        "photo": "https://image.tmdb.org/t/p/w185/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=HF1_epZNoCg",
+      "ageRating": "12+",
+      "keywords": "sadism, chaos, secret identity, crime fighter, superhero",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Тёмный рыцарь (Коллекция)",
+      "id": 16,
+      "dateRequested": "15.07.2026 13:22",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "weenniee": [
     {
-      "id": 1,
+      "id": 11,
       "title": "Любовь без пересадок",
       "year": "2013",
       "type": "Фильм",
@@ -528,7 +576,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/d3038f83-6f62-49b4-932b-4c70d7a151ca-profile_image-600x600.png"
     },
     {
-      "id": 2,
+      "id": 12,
       "title": "Ла-Ла Ленд",
       "year": "2016",
       "type": "Фильм",
@@ -578,7 +626,7 @@
   ],
   "cherteya": [
     {
-      "id": 1,
+      "id": 13,
       "title": "Стрелок",
       "year": "1958",
       "type": "Сериал",
@@ -627,7 +675,7 @@
   ],
   "maaminaa": [
     {
-      "id": 1,
+      "id": 14,
       "title": "Драйв",
       "year": "2025",
       "type": "Фильм",
@@ -677,7 +725,7 @@
   ],
   "sabastat_": [
     {
-      "id": 1,
+      "id": 15,
       "title": "Ходячие мертвецы",
       "year": "2010",
       "type": "Сериал",
