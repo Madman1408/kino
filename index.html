@@ -100,7 +100,6 @@
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        /* 🔥 Ширина колонок скорректирована 🔥 */
         th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
         td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -146,50 +145,8 @@
         .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
         .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
         
-        /* 🔥 Новый стиль для типа контента (Фильм/Сериал) со свечением 🔥 */
-        .content-type-badge { 
-            background: rgba(99, 102, 241, 0.15); 
-            border: 1px solid rgba(99, 102, 241, 0.4); 
-            color: #a5b4fc; 
-            padding: 3px 8px; 
-            border-radius: 6px; 
-            font-size: 11px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px; 
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2); 
-            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
-            display: inline-flex; 
-            align-items: center; 
-            line-height: 1.2;
-        }
-
-        /* 🔥 Стили для окошек времени и сезонов 🔥 */
-        .time-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #cbd5e1;
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            justify-content: center;
-            white-space: nowrap;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02);
-            width: fit-content;
-        }
-        .time-box.episodes {
-            font-size: 11px;
-            color: #94a3b8;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            flex-direction: column;
-            gap: 3px;
-            padding: 6px 10px;
-        }
+        /* 🔥 Новый стиль для типа контента (Фильм/Сериал) 🔥 */
+        .content-type-badge { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.5px; }
 
         .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
@@ -246,6 +203,7 @@
         }
         .modal-overlay.active { display: flex; opacity: 1; }
 
+        /* 🔥 УВЕЛИЧЕННАЯ ШИРИНА МОДАЛКИ (1000px вместо 800px) 🔥 */
         .modal-content {
             background-color: var(--container-bg); width: 95%; max-width: 1000px; max-height: 90vh;
             border-radius: 12px; overflow-y: auto; position: relative;
@@ -254,6 +212,7 @@
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
 
+        /* 🔥 ИСПРАВЛЕННЫЙ ИДЕАЛЬНЫЙ КРЕСТИК 🔥 */
         .close-btn {
             position: absolute; top: 15px; right: 20px; color: #fff; cursor: pointer;
             z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%;
@@ -357,8 +316,8 @@
             <tr>
                 <th style="width: 145px;">Постер</th>
                 <th>Информация о фильме</th>
-                <th style="width: 165px;">Заказал</th>
-                <th style="width: 105px;">Время</th>
+                <th style="width: 160px;">Заказал</th>
+                <th style="width: 100px;">Время</th>
                 <th style="width: 155px;">Статус</th>
             </tr>
         </thead>
@@ -678,7 +637,6 @@
                 ${criedHTML}
             ` : '';
 
-            // 🔥 ОБНОВЛЕННЫЕ БЕЙДЖИ ДЛЯ ВТОРОЙ СТРОКИ 🔥
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB: ⭐ ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             const idBadge = `<span class="outline-badge">ID: ${movie.id || 0}</span>`;
@@ -717,7 +675,6 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            // 🔥 СОВРЕМЕННЫЙ ВИД ДЛЯ КОЛОНКИ ВРЕМЕНИ 🔥
             let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">`;
             runtimeDisplay += `
                 <div class="time-box" title="Хронометраж">
@@ -766,7 +723,6 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             </button>
                         </div>
-                        <!-- 🔥 НОВАЯ СТРОКА С БЕЙДЖАМИ 🔥 -->
                         <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px; margin-bottom: 4px; flex-wrap: wrap;">
                             ${typeLabel}
                             ${tmdbBadge}
