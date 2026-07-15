@@ -100,6 +100,7 @@
 
         /* --- Таблица --- */
         table { width: 100%; border-collapse: collapse; text-align: left; }
+        /* 🔥 Ширина колонок скорректирована 🔥 */
         th { text-align: center; background-color: #16181d; color: var(--text-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; padding: 16px 20px; border-bottom: 1px solid var(--border); }
         
         td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -145,8 +146,50 @@
         .outline-badge { border: 1px solid rgba(148, 163, 184, 0.4); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; }
         .tmdb-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245, 158, 11, 0.2); display: inline-flex; align-items: center; line-height: 1.2; }
         
-        /* 🔥 Новый стиль для типа контента (Фильм/Сериал) 🔥 */
-        .content-type-badge { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* 🔥 Новый стиль для типа контента (Фильм/Сериал) со свечением 🔥 */
+        .content-type-badge { 
+            background: rgba(99, 102, 241, 0.15); 
+            border: 1px solid rgba(99, 102, 241, 0.4); 
+            color: #a5b4fc; 
+            padding: 3px 8px; 
+            border-radius: 6px; 
+            font-size: 11px; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2); 
+            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+            display: inline-flex; 
+            align-items: center; 
+            line-height: 1.2;
+        }
+
+        /* 🔥 Стили для окошек времени и сезонов 🔥 */
+        .time-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            white-space: nowrap;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02);
+            width: fit-content;
+        }
+        .time-box.episodes {
+            font-size: 11px;
+            color: #94a3b8;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            flex-direction: column;
+            gap: 3px;
+            padding: 6px 10px;
+        }
 
         .movie-genres { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .movie-tagline { font-size: 12px; font-style: italic; color: #64748b; margin-top: -2px; }
@@ -203,7 +246,6 @@
         }
         .modal-overlay.active { display: flex; opacity: 1; }
 
-        /* 🔥 УВЕЛИЧЕННАЯ ШИРИНА МОДАЛКИ (1000px вместо 800px) 🔥 */
         .modal-content {
             background-color: var(--container-bg); width: 95%; max-width: 1000px; max-height: 90vh;
             border-radius: 12px; overflow-y: auto; position: relative;
@@ -212,7 +254,6 @@
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
 
-        /* 🔥 ИСПРАВЛЕННЫЙ ИДЕАЛЬНЫЙ КРЕСТИК 🔥 */
         .close-btn {
             position: absolute; top: 15px; right: 20px; color: #fff; cursor: pointer;
             z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%;
@@ -312,12 +353,13 @@
     </div>
     <table>
         <thead>
+            <!-- 🔥 ШИРИНА СТОЛБЦОВ: Увеличена зона Информации, Время и Заказал смещены правее 🔥 -->
             <tr>
                 <th style="width: 145px;">Постер</th>
                 <th>Информация о фильме</th>
-                <th style="width: 170px;">Заказал</th>
-                <th style="width: 110px;">Время</th>
-                <th style="width: 160px;">Статус</th>
+                <th style="width: 165px;">Заказал</th>
+                <th style="width: 105px;">Время</th>
+                <th style="width: 155px;">Статус</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -391,7 +433,7 @@
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%232e3340'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23475569'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%232e3340'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='40' fill='%2394a3b8'%3EНет постера%3C/text%3E%3C/svg%3E";
 
-    // 🔥 ФИКС: Функция защиты от XSS
+    // Функция защиты от XSS
     function escapeHTML(str) {
         if (!str) return '';
         return String(str).replace(/[&<>'"]/g, tag => ({
@@ -399,7 +441,6 @@
         }[tag]));
     }
 
-    // Восстановление сортировки из localStorage
     const savedSortMode = localStorage.getItem('movieSortMode');
     if (savedSortMode) {
         document.getElementById('sortSelect').value = savedSortMode;
@@ -431,7 +472,7 @@
     }
 
     function copyMovieNameFromTable(event, title, year, btnElement) {
-        event.stopPropagation(); // Чтобы не открывалась модалка
+        event.stopPropagation();
         copyTextToClipboard(`${title} ${year}`, btnElement);
     }
 
@@ -449,9 +490,7 @@
             if (data && data.length > 0 && data[0].logo) {
                 document.getElementById('creatorAvatar').src = data[0].logo.replace('300x300', '150x150');
             }
-        } catch (e) {
-            console.log('Не удалось загрузить аватарку стримера.');
-        }
+        } catch (e) { }
     }
     loadCreatorAvatar();
 
@@ -494,7 +533,6 @@
             const data = await response.json();
             rawMoviesData = [];
 
-            // УМНЫЙ АНАЛИЗ СТРУКТУРЫ JSON
             if (Array.isArray(data)) {
                 data.forEach(movie => {
                     rawMoviesData.push({
@@ -505,7 +543,7 @@
                 });
             } else if (typeof data === 'object' && data !== null) {
                 for (const user in data) {
-                    if (user === "_metadata_") continue; // Пропускаем метадату!
+                    if (user === "_metadata_") continue; 
                     if (Array.isArray(data[user])) {
                         data[user].forEach(movie => {
                             rawMoviesData.push({ 
@@ -527,8 +565,7 @@
             }
 
         } catch (error) {
-            console.error('Ошибка загрузки или обработки данных:', error);
-            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">❌ Ошибка при загрузке данных.<br><span style="font-size: 12px; color: #94a3b8;">Подробности в консоли браузера (F12)</span></td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">❌ Ошибка при загрузке данных.</td></tr>`;
         }
     }
 
@@ -680,8 +717,22 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 24px; background: #2e3340;"></div>';
             }
 
-            let runtimeDisplay = `<div style="color: #94a3b8; font-size: 14px; font-weight: 500;">${movie.runtime || 'Нет данных'}</div>`;
-            if (movie.seasons && movie.episodes) runtimeDisplay += `<div style="font-size: 12px; color: #64748b; margin-top: 4px;">Сезонов: ${movie.seasons}<br>Серий: ${movie.episodes}</div>`;
+            // 🔥 СОВРЕМЕННЫЙ ВИД ДЛЯ КОЛОНКИ ВРЕМЕНИ 🔥
+            let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">`;
+            runtimeDisplay += `
+                <div class="time-box" title="Хронометраж">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    ${movie.runtime || 'Нет данных'}
+                </div>
+            `;
+            if (movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0") {
+                runtimeDisplay += `
+                <div class="time-box episodes" title="Сезоны и серии">
+                    <span>Сезонов: ${movie.seasons}</span>
+                    <span>Серий: ${movie.episodes}</span>
+                </div>`;
+            }
+            runtimeDisplay += `</div>`;
 
             const userColor = stringToColor(cleanNick);
 
@@ -715,6 +766,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             </button>
                         </div>
+                        <!-- 🔥 НОВАЯ СТРОКА С БЕЙДЖАМИ 🔥 -->
                         <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px; margin-bottom: 4px; flex-wrap: wrap;">
                             ${typeLabel}
                             ${tmdbBadge}
