@@ -33,46 +33,62 @@
             padding: 50px 20px;
             min-height: 100vh;
             background-attachment: fixed;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); 
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); 
         }
 
-        /* 🔥 ФИКСИРОВАННЫЕ ДЕВУШКИ ПО КРАЯМ ЭКРАНА 🔥 */
-        .fixed-girl {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 75vh; /* Занимает 75% от высоты экрана ОБС */
-            max-height: 700px;
-            z-index: 999; /* Поверх всего */
-            pointer-events: none; /* Мышка кликает СКВОЗЬ картинку */
-        }
-        
-        .girl-left {
-            left: 0;
-        }
-        
-        .girl-right {
-            right: 0;
-            /* Если у тебя всего ОДИН файл и ты хочешь его отзеркалить направо, */
-            /* просто раскомментируй строку ниже (удали косые черты): */
-            /* transform: translateY(-50%) scaleX(-1); */
+        /* 🔥 ИДЕАЛЬНАЯ ПРИВЯЗКА ДЕВУШЕК К КОНТЕЙНЕРУ 🔥 */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            width: 100%;
         }
 
-        /* Защита: если экран слишком узкий, скрываем девушек, чтобы они не закрывали текст */
-        @media (max-width: 1480px) {
-            .fixed-girl {
-                display: none;
-            }
+        .girl-col {
+            width: 0; /* Не занимает места, стоит ровно на границе контейнера */
+            position: relative;
+            z-index: 999;
+            pointer-events: none; /* Пропускает клики сквозь картинку */
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 50vh; /* Держится по центру экрана при скролле */
+            width: 0;
+            height: 0;
+            overflow: visible;
+        }
+
+        .girl-img {
+            position: absolute;
+            height: 650px; /* Фиксированная высота. При зуме в ОБС она будет пропорционально расти вместе со страницей */
+            top: -325px; /* Сдвигаем вверх на половину высоты, чтобы центр был ровно на 50vh */
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6)); /* Мягкая тень для самой картинки */
+        }
+
+        .left-img {
+            right: -165px; /* Заходит НА контейнер на 25px. Меняй это число, если нужно сдвинуть руку */
+        }
+
+        .right-img {
+            left: -173px; /* Заходит НА контейнер на 25px */
+            /* transform: scaleX(-1); */ /* Раскомментируй (убери слеши), если нужно отзеркалить картинку */
+        }
+
+        @media (max-width: 1550px) {
+            /* Скрываем девушек на узких экранах, чтобы они не перекрыли текст */
+            .girl-col { display: none; }
         }
 
         /* --- ГЛАВНЫЙ КОНТЕЙНЕР --- */
         .container {
+            width: 100%;
             max-width: 1150px;
-            margin: 0 auto;
+            min-height: 80vh; /* Гарантирует, что контейнер всегда длинный, и девушкам есть где "стоять" */
             background: rgba(36, 14, 16, 0.93); 
             backdrop-filter: blur(8px); 
             position: relative;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(245, 194, 133, 0.1); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 15px rgba(245, 194, 133, 0.1); /* Тень уменьшена */
             border: 1px solid var(--gold-main);
             padding: 4px; 
         }
@@ -84,13 +100,13 @@
             pointer-events: none; z-index: 10;
         }
 
-        .corner-ornament { position: absolute; width: 15px; height: 15px; border: 2px solid var(--gold-main); z-index: 11; box-shadow: 0 0 8px rgba(245, 194, 133, 0.4); }
+        .corner-ornament { position: absolute; width: 15px; height: 15px; border: 2px solid var(--gold-main); z-index: 11; box-shadow: 0 0 6px rgba(245, 194, 133, 0.3); }
         .corner-tl { top: 1px; left: 1px; border-right: none; border-bottom: none; }
         .corner-tr { top: 1px; right: 1px; border-left: none; border-bottom: none; }
         .corner-bl { bottom: 1px; left: 1px; border-right: none; border-top: none; }
         .corner-br { bottom: 1px; right: 1px; border-left: none; border-top: none; }
 
-        .content-wrapper { background: rgba(0, 0, 0, 0.2); position: relative; z-index: 2; }
+        .content-wrapper { background: rgba(0, 0, 0, 0.2); position: relative; z-index: 2; height: 100%; }
 
         /* --- ШАПКА --- */
         .header {
@@ -98,16 +114,17 @@
             text-align: center;
             position: relative;
             border-bottom: 1px solid rgba(245, 194, 133, 0.4); 
-            background: radial-gradient(circle at 50% 0%, rgba(255, 246, 209, 0.1) 0%, transparent 80%);
+            background: radial-gradient(circle at 50% 0%, rgba(255, 246, 209, 0.08) 0%, transparent 80%);
         }
         .header::after {
             content: '❖'; position: absolute;
             bottom: -13px; left: 50%; transform: translateX(-50%);
             color: var(--gold-light); font-size: 16px;
             background: #2b1113; padding: 0 15px;
-            text-shadow: 0 0 10px var(--gold-light);
+            text-shadow: 0 0 8px var(--gold-light);
         }
 
+        /* Заголовок белый и строгий, как имя создателя */
         .header-top h1 { 
             font-family: var(--font-title);
             font-size: 56px; 
@@ -117,7 +134,7 @@
             position: relative;
             display: inline-block;
             color: #ffffff;
-            text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 12px rgba(245, 194, 133, 0.4);
+            text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 8px rgba(245, 194, 133, 0.3); /* Свечение уменьшено */
         }
 
         .header-top h1::before, .header-top h1::after {
@@ -125,7 +142,7 @@
             display: inline-block; font-size: 26px; vertical-align: middle; margin: 0 25px;
             font-family: var(--font-text); font-weight: 400;
             color: var(--gold-main); 
-            filter: drop-shadow(0 0 8px rgba(245, 194, 133, 0.3)); 
+            filter: drop-shadow(0 0 5px rgba(245, 194, 133, 0.2)); 
         }
 
         /* Плашка Создателя */
@@ -138,9 +155,9 @@
         .creator-badge:hover { opacity: 1; transform: scale(1.03); }
         .creator-badge img { 
             width: 46px; height: 46px; border-radius: 50%; object-fit: cover; 
-            border: 2px solid var(--gold-main); box-shadow: 0 0 10px rgba(245, 194, 133, 0.3);
+            border: 2px solid var(--gold-main); box-shadow: 0 0 8px rgba(245, 194, 133, 0.2);
         }
-        .creator-info { display: flex; flex-direction: column; text-align: left; text-shadow: 0 0 8px rgba(245, 194, 133, 0.4); }
+        .creator-info { display: flex; flex-direction: column; text-align: left; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3); }
         .creator-label { font-size: 11px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); }
         .creator-name { font-size: 16px; font-weight: 600; color: #fff; font-family: var(--font-title); }
 
@@ -178,12 +195,12 @@
         td:nth-child(2) { text-align: left; position: relative; z-index: 1; }
         td:nth-child(2)::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 25% 50%, rgba(245, 194, 133, 0.1) 0%, transparent 80%);
+            background: radial-gradient(ellipse at 25% 50%, rgba(245, 194, 133, 0.05) 0%, transparent 80%);
             z-index: -1; pointer-events: none; transition: opacity 0.3s ease;
         }
         td:nth-child(2)::after {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 25% 50%, rgba(230, 34, 34, 0.15) 0%, transparent 80%);
+            background: radial-gradient(ellipse at 25% 50%, rgba(230, 34, 34, 0.08) 0%, transparent 80%);
             z-index: -1; pointer-events: none; opacity: 0; transition: opacity 0.4s ease;
         }
         tr.movie-row:hover td:nth-child(2)::after { opacity: 1; }
@@ -191,7 +208,7 @@
         /* Постеры */
         .poster-wrapper { 
             width: 140px; height: 210px; overflow: hidden; margin: 0 auto; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
         }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -202,7 +219,7 @@
         .movie-title { 
             font-size: 34px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 8px rgba(245, 194, 133, 0.3); 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; }
         
@@ -219,7 +236,7 @@
             background: #8a0b0b; color: #fff; padding: 2px 10px; font-size: 13px; font-weight: 700; 
             text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); 
             border-radius: 2px; border: 1px solid #d31a1a;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5); 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4); 
         }
         
         .outline-badge, .tmdb-badge { 
@@ -227,7 +244,7 @@
             padding: 2px 10px; font-size: 14px; font-weight: 600; 
             background: rgba(43,17,19,0.7); border-radius: 2px;
             font-family: var(--font-title); letter-spacing: 1px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
 
         .movie-genres { font-size: 17px; color: var(--gold-main); font-style: italic; font-weight: 600; }
@@ -246,7 +263,7 @@
             cursor: pointer; transition: transform 0.3s; margin: 0 auto;
         }
         .requester-badge:hover { transform: scale(1.03); }
-        .requester-badge:hover .req-avatar { border-color: #fff; box-shadow: 0 0 15px rgba(245, 194, 133, 0.5); }
+        .requester-badge:hover .req-avatar { border-color: #fff; box-shadow: 0 0 10px rgba(245, 194, 133, 0.4); }
         .requester-badge:hover .req-name { color: #fff; }
         
         .req-avatar {
@@ -255,16 +272,16 @@
             box-shadow: 0 5px 10px rgba(0,0,0,0.8); object-fit: cover; border: 2px solid var(--gold-main);
             transition: all 0.3s; background: var(--gold-main);
         }
-        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; }
+        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        .req-date { font-size: 16px; color: var(--gold-main); font-style: italic; margin-top: 8px; font-weight: 600; }
+        .req-date { font-size: 16px; color: var(--gold-main); font-style: italic; margin-top: 8px; font-weight: 600; text-shadow: 0 0 6px rgba(0,0,0,0.8); }
 
         .badge-status { 
             font-size: 13px; font-weight: 700; text-align: center; 
             display: inline-block; text-transform: uppercase; letter-spacing: 2px; 
             font-family: var(--font-title); color: #fff;
             border-top: 1px solid var(--gold-main); border-bottom: 1px solid var(--gold-main);
-            padding: 4px 12px; margin-bottom: 8px; background: rgba(0,0,0,0.3);
+            padding: 4px 12px; margin-bottom: 8px; background: rgba(0,0,0,0.3); text-shadow: 0 0 4px rgba(0,0,0,0.9);
         }
 
         /* АВАТАРКИ */
@@ -284,7 +301,7 @@
         .cast-group .avatar-container { margin-left: -12px; } 
         
         /* РАЗВОРОТ ПРИ НАВЕДЕНИИ */
-        tr.movie-row:hover .poster-wrapper { box-shadow: 0 12px 30px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 15px rgba(245, 194, 133, 0.3); transform: scale(1.02); }
+        tr.movie-row:hover .poster-wrapper { box-shadow: 0 10px 25px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 10px rgba(245, 194, 133, 0.2); transform: scale(1.02); }
         tr.movie-row:hover .poster-wrapper img { transform: scale(1.03); }
         tr.movie-row:hover .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:hover .movie-overview-wrapper::after { opacity: 0; }
@@ -294,7 +311,7 @@
 
         .time-box {
             color: #fff; font-size: 16px; font-style: italic;
-            display: inline-flex; align-items: center; gap: 8px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
         .time-box svg { stroke: var(--gold-light); }
         .time-box.episodes {
@@ -314,7 +331,7 @@
         .modal-content {
             background: var(--bg-deep); width: 90%; max-width: 1050px; max-height: 85vh;
             overflow-y: auto; position: relative;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px rgba(245, 194, 133, 0.15); 
+            box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main); padding: 5px; 
             transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
@@ -336,15 +353,16 @@
         
         .modal-info-main { 
             flex: 1; 
-            background: radial-gradient(circle at 20% 30%, rgba(245, 194, 133, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at 20% 30%, rgba(245, 194, 133, 0.05) 0%, transparent 70%);
             padding: 15px; border-radius: 8px;
         }
         .modal-title-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-wrap: wrap; }
         
+        /* Заголовок белый, без градиента, с мягкой тенью */
         .modal-title { 
             font-family: var(--font-title); font-size: 48px; font-weight: 900; margin: 0; letter-spacing: 2px;
             color: #ffffff;
-            text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 12px rgba(245, 194, 133, 0.4);
+            text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.3);
         }
 
         .modal-meta { color: var(--gold-light); font-size: 20px; font-style: italic; margin-bottom: 25px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 15px; }
@@ -367,15 +385,15 @@
         }
         .grid-item { font-size: 16px; display: flex; flex-direction: column; gap: 5px; }
         .grid-item.full-width { grid-column: 1 / -1; } 
-        .grid-label { color: var(--gold-light); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); }
-        .grid-value { color: var(--gold-main); font-weight: 500; font-size: 18px; }
+        .grid-label { color: var(--gold-light); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); text-shadow: 0 0 5px rgba(0,0,0,0.8); }
+        .grid-value { color: var(--gold-main); font-weight: 500; font-size: 18px; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
         .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; }
         .modal-requester-link:hover { transform: translateX(5px); }
         .modal-requester-link span { font-family: var(--font-title); font-size: 20px; color: var(--gold-main); transition: color 0.3s; }
         .modal-requester-link span:hover { color: #fff; }
 
-        .trailer-container { width: 100%; aspect-ratio: 16/9; border: 1px solid var(--gold-main); margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position: relative;}
+        .trailer-container { width: 100%; aspect-ratio: 16/9; border: 1px solid var(--gold-main); margin-top: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.8); position: relative;}
         .trailer-container::before { content: ''; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border: 1px solid rgba(245, 194, 133, 0.3); pointer-events: none;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
@@ -396,60 +414,73 @@
 </head>
 <body>
 
-<img src="girl-left.png" class="fixed-girl girl-left" alt="">
-<img src="girl-right.png" class="fixed-girl girl-right" alt="">
+<div class="main-wrapper">
+    
+    <div class="girl-col">
+        <div class="sticky-box">
+            <img src="girl-left.png" class="girl-img left-img" alt="">
+        </div>
+    </div>
 
-<div class="container">
-    <div class="corner-ornament corner-tl"></div>
-    <div class="corner-ornament corner-tr"></div>
-    <div class="corner-ornament corner-bl"></div>
-    <div class="corner-ornament corner-br"></div>
+    <div class="container">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
 
-    <div class="content-wrapper">
-        <div class="header">
-            <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
-                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
-                <div class="creator-info">
-                    <span class="creator-label">Хранитель</span>
-                    <span class="creator-name">MadMan1408</span>
+        <div class="content-wrapper">
+            <div class="header">
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="creatorAvatar" alt="MadMan1408">
+                    <div class="creator-info">
+                        <span class="creator-label">Хранитель</span>
+                        <span class="creator-name">MadMan1408</span>
+                    </div>
+                </div>
+                
+                <div class="header-top">
+                    <h1>Афиша Чатика</h1>
+                </div>
+                
+                <div class="controls-panel">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Искать в архивах..." oninput="applyFilters()">
+                    <select id="userFilter" class="sort-select" onchange="applyFilters()">
+                        <option value="all">Все странники</option>
+                    </select>
+                    <select id="sortSelect" class="sort-select" onchange="applyFilters()">
+                        <option value="oldest">Древнейшие свитки</option>
+                        <option value="newest">Новые поступления</option>
+                        <option value="waiting">Ожидают взора</option>
+                        <option value="watched">Уже познаны</option>
+                        <option value="auction">Выиграны в бою (Аукцион)</option>
+                        <option value="cried">Вызвали слезы</option>
+                    </select>
                 </div>
             </div>
             
-            <div class="header-top">
-                <h1>Афиша Чатика</h1>
-            </div>
-            
-            <div class="controls-panel">
-                <input type="text" id="searchInput" class="search-box" placeholder="Искать в архивах..." oninput="applyFilters()">
-                <select id="userFilter" class="sort-select" onchange="applyFilters()">
-                    <option value="all">Все странники</option>
-                </select>
-                <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                    <option value="oldest">Древнейшие свитки</option>
-                    <option value="newest">Новые поступления</option>
-                    <option value="waiting">Ожидают взора</option>
-                    <option value="watched">Уже познаны</option>
-                    <option value="auction">Выиграны в бою (Аукцион)</option>
-                    <option value="cried">Вызвали слезы</option>
-                </select>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 155px; min-width: 155px;">Лик</th>
+                        <th style="width: 100%;">История</th>
+                        <th style="width: 155px; min-width: 155px;">Кто воззвал</th>
+                        <th style="width: 130px; min-width: 130px;">Длительность</th>
+                        <th style="width: 145px; min-width: 145px;">Метка</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr><td colspan="5" style="text-align: center; padding: 60px; font-size: 24px; color: var(--gold-main); font-family: var(--font-title); text-shadow: 0 0 10px rgba(0,0,0,0.8);">Раскрываем древние фолианты... ✧</td></tr>
+                </tbody>
+            </table>
         </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 155px; min-width: 155px;">Лик</th>
-                    <th style="width: 100%;">История</th>
-                    <th style="width: 155px; min-width: 155px;">Кто воззвал</th>
-                    <th style="width: 130px; min-width: 130px;">Длительность</th>
-                    <th style="width: 145px; min-width: 145px;">Метка</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <tr><td colspan="5" style="text-align: center; padding: 60px; font-size: 24px; color: var(--gold-main); font-family: var(--font-title); text-shadow: 0 0 15px var(--gold-main);">Раскрываем древние фолианты... ✧</td></tr>
-            </tbody>
-        </table>
     </div>
+
+    <div class="girl-col">
+        <div class="sticky-box">
+            <img src="girl-right.png" class="girl-img right-img" alt="">
+        </div>
+    </div>
+
 </div>
 
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
@@ -589,7 +620,7 @@
             }
             populateUserFilter(); applyFilters();
         } catch (error) {
-            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--blood-red); font-family: var(--font-title); font-size: 24px;">Свитки сгорели в огне (Ошибка)</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--blood-red); font-family: var(--font-title); font-size: 24px; text-shadow: 0 0 10px rgba(0,0,0,0.8);">Свитки сгорели в огне (Ошибка)</td></tr>`;
         }
     }
 
@@ -626,7 +657,7 @@
         const tbody = document.getElementById('table-body');
         tbody.innerHTML = '';
         if (dataArray.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 60px; font-size: 24px; color: var(--gold-dark); font-family: var(--font-title);">В архивах пусто ✧</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 60px; font-size: 24px; color: var(--gold-dark); font-family: var(--font-title); text-shadow: 0 0 10px rgba(0,0,0,0.8);">В архивах пусто ✧</td></tr>';
             return;
         }
 
@@ -640,8 +671,8 @@
             const isWatched = movie.status === "Смотрели";
             const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">ЖДЕТ ЧАСА</span>`;
             
-            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #ffb3b3; margin-top: 10px; font-family: var(--font-title); letter-spacing: 1px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 15px; color: var(--gold-main); font-style:italic; margin-top: 8px;">${movie.dateWatched}</div>${criedHTML}` : '';
+            const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #ffb3b3; margin-top: 10px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="16" height="16" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 15px; color: var(--gold-main); font-style:italic; margin-top: 8px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -661,7 +692,7 @@
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
                 directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" alt="" title="Творец: ${escapeHTML(movie.director.name)}">`;
-                if(castHtml) directorHtml += '<div style="width: 1px; height: 30px; background: rgba(223,170,107,0.3); margin: 0 8px;"></div>';
+                if(castHtml) directorHtml += '<div style="width: 1px; height: 30px; background: rgba(245,194,133,0.3); margin: 0 8px;"></div>';
             }
 
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
@@ -688,7 +719,7 @@
                 ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` 
                 : `<div class="req-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
 
-            const auctionHTML = movie.isAuction ? `<div style="color: var(--gold-light); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 700; margin-top: 8px;">✦ Дар Аукциона ✦</div>` : '';
+            const auctionHTML = movie.isAuction ? `<div style="color: var(--gold-light); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 700; margin-top: 8px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">✦ Дар Аукциона ✦</div>` : '';
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" alt=""></div></td>
@@ -744,15 +775,15 @@
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") {
             metaText += ` ✧ ${movie.runtime}`;
         }
-        if (movie.status === 'Смотрели' && movie.ourRating) metaText += ` <span style="color:#e62222; font-family:var(--font-title); font-weight:700; margin-left: 15px;">ОЦЕНКА: ${movie.ourRating}</span>`;
+        if (movie.status === 'Смотрели' && movie.ourRating) metaText += ` <span style="color:#e62222; font-family:var(--font-title); font-weight:700; margin-left: 15px; text-shadow:0 0 5px rgba(0,0,0,0.8);">ОЦЕНКА: ${movie.ourRating}</span>`;
         
         document.getElementById('modalMeta').innerHTML = metaText;
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое свитка утеряно во времени...';
-        document.getElementById('modalDateReq').innerHTML = `${movie.dateRequested || 'Архив молчит'} ${movie.isAuction ? `<br><span style="color:var(--gold-main); font-family:var(--font-title); font-size: 14px;">✦ Дар Аукциона ✦</span>` : ''}`;
+        document.getElementById('modalDateReq').innerHTML = `${movie.dateRequested || 'Архив молчит'} ${movie.isAuction ? `<br><span style="color:var(--gold-main); font-family:var(--font-title); font-size: 14px; text-shadow:0 0 5px rgba(0,0,0,0.8);">✦ Дар Аукциона ✦</span>` : ''}`;
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели') {
-            dateWatchedEl.innerHTML = `${movie.dateWatched || 'Дата утеряна'} ${movie.cried ? `<br><span style="color:#ffb3b3; font-family:var(--font-title); font-size: 14px;">✦ Пролиты слезы ✦</span>` : ''}`;
+            dateWatchedEl.innerHTML = `${movie.dateWatched || 'Дата утеряна'} ${movie.cried ? `<br><span style="color:#ffb3b3; font-family:var(--font-title); font-size: 14px; text-shadow:0 0 5px rgba(0,0,0,0.8);">✦ Пролиты слезы ✦</span>` : ''}`;
             dateWatchedEl.style.color = 'var(--gold-main)'; 
         } else {
             dateWatchedEl.textContent = 'Ждет своего часа'; dateWatchedEl.style.color = 'var(--text-muted)'; 
