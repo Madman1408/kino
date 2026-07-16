@@ -33,7 +33,36 @@
             padding: 50px 20px;
             min-height: 100vh;
             background-attachment: fixed;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Уменьшена общая тень */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); 
+        }
+
+        /* 🔥 ФИКСИРОВАННЫЕ ДЕВУШКИ ПО КРАЯМ ЭКРАНА 🔥 */
+        .fixed-girl {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 75vh; /* Занимает 75% от высоты экрана ОБС */
+            max-height: 700px;
+            z-index: 999; /* Поверх всего */
+            pointer-events: none; /* Мышка кликает СКВОЗЬ картинку */
+        }
+        
+        .girl-left {
+            left: 0;
+        }
+        
+        .girl-right {
+            right: 0;
+            /* Если у тебя всего ОДИН файл и ты хочешь его отзеркалить направо, */
+            /* просто раскомментируй строку ниже (удали косые черты): */
+            /* transform: translateY(-50%) scaleX(-1); */
+        }
+
+        /* Защита: если экран слишком узкий, скрываем девушек, чтобы они не закрывали текст */
+        @media (max-width: 1480px) {
+            .fixed-girl {
+                display: none;
+            }
         }
 
         /* --- ГЛАВНЫЙ КОНТЕЙНЕР --- */
@@ -43,7 +72,7 @@
             background: rgba(36, 14, 16, 0.93); 
             backdrop-filter: blur(8px); 
             position: relative;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(245, 194, 133, 0.1); /* Уменьшено свечение фона */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main);
             padding: 4px; 
         }
@@ -79,7 +108,6 @@
             text-shadow: 0 0 10px var(--gold-light);
         }
 
-        /* 🔥 ЧИСТЫЕ БЕЛЫЕ ЗАГОЛОВКИ КАК ИМЯ СОЗДАТЕЛЯ 🔥 */
         .header-top h1 { 
             font-family: var(--font-title);
             font-size: 56px; 
@@ -88,8 +116,6 @@
             letter-spacing: 3px;
             position: relative;
             display: inline-block;
-            
-            /* Белый цвет текста + элегантная золотистая тень (как у MADMAN1408) */
             color: #ffffff;
             text-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 0 12px rgba(245, 194, 133, 0.4);
         }
@@ -99,7 +125,7 @@
             display: inline-block; font-size: 26px; vertical-align: middle; margin: 0 25px;
             font-family: var(--font-text); font-weight: 400;
             color: var(--gold-main); 
-            filter: drop-shadow(0 0 8px rgba(245, 194, 133, 0.3)); /* Убавил свечение */
+            filter: drop-shadow(0 0 8px rgba(245, 194, 133, 0.3)); 
         }
 
         /* Плашка Создателя */
@@ -165,7 +191,7 @@
         /* Постеры */
         .poster-wrapper { 
             width: 140px; height: 210px; overflow: hidden; margin: 0 auto; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8); /* Убрано золотое свечение вокруг картинки в покое */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
         }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -176,7 +202,7 @@
         .movie-title { 
             font-size: 34px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 8px rgba(245, 194, 133, 0.3); /* Спокойная тень */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 8px rgba(245, 194, 133, 0.3); 
         }
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; }
         
@@ -193,7 +219,7 @@
             background: #8a0b0b; color: #fff; padding: 2px 10px; font-size: 13px; font-weight: 700; 
             text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); 
             border-radius: 2px; border: 1px solid #d31a1a;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Убрано яркое красное свечение */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5); 
         }
         
         .outline-badge, .tmdb-badge { 
@@ -315,7 +341,6 @@
         }
         .modal-title-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-wrap: wrap; }
         
-        /* 🔥 ЧИСТЫЙ БЕЛЫЙ ЗАГОЛОВОК В МОДАЛКЕ 🔥 */
         .modal-title { 
             font-family: var(--font-title); font-size: 48px; font-weight: 900; margin: 0; letter-spacing: 2px;
             color: #ffffff;
@@ -370,6 +395,9 @@
     </style>
 </head>
 <body>
+
+<img src="girl-left.png" class="fixed-girl girl-left" alt="">
+<img src="girl-right.png" class="fixed-girl girl-right" alt="">
 
 <div class="container">
     <div class="corner-ornament corner-tl"></div>
@@ -437,7 +465,7 @@
                     <div class="modal-title-wrapper">
                         <h2 class="modal-title" id="modalTitle">Название</h2>
                         <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
                         </button>
                         <div id="modalBadges" style="display: flex; gap: 10px; margin-left: 10px;"></div>
                     </div>
@@ -633,11 +661,10 @@
             let directorHtml = '';
             if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
                 directorHtml = `<img src="${getSafePhoto(movie.director.photo)}" class="avatar director-avatar" alt="" title="Творец: ${escapeHTML(movie.director.name)}">`;
-                if(castHtml) directorHtml += '<div style="width: 1px; height: 30px; background: rgba(245,194,133,0.3); margin: 0 8px;"></div>';
+                if(castHtml) directorHtml += '<div style="width: 1px; height: 30px; background: rgba(223,170,107,0.3); margin: 0 8px;"></div>';
             }
 
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
-            
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
             let runtimeDisplay = `
