@@ -176,7 +176,6 @@
             font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3);
         }
         
-        /* 🔥 ВЫРАВНИВАНИЕ ВСЕХ КОЛОНОК СТРОГО К ВЕРХУ 🔥 */
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
         tr:last-child td { border-bottom: none; }
         
@@ -216,15 +215,16 @@
         }
         .movie-year { color: var(--gold-light); font-size: 16px; font-style: italic; }
         
+        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
-            background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; 
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0;
+            background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
+            opacity: 0.8; /* Всегда видна */
         }
-        tr.movie-row:hover .copy-btn { opacity: 1; }
-        .copy-btn:hover { color: #fff; }
+        .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
-        .modal-title-wrapper .copy-btn { opacity: 1; color: var(--gold-main); padding: 4px; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); }
+        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; }
+        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
@@ -271,23 +271,16 @@
         }
         .req-name { font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        /* 🔥 НОВЫЙ ДИЗАЙН ПЛАШЕК ВРЕМЕНИ И ДАТ (Свечение, рамки, фон) 🔥 */
-        .time-box, .req-date, .watched-date {
-            font-size: 13px; color: var(--gold-light); font-style: normal; font-weight: 600; 
-            text-shadow: 0 0 8px rgba(245, 194, 133, 0.8);
-            background: rgba(0, 0, 0, 0.5); 
-            border: 1px solid rgba(245, 194, 133, 0.3);
+        /* 🔥 КРУПНЫЕ ДАТЫ 🔥 */
+        .date-badge {
+            font-size: 15px; /* ШРИФТ УВЕЛИЧЕН */
+            color: var(--gold-light); font-style: normal; margin-top: 6px; 
+            font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.6); 
+            border: 1px solid rgba(245, 194, 133, 0.25);
             padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px;
-            box-shadow: 0 0 8px rgba(245, 194, 133, 0.2); 
-            display: inline-flex; justify-content: center; align-items: center; gap: 6px;
-            margin-bottom: 4px;
-        }
-
-        .time-box svg { stroke: var(--gold-light); width: 14px; height: 14px; filter: drop-shadow(0 0 2px var(--gold-main)); }
-        
-        .time-box.episodes {
-            flex-direction: column; gap: 2px; align-items: center; text-align: center; font-size: 12px;
-            margin-top: 0; background: rgba(0,0,0,0.3); border-color: rgba(245, 194, 133, 0.15);
+            box-shadow: 0 0 8px rgba(245, 194, 133, 0.15); 
+            display: inline-flex; justify-content: center; align-items: center;
         }
 
         .badge-status { 
@@ -322,6 +315,19 @@
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.9); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; }
         tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
+
+        /* 🔥 КРУПНОЕ ВРЕМЯ И СЕЗОНЫ 🔥 */
+        .time-box {
+            color: #fff; font-size: 16px; /* ШРИФТ УВЕЛИЧЕН */
+            font-style: italic;
+            display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-shadow: 0 0 4px rgba(0,0,0,0.8);
+        }
+        .time-box svg { stroke: var(--gold-light); width: 18px; height: 18px; }
+        .time-box.episodes {
+            font-size: 15px; /* ШРИФТ УВЕЛИЧЕН */
+            color: var(--gold-light); flex-direction: column; gap: 2px; align-items: center; text-align: center;
+            margin-top: 4px; margin-left: 0;
+        }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
@@ -448,14 +454,14 @@
                 <div class="controls-panel">
                     <input type="text" id="searchInput" class="search-box" placeholder="Поиск..." oninput="applyFilters()">
                     <select id="userFilter" class="sort-select" onchange="applyFilters()">
-                        <option value="all">Все странники</option>
+                        <option value="all">Все заказчики</option>
                     </select>
                     <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                        <option value="oldest">Древнейшие свитки</option>
+                        <option value="oldest">По порядку (По дате заказов)</option>
                         <option value="newest">Новые поступления</option>
-                        <option value="waiting">Ожидают взора</option>
-                        <option value="watched">Уже познаны</option>
-                        <option value="auction">Выиграны в бою (Аукцион)</option>
+                        <option value="waiting">В ожидании</option>
+                        <option value="watched">Смотрели</option>
+                        <option value="auction">Аукцион</option>
                         <option value="cried">Вызвали слезы</option>
                     </select>
                 </div>
@@ -467,7 +473,7 @@
                         <th style="width: 140px; min-width: 140px;">Постер</th>
                         <th style="width: 100%;">История</th>
                         <th style="width: 145px; min-width: 145px;">Заказал</th>
-                        <th style="width: 120px; min-width: 120px;">Длительность</th>
+                        <th style="width: 130px; min-width: 130px;">Длительность</th>
                         <th style="width: 135px; min-width: 135px;">Статус</th>
                     </tr>
                 </thead>
@@ -498,7 +504,7 @@
                     <div class="modal-title-wrapper">
                         <h2 class="modal-title" id="modalTitle">Название</h2>
                         <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
                         </button>
                         <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                     </div>
@@ -562,7 +568,7 @@
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
                 const originalHTML = btnElement.innerHTML;
-                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
                 btnElement.classList.add('copied');
                 setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
             }
@@ -629,7 +635,7 @@
     function populateUserFilter() {
         const filterEl = document.getElementById('userFilter');
         if (!filterEl) return;
-        filterEl.innerHTML = '<option value="all">Все странники</option>';
+        filterEl.innerHTML = '<option value="all">Все заказчики</option>';
         const uniqueUsers = [...new Set(rawMoviesData.map(m => m.requestedBy))].sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
         uniqueUsers.forEach(u => {
             const opt = document.createElement('option'); opt.value = u.toLowerCase(); opt.textContent = `✧ ${u.replace('@', '').trim()}`; filterEl.appendChild(opt);
@@ -671,14 +677,15 @@
             
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
-            const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
+            const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #ffb3b3; margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="14" height="14" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div class="watched-date">${movie.dateWatched}</div>${criedHTML}` : '';
+            
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div class="date-badge">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
-            const idBadge = `<span class="outline-badge">Свиток №${movie.id || 0}</span>`;
+            const idBadge = `<span class="outline-badge">ID ${movie.id || 0}</span>`;
             const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Фильм')}</span>`;
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
@@ -704,7 +711,7 @@
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
             let runtimeDisplay = `
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <div class="time-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
@@ -753,13 +760,13 @@
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
                         </div>
-                        ${movie.dateRequested ? `<div class="req-date">${movie.dateRequested}</div>` : ''}
+                        ${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested}</div>` : ''}
                         ${auctionHTML}
                     </div>
                 </td>
                 <td>${runtimeDisplay}</td>
-                <td>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
+                <td style="text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         ${statusText}
                         ${watchedDateHTML}
                     </div>
@@ -785,7 +792,7 @@
 
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
         document.getElementById('modalTitle').textContent = movie.title || 'Безымянный';
-        document.getElementById('modalBadges').innerHTML = `${movie.tmdbBadge ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : ''} ${movie.ageRating && movie.ageRating !== "Нет данных" ? `<span class="outline-badge">${movie.ageRating}</span>` : ''}`;
+        document.getElementById('modalBadges').innerHTML = `${movie.tmdbBadge ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : ''} ${movie.ageRating && movie.ageRating !== "Нет данных" ? `<span class="outline-badge">${movie.ageRating}</span>` : ''} <span class="outline-badge">ID ${movie.id || 0}</span>`;
         
         let metaText = `${movie.year || '----'} ✧ ${escapeHTML(movie.type || 'Свиток')}`;
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") {
