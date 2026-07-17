@@ -37,54 +37,36 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); 
         }
 
-        /* 🔥 ИДЕАЛЬНАЯ ПРИВЯЗКА ДЕВУШЕК К КОНТЕЙНЕРУ 🔥 */
-        .main-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            width: 100%;
-        }
-
-        .girl-col {
-            width: 0; 
-            position: relative;
-            z-index: 999;
-            pointer-events: none; 
-        }
-
-        .sticky-box {
-            position: sticky;
-            top: 50vh; 
-            width: 0;
-            height: 0;
-            overflow: visible;
-        }
-
-        .girl-img {
-            position: absolute;
-            height: 650px; 
-            top: -325px; 
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6)); 
-        }
-
-        .left-img { right: -25px; }
-        .right-img { left: -25px; }
-
-        @media (max-width: 1550px) {
-            .girl-col { display: none; }
-        }
-
         /* --- ГЛАВНЫЙ КОНТЕЙНЕР --- */
         .container {
             width: 100%;
             max-width: 1150px;
             min-height: 80vh; 
+            margin: 0 auto;
             background: rgba(36, 14, 16, 0.93); 
             backdrop-filter: blur(8px); 
-            position: relative;
+            position: relative; /* ВАЖНО ДЛЯ ПРИВЯЗКИ ДЕВУШЕК */
             box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main);
             padding: 4px; 
+        }
+
+        /* 🔥 ДЕВУШКИ ТЕПЕРЬ ПРИВЯЗАНЫ К САМОМУ КОНТЕЙНЕРУ 🔥 */
+        .girl-img {
+            position: absolute;
+            height: 650px; 
+            top: 50%; /* Центруем по высоте контейнера */
+            transform: translateY(-50%);
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6)); 
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .left-img { left: -260px; } /* Сдвигаем влево ОТ рамки контейнера */
+        .right-img { right: -260px; } /* Сдвигаем вправо ОТ рамки контейнера */
+
+        @media (max-width: 1600px) {
+            .girl-img { display: none; } /* Скрываем, если не влезают */
         }
 
         .container::before {
@@ -197,9 +179,11 @@
         }
         tr.movie-row:hover td:nth-child(2)::after { opacity: 1; }
 
-        /* Постеры */
+        /* 🔥 УВЕЛИЧЕННЫЕ ПОСТЕРЫ 🔥 */
         .poster-wrapper { 
-            width: 120px; height: 180px; overflow: hidden; margin: 0 auto; 
+            width: 135px; /* Было 120px */
+            height: 205px; /* Было 180px */
+            overflow: hidden; margin: 0 auto; 
             box-shadow: 0 8px 15px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
         }
@@ -213,17 +197,16 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
-        .movie-year { color: var(--gold-light); font-size: 16px; font-style: italic; }
+        /* 🔥 УВЕЛИЧЕННЫЙ ГОД 🔥 */
+        .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } /* Было 16px */
         
+        /* 🔥 КОПИРКА ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ НАВЕДЕНИИ 🔥 */
         .copy-btn {
             background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; 
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0;
         }
         tr.movie-row:hover .copy-btn { opacity: 1; }
-        .copy-btn:hover { color: #fff; }
-
-        .modal-title-wrapper .copy-btn { opacity: 1; color: var(--gold-main); padding: 4px; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); }
+        .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 5px var(--gold-main)); transform: scale(1.1); }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
@@ -246,7 +229,7 @@
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
-        .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; }
+        .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; transition: max-height 0.3s ease; }
         .movie-overview-wrapper::after {
             content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20px;
             background: linear-gradient(to top, rgba(36, 14, 16, 0.95), transparent); transition: opacity 0.3s;
@@ -268,9 +251,10 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.8); object-fit: cover; border: 2px solid var(--gold-main);
             transition: all 0.3s; background: var(--gold-main);
         }
-        .req-name { font-family: var(--font-title); font-size: 14px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
+        .req-name { font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        /* 🔥 КРУПНЫЕ ПЛАШКИ ДЛЯ ДАТ И ВРЕМЕНИ 🔥 */
+        .req-date { font-size: 13px; color: var(--gold-main); font-style: italic; margin-top: 6px; font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
+
         .date-badge, .time-box {
             font-size: 15px; 
             color: var(--gold-light); font-style: normal; font-weight: 600; 
@@ -317,11 +301,15 @@
         .cast-group { display: flex; align-items: center; gap: 0; }
         .cast-group .avatar-container { margin-left: -8px; } 
         
-        /* РАЗВОРОТ ПРИ НАВЕДЕНИИ */
-        tr.movie-row:hover .poster-wrapper { box-shadow: 0 10px 25px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 15px rgba(245, 194, 133, 0.3); transform: scale(1.02); }
-        tr.movie-row:hover .poster-wrapper img { transform: scale(1.03); }
-        tr.movie-row:hover .movie-overview-wrapper { max-height: 250px; }
-        tr.movie-row:hover .movie-overview-wrapper::after { opacity: 0; }
+        /* 🔥 ОПИСАНИЕ РАСКРЫВАЕТСЯ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР 🔥 */
+        tr.movie-row .poster-wrapper:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 15px rgba(245, 194, 133, 0.3); transform: scale(1.02); }
+        tr.movie-row .poster-wrapper:hover img { transform: scale(1.03); }
+        
+        /* Используем :has чтобы реагировать на ховер постера */
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper::after { opacity: 0; }
+        
+        /* Остальные эффекты строки */
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.9); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; }
         tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
@@ -371,6 +359,10 @@
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
+
+        /* 🔥 ИКОНКА В МОДАЛКЕ ПОЯВЛЯЕТСЯ ПРИ НАВЕДЕНИИ 🔥 */
+        .modal-title-wrapper .copy-btn { opacity: 0; }
+        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -422,6 +414,7 @@
 <body>
 
 <div class="main-wrapper">
+    <!-- Левая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-left.png" class="girl-img left-img" alt="">
@@ -467,7 +460,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 140px; min-width: 140px;">Постер</th>
+                        <th style="width: 150px; min-width: 150px;">Постер</th>
                         <th style="width: 100%;">История</th>
                         <th style="width: 145px; min-width: 145px;">Заказал</th>
                         <th style="width: 130px; min-width: 130px;">Длительность</th>
@@ -481,6 +474,7 @@
         </div>
     </div>
 
+    <!-- Правая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-right.png" class="girl-img right-img" alt="">
@@ -677,12 +671,11 @@
             const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #ffb3b3; margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="14" height="14" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div class="date-badge">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
-            const idBadge = `<span class="outline-badge">ID ${movie.id || 0}</span>`;
+            const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`; /* Изменено Свиток на ID № */
             const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Фильм')}</span>`;
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
@@ -708,7 +701,7 @@
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
             let runtimeDisplay = `
-                <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <div class="time-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
@@ -738,7 +731,7 @@
                             <span class="movie-title">${cleanTitle}</span>
                             <span class="movie-year">${movie.year || '----'}</span>
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Перо летописца (Скопировать)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
                             </button>
                         </div>
                         <div class="badges-container">
@@ -751,7 +744,7 @@
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
-                <td>
+                <td style="vertical-align: top;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
                             ${avatarMarkup}
@@ -761,12 +754,8 @@
                         ${auctionHTML}
                     </div>
                 </td>
-                <td>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        ${runtimeDisplay}
-                    </div>
-                </td>
-                <td>
+                <td style="vertical-align: top;">${runtimeDisplay}</td>
+                <td style="vertical-align: top;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         ${statusText}
                         ${watchedDateHTML}
@@ -793,7 +782,8 @@
 
         document.getElementById('modalPoster').src = getSafePoster(movie.poster);
         document.getElementById('modalTitle').textContent = movie.title || 'Безымянный';
-        document.getElementById('modalBadges').innerHTML = `${movie.tmdbBadge ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : ''} ${movie.ageRating && movie.ageRating !== "Нет данных" ? `<span class="outline-badge">${movie.ageRating}</span>` : ''} <span class="outline-badge">ID ${movie.id || 0}</span>`;
+        /* Изменено Свиток на ID № в модальном окне */
+        document.getElementById('modalBadges').innerHTML = `${movie.tmdbBadge ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : ''} ${movie.ageRating && movie.ageRating !== "Нет данных" ? `<span class="outline-badge">${movie.ageRating}</span>` : ''} <span class="outline-badge">ID №${movie.id || 0}</span>`;
         
         let metaText = `${movie.year || '----'} ✧ ${escapeHTML(movie.type || 'Свиток')}`;
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") {
