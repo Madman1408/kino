@@ -176,7 +176,9 @@
             font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3);
         }
         
+        /* 🔥 ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ ПО ЦЕНТРУ 🔥 */
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
+        td:nth-child(4), td:nth-child(5) { vertical-align: middle; } /* Длительность и Статус по центру строки */
         tr:last-child td { border-bottom: none; }
         
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -215,15 +217,15 @@
         }
         .movie-year { color: var(--gold-light); font-size: 16px; font-style: italic; }
         
-        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
-            background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.8;
+            background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; 
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0;
         }
-        .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
+        tr.movie-row:hover .copy-btn { opacity: 1; }
+        .copy-btn:hover { color: #fff; }
 
         .modal-title-wrapper .copy-btn {
-            opacity: 0.8; 
+            opacity: 1; 
             color: var(--gold-main); 
             padding: 4px;
         }
@@ -231,7 +233,6 @@
             color: #fff; 
             transform: scale(1.1); 
             filter: drop-shadow(0 0 5px var(--gold-main));
-            opacity: 1;
         }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
@@ -280,7 +281,15 @@
         }
         .req-name { font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        .req-date { font-size: 13px; color: var(--gold-main); font-style: italic; margin-top: 6px; font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
+        /* 🔥 ЧЕТКИЕ И ЯРКИЕ ДАТЫ 🔥 */
+        .req-date { 
+            font-size: 13px; color: var(--gold-light); font-style: normal; margin-top: 6px; 
+            font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.5); /* Подложка */
+            border: 1px solid rgba(245, 194, 133, 0.25);
+            padding: 3px 10px; border-radius: 6px; letter-spacing: 0.5px;
+            display: inline-block;
+        }
 
         .badge-status { 
             font-size: 11px; font-weight: 700; text-align: center; 
@@ -320,9 +329,11 @@
             display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-shadow: 0 0 4px rgba(0,0,0,0.8);
         }
         .time-box svg { stroke: var(--gold-light); width: 16px; height: 16px; }
+        
+        /* 🔥 ЦЕНТРИРОВАННЫЕ СЕЗОНЫ 🔥 */
         .time-box.episodes {
-            font-size: 13px; color: var(--gold-light); flex-direction: column; gap: 2px; align-items: flex-start;
-            margin-top: 4px; margin-left: 22px;
+            font-size: 13px; color: var(--gold-light); flex-direction: column; gap: 2px; align-items: center; text-align: center;
+            margin-top: 4px; margin-left: 0; /* Убран отступ, выровнено ровно по центру */
         }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
@@ -500,7 +511,7 @@
                     <div class="modal-title-wrapper">
                         <h2 class="modal-title" id="modalTitle">Название</h2>
                         <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                         </button>
                         <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                     </div>
@@ -676,7 +687,9 @@
             const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #ffb3b3; margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="14" height="14" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; color: var(--gold-main); font-style:italic; margin-top: 6px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">${movie.dateWatched}</div>${criedHTML}` : '';
+            
+            /* 🔥 ДАТА ПРОСМОТРА (СТАЛА ЯРКОЙ КНОПОЧКОЙ-МЕТКОЙ) 🔥 */
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; color: var(--gold-light); font-weight: 600; margin-top: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(245, 194, 133, 0.2); padding: 4px 10px; border-radius: 6px; display: inline-block; letter-spacing: 0.5px;">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -705,8 +718,9 @@
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
+            /* 🔥 ДЛИТЕЛЬНОСТЬ ВЫРОВНЕНА ПО ЦЕНТРУ 🔥 */
             let runtimeDisplay = `
-                <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
                     <div class="time-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
@@ -754,12 +768,13 @@
                         ${avatarMarkup}
                         <span class="req-name">${cleanNick}</span>
                     </div>
+                    <!-- 🔥 ДАТА ЗАКАЗА (СТАЛА ЯРКОЙ КНОПОЧКОЙ-МЕТКОЙ) 🔥 -->
                     <div class="req-date">${movie.dateRequested || ''}</div>
                     ${auctionHTML}
                 </td>
                 <td>${runtimeDisplay}</td>
-                <td style="text-align: center;">
-                    ${statusText}
+                <td>
+                    ${statusText}<br>
                     ${watchedDateHTML}
                 </td>
             `;
@@ -771,7 +786,7 @@
         const movie = currentViewData[index]; currentModalMovie = movie; 
         const modal = document.getElementById('movieModal');
         
-        // СБРОС СКРОЛЛА: Добавлена микрозадержка для правильного срабатывания в браузере OBS
+        // СБРОС СКРОЛЛА ПРИ ОТКРЫТИИ НОВОГО ФИЛЬМА С ЗАДЕРЖКОЙ ДЛЯ OBS
         const modalContent = modal.querySelector('.modal-content');
         if(modalContent) {
             setTimeout(() => { modalContent.scrollTop = 0; }, 10);
