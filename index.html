@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Афиша нашего Чатика</title>
-    <!-- Подключаем сказочные шрифты -->
+    <!-- 🔥 ИСПРАВЛЕНА ССЫЛКА НА ШРИФТЫ 🔥 -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         /* --- ВОЛШЕБНАЯ СВЕТЛАЯ ПАЛИТРА --- */
@@ -221,6 +221,7 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
+
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } 
         
         /* 🔥 ИСПРАВЛЕНИЕ: ИКОНКА КОПИРОВАНИЯ СТАЛА ЧУТЬ НИЖЕ 🔥 */
@@ -228,7 +229,7 @@
             background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
             opacity: 0.8; 
-            margin-top: 4px; /* Опустили чуть ниже */
+            margin-top: 5px; 
         }
         .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); opacity: 1; } 
 
@@ -355,13 +356,11 @@
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 0 20px rgba(245, 194, 133, 0.6), 0 0 0 1px var(--gold-light); }
         
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
-        
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; }
         
         /* ОПТИМИЗИРОВАННОЕ РАСКРЫТИЕ АВАТАРОК БЕЗ ЛАГОВ */
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 15px rgba(245, 194, 133, 0.4); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; box-shadow: 0 6px 15px rgba(230, 34, 34, 0.4); }
-        
         tr.movie-row:hover .cast-group .avatar-container:nth-child(2) { transform: translateX(16px); }
         tr.movie-row:hover .cast-group .avatar-container:nth-child(3) { transform: translateX(32px); }
         tr.movie-row:hover .cast-group .avatar-container:nth-child(4) { transform: translateX(48px); }
@@ -435,10 +434,9 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
 
-        /* 🔥 ИСПРАВЛЕНИЕ: ИКОНКА КОПИРОВАНИЯ В МОДАЛКЕ СКРЫТА ДО НАВЕДЕНИЯ И ЧУТЬ НИЖЕ 🔥 */
-        .modal-title-wrapper .copy-btn { opacity: 0; color: var(--gold-main); padding: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; background: none; border: none; cursor: pointer; margin-top: 4px; }
-        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); }
+        /* 🔥 ИСПРАВЛЕНИЕ: ИКОНКА В МОДАЛКЕ ВИДНА ВСЕГДА И ЧУТЬ НИЖЕ 🔥 */
+        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; background: none; border: none; cursor: pointer; margin-top: 8px; }
+        .modal-title-wrapper .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -518,7 +516,6 @@
 <body>
 
 <div class="main-wrapper">
-    <!-- Левая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-left.png" class="girl-img left-img" alt="">
@@ -533,7 +530,6 @@
 
         <div class="content-wrapper">
             <div class="header">
-                <!-- БЕЙДЖ ВЕРХНИЙ (prrsephonne) -->
                 <div class="creator-badge" onclick="window.open('https://twitch.tv/prrsephonne', '_blank')">
                     <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="prrsephonneAvatar" alt="prrsephonne">
                     <div class="creator-info">
@@ -576,7 +572,6 @@
                 </tbody>
             </table>
 
-            <!-- НИЖНИЙ БЕЙДЖ (MadMan1408) -->
             <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
                 <div class="creator-info">
@@ -587,7 +582,6 @@
         </div>
     </div>
 
-    <!-- Правая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-right.png" class="girl-img right-img" alt="">
@@ -827,8 +821,8 @@
                     watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
                 }
                 if (movie.cried) {
-                    // 🔥 УВЕЛИЧЕНА ИКОНКА ДО 18px 🔥
-                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
+                    // 🔥 УВЕЛИЧЕНА ИКОНКА ДО 20px 🔥
+                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
                 }
             }
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
@@ -976,8 +970,8 @@
              }
              
              if (movie.cried) {
-                 // 🔥 УВЕЛИЧЕНА ИКОНКА ДО 18px 🔥
-                 html += `<div class="modal-grid-box" style="margin-top: 0; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
+                 // 🔥 УВЕЛИЧЕНА ИКОНКА ДО 20px 🔥
+                 html += `<div class="modal-grid-box" style="margin-top: 0; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
              }
              dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${html}</div>`;
         } else {
