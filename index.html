@@ -315,7 +315,7 @@
             border-top: 1px solid var(--gold-main); border-bottom: 1px solid var(--gold-main);
             padding: 4px 15px; 
             margin-bottom: 6px; background: rgba(0,0,0,0.3); text-shadow: 0 0 4px rgba(0,0,0,0.9);
-            min-width: 85px; 
+            min-width: 100px; 
         }
 
         /* АВАТАРКИ */
@@ -806,7 +806,7 @@
                     watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
                 }
                 if (movie.cried) {
-                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
+                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты Слёзы</div>`;
                 }
             }
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
