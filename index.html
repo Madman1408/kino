@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Афиша нашего Чатика</title>
     <!-- Подключаем сказочные шрифты -->
-    <link href="[https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap](https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         /* --- ВОЛШЕБНАЯ СВЕТЛАЯ ПАЛИТРА --- */
         :root {
@@ -138,7 +138,7 @@
             filter: drop-shadow(0 0 5px rgba(245, 194, 133, 0.2)); 
         }
 
-        /* Плашка Создателя */
+        /* Плашка Владельца */
         .creator-badge {
             position: absolute; top: 20px; left: 30px;
             display: flex; align-items: center; gap: 10px;
@@ -151,11 +151,11 @@
             border: 2px solid var(--gold-main); box-shadow: 0 0 8px rgba(245, 194, 133, 0.2);
         }
         .creator-info { display: flex; flex-direction: column; text-align: left; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3); }
-        .creator-label { font-size: 10px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
-        .creator-name { font-size: 18px; font-weight: 600; color: #fff; font-family: var(--font-title); }
+        .creator-name { font-size: 16px; font-weight: 600; color: #fff; font-family: var(--font-title); }
 
         /* --- ПАНЕЛЬ УПРАВЛЕНИЯ --- */
         .controls-panel { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
+        
         .search-box, .sort-select {
             background: transparent; border: none; border-bottom: 1px solid var(--gold-main);
             padding: 6px 10px; color: var(--gold-light); font-size: 16px; font-family: var(--font-text);
@@ -165,7 +165,7 @@
         .search-box::placeholder { color: var(--text-muted); font-style: italic; }
         .search-box:focus, .sort-select:focus { border-bottom-color: #fff; color: #fff; text-shadow: 0 0 8px rgba(245, 194, 133, 0.4); }
         .sort-select { cursor: pointer; }
-        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left;}
+        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left; }
 
         /* --- ТАБЛИЦА СВИТКОВ --- */
         table { width: 100%; border-collapse: collapse; text-align: left; table-layout: auto; }
@@ -198,10 +198,10 @@
         }
         tr.movie-row:hover td:nth-child(2)::after { opacity: 1; }
 
-        /* Постеры */
+        /* 🔥 УВЕЛИЧЕННЫЕ ПОСТЕРЫ 🔥 */
         .poster-wrapper { 
-            width: 135px; 
-            height: 205px; 
+            width: 140px; 
+            height: 210px; 
             overflow: hidden; margin: 0 auto; 
             box-shadow: 0 8px 15px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
@@ -216,17 +216,17 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
+
+        /* 🔥 УВЕЛИЧЕННЫЙ ГОД 🔥 */
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } 
         
+        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
             background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
             opacity: 0.8; /* Всегда видна */
         }
-        .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
-
-        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
+        .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 5px var(--gold-main)); transform: scale(1.1); opacity: 1; }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
@@ -249,10 +249,11 @@
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
+        /* 🔥 ОПИСАНИЕ РАСКРЫВАЕТСЯ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР 🔥 */
         .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; transition: max-height 0.3s ease; }
         .movie-overview-wrapper::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
-            background: #000; transition: opacity 0.3s;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20px;
+            background: linear-gradient(to top, rgba(36, 14, 16, 0.95), transparent); transition: opacity 0.3s;
         }
         .movie-overview-text { font-size: 15px; line-height: 1.5; color: #fff; text-align: justify; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
 
@@ -322,13 +323,13 @@
         .cast-group { display: flex; align-items: center; gap: 0; }
         .cast-group .avatar-container { margin-left: -8px; } 
         
-        /* РАЗВОРОТ ПРИ НАВЕДЕНИИ */
+        /* 🔥 НАВЕДЕНИЕ ТОЛЬКО НА ПОСТЕР ДЛЯ РАСКРЫТИЯ ОПИСАНИЯ 🔥 */
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 10px 25px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 15px rgba(245, 194, 133, 0.3); transform: scale(1.02); }
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper img { transform: scale(1.03); }
-        
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper::after { opacity: 0; }
         
+        /* Остальные эффекты при наведении на строку */
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.9); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; }
         tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
@@ -378,9 +379,6 @@
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
-
-        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -473,9 +471,9 @@
         <div class="content-wrapper">
             <div class="header">
                 <!-- 🔥 БЕЙДЖ ВЕРХНИЙ (prrsephonne) 🔥 -->
-                <div class="creator-badge" onclick="window.open('[https://twitch.tv/prrsephonne](https://twitch.tv/prrsephonne)', '_blank')">
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/prrsephonne', '_blank')">
                     <!-- Заглушка, пока не подгрузится реальная аватарка prrsephonne -->
-                    <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="prrsephonneAvatar" alt="prrsephonne">
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="prrsephonneAvatar" alt="prrsephonne">
                     <div class="creator-info">
                         <span class="creator-name">prrsephonne</span>
                     </div>
@@ -504,7 +502,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 150px; min-width: 150px;">Постер</th>
+                        <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
                         <th style="width: 145px; min-width: 145px;">Заказал</th>
                         <th style="width: 130px; min-width: 130px;">Длительность</th>
@@ -517,14 +515,13 @@
             </table>
 
             <!-- 🔥 НИЖНИЙ БЕЙДЖ (MadMan1408) 🔥 -->
-            <div class="footer-badge" onclick="window.open('[https://twitch.tv/MadMan1408](https://twitch.tv/MadMan1408)', '_blank')">
-                <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="madmanAvatar" alt="MadMan1408">
+            <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
                 <div class="creator-info">
-                    <span class="creator-label" style="display:block; font-size:10px;">Created by</span>
+                    <span class="creator-label" style="display:block; font-size:10px; font-family: var(--font-title); color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px;">Created by</span>
                     <span class="creator-name">MadMan1408</span>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -539,7 +536,7 @@
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="modal-inner">
             <div class="close-btn" onclick="closeModal(true)">
-                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
             <div class="modal-hero" id="modalHero"></div>
             <div class="modal-body">
@@ -548,7 +545,7 @@
                     <div class="modal-title-wrapper">
                         <h2 class="modal-title" id="modalTitle">Название</h2>
                         <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                         </button>
                         <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                     </div>
@@ -594,8 +591,8 @@
     let currentViewData = []; 
     let currentModalMovie = null; 
 
-    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
-    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
+    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
 
     function escapeHTML(str) {
         if (!str) return '';
@@ -612,7 +609,7 @@
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
                 const originalHTML = btnElement.innerHTML;
-                btnElement.innerHTML = `<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
                 btnElement.classList.add('copied');
                 setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
             }
@@ -630,18 +627,18 @@
     // 🔥 ПОДГРУЗКА АВАТАРОК ДЛЯ ОБОИХ ТВОРЦОВ 🔥
     async function loadCreatorAvatars() {
         try {
-            // Грузим prrsephonne
-            const res1 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=prrsephonne](https://api.ivr.fi/v2/twitch/user?login=prrsephonne)');
+            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=prrsephonne');
             const data1 = await res1.json();
             if (data1 && data1.length > 0 && data1[0].logo) {
-                document.getElementById('prrsephonneAvatar').src = data1[0].logo.replace('300x300', '150x150');
+                const pAv = document.getElementById('prrsephonneAvatar');
+                if(pAv) pAv.src = data1[0].logo.replace('300x300', '150x150');
             }
             
-            // Грузим MadMan1408
-            const res2 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=madman1408](https://api.ivr.fi/v2/twitch/user?login=madman1408)');
+            const res2 = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
             const data2 = await res2.json();
             if (data2 && data2.length > 0 && data2[0].logo) {
-                document.getElementById('madmanAvatar').src = data2[0].logo.replace('300x300', '150x150');
+                const mAv = document.getElementById('madmanAvatar');
+                if(mAv) mAv.src = data2[0].logo.replace('300x300', '150x150');
             }
         } catch (e) { }
     }
@@ -768,7 +765,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <span class="badge-status">${durationBadgeText}</span>
                     <div class="time-box">
-                        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
                     </div>`;
             
@@ -796,7 +793,7 @@
                             <span class="movie-title">${cleanTitle}</span>
                             <span class="movie-year">${movie.year || '----'}</span>
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Перо летописца (Скопировать)">
-                                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
                             </button>
                         </div>
                         <div class="badges-container">
@@ -811,7 +808,7 @@
                 </td>
                 <td style="vertical-align: top;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div class="requester-badge" onclick="window.open('[https://twitch.tv/$](https://twitch.tv/$){cleanNick}', '_blank'); event.stopPropagation();">
+                        <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
                         </div>
@@ -888,12 +885,12 @@
         
         const userColor = stringToColor(cleanNick);
         let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') 
-            ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:28px; height:28px; border-width:1px;" alt="">` 
-            : `<div class="req-avatar" style="width:28px; height:28px; font-size:12px; border-width:1px; background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
+            ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:28px; height:28px; border-width:1px; border-radius:50%; object-fit:cover; margin-right:8px;" alt="">` 
+            : `<div class="req-avatar" style="width:28px; height:28px; font-size:12px; border-width:1px; background-color: ${userColor}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:8px; color:#000; font-weight:900;">${getInitials(cleanNick)}</div>`;
             
-        requesterEl.innerHTML = `${avatarMarkup} <span>${cleanNick}</span>`;
+        requesterEl.innerHTML = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
         requesterEl.style.color = stringToColor(cleanNick);
-        requesterEl.onclick = () => window.open(`[https://twitch.tv/$](https://twitch.tv/$){cleanNick}`, '_blank');
+        requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
 
         let dirHtml = '', castHtml = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
@@ -907,8 +904,8 @@
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
-        if (movie.trailer && movie.trailer.includes('[youtube.com/watch?v=](https://youtube.com/watch?v=)')) {
-            trailerIframe.src = `[https://www.youtube.com/embed/$](https://www.youtube.com/embed/$){movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
+        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) {
+            trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
         } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
 
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
