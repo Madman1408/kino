@@ -138,7 +138,6 @@
             filter: drop-shadow(0 0 5px rgba(245, 194, 133, 0.2)); 
         }
 
-        /* Плашка Владельца */
         .creator-badge {
             position: absolute; top: 20px; left: 30px;
             display: flex; align-items: center; gap: 10px;
@@ -151,7 +150,8 @@
             border: 2px solid var(--gold-main); box-shadow: 0 0 8px rgba(245, 194, 133, 0.2);
         }
         .creator-info { display: flex; flex-direction: column; text-align: left; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3); }
-        .creator-name { font-size: 16px; font-weight: 600; color: #fff; font-family: var(--font-title); }
+        .creator-label { font-size: 10px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); display: none; }
+        .creator-name { font-size: 18px; font-weight: 600; color: #fff; font-family: var(--font-title); }
 
         /* --- ПАНЕЛЬ УПРАВЛЕНИЯ --- */
         .controls-panel { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
@@ -165,7 +165,7 @@
         .search-box::placeholder { color: var(--text-muted); font-style: italic; }
         .search-box:focus, .sort-select:focus { border-bottom-color: #fff; color: #fff; text-shadow: 0 0 8px rgba(245, 194, 133, 0.4); }
         .sort-select { cursor: pointer; }
-        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left; }
+        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left;}
 
         /* --- ТАБЛИЦА СВИТКОВ --- */
         table { width: 100%; border-collapse: collapse; text-align: left; table-layout: auto; }
@@ -198,10 +198,10 @@
         }
         tr.movie-row:hover td:nth-child(2)::after { opacity: 1; }
 
-        /* 🔥 УВЕЛИЧЕННЫЕ ПОСТЕРЫ 🔥 */
+        /* Постеры */
         .poster-wrapper { 
-            width: 140px; 
-            height: 210px; 
+            width: 135px; 
+            height: 205px; 
             overflow: hidden; margin: 0 auto; 
             box-shadow: 0 8px 15px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
@@ -216,15 +216,12 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
-
-        /* 🔥 УВЕЛИЧЕННЫЙ ГОД 🔥 */
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } 
         
-        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
             background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
-            opacity: 0.8; /* Всегда видна */
+            opacity: 0.8; 
         }
         .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 5px var(--gold-main)); transform: scale(1.1); opacity: 1; }
 
@@ -249,11 +246,10 @@
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
-        /* 🔥 ОПИСАНИЕ РАСКРЫВАЕТСЯ ТОЛЬКО ПРИ НАВЕДЕНИИ НА ПОСТЕР 🔥 */
         .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; transition: max-height 0.3s ease; }
         .movie-overview-wrapper::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20px;
-            background: linear-gradient(to top, rgba(36, 14, 16, 0.95), transparent); transition: opacity 0.3s;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+            background: #000; transition: opacity 0.3s;
         }
         .movie-overview-text { font-size: 15px; line-height: 1.5; color: #fff; text-align: justify; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
 
@@ -323,13 +319,13 @@
         .cast-group { display: flex; align-items: center; gap: 0; }
         .cast-group .avatar-container { margin-left: -8px; } 
         
-        /* 🔥 НАВЕДЕНИЕ ТОЛЬКО НА ПОСТЕР ДЛЯ РАСКРЫТИЯ ОПИСАНИЯ 🔥 */
+        /* РАЗВОРОТ ПРИ НАВЕДЕНИИ */
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 10px 25px rgba(0,0,0,0.9), 0 0 0 1px #fff, 0 0 15px rgba(245, 194, 133, 0.3); transform: scale(1.02); }
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper img { transform: scale(1.03); }
+        
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper::after { opacity: 0; }
         
-        /* Остальные эффекты при наведении на строку */
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.9); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; }
         tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
@@ -379,6 +375,9 @@
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
+
+        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; background: none; border: none; cursor: pointer; }
+        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -502,7 +501,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 160px; min-width: 160px;">Постер</th>
+                        <th style="width: 150px; min-width: 150px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
                         <th style="width: 145px; min-width: 145px;">Заказал</th>
                         <th style="width: 130px; min-width: 130px;">Длительность</th>
