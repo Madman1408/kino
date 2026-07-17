@@ -626,10 +626,11 @@
       "collection": "Гладиатор (Коллекция)",
       "id": 8,
       "dateRequested": "15.07.2026 13:26",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true
+      "status": "Смотрели",
+      "ourRating": "2",
+      "cried": true,
+      "isAuction": true,
+      "dateWatched": "17.07.2026 23:44"
     }
   ],
   "sabastat_": [
