@@ -215,16 +215,15 @@
         }
         .movie-year { color: var(--gold-light); font-size: 16px; font-style: italic; }
         
+        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
-            background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px; 
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0;
+            background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.8;
         }
-        tr.movie-row:hover .copy-btn { opacity: 1; }
-        .copy-btn:hover { color: #fff; }
+        .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
-        /* 🔥 МОДАЛЬНАЯ КНОПКА КОПИРОВАНИЯ ВСЕГДА ВИДИМА 🔥 */
         .modal-title-wrapper .copy-btn {
-            opacity: 1; 
+            opacity: 0.8; 
             color: var(--gold-main); 
             padding: 4px;
         }
@@ -232,6 +231,7 @@
             color: #fff; 
             transform: scale(1.1); 
             filter: drop-shadow(0 0 5px var(--gold-main));
+            opacity: 1;
         }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
@@ -340,7 +340,7 @@
             box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main); padding: 5px; 
             transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-            scroll-behavior: smooth; /* Плавный скролл */
+            scroll-behavior: smooth; 
         }
         .modal-overlay.active .modal-content { transform: scale(1); }
         
@@ -500,7 +500,7 @@
                     <div class="modal-title-wrapper">
                         <h2 class="modal-title" id="modalTitle">Название</h2>
                         <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
                         </button>
                         <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                     </div>
@@ -685,7 +685,7 @@
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const cleanOverview = escapeHTML(movie.overview || '');
-            const safeTitle = (movie.title || '').replace(/'/g, "\'").replace(/"/g, '&quot;');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
@@ -771,9 +771,11 @@
         const movie = currentViewData[index]; currentModalMovie = movie; 
         const modal = document.getElementById('movieModal');
         
-        // СБРОС СКРОЛЛА ПРИ ОТКРЫТИИ НОВОГО ФИЛЬМА
+        // СБРОС СКРОЛЛА: Добавлена микрозадержка для правильного срабатывания в браузере OBS
         const modalContent = modal.querySelector('.modal-content');
-        if(modalContent) modalContent.scrollTop = 0;
+        if(modalContent) {
+            setTimeout(() => { modalContent.scrollTop = 0; }, 10);
+        }
         
         const heroEl = document.getElementById('modalHero');
         
