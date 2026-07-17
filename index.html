@@ -176,7 +176,8 @@
             font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3);
         }
         
-        td { padding: 20px 15px; vertical-align: middle; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
+        /* 🔥 ВЫРАВНИВАНИЕ ВСЕХ КОЛОНОК СТРОГО К ВЕРХУ 🔥 */
+        td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
         tr:last-child td { border-bottom: none; }
         
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -184,7 +185,7 @@
         tr.movie-row { cursor: pointer; transition: background-color 0.3s ease; }
         tr.movie-row:hover { background-color: rgba(245, 194, 133, 0.03); } 
         
-        td:nth-child(2) { text-align: left; position: relative; z-index: 1; vertical-align: top; }
+        td:nth-child(2) { text-align: left; position: relative; z-index: 1; }
         td:nth-child(2)::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(ellipse at 25% 50%, rgba(245, 194, 133, 0.1) 0%, transparent 80%);
@@ -270,15 +271,23 @@
         }
         .req-name { font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        /* 🔥 ДАТЫ ЗАКАЗА И ПРОСМОТРА (ЯРКИЕ И СО СВЕЧЕНИЕМ) 🔥 */
-        .req-date, .watched-date { 
-            font-size: 13px; color: var(--gold-light); font-style: normal; margin-top: 8px; 
-            font-weight: 600; text-shadow: 0 0 8px rgba(245, 194, 133, 0.8);
-            background: rgba(0, 0, 0, 0.6); 
-            border: 1px solid rgba(245, 194, 133, 0.4);
+        /* 🔥 НОВЫЙ ДИЗАЙН ПЛАШЕК ВРЕМЕНИ И ДАТ (Свечение, рамки, фон) 🔥 */
+        .time-box, .req-date, .watched-date {
+            font-size: 13px; color: var(--gold-light); font-style: normal; font-weight: 600; 
+            text-shadow: 0 0 8px rgba(245, 194, 133, 0.8);
+            background: rgba(0, 0, 0, 0.5); 
+            border: 1px solid rgba(245, 194, 133, 0.3);
             padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px;
-            box-shadow: 0 0 8px rgba(245, 194, 133, 0.25); /* Легкое свечение */
-            display: inline-flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 8px rgba(245, 194, 133, 0.2); 
+            display: inline-flex; justify-content: center; align-items: center; gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .time-box svg { stroke: var(--gold-light); width: 14px; height: 14px; filter: drop-shadow(0 0 2px var(--gold-main)); }
+        
+        .time-box.episodes {
+            flex-direction: column; gap: 2px; align-items: center; text-align: center; font-size: 12px;
+            margin-top: 0; background: rgba(0,0,0,0.3); border-color: rgba(245, 194, 133, 0.15);
         }
 
         .badge-status { 
@@ -313,16 +322,6 @@
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.9); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; }
         tr.movie-row:hover .cast-group .avatar-container { margin-left: 8px; } 
-
-        .time-box {
-            color: #fff; font-size: 14px; font-style: italic;
-            display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-shadow: 0 0 4px rgba(0,0,0,0.8);
-        }
-        .time-box svg { stroke: var(--gold-light); width: 16px; height: 16px; }
-        .time-box.episodes {
-            font-size: 13px; color: var(--gold-light); flex-direction: column; gap: 2px; align-items: center; text-align: center;
-            margin-top: 4px; margin-left: 0;
-        }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
         .modal-overlay {
@@ -467,7 +466,7 @@
                     <tr>
                         <th style="width: 140px; min-width: 140px;">Постер</th>
                         <th style="width: 100%;">История</th>
-                        <th style="width: 145px; min-width: 145px;">Заказал(а)</th>
+                        <th style="width: 145px; min-width: 145px;">Заказал</th>
                         <th style="width: 120px; min-width: 120px;">Длительность</th>
                         <th style="width: 135px; min-width: 135px;">Статус</th>
                     </tr>
@@ -509,7 +508,7 @@
 
                     <div class="modal-grid">
                         <div class="grid-item">
-                            <div class="grid-label">Заказал(а)</div>
+                            <div class="grid-label">Заказал</div>
                             <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
                         </div>
                         <div class="grid-item">
@@ -705,7 +704,7 @@
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
             let runtimeDisplay = `
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
                     <div class="time-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
@@ -748,8 +747,8 @@
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
-                <td style="vertical-align: middle;">
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <td>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
                         <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
@@ -758,9 +757,9 @@
                         ${auctionHTML}
                     </div>
                 </td>
-                <td style="vertical-align: middle;">${runtimeDisplay}</td>
-                <td style="vertical-align: middle;">
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <td>${runtimeDisplay}</td>
+                <td>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
                         ${statusText}
                         ${watchedDateHTML}
                     </div>
@@ -774,7 +773,6 @@
         const movie = currentViewData[index]; currentModalMovie = movie; 
         const modal = document.getElementById('movieModal');
         
-        // СБРОС СКРОЛЛА ПРИ ОТКРЫТИИ НОВОГО ФИЛЬМА С ЗАДЕРЖКОЙ ДЛЯ OBS
         const modalContent = modal.querySelector('.modal-content');
         if(modalContent) {
             setTimeout(() => { modalContent.scrollTop = 0; }, 10);
