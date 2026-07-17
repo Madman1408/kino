@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Афиша нашего Чатика</title>
     <!-- Подключаем сказочные шрифты -->
-    <link href="[https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap](https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         /* --- ВОЛШЕБНАЯ СВЕТЛАЯ ПАЛИТРА --- */
         :root {
@@ -159,7 +159,6 @@
         /* --- ПАНЕЛЬ УПРАВЛЕНИЯ --- */
         .controls-panel { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
         
-        /* 🔥 ИСПРАВЛЕННОЕ ВЫРАВНИВАНИЕ ФИЛЬТРОВ ПО ЛЕВОМУ КРАЮ 🔥 */
         .search-box, .sort-select {
             background: transparent; border: none; border-bottom: 1px solid var(--gold-main);
             padding: 6px 10px; color: var(--gold-light); font-size: 16px; font-family: var(--font-text);
@@ -169,7 +168,7 @@
         .search-box::placeholder { color: var(--text-muted); font-style: italic; }
         .search-box:focus, .sort-select:focus { border-bottom-color: #fff; color: #fff; text-shadow: 0 0 8px rgba(245, 194, 133, 0.4); }
         .sort-select { cursor: pointer; }
-        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left;}
+        .sort-select option { background: var(--bg-deep); color: var(--gold-light); font-style: normal; text-align: left; }
 
         /* --- ТАБЛИЦА СВИТКОВ --- */
         table { width: 100%; border-collapse: collapse; text-align: left; table-layout: auto; }
@@ -220,11 +219,8 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
-
-        /* 🔥 УВЕЛИЧЕННЫЙ ГОД 🔥 */
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } 
         
-        /* 🔥 ИКОНКА КОПИРОВАНИЯ - ТЕПЕРЬ ВИДИМА ВСЕГДА 🔥 */
         .copy-btn {
             background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; 
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
@@ -253,26 +249,10 @@
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
-        /* 🔥 ИСПРАВЛЕНИЕ ДЛЯ ЧЕРНОЙ ПОЛОСКИ ОПИСАНИЯ 🔥 */
-        .movie-overview-wrapper { 
-            margin-top: 6px; 
-            max-height: 48px; 
-            overflow: hidden; 
-            position: relative; /* Обязательно нужно для градиента */
-            transition: max-height 0.3s ease; 
-        }
-        /* Плавное затемнение текста внизу (чтобы не было черной линии) */
+        .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; transition: max-height 0.3s ease; }
         .movie-overview-wrapper::after {
-            content: ''; 
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 25px; /* Высота градиента */
-            /* Плавный переход от прозрачного к цвету фона строки */
-            background: linear-gradient(to bottom, rgba(36, 14, 16, 0), rgba(36, 14, 16, 1)); 
-            transition: opacity 0.3s;
-            pointer-events: none;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20px;
+            background: linear-gradient(to top, rgba(36, 14, 16, 0.95), transparent); transition: opacity 0.3s;
         }
         .movie-overview-text { font-size: 15px; line-height: 1.5; color: #fff; text-align: justify; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
 
@@ -384,8 +364,10 @@
             .modal-girl-col { display: none; }
         }
 
+        /* 🔥 ШИРИНА МОДАЛЬНОГО ОКНА 🔥 */
         .modal-content {
-            background: var(--bg-deep); width: 90%; max-width: 900px; max-height: 85vh; 
+            background: var(--bg-deep); width: 90%; max-width: 1000px; /* УВЕЛИЧЕНА ШИРИНА С 900px ДО 1000px */
+            max-height: 85vh; 
             overflow-y: auto; position: relative;
             box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main); padding: 5px; 
@@ -516,9 +498,9 @@
         <div class="content-wrapper">
             <div class="header">
                 <!-- 🔥 БЕЙДЖ ВЕРХНИЙ (prrsephonne) 🔥 -->
-                <div class="creator-badge" onclick="window.open('[https://twitch.tv/prrsephonne](https://twitch.tv/prrsephonne)', '_blank')">
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/prrsephonne', '_blank')">
                     <!-- Заглушка, пока не подгрузится реальная аватарка prrsephonne -->
-                    <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="prrsephonneAvatar" alt="prrsephonne">
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="prrsephonneAvatar" alt="prrsephonne">
                     <div class="creator-info">
                         <span class="creator-name">prrsephonne</span>
                     </div>
@@ -560,8 +542,8 @@
             </table>
 
             <!-- 🔥 НИЖНИЙ БЕЙДЖ (MadMan1408) 🔥 -->
-            <div class="footer-badge" onclick="window.open('[https://twitch.tv/MadMan1408](https://twitch.tv/MadMan1408)', '_blank')">
-                <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="madmanAvatar" alt="MadMan1408">
+            <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
                 <div class="creator-info">
                     <span class="creator-label" style="display:block; font-size:10px; font-family: var(--font-title); color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px;">Created by</span>
                     <span class="creator-name">MadMan1408</span>
@@ -579,66 +561,68 @@
 </div>
 
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
-    <!-- Левая девушка в модалке -->
-    <div class="modal-girl-col">
-        <img src="girl-left.png" class="modal-girl-img modal-left-img" alt="">
-    </div>
+    <div class="main-wrapper" style="pointer-events: none; height: 100%;">
+        
+        <div class="modal-girl-col">
+            <img src="girl-left.png" class="modal-girl-img modal-left-img" alt="">
+        </div>
 
-    <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
-        <div class="modal-inner">
-            <div class="close-btn" onclick="closeModal(true)">
-                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </div>
-            <div class="modal-hero" id="modalHero"></div>
-            <div class="modal-body">
-                <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
-                <div class="modal-info-main">
-                    <div class="modal-title-wrapper">
-                        <h2 class="modal-title" id="modalTitle">Название</h2>
-                        <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                        </button>
-                        <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
-                    </div>
-                    <div class="modal-meta" id="modalMeta">2023 ✧ 120 мин</div>
-                    <div class="modal-overview" id="modalOverview">Описание фильма...</div>
-                    <div class="modal-crew-section" id="modalCrewSection"></div>
+        <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
+            <div class="modal-inner">
+                <div class="close-btn" onclick="closeModal(true)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                <div class="modal-hero" id="modalHero"></div>
+                <div class="modal-body">
+                    <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
+                    <div class="modal-info-main">
+                        <div class="modal-title-wrapper">
+                            <h2 class="modal-title" id="modalTitle">Название</h2>
+                            <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            </button>
+                            <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
+                        </div>
+                        <div class="modal-meta" id="modalMeta">2023 ✧ 120 мин</div>
+                        <div class="modal-overview" id="modalOverview">Описание фильма...</div>
+                        <div class="modal-crew-section" id="modalCrewSection"></div>
 
-                    <div class="modal-grid">
-                        <div class="grid-item">
-                            <div class="grid-label">Заказал</div>
-                            <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
+                        <div class="modal-grid">
+                            <div class="grid-item">
+                                <div class="grid-label">Заказал</div>
+                                <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="grid-label">День заказа</div>
+                                <div id="modalDateReq"></div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="grid-label">День просмотра</div>
+                                <div id="modalDateWatched"></div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="grid-label">Бюджет / Сборы</div>
+                                <div id="modalFinances"></div>
+                            </div>
+                            <div class="grid-item full-width">
+                                <div class="grid-label">Студии</div>
+                                <div class="grid-value" id="modalStudios" style="font-style: italic; color: #e3cebe;">Архив скрыт</div>
+                            </div>
                         </div>
-                        <div class="grid-item">
-                            <div class="grid-label">День заказа</div>
-                            <div id="modalDateReq"></div>
+                        
+                        <div id="trailerWrapper" style="display: none;">
+                            <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px;">✧ Трейлер ✧</div>
+                            <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
                         </div>
-                        <div class="grid-item">
-                            <div class="grid-label">День просмотра</div>
-                            <div id="modalDateWatched"></div>
-                        </div>
-                        <div class="grid-item">
-                            <div class="grid-label">Бюджет / Сборы</div>
-                            <div id="modalFinances"></div>
-                        </div>
-                        <div class="grid-item full-width">
-                            <div class="grid-label">Студии</div>
-                            <div class="grid-value" id="modalStudios" style="font-style: italic; color: #e3cebe;">Архив скрыт</div>
-                        </div>
-                    </div>
-                    
-                    <div id="trailerWrapper" style="display: none;">
-                        <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px;">✧ Трейлер ✧</div>
-                        <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+        <div class="modal-girl-col">
+            <img src="girl-right.png" class="modal-girl-img modal-right-img" alt="">
+        </div>
 
-    <!-- Правая девушка в модалке -->
-    <div class="modal-girl-col">
-        <img src="girl-right.png" class="modal-girl-img modal-right-img" alt="">
     </div>
 </div>
 
@@ -647,8 +631,8 @@
     let currentViewData = []; 
     let currentModalMovie = null; 
 
-    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
-    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
+    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
 
     function escapeHTML(str) {
         if (!str) return '';
@@ -665,7 +649,7 @@
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
                 const originalHTML = btnElement.innerHTML;
-                btnElement.innerHTML = `<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
                 btnElement.classList.add('copied');
                 setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
             }
@@ -683,14 +667,14 @@
     // 🔥 ПОДГРУЗКА АВАТАРОК ДЛЯ ОБОИХ ТВОРЦОВ 🔥
     async function loadCreatorAvatars() {
         try {
-            const res1 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=prrsephonne](https://api.ivr.fi/v2/twitch/user?login=prrsephonne)');
+            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=prrsephonne');
             const data1 = await res1.json();
             if (data1 && data1.length > 0 && data1[0].logo) {
                 const pAv = document.getElementById('prrsephonneAvatar');
                 if(pAv) pAv.src = data1[0].logo.replace('300x300', '150x150');
             }
             
-            const res2 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=madman1408](https://api.ivr.fi/v2/twitch/user?login=madman1408)');
+            const res2 = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
             const data2 = await res2.json();
             if (data2 && data2.length > 0 && data2[0].logo) {
                 const mAv = document.getElementById('madmanAvatar');
@@ -821,7 +805,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <span class="badge-status">${durationBadgeText}</span>
                     <div class="time-box">
-                        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
                     </div>`;
             
@@ -849,7 +833,7 @@
                             <span class="movie-title">${cleanTitle}</span>
                             <span class="movie-year">${movie.year || '----'}</span>
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Перо летописца (Скопировать)">
-                                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                             </button>
                         </div>
                         <div class="badges-container">
@@ -864,7 +848,7 @@
                 </td>
                 <td style="vertical-align: top;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div class="requester-badge" onclick="window.open('[https://twitch.tv/$](https://twitch.tv/$){cleanNick}', '_blank'); event.stopPropagation();">
+                        <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
                         </div>
@@ -926,6 +910,7 @@
         if (movie.status === 'Смотрели' && movie.dateWatched) {
              dateWatchedEl.innerHTML = `<div class="modal-grid-box">${movie.dateWatched}</div>`;
         } else {
+             /* 🔥 Изменено: "Еще не смотрели" в стилизованной плашке 🔥 */
              dateWatchedEl.innerHTML = `<div class="modal-grid-box">Еще не смотрели</div>`;
         }
         
@@ -946,7 +931,7 @@
             
         requesterEl.innerHTML = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
         requesterEl.style.color = stringToColor(cleanNick);
-        requesterEl.onclick = () => window.open(`[https://twitch.tv/$](https://twitch.tv/$){cleanNick}`, '_blank');
+        requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
 
         let dirHtml = '', castHtml = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
@@ -960,8 +945,8 @@
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
-        if (movie.trailer && movie.trailer.includes('[youtube.com/watch?v=](https://youtube.com/watch?v=)')) {
-            trailerIframe.src = `[https://www.youtube.com/embed/$](https://www.youtube.com/embed/$){movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
+        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) {
+            trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
         } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
 
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
