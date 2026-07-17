@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "15.07.2026 15:38"
+    "lastUpdated": "17.07.2026 23:44"
   },
   "cross_loss": [
     {
@@ -379,10 +379,11 @@
       "collection": "Тёмный рыцарь (Коллекция)",
       "id": 16,
       "dateRequested": "15.07.2026 13:22",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
+      "status": "Смотрели",
+      "ourRating": "4",
       "cried": false,
-      "isAuction": false
+      "isAuction": false,
+      "dateWatched": "17.07.2026 23:44"
     }
   ],
   "weenniee": [
