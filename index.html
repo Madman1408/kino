@@ -153,7 +153,8 @@
             border: 2px solid var(--gold-main); box-shadow: 0 0 8px rgba(245, 194, 133, 0.2);
         }
         .creator-info { display: flex; flex-direction: column; text-align: left; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3); }
-        .creator-name { font-size: 16px; font-weight: 600; color: #fff; font-family: var(--font-title); }
+        .creator-label { font-size: 10px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); display: none; }
+        .creator-name { font-size: 18px; font-weight: 600; color: #fff; font-family: var(--font-title); }
 
         /* --- ПАНЕЛЬ УПРАВЛЕНИЯ --- */
         .controls-panel { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
@@ -218,7 +219,6 @@
             font-family: var(--font-title); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 6px rgba(245, 194, 133, 0.2); 
         }
-
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; } 
         
         .copy-btn {
@@ -364,8 +364,10 @@
             .modal-girl-col { display: none; }
         }
 
+        /* 🔥 ШИРИНА МОДАЛЬНОГО ОКНА 🔥 */
         .modal-content {
-            background: var(--bg-deep); width: 90%; max-width: 900px; max-height: 85vh; 
+            background: var(--bg-deep); width: 90%; max-width: 1000px; /* УВЕЛИЧЕНА ШИРИНА С 900px ДО 1000px */
+            max-height: 85vh; 
             overflow-y: auto; position: relative;
             box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main); padding: 5px; 
@@ -401,8 +403,8 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
 
-        .modal-title-wrapper .copy-btn { opacity: 0; }
-        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
+        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; background: none; border: none; cursor: pointer; }
+        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -438,8 +440,6 @@
         .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 6px; }
         .grid-item.full-width { grid-column: 1 / -1; } 
         .grid-label { color: var(--gold-light); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); text-shadow: 0 0 4px rgba(0,0,0,0.8); }
-        
-        /* Обычный текст, если плашка не нужна */
         .grid-value { color: var(--gold-main); font-weight: 500; font-size: 16px; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
         .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 8px; }
@@ -450,6 +450,19 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 1px solid var(--gold-main); margin-top: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.8); position: relative;}
         .trailer-container::before { content: ''; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border: 1px solid rgba(245, 194, 133, 0.3); pointer-events: none;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* 🔥 СТИЛЬ ДЛЯ НИЖНЕГО БЕЙДЖА CREATED BY 🔥 */
+        .footer-badge {
+            display: flex; align-items: center; gap: 10px;
+            justify-content: center; margin-top: 20px; padding-bottom: 20px;
+            background: transparent; cursor: pointer;
+            transition: all 0.3s ease; opacity: 0.9;
+        }
+        .footer-badge:hover { opacity: 1; transform: scale(1.03); filter: drop-shadow(0 0 8px rgba(245, 194, 133, 0.4)); }
+        .footer-badge img { 
+            width: 40px; height: 40px; border-radius: 50%; object-fit: cover; 
+            border: 2px solid var(--gold-main); box-shadow: 0 0 8px rgba(245, 194, 133, 0.2);
+        }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-deep); }
@@ -469,6 +482,7 @@
 <body>
 
 <div class="main-wrapper">
+    <!-- Левая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-left.png" class="girl-img left-img" alt="">
@@ -483,7 +497,9 @@
 
         <div class="content-wrapper">
             <div class="header">
+                <!-- 🔥 БЕЙДЖ ВЕРХНИЙ (prrsephonne) 🔥 -->
                 <div class="creator-badge" onclick="window.open('https://twitch.tv/prrsephonne', '_blank')">
+                    <!-- Заглушка, пока не подгрузится реальная аватарка prrsephonne -->
                     <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="prrsephonneAvatar" alt="prrsephonne">
                     <div class="creator-info">
                         <span class="creator-name">prrsephonne</span>
@@ -525,6 +541,7 @@
                 </tbody>
             </table>
 
+            <!-- 🔥 НИЖНИЙ БЕЙДЖ (MadMan1408) 🔥 -->
             <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
                 <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
                 <div class="creator-info">
@@ -535,6 +552,7 @@
         </div>
     </div>
 
+    <!-- Правая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-right.png" class="girl-img right-img" alt="">
@@ -646,6 +664,7 @@
         if (currentModalMovie) copyTextToClipboard(`${currentModalMovie.title || ''} ${currentModalMovie.year || ''}`, document.getElementById('modalCopyBtn'));
     }
 
+    // 🔥 ПОДГРУЗКА АВАТАРОК ДЛЯ ОБОИХ ТВОРЦОВ 🔥
     async function loadCreatorAvatars() {
         try {
             const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=prrsephonne');
@@ -891,6 +910,7 @@
         if (movie.status === 'Смотрели' && movie.dateWatched) {
              dateWatchedEl.innerHTML = `<div class="modal-grid-box">${movie.dateWatched}</div>`;
         } else {
+             /* 🔥 Изменено: "Еще не смотрели" в стилизованной плашке 🔥 */
              dateWatchedEl.innerHTML = `<div class="modal-grid-box">Еще не смотрели</div>`;
         }
         
@@ -934,7 +954,9 @@
 
     function closeModal(arg) {
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
-            document.getElementById('movieModal').classList.remove('active'); document.body.style.overflow = 'auto'; 
+            document.getElementById('movieModal').classList.remove('active'); 
+            /* 🔥 ИСПРАВЛЕНИЕ СКРОЛЛА: Возвращаем всё как было, не вызывая горизонтальную полосу 🔥 */
+            document.body.style.overflow = ''; 
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
         }
     }
