@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Афиша нашего Чатика</title>
-    <!-- Подключаем сказочные шрифты -->
-    <link href="[https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap](https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap)" rel="stylesheet">
+    <!-- Подключаем сказочные шрифты (восстановленная ссылка) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         /* --- ВОЛШЕБНАЯ СВЕТЛАЯ ПАЛИТРА --- */
         :root {
@@ -35,11 +35,11 @@
             min-height: 100vh;
             background-attachment: fixed;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-            /* 🔥 ИСПРАВЛЕНИЕ: ПРЯЧЕМ ГОРИЗОНТАЛЬНУЮ ПРОКРУТКУ 🔥 */
+            /* ПРЯЧЕМ ГОРИЗОНТАЛЬНУЮ ПРОКРУТКУ */
             overflow-x: hidden; 
         }
 
-        /* 🔥 ИДЕАЛЬНАЯ ПРИВЯЗКА ДЕВУШЕК К КОНТЕЙНЕРУ 🔥 */
+        /* ИДЕАЛЬНАЯ ПРИВЯЗКА ДЕВУШЕК К КОНТЕЙНЕРУ */
         .main-wrapper {
             display: flex;
             justify-content: center;
@@ -298,8 +298,6 @@
             display: inline-flex; justify-content: center; align-items: center; gap: 6px;
         }
 
-        .date-badge { margin-top: 6px; }
-
         .time-box svg { stroke: var(--gold-light); width: 16px; height: 16px; filter: drop-shadow(0 0 2px var(--gold-main)); }
         
         .time-box.episodes {
@@ -318,20 +316,6 @@
             padding: 4px 15px; 
             margin-bottom: 6px; background: rgba(0,0,0,0.3); text-shadow: 0 0 4px rgba(0,0,0,0.9);
             min-width: 85px; 
-        }
-
-        /* 🔥 НОВЫЙ КЛАСС ДЛЯ ОЦЕНКИ 🔥 */
-        .rating-badge {
-            font-size: 14px; 
-            font-style: normal; font-weight: 900; 
-            text-shadow: 0 0 5px rgba(0,0,0,0.9);
-            background: rgba(0, 0, 0, 0.6); 
-            border: 1px solid rgba(245, 194, 133, 0.3);
-            padding: 5px 12px; border-radius: 4px; letter-spacing: 0.5px;
-            box-shadow: 0 0 8px rgba(245, 194, 133, 0.15); 
-            display: inline-flex; justify-content: center; align-items: center; gap: 6px;
-            margin-top: 6px;
-            font-family: var(--font-title);
         }
 
         /* АВАТАРКИ */
@@ -354,13 +338,11 @@
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 0 20px rgba(245, 194, 133, 0.6), 0 0 0 1px var(--gold-light); }
         
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
-        
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; }
         
-        /* 🔥 ОПТИМИЗИРОВАННОЕ РАСКРЫТИЕ АВАТАРОК БЕЗ ЛАГОВ 🔥 */
+        /* 🔥 ОПТИМИЗИРОВАННОЕ РАСКРЫТИЕ АВАТАРОК 🔥 */
         tr.movie-row:hover .avatar { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 15px rgba(245, 194, 133, 0.4); z-index: 10; border-color: #fff; filter: grayscale(0%); }
         tr.movie-row:hover .director-avatar { border-color: #ff4d4d; box-shadow: 0 6px 15px rgba(230, 34, 34, 0.4); }
-        
         tr.movie-row:hover .cast-group .avatar-container:nth-child(2) { transform: translateX(16px); }
         tr.movie-row:hover .cast-group .avatar-container:nth-child(3) { transform: translateX(32px); }
         tr.movie-row:hover .cast-group .avatar-container:nth-child(4) { transform: translateX(48px); }
@@ -395,6 +377,7 @@
             .modal-girl-col { display: none; }
         }
 
+        /* 🔥 ШИРИНА МОДАЛЬНОГО ОКНА 🔥 */
         .modal-content {
             background: var(--bg-deep); width: 90%; max-width: 1000px; 
             max-height: 85vh; 
@@ -433,8 +416,8 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(245, 194, 133, 0.4);
         }
 
-        .modal-title-wrapper .copy-btn { opacity: 0.8; color: var(--gold-main); padding: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; background: none; border: none; cursor: pointer; }
-        .modal-title-wrapper .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); opacity: 1; }
+        .modal-title-wrapper .copy-btn { opacity: 0; }
+        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
@@ -513,6 +496,7 @@
 <body>
 
 <div class="main-wrapper">
+    <!-- Левая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-left.png" class="girl-img left-img" alt="">
@@ -527,8 +511,10 @@
 
         <div class="content-wrapper">
             <div class="header">
-                <div class="creator-badge" onclick="window.open('[https://twitch.tv/prrsephonne](https://twitch.tv/prrsephonne)', '_blank')">
-                    <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="prrsephonneAvatar" alt="prrsephonne">
+                <!-- 🔥 БЕЙДЖ ВЕРХНИЙ (prrsephonne) 🔥 -->
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/prrsephonne', '_blank')">
+                    <!-- Заглушка, пока не подгрузится реальная аватарка prrsephonne -->
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="prrsephonneAvatar" alt="prrsephonne">
                     <div class="creator-info">
                         <span class="creator-name">prrsephonne</span>
                     </div>
@@ -569,8 +555,9 @@
                 </tbody>
             </table>
 
-            <div class="footer-badge" onclick="window.open('[https://twitch.tv/MadMan1408](https://twitch.tv/MadMan1408)', '_blank')">
-                <img src="[https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png](https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png)" id="madmanAvatar" alt="MadMan1408">
+            <!-- 🔥 НИЖНИЙ БЕЙДЖ (MadMan1408) 🔥 -->
+            <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
                 <div class="creator-info">
                     <span class="creator-label" style="display:block; font-size:10px; font-family: var(--font-title); color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px;">Created by</span>
                     <span class="creator-name">MadMan1408</span>
@@ -579,6 +566,7 @@
         </div>
     </div>
 
+    <!-- Правая девушка -->
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-right.png" class="girl-img right-img" alt="">
@@ -596,7 +584,7 @@
         <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
             <div class="modal-inner">
                 <div class="close-btn" onclick="closeModal(true)">
-                    <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </div>
                 <div class="modal-hero" id="modalHero"></div>
                 <div class="modal-body">
@@ -605,7 +593,7 @@
                         <div class="modal-title-wrapper">
                             <h2 class="modal-title" id="modalTitle">Название</h2>
                             <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                             </button>
                             <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                         </div>
@@ -657,8 +645,8 @@
     let currentViewData = []; 
     let currentModalMovie = null; 
 
-    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
-    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
+    const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
 
     function escapeHTML(str) {
         if (!str) return '';
@@ -675,7 +663,7 @@
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
                 const originalHTML = btnElement.innerHTML;
-                btnElement.innerHTML = `<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
                 btnElement.classList.add('copied');
                 setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
             }
@@ -693,14 +681,14 @@
     // 🔥 ПОДГРУЗКА АВАТАРОК ДЛЯ ОБОИХ ТВОРЦОВ 🔥
     async function loadCreatorAvatars() {
         try {
-            const res1 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=prrsephonne](https://api.ivr.fi/v2/twitch/user?login=prrsephonne)');
+            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=prrsephonne');
             const data1 = await res1.json();
             if (data1 && data1.length > 0 && data1[0].logo) {
                 const pAv = document.getElementById('prrsephonneAvatar');
                 if(pAv) pAv.src = data1[0].logo.replace('300x300', '150x150');
             }
             
-            const res2 = await fetch('[https://api.ivr.fi/v2/twitch/user?login=madman1408](https://api.ivr.fi/v2/twitch/user?login=madman1408)');
+            const res2 = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
             const data2 = await res2.json();
             if (data2 && data2.length > 0 && data2[0].logo) {
                 const mAv = document.getElementById('madmanAvatar');
@@ -809,17 +797,19 @@
             const isWatched = movie.status === "Смотрели";
             const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
-            // 🔥 ИСПРАВЛЕНИЕ: Плашка со слезами (светло-голубая капля) 🔥
-            const criedHTML = movie.cried ? `<br><div class="date-badge" style="margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            
-            // 🔥 ИСПРАВЛЕНИЕ: Плашка с оценкой (цвет меняется) 🔥
-            let ratingHTML = '';
-            if (isWatched && movie.ourRating) {
-                const rColor = getRatingColor(movie.ourRating);
-                ratingHTML = `<div class="rating-badge" style="color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor};">ОЦЕНКА: ${movie.ourRating}</div>`;
+            // 🔥 РЕНДЕР СТОЛБИКОМ: Дата, Оценка, Слезы 🔥
+            let watchedDetails = '';
+            if (isWatched && movie.dateWatched) {
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched}</div>`;
+                if (movie.ourRating) {
+                    const rColor = getRatingColor(movie.ourRating);
+                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
+                }
+                if (movie.cried) {
+                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
+                }
             }
-
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div class="date-badge">${movie.dateWatched}</div>${ratingHTML}${criedHTML}` : '';
+            const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -854,7 +844,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <span class="badge-status">${durationBadgeText}</span>
                     <div class="time-box">
-                        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
                     </div>`;
             
@@ -882,7 +872,7 @@
                             <span class="movie-title">${cleanTitle}</span>
                             <span class="movie-year">${movie.year || '----'}</span>
                             <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Перо летописца (Скопировать)">
-                                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                             </button>
                         </div>
                         <div class="badges-container">
@@ -897,7 +887,7 @@
                 </td>
                 <td style="vertical-align: top;">
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div class="requester-badge" onclick="window.open('[https://twitch.tv/$](https://twitch.tv/$){cleanNick}', '_blank'); event.stopPropagation();">
+                        <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
                         </div>
@@ -956,19 +946,17 @@
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (movie.status === 'Смотрели' && movie.dateWatched) {
-             dateWatchedEl.innerHTML = `<div class="modal-grid-box">${movie.dateWatched}</div>`;
+             let html = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched}</div>`;
              
-             // Добавляем оценку в модалку
              if (movie.ourRating) {
                  const rColor = getRatingColor(movie.ourRating);
-                 dateWatchedEl.innerHTML += `<div class="rating-badge" style="color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor}; margin-top: 6px;">ОЦЕНКА: ${movie.ourRating}</div>`;
+                 html += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 8px rgba(0,0,0,0.5); text-shadow: 0 0 5px ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
              }
              
-             // Добавляем слезы в модалку
              if (movie.cried) {
-                 dateWatchedEl.innerHTML += `<div class="modal-grid-box" style="margin-top: 6px; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
+                 html += `<div class="modal-grid-box" style="margin-top: 0; font-family: var(--font-title); letter-spacing: 1px; font-size: 13px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
              }
-             
+             dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${html}</div>`;
         } else {
              dateWatchedEl.innerHTML = `<div class="modal-grid-box">Еще не смотрели</div>`;
         }
@@ -990,7 +978,7 @@
             
         requesterEl.innerHTML = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
         requesterEl.style.color = stringToColor(cleanNick);
-        requesterEl.onclick = () => window.open(`[https://twitch.tv/$](https://twitch.tv/$){cleanNick}`, '_blank');
+        requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
 
         let dirHtml = '', castHtml = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") {
@@ -1004,8 +992,8 @@
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
-        if (movie.trailer && movie.trailer.includes('[youtube.com/watch?v=](https://youtube.com/watch?v=)')) {
-            trailerIframe.src = `[https://www.youtube.com/embed/$](https://www.youtube.com/embed/$){movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
+        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) {
+            trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block';
         } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
 
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
@@ -1014,7 +1002,6 @@
     function closeModal(arg) {
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             document.getElementById('movieModal').classList.remove('active'); 
-            /* 🔥 ИСПРАВЛЕНИЕ СКРОЛЛА: Возвращаем всё как было, не вызывая горизонтальную полосу 🔥 */
             document.body.style.overflow = ''; 
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
         }
