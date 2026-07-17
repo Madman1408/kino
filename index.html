@@ -176,9 +176,7 @@
             font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3);
         }
         
-        /* 🔥 ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ ПО ЦЕНТРУ 🔥 */
-        td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
-        td:nth-child(4), td:nth-child(5) { vertical-align: middle; } /* Длительность и Статус по центру строки */
+        td { padding: 20px 15px; vertical-align: middle; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
         tr:last-child td { border-bottom: none; }
         
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -186,7 +184,7 @@
         tr.movie-row { cursor: pointer; transition: background-color 0.3s ease; }
         tr.movie-row:hover { background-color: rgba(245, 194, 133, 0.03); } 
         
-        td:nth-child(2) { text-align: left; position: relative; z-index: 1; }
+        td:nth-child(2) { text-align: left; position: relative; z-index: 1; vertical-align: top; }
         td:nth-child(2)::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(ellipse at 25% 50%, rgba(245, 194, 133, 0.1) 0%, transparent 80%);
@@ -224,16 +222,8 @@
         tr.movie-row:hover .copy-btn { opacity: 1; }
         .copy-btn:hover { color: #fff; }
 
-        .modal-title-wrapper .copy-btn {
-            opacity: 1; 
-            color: var(--gold-main); 
-            padding: 4px;
-        }
-        .modal-title-wrapper .copy-btn:hover {
-            color: #fff; 
-            transform: scale(1.1); 
-            filter: drop-shadow(0 0 5px var(--gold-main));
-        }
+        .modal-title-wrapper .copy-btn { opacity: 1; color: var(--gold-main); padding: 4px; }
+        .modal-title-wrapper .copy-btn:hover { color: #fff; transform: scale(1.1); filter: drop-shadow(0 0 5px var(--gold-main)); }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
@@ -254,7 +244,6 @@
 
         .movie-genres { font-size: 14px; color: var(--gold-main); font-style: italic; font-weight: 600; }
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
-        
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
         .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; }
@@ -281,14 +270,15 @@
         }
         .req-name { font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; transition: color 0.3s; text-shadow: 0 0 5px rgba(0,0,0,0.8); }
         
-        /* 🔥 ЧЕТКИЕ И ЯРКИЕ ДАТЫ 🔥 */
-        .req-date { 
-            font-size: 13px; color: var(--gold-light); font-style: normal; margin-top: 6px; 
-            font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8);
-            background: rgba(0, 0, 0, 0.5); /* Подложка */
-            border: 1px solid rgba(245, 194, 133, 0.25);
-            padding: 3px 10px; border-radius: 6px; letter-spacing: 0.5px;
-            display: inline-block;
+        /* 🔥 ДАТЫ ЗАКАЗА И ПРОСМОТРА (ЯРКИЕ И СО СВЕЧЕНИЕМ) 🔥 */
+        .req-date, .watched-date { 
+            font-size: 13px; color: var(--gold-light); font-style: normal; margin-top: 8px; 
+            font-weight: 600; text-shadow: 0 0 8px rgba(245, 194, 133, 0.8);
+            background: rgba(0, 0, 0, 0.6); 
+            border: 1px solid rgba(245, 194, 133, 0.4);
+            padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px;
+            box-shadow: 0 0 8px rgba(245, 194, 133, 0.25); /* Легкое свечение */
+            display: inline-flex; justify-content: center; align-items: center;
         }
 
         .badge-status { 
@@ -329,11 +319,9 @@
             display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-shadow: 0 0 4px rgba(0,0,0,0.8);
         }
         .time-box svg { stroke: var(--gold-light); width: 16px; height: 16px; }
-        
-        /* 🔥 ЦЕНТРИРОВАННЫЕ СЕЗОНЫ 🔥 */
         .time-box.episodes {
             font-size: 13px; color: var(--gold-light); flex-direction: column; gap: 2px; align-items: center; text-align: center;
-            margin-top: 4px; margin-left: 0; /* Убран отступ, выровнено ровно по центру */
+            margin-top: 4px; margin-left: 0;
         }
 
         /* --- МОДАЛЬНОЕ ОКНО --- */
@@ -687,9 +675,7 @@
             const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #ffb3b3; margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="14" height="14" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
-            
-            /* 🔥 ДАТА ПРОСМОТРА (СТАЛА ЯРКОЙ КНОПОЧКОЙ-МЕТКОЙ) 🔥 */
-            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; color: var(--gold-light); font-weight: 600; margin-top: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(245, 194, 133, 0.2); padding: 4px 10px; border-radius: 6px; display: inline-block; letter-spacing: 0.5px;">${movie.dateWatched}</div>${criedHTML}` : '';
+            const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div class="watched-date">${movie.dateWatched}</div>${criedHTML}` : '';
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -718,9 +704,8 @@
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
             let displayRuntime = movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно';
             
-            /* 🔥 ДЛИТЕЛЬНОСТЬ ВЫРОВНЕНА ПО ЦЕНТРУ 🔥 */
             let runtimeDisplay = `
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; height: 100%;">
                     <div class="time-box">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 
                         <span>${displayRuntime}</span>
@@ -763,19 +748,22 @@
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
-                <td>
-                    <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
-                        ${avatarMarkup}
-                        <span class="req-name">${cleanNick}</span>
+                <td style="vertical-align: middle;">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">
+                            ${avatarMarkup}
+                            <span class="req-name">${cleanNick}</span>
+                        </div>
+                        ${movie.dateRequested ? `<div class="req-date">${movie.dateRequested}</div>` : ''}
+                        ${auctionHTML}
                     </div>
-                    <!-- 🔥 ДАТА ЗАКАЗА (СТАЛА ЯРКОЙ КНОПОЧКОЙ-МЕТКОЙ) 🔥 -->
-                    <div class="req-date">${movie.dateRequested || ''}</div>
-                    ${auctionHTML}
                 </td>
-                <td>${runtimeDisplay}</td>
-                <td>
-                    ${statusText}<br>
-                    ${watchedDateHTML}
+                <td style="vertical-align: middle;">${runtimeDisplay}</td>
+                <td style="vertical-align: middle;">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        ${statusText}
+                        ${watchedDateHTML}
+                    </div>
                 </td>
             `;
             tbody.appendChild(tr);
