@@ -120,7 +120,7 @@
 
         .header-top h1 { 
             font-family: var(--font-title);
-            font-size: 46px; /* Уменьшено */
+            font-size: 46px; 
             font-weight: 900; 
             margin: 0 0 15px 0;
             letter-spacing: 3px;
@@ -199,7 +199,7 @@
 
         /* Постеры */
         .poster-wrapper { 
-            width: 120px; height: 180px; overflow: hidden; margin: 0 auto; /* Уменьшено */
+            width: 120px; height: 180px; overflow: hidden; margin: 0 auto; 
             box-shadow: 0 8px 15px rgba(0,0,0,0.8); 
             border: 1px solid var(--gold-dark); transition: all 0.3s ease;
         }
@@ -208,7 +208,6 @@
         .movie-info { display: flex; flex-direction: column; gap: 6px; padding-left: 5px; }
         .movie-header { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
         
-        /* 🔥 УМЕНЬШЕННЫЕ ШРИФТЫ ТЕКСТОВ 🔥 */
         .movie-title { 
             font-size: 26px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
@@ -222,6 +221,18 @@
         }
         tr.movie-row:hover .copy-btn { opacity: 1; }
         .copy-btn:hover { color: #fff; }
+
+        /* 🔥 МОДАЛЬНАЯ КНОПКА КОПИРОВАНИЯ ВСЕГДА ВИДИМА 🔥 */
+        .modal-title-wrapper .copy-btn {
+            opacity: 1; 
+            color: var(--gold-main); 
+            padding: 4px;
+        }
+        .modal-title-wrapper .copy-btn:hover {
+            color: #fff; 
+            transform: scale(1.1); 
+            filter: drop-shadow(0 0 5px var(--gold-main));
+        }
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
@@ -243,7 +254,6 @@
         .movie-genres { font-size: 14px; color: var(--gold-main); font-style: italic; font-weight: 600; }
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; }
         
-        /* 🔥 ВЕРНУЛ СТУДИИ 🔥 */
         .movie-studios-list { font-size: 12px; color: #d6b8a3; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); margin-top: 2px; }
 
         .movie-overview-wrapper { margin-top: 6px; max-height: 48px; overflow: hidden; position: relative; }
@@ -325,11 +335,12 @@
         .modal-overlay.active { display: flex; opacity: 1; }
 
         .modal-content {
-            background: var(--bg-deep); width: 90%; max-width: 900px; max-height: 85vh; /* Немного уже для красоты */
+            background: var(--bg-deep); width: 90%; max-width: 900px; max-height: 85vh; 
             overflow-y: auto; position: relative;
             box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 15px rgba(245, 194, 133, 0.1); 
             border: 1px solid var(--gold-main); padding: 5px; 
             transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            scroll-behavior: smooth; /* Плавный скролл */
         }
         .modal-overlay.active .modal-content { transform: scale(1); }
         
@@ -354,7 +365,6 @@
         }
         .modal-title-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
         
-        /* 🔥 ЧИСТЫЙ БЕЛЫЙ ЗАГОЛОВОК В МОДАЛКЕ 🔥 */
         .modal-title { 
             font-family: var(--font-title); font-size: 36px; font-weight: 900; margin: 0; letter-spacing: 2px;
             color: #ffffff;
@@ -363,7 +373,6 @@
 
         .modal-meta { color: var(--gold-light); font-size: 16px; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 194, 133, 0.2); padding-bottom: 12px; }
         
-        /* 🔥 УБРАЛИ ОГРОМНУЮ БУКВУ (DROP CAP), текст теперь ровный и аккуратный 🔥 */
         .modal-overview { color: #fff; font-size: 17px; line-height: 1.6; margin-bottom: 30px; text-align: justify; text-indent: 20px;}
 
         .modal-crew-section { display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; }
@@ -411,9 +420,7 @@
 </head>
 <body>
 
-<!-- Главная обертка -->
 <div class="main-wrapper">
-    
     <div class="girl-col">
         <div class="sticky-box">
             <img src="girl-left.png" class="girl-img left-img" alt="">
@@ -441,7 +448,7 @@
                 </div>
                 
                 <div class="controls-panel">
-                    <input type="text" id="searchInput" class="search-box" placeholder="Искать в архивах..." oninput="applyFilters()">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Поиск..." oninput="applyFilters()">
                     <select id="userFilter" class="sort-select" onchange="applyFilters()">
                         <option value="all">Все странники</option>
                     </select>
@@ -459,11 +466,11 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 140px; min-width: 140px;">Лик</th>
+                        <th style="width: 140px; min-width: 140px;">Постер</th>
                         <th style="width: 100%;">История</th>
-                        <th style="width: 145px; min-width: 145px;">Кто воззвал</th>
+                        <th style="width: 145px; min-width: 145px;">Заказал(а)</th>
                         <th style="width: 120px; min-width: 120px;">Длительность</th>
-                        <th style="width: 135px; min-width: 135px;">Метка</th>
+                        <th style="width: 135px; min-width: 135px;">Статус</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -478,7 +485,6 @@
             <img src="girl-right.png" class="girl-img right-img" alt="">
         </div>
     </div>
-
 </div>
 
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
@@ -504,29 +510,29 @@
 
                     <div class="modal-grid">
                         <div class="grid-item">
-                            <div class="grid-label">Призыватель</div>
+                            <div class="grid-label">Заказал(а)</div>
                             <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
                         </div>
                         <div class="grid-item">
-                            <div class="grid-label">День призыва</div>
+                            <div class="grid-label">День заказа</div>
                             <div class="grid-value" id="modalDateReq">Нет данных</div>
                         </div>
                         <div class="grid-item">
-                            <div class="grid-label">День познания</div>
+                            <div class="grid-label">День просмотра</div>
                             <div class="grid-value" id="modalDateWatched">Нет данных</div>
                         </div>
                         <div class="grid-item">
-                            <div class="grid-label">Золото (Затраты / Сборы)</div>
+                            <div class="grid-label">Бюджет / Сборы</div>
                             <div class="grid-value" id="modalFinances">0 $ / 0 $</div>
                         </div>
                         <div class="grid-item full-width">
-                            <div class="grid-label">Гильдии (Студии)</div>
+                            <div class="grid-label">Студии</div>
                             <div class="grid-value" id="modalStudios" style="font-style: italic; color: #e3cebe;">Архив скрыт</div>
                         </div>
                     </div>
                     
                     <div id="trailerWrapper" style="display: none;">
-                        <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px;">✧ Магическая проекция (Трейлер) ✧</div>
+                        <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px;">✧ Трейлер ✧</div>
                         <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
                     </div>
                 </div>
@@ -667,7 +673,7 @@
             
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
-            const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">ЖДЕТ ЧАСА</span>`;
+            const statusText = isWatched ? `<span class="badge-status">ПОЗНАНО</span>` : `<span class="badge-status">В ОЧЕРЕДИ</span>`;
             
             const criedHTML = movie.cried ? `<br><div style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #ffb3b3; margin-top: 8px; font-family: var(--font-title); letter-spacing: 1px; text-shadow: 0 0 5px rgba(0,0,0,0.8);"><svg width="14" height="14" viewBox="0 0 24 24" fill="#d31a1a" stroke="#ffb3b3" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>` : '';
             const watchedDateHTML = (isWatched && movie.dateWatched) ? `<div style="font-size: 13px; color: var(--gold-main); font-style:italic; margin-top: 6px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">${movie.dateWatched}</div>${criedHTML}` : '';
@@ -679,7 +685,7 @@
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const cleanOverview = escapeHTML(movie.overview || '');
-            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const safeTitle = (movie.title || '').replace(/'/g, "\'").replace(/"/g, '&quot;');
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
@@ -693,7 +699,6 @@
                 if(castHtml) directorHtml += '<div style="width: 1px; height: 26px; background: rgba(245,194,133,0.3); margin: 0 8px;"></div>';
             }
 
-            // 🔥 ВЕРНУЛИ СТУДИИ ПОД СЛОГАН 🔥
             let displayStudios = movie.studios && movie.studios !== "Нет данных" ? movie.studios : "";
             const studiosHTML = displayStudios ? `<div class="movie-studios-list">${escapeHTML(displayStudios)}</div>` : '';
 
@@ -739,7 +744,7 @@
                         </div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
                         ${movie.tagline ? `<div class="movie-tagline">«${escapeHTML(movie.tagline)}»</div>` : ''}
-                        ${studiosHTML} <!-- Вывод студий -->
+                        ${studiosHTML}
                         <div class="movie-overview-wrapper"><div class="movie-overview-text">${cleanOverview}</div></div>
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
@@ -765,6 +770,11 @@
     function openModal(index) {
         const movie = currentViewData[index]; currentModalMovie = movie; 
         const modal = document.getElementById('movieModal');
+        
+        // СБРОС СКРОЛЛА ПРИ ОТКРЫТИИ НОВОГО ФИЛЬМА
+        const modalContent = modal.querySelector('.modal-content');
+        if(modalContent) modalContent.scrollTop = 0;
+        
         const heroEl = document.getElementById('modalHero');
         
         if (movie.backdrop) { heroEl.style.backgroundImage = `url('${movie.backdrop}')`; heroEl.style.display = 'block'; } 
@@ -789,7 +799,7 @@
             dateWatchedEl.innerHTML = `${movie.dateWatched || 'Дата утеряна'} ${movie.cried ? `<br><span style="color:#ffb3b3; font-family:var(--font-title); font-size: 13px; text-shadow:0 0 5px rgba(0,0,0,0.8);">✦ Пролиты слезы ✦</span>` : ''}`;
             dateWatchedEl.style.color = 'var(--gold-main)'; 
         } else {
-            dateWatchedEl.textContent = 'Ждет своего часа'; dateWatchedEl.style.color = 'var(--text-muted)'; 
+            dateWatchedEl.textContent = 'В очереди'; dateWatchedEl.style.color = 'var(--text-muted)'; 
         }
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -808,7 +818,7 @@
         
         document.getElementById('modalCrewSection').innerHTML = dirHtml + castHtml;
         document.getElementById('modalFinances').textContent = `${movie.budget || 'Неизвестно'} / ${movie.revenue || 'Неизвестно'}`;
-        document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Гильдии скрыты" : movie.studios;
+        document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
         const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
         if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) {
