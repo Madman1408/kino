@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "18.07.2026 19:04"
+    "lastUpdated": "18.07.2026 19:26"
   },
   "cross_loss": [
     {
@@ -531,6 +531,59 @@
       "collection": "",
       "keywords": "",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/7b108410-73a6-428c-9faf-56fd0dbcbbc6-profile_image-600x600.png"
+    }
+  ],
+  "prrsephonne": [
+    {
+      "title": "Шиттс Крик",
+      "year": "2015",
+      "type": "Сериал",
+      "runtime": "22 мин",
+      "genres": "комедия",
+      "studios": "🟢 Not A Real Company, 🟢 CBC",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "7.783",
+      "overview": "Сериал рассказывает о семействе Роузов: Джонни Роуз — миллиардер, сделавший состояние на сети видеосалонов, его жена — актриса мыльных опер и двое детей — хипстер Дэвид и светская львица Алексис.\n\nПосле того, как бизнес Джонни терпит крах, все семейство вынуждено переехать жить в небольшую сельскую общину Шиттс Крик, которую они приобрели несколько лет назад развлечения ради.",
+      "poster": "https://image.tmdb.org/t/p/w500/11tttftJDToWyXJNIJl8qnUuTUb.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/ftNmVV8LuNVmtB8mzoUTucozVKE.jpg",
+      "cast": [
+        {
+          "name": "Юджин Леви",
+          "photo": "https://image.tmdb.org/t/p/w185/epZE1ZohKhEFCdCKYFyvtJEj0I7.jpg"
+        },
+        {
+          "name": "Кэтрин О’Хара",
+          "photo": "https://image.tmdb.org/t/p/w185/gI2RyymLJ9ZrhEyJSD5EqSvFpCX.jpg"
+        },
+        {
+          "name": "Дэн Леви",
+          "photo": "https://image.tmdb.org/t/p/w185/2O9KqgCLHHMw5xmUpNexfWr2QVA.jpg"
+        },
+        {
+          "name": "Энни Мерфи",
+          "photo": "https://image.tmdb.org/t/p/w185/1cQ9Piq6kcTzmzJ9I4oGd7oFEdS.jpg"
+        }
+      ],
+      "director": {
+        "name": "Юджин Леви",
+        "photo": "https://image.tmdb.org/t/p/w185/epZE1ZohKhEFCdCKYFyvtJEj0I7.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "keywords": "small town, motel, spoiled child, riches to rags, spoiled",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/1a779f10-8b2e-4a2a-a3a2-1b9632594139-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "6",
+      "episodes": "79",
+      "tvStatus": "Ended",
+      "id": 1,
+      "dateRequested": "18.07.2026 19:26",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "cherteya": [
