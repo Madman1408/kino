@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "22.07.2026 13:19"
+    "lastUpdated": "22.07.2026 14:20"
   },
   "cross_loss": [
     {
@@ -680,6 +680,57 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/7b108410-73a6-428c-9faf-56fd0dbcbbc6-profile_image-600x600.png"
     }
   ],
+  "di_rubens": [
+    {
+      "title": "Догвилль",
+      "year": "2003",
+      "type": "Фильм",
+      "runtime": "2 ч 58 мин",
+      "genres": "криминал, драма, триллер",
+      "studios": "🟢 Zentropa Entertainments, 🟢 Isabella Films B.V., 🟢 Something Else B.V., 🟢 Memfis Film, 🟢 Trollhättan Film, 🟢 Pain Unlimited Filmproduktion, 🟢 Sigma Films, 🟢 Zoma Films, 🟢 Slot Machine, 🟢 Liberator Productions, 🟢 Film i Väst, 🟢 ARTE France Cinéma, 🟢 France 3 Cinéma, 🟢 DR, 🟢 SVT, 🟢 NPS, 🟢 YLE, 🟢 Norsk TV2 AS, 🟢 Edith Film, 🟢 Spillefilmselskapet 4 1/2, 🟢 Fjeldabe Films AS, 🟢 Invicta Capital, 🟢 TV 1000 Sverige, 🟢 WDR, 🟢 ARTE",
+      "budget": "10.000.000 $",
+      "revenue": "16.690.617 $",
+      "tmdbRating": "7.75",
+      "overview": "1930-е годы. Спасаясь от гангстеров, юная Грэйс оказывается в городке Догвилль где-то в Скалистых горах. Местные жители нехотя соглашаются приютить беглянку, если она будет работать на них, но затем их запросы становятся непомерными, а страх разоблачения превращает обывателей в жестоких подонков. Постепенно Грэйс становится рабыней тихих обитателей Догвилля, убеждаясь, что в этом городе у доброты есть оборотная сторона. Однако никто не знает, как опасна может быть Грэйс. Вскоре Догвилль пожалеет, что посмел обнажить свои клыки…",
+      "poster": "https://image.tmdb.org/t/p/w500/o0fI4x84XYjarzLpQLqpWCmMe5i.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
+      "cast": [
+        {
+          "name": "Николь Кидман",
+          "photo": "https://image.tmdb.org/t/p/w185/lfW2cDigTcvuoe4k6UfCdGVE1R6.jpg"
+        },
+        {
+          "name": "Пол Беттани",
+          "photo": "https://image.tmdb.org/t/p/w185/vcAVrAOZrpqmi37qjFdztRAv1u9.jpg"
+        },
+        {
+          "name": "Джон Хёрт",
+          "photo": "https://image.tmdb.org/t/p/w185/bjNSzt1d7uK3q5PbtFXUJrRt4qg.jpg"
+        },
+        {
+          "name": "Стеллан Скарсгард",
+          "photo": "https://image.tmdb.org/t/p/w185/mW7xmtGV4y79kQGn0zkKVGDMAmw.jpg"
+        }
+      ],
+      "director": {
+        "name": "Ларс фон Триер",
+        "photo": "https://image.tmdb.org/t/p/w185/a1zVySI0Yqqf3ORegQ1icMfvhAa.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=e5O85XlHuyQ",
+      "ageRating": "Нет данных",
+      "keywords": "friendship, bondage, rape, police, gangster",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/0a829c8a-f2ca-4cee-b773-380fc8b5bfc7-profile_image-600x600.png",
+      "collection": "США: Земля возможностей (Коллекция)",
+      "id": 8,
+      "dateRequested": "15.07.2026 13:26",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "dateWatched": "17.07.2026 23:45"
+    }
+  ],
   "prrsephonne": [
     {
       "title": "Шиттс Крик",
@@ -781,57 +832,6 @@
       "episodes": "168",
       "tvStatus": "Ended",
       "dateWatched": "18.07.2026 19:04"
-    }
-  ],
-  "di_rubens": [
-    {
-      "title": "Гладиатор",
-      "year": "2000",
-      "type": "Фильм",
-      "runtime": "2 ч 35 мин",
-      "genres": "боевик, драма, приключения",
-      "studios": "🟢 Universal Pictures, 🟢 Scott Free Productions, 🟢 Red Wagon Entertainment, 🟢 Mill Film, 🟢 DreamWorks Pictures",
-      "budget": "103.000.000 $",
-      "revenue": "465.516.248 $",
-      "tmdbRating": "8.228",
-      "overview": "Римская империя. Бесстрашного и благородного генерала Максимуса боготворят солдаты, а старый император Марк Аврелий безгранично доверяет ему и относится как к сыну. Однако опытный воин, готовый сразиться с любым противником в честном бою, оказывается бессильным перед коварными придворными интригами. Коммод, сын Марка Аврелия, убивает отца, который планировал сделать преемником не его, а Максимуса, и захватывает власть. Решив избавиться от опасного соперника, который к тому же отказывается присягнуть ему на верность, Коммод отдаёт приказ убить Максимуса и всю его семью. Чудом выжив, но не сумев спасти близких, Максимус попадает в плен к работорговцу, который продаёт его организатору гладиаторских боёв Проксимо. Так легендарный полководец становится гладиатором. Но вскоре ему представится шанс встретиться со своим смертельным врагом лицом к лицу.",
-      "poster": "https://image.tmdb.org/t/p/w500/1wjNqlfsuHNTXTpCt2ZOV2iPxaf.jpg",
-      "tagline": "«Генерал, ставший рабом. Раб, ставший гладиатором. Гладиатор, бросивший вызов империи»",
-      "backdrop": "https://image.tmdb.org/t/p/original/jhk6D8pim3yaByu1801kMoxXFaX.jpg",
-      "cast": [
-        {
-          "name": "Рассел Кроу",
-          "photo": "https://image.tmdb.org/t/p/w185/uxiXuVH4vNWrKlJMVVPG1sxAJFe.jpg"
-        },
-        {
-          "name": "Хоакин Феникс",
-          "photo": "https://image.tmdb.org/t/p/w185/u38k3hQBDwNX0VA22aQceDp9Iyv.jpg"
-        },
-        {
-          "name": "Конни Нильсен",
-          "photo": "https://image.tmdb.org/t/p/w185/gSQ3O3PJ6ly6nT63joOtfZyscFP.jpg"
-        },
-        {
-          "name": "Оливер Рид",
-          "photo": "https://image.tmdb.org/t/p/w185/dWfotc1X71wNCGyPO9hXpv8U9Gw.jpg"
-        }
-      ],
-      "director": {
-        "name": "Ридли Скотт",
-        "photo": "https://image.tmdb.org/t/p/w185/97SO7H0UlS3racqjeW5JTy8c6GM.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=k702zvK2zQg",
-      "ageRating": "16+",
-      "keywords": "gladiator, rome, italy, arena, senate, roman empire",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/0a829c8a-f2ca-4cee-b773-380fc8b5bfc7-profile_image-600x600.png",
-      "collection": "Гладиатор (Коллекция)",
-      "id": 8,
-      "dateRequested": "15.07.2026 13:26",
-      "status": "Смотрели",
-      "ourRating": "6",
-      "cried": true,
-      "isAuction": true,
-      "dateWatched": "17.07.2026 23:45"
     }
   ],
   "sabastat_": [
