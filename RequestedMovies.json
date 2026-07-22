@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "22.07.2026 14:38"
+    "lastUpdated": "22.07.2026 14:41"
   },
   "cross_loss": [
     {
@@ -733,44 +733,44 @@
   ],
   "prrsephonne": [
     {
-      "title": "Шиттс Крик",
-      "year": "2015",
-      "type": "Сериал",
-      "runtime": "22 мин",
-      "genres": "комедия",
-      "studios": "🟢 Not A Real Company, 🟢 CBC",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "7.783",
-      "overview": "Сериал рассказывает о семействе Роузов: Джонни Роуз — миллиардер, сделавший состояние на сети видеосалонов, его жена — актриса мыльных опер и двое детей — хипстер Дэвид и светская львица Алексис.\n\nПосле того, как бизнес Джонни терпит крах, все семейство вынуждено переехать жить в небольшую сельскую общину Шиттс Крик, которую они приобрели несколько лет назад развлечения ради.",
-      "poster": "https://image.tmdb.org/t/p/w500/11tttftJDToWyXJNIJl8qnUuTUb.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/ftNmVV8LuNVmtB8mzoUTucozVKE.jpg",
+      "title": "Унесённые призраками",
+      "year": "2001",
+      "type": "Аниме",
+      "runtime": "2 ч 4 мин",
+      "genres": "мультфильм, семейный, фэнтези",
+      "studios": "🟢 Studio Ghibli, 🟢 Tokuma Shoten, 🟢 Nippon Television Network Corporation, 🟢 Mitsubishi, 🟢 dentsu, 🟢 TFC",
+      "budget": "19.000.000 $",
+      "revenue": "274.925.095 $",
+      "tmdbRating": "8.5",
+      "overview": "Тихиро с мамой и папой переезжает в новый дом. Заблудившись по дороге, они оказываются в странном пустынном городе, где их ждет великолепный пир. Родители с жадностью набрасываются на еду и к ужасу девочки превращаются в свиней, став пленниками злой колдуньи Юбабы. Теперь, оказавшись одна среди волшебных существ и загадочных видений, Тихиро должна придумать, как избавить своих родителей от чар коварной старухи.",
+      "poster": "https://image.tmdb.org/t/p/w500/xV3zYcOA6xFjYwizIMDDkl2MGT7.jpg",
+      "tagline": "«Туннель привел Тихиро в таинственный город ...»",
+      "backdrop": "https://image.tmdb.org/t/p/original/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
       "cast": [
         {
-          "name": "Юджин Леви",
-          "photo": "https://image.tmdb.org/t/p/w185/epZE1ZohKhEFCdCKYFyvtJEj0I7.jpg"
+          "name": "Руми Хиираги",
+          "photo": "https://image.tmdb.org/t/p/w185/nTKM4GgfkrZvAOFL55uhEuckt7M.jpg"
         },
         {
-          "name": "Кэтрин О’Хара",
-          "photo": "https://image.tmdb.org/t/p/w185/gI2RyymLJ9ZrhEyJSD5EqSvFpCX.jpg"
+          "name": "Мию Ирино",
+          "photo": "https://image.tmdb.org/t/p/w185/8qEEhHUObNvGQr4e6eqLu5z4qTz.jpg"
         },
         {
-          "name": "Дэн Леви",
-          "photo": "https://image.tmdb.org/t/p/w185/2O9KqgCLHHMw5xmUpNexfWr2QVA.jpg"
+          "name": "Мари Нацуки",
+          "photo": "https://image.tmdb.org/t/p/w185/MIFzUc77Sx57FQOZsoiGWEbpH2.jpg"
         },
         {
-          "name": "Энни Мерфи",
-          "photo": "https://image.tmdb.org/t/p/w185/1cQ9Piq6kcTzmzJ9I4oGd7oFEdS.jpg"
+          "name": "Такаши Наито",
+          "photo": "https://image.tmdb.org/t/p/w185/xwsm0ygjG79jLIogutwo6r64igy.jpg"
         }
       ],
       "director": {
-        "name": "Юджин Леви",
-        "photo": "https://image.tmdb.org/t/p/w185/epZE1ZohKhEFCdCKYFyvtJEj0I7.jpg"
+        "name": "Хаяо Миядзаки",
+        "photo": "https://image.tmdb.org/t/p/w185/ouhjt9KugzhWtdEyBPipihB3ic8.jpg"
       },
-      "trailer": "",
-      "ageRating": "TV-14",
-      "keywords": "small town, motel, spoiled child, riches to rags, spoiled",
+      "trailer": "https://www.youtube.com/watch?v=Wlq6vnge20U",
+      "ageRating": "Нет данных",
+      "keywords": "witch, parent child relationship, darkness, bath house, magic",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/1a779f10-8b2e-4a2a-a3a2-1b9632594139-profile_image-600x600.png",
       "collection": "",
       "seasons": "6",
