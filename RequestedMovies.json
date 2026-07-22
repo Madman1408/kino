@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "18.07.2026 19:26"
+    "lastUpdated": "22.07.2026 13:04"
   },
   "cross_loss": [
     {
@@ -384,6 +384,54 @@
       "cried": false,
       "isAuction": false,
       "dateWatched": "17.07.2026 23:44"
+    },
+    {
+      "title": "Дети шпионов",
+      "year": "2001",
+      "type": "Фильм",
+      "runtime": "1 ч 28 мин",
+      "genres": "семейный, боевик, комедия, приключения, фантастика",
+      "studios": "🟢 Troublemaker Studios, 🟢 Dimension Films, 🟢 Miramax",
+      "budget": "35.000.000 $",
+      "revenue": "147.934.180 $",
+      "tmdbRating": "5.816",
+      "overview": "Два самых крутых шпиона в мире: Грегорио Кортес и Ингрид, имели одно и то же секретное задание — уничтожить друг друга. Но личная встреча не принесла им ничего хорошего: они поженились и завязали со своим ремеслом… Через несколько лет исчезновение семерых спецагентов вынуждает их снова вернуться в игру. Причиной послужило то, что их бывшие коллеги, самые крутые профессионалы, начали исчезать один за другим. Кортесы вновь нужны агентству, которое хочет, чтобы они раскрыли секреты некоего Пальчика, формирующего армию из детей-роботов. Участь исчезновения постигает и супругов Кортесов, их похищает коварный злодей. Теперь судьба пленников зависит от того, смогут ли их дети правильно распорядиться всеми новейшими сверхсекретными шпионскими штучками из арсенала легендарных родителей.",
+      "poster": "https://image.tmdb.org/t/p/w500/g7xqSOaWHAweW17YEO34cSzCOqx.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/wfStsmeSW7MtvYhD9Ac6ETXdbmx.jpg",
+      "cast": [
+        {
+          "name": "Алекса ПенаВега",
+          "photo": "https://image.tmdb.org/t/p/w185/11m8ff0YwS64Z04DJhupNQpwmCZ.jpg"
+        },
+        {
+          "name": "Daryl Sabara",
+          "photo": "https://image.tmdb.org/t/p/w185/eZfWmQqNgmuveRWSYuvnQyLXM0d.jpg"
+        },
+        {
+          "name": "Антонио Бандерас",
+          "photo": "https://image.tmdb.org/t/p/w185/fce7zl6elUzsv7wudHFc7RgFtjD.jpg"
+        },
+        {
+          "name": "Карла Гуджино",
+          "photo": "https://image.tmdb.org/t/p/w185/7lSH5LOexOHwvt9lOTsLTbXdU1G.jpg"
+        }
+      ],
+      "director": {
+        "name": "Роберт Родригес",
+        "photo": "https://image.tmdb.org/t/p/w185/4Cwsa3PqeGRGtsgKoYOyxql0uUy.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=3uzuoj7DgRk",
+      "ageRating": "PG",
+      "keywords": "double life, sibling relationship, parent child relationship, loss of loved one, secret agent",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Дети шпионов (Коллекция)",
+      "id": 3,
+      "dateRequested": "22.07.2026 13:04",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "weenniee": [
