@@ -215,11 +215,9 @@
             box-sizing: border-box;
         }
 
-        .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; }
-        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; }
-        
-        /* Изменённый статус "В очереди" и "Смотрели" (сдвинуты левее и не обрезаются) */
-        .card-status { padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; margin-right: 4px; }
+        .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
+        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; margin-right: 4px; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -229,14 +227,26 @@
 
         .card-content { padding: 12px 10px 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
         
-        /* Выравнивание названия по высоте */
-        .card-title-container { height: 38px; display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 8px; overflow: hidden; }
+        /* КОНТЕЙНЕР НАЗВАНИЯ */
+        .card-title-container { 
+            height: 44px; /* Фиксированная высота для выравнивания */
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 100%; 
+            margin-bottom: 6px; 
+            overflow: hidden; 
+        }
+        /* ТЕКСТ НАЗВАНИЯ БЕЗ ТРОЕТОЧИЙ */
         .card-title-text { 
             font-family: var(--font-title); font-size: 16px; font-weight: 900; color: #fff;
-            margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.1; width: 100%;
+            margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.15;
+            width: 100%;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
         }
         
-        /* Фиксация даты и заказа к низу */
         .card-bottom-info { margin-top: auto; width: 100%; }
         
         .card-date-meta { font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
@@ -785,22 +795,35 @@
 
     function autoResizeTitles() {
         setTimeout(() => {
-            // Для списка (сохраняем троеточие для 2 строк)
+            // Для списка (Тут оставил как есть)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                let currentSize = 24; titleEl.style.fontSize = currentSize + "px"; titleEl.style.whiteSpace = 'nowrap'; titleEl.style.display = 'block';
-                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) { currentSize -= 1; titleEl.style.fontSize = currentSize + "px"; }
-                if (titleEl.scrollWidth > titleEl.clientWidth) { titleEl.style.whiteSpace = 'normal'; titleEl.style.display = '-webkit-box'; titleEl.style.webkitLineClamp = '2'; titleEl.style.webkitBoxOrient = 'vertical'; } 
-                else { titleEl.style.whiteSpace = 'nowrap'; titleEl.style.textOverflow = 'ellipsis'; titleEl.style.overflow = 'hidden'; }
+                let currentSize = 24; 
+                titleEl.style.fontSize = currentSize + "px"; 
+                titleEl.style.whiteSpace = 'nowrap'; 
+                
+                while (titleEl.scrollWidth > titleEl.parentElement.clientWidth && currentSize > 14) { 
+                    currentSize -= 1; 
+                    titleEl.style.fontSize = currentSize + "px"; 
+                }
+                if (titleEl.scrollWidth > titleEl.parentElement.clientWidth) { 
+                    titleEl.style.whiteSpace = 'normal'; 
+                    titleEl.style.display = '-webkit-box'; 
+                    titleEl.style.webkitLineClamp = '2'; 
+                    titleEl.style.webkitBoxOrient = 'vertical'; 
+                } 
             });
 
-            // Для карточек (сжимаем до победного, без троеточий)
-            document.querySelectorAll('.resize-title').forEach(titleEl => {
+            // ДЛЯ КАРТОЧЕК (Сжимаем БЕЗ троеточий, пока не влезет полностью)
+            document.querySelectorAll('.card-title-container').forEach(container => {
+                let titleEl = container.querySelector('.resize-title');
+                if (!titleEl) return;
+                
                 let currentSize = 16;
                 titleEl.style.fontSize = currentSize + "px";
-                titleEl.style.whiteSpace = "normal"; // всегда разрешаем перенос
+                titleEl.style.whiteSpace = "normal"; 
                 
-                let container = titleEl.parentElement;
-                while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
+                // Проверяем: если высота самого текста больше высоты контейнера (44px) - сжимаем
+                while (titleEl.offsetHeight > container.clientHeight && currentSize > 7) {
                     currentSize -= 0.5;
                     titleEl.style.fontSize = currentSize + "px";
                 }
@@ -815,7 +838,8 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
-        }, 10);
+
+        }, 50); // Увеличил таймаут до 50мс, чтобы шрифт точно успел подгрузиться и отрисоваться
     }
 
     // ==========================================
