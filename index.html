@@ -800,7 +800,7 @@
     // ==========================================
     function autoResizeTitles() {
         const resize = () => {
-            // 1. Для списка
+            // 1. Для списка (ВЕРНУЛ К ИЗНАЧАЛЬНОМУ РАБОЧЕМУ ВАРИАНТУ)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
@@ -815,8 +815,6 @@
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
-                } else {
-                    titleEl.style.display = 'block'; // Сброс при ресайзе
                 }
             });
 
