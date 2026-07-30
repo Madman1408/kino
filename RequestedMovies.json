@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "30.07.2026 15:01"
+    "lastUpdated": "30.07.2026 18:05"
   },
   "MadMan1408": [
     {
@@ -100,6 +100,54 @@
       "cried": true,
       "isAuction": false,
       "dateWatched": "02.06.2026 16:48"
+    },
+    {
+      "title": "Три дня на побег",
+      "year": "2010",
+      "type": "Фильм",
+      "runtime": "2 ч 13 мин",
+      "genres": "мелодрама, драма, триллер, криминал",
+      "studios": "🟢 Hwy61, 🟢 Lionsgate",
+      "budget": "30.000.000 $",
+      "revenue": "67.448.651 $",
+      "tmdbRating": "7.088",
+      "overview": "Жизнь Джона казалась идеальной, пока его жену не арестовали по подозрению в убийстве. Пока Лара сидит в тюрьме, Джон один воспитывает сына и пытается всеми способами доказать её невиновность. Но когда законные способы освободить любимую исчерпаны, единственное, что ему остаётся — разработать изощрённый план побега. И Джон готов рискнуть всем.",
+      "poster": "https://image.tmdb.org/t/p/w500/7lHhuGootlo3oJXAsBBoHWT6QZE.jpg",
+      "tagline": "«Все ради неё»",
+      "backdrop": "https://image.tmdb.org/t/p/original/kkuykQHWWTcmJ9yerrLF9elCtkc.jpg",
+      "cast": [
+        {
+          "name": "Рассел Кроу",
+          "photo": "https://image.tmdb.org/t/p/w185/uxiXuVH4vNWrKlJMVVPG1sxAJFe.jpg"
+        },
+        {
+          "name": "Элизабет Бэнкс",
+          "photo": "https://image.tmdb.org/t/p/w185/zrkI1dYucpTM8Qydtrtro9MgQPb.jpg"
+        },
+        {
+          "name": "Тай Симпкинс",
+          "photo": "https://image.tmdb.org/t/p/w185/8FyJcMFmPdCSfz2Zc5ZcAKrIorj.jpg"
+        },
+        {
+          "name": "Брайан Деннехи",
+          "photo": "https://image.tmdb.org/t/p/w185/cg7CwS1vMJXCzZ0FUm4RbrjAJ2t.jpg"
+        }
+      ],
+      "director": {
+        "name": "Paul Haggis",
+        "photo": "https://image.tmdb.org/t/p/w185/n5pW5ov3VD111K8cs97lPs1EMKw.jpg"
+      },
+      "trailer": "",
+      "ageRating": "12+",
+      "keywords": "homicide, falsely accused, women's prison, murder, jail",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 43,
+      "dateRequested": "30.07.2026 18:05",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "bazar_gure": [
