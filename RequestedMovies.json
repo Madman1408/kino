@@ -100,6 +100,54 @@
       "cried": true,
       "isAuction": false,
       "dateWatched": "02.06.2026 16:48"
+    },
+    {
+      "title": "9 рота",
+      "year": "2005",
+      "type": "Фильм",
+      "runtime": "2 ч 19 мин",
+      "genres": "военный, драма, история",
+      "studios": "🟢 Channel 1+1, 🟢 Finnish Film Foundation, 🟢 MRP Matila Röhr Productions, 🟢 Slovo, 🟢 Telekanal STS, 🟢 YLE, 🟢 Art Pictures Studio",
+      "budget": "9.500.000 $",
+      "revenue": "24.000.000 $",
+      "tmdbRating": "6.7",
+      "overview": "СССР. Действие происходит в 1988 и 1989 годах, за несколько месяцев до полного вывода советских войск из Афганистана. Семеро призывников, после нескольких месяцев адской подготовки в «учебке» под командованием беспощадного старшины, попадают в горнило афганской кампании. Группа десантников, бойцами которой стали наши герои, получает задание командования - занять высоту и держать ее до прохождения колонны...",
+      "poster": "https://image.tmdb.org/t/p/w500/hLrQ1BrEe35mKW9MJdnXXuVsfZr.jpg",
+      "tagline": "Они хотели, чтобы их любили...",
+      "backdrop": "https://image.tmdb.org/t/p/original/e6LS0VXLHc4JJLXnzPXX5Aslvrs.jpg",
+      "cast": [
+        {
+          "name": "Алексей Чадов",
+          "photo": "https://image.tmdb.org/t/p/w185/A0E0JD77IicUC5BL2nG97DtU78i.jpg"
+        },
+        {
+          "name": "Артур Смольянинов",
+          "photo": "https://image.tmdb.org/t/p/w185/cPsO4t3RBvPf8idIJBmWsswrXFU.jpg"
+        },
+        {
+          "name": "Константин Крюков",
+          "photo": "https://image.tmdb.org/t/p/w185/vy8GWSZJElpqpPmMiZJUb4iEUW0.jpg"
+        },
+        {
+          "name": "Иван Кокорин",
+          "photo": "https://image.tmdb.org/t/p/w185/lIeTM1hA87BNoDTGpBDumv4qvG0.jpg"
+        }
+      ],
+      "director": {
+        "name": "Фёдор Бондарчук",
+        "photo": "https://image.tmdb.org/t/p/w185/uj63LFvCWAipD0UlTed8i8snE6b.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=iswMrgd2Iv0",
+      "ageRating": "16+",
+      "keywords": "",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 43,
+      "dateRequested": "30.07.2026 18:34",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "bazar_gure": [
