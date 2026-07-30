@@ -217,7 +217,7 @@
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
         .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
-        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -757,7 +757,7 @@
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const userColor = stringToColor(cleanNick);
             
-            // 1. Синий фон для "В очереди" (для фильмов)
+            // 1. Синий фон для "В очереди"
             let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
             let bottomBadges = '';
@@ -788,7 +788,7 @@
             let displayType = escapeHTML(movie.type || 'Фильм');
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
             
-            // 2. Лимит жанров (максимум 2) для сетки
+            // 5. Лимит жанров (максимум 2) для сетки
             let rawGenres = movie.genres || 'Нет жанра';
             let genresArr = rawGenres.split(',').map(s => s.trim()).filter(Boolean);
             let limitedGenres = genresArr.slice(0, 2).join(', ');
@@ -950,7 +950,7 @@
         const titleEl = document.getElementById('modalTitle'); titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
         
-        // 3. Жанры в модальном окне
+        // 6. Жанры в модальном окне
         document.getElementById('modalGenres').textContent = movie.genres ? escapeHTML(movie.genres) : 'Нет жанра';
 
         let badgesHtml = '';
