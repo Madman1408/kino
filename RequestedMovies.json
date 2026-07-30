@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "30.07.2026 18:23"
+    "lastUpdated": "30.07.2026 18:24"
   },
   "MadMan1408": [
     {
@@ -147,7 +147,7 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": true
     }
   ],
   "bazar_gure": [
