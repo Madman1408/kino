@@ -217,7 +217,7 @@
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
         .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
-        .card-status { padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -757,18 +757,11 @@
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const userColor = stringToColor(cleanNick);
             
-            // 1. Синий фон для "В очереди" (для фильмов)
             let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
             let bottomBadges = '';
-            
-            // Аукцион всегда первый
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
-            
-            // 2. Слёзы выше оценки
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-            
-            // Оценка идет под слезами
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
@@ -776,19 +769,16 @@
                     : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
             }
 
-            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
-
-            // 3. Красный шарик запрещенной студии
             const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
             const bannedDotMarkup = hasBannedStudios ? `<div class="banned-dot" title="Запрещенная студия!"></div>` : '';
-            
-            // 4. Класс для кнопки (сдвиг вверх, если есть шарик)
             const copyBtnClass = hasBannedStudios ? 'card-copy-btn shifted' : 'card-copy-btn';
 
+            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
+            
             let displayType = escapeHTML(movie.type || 'Фильм');
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
             
-            // 5. Лимит жанров (максимум 2) для сетки
+            // 2. Лимит жанров (максимум 2) для сетки
             let rawGenres = movie.genres || 'Нет жанра';
             let genresArr = rawGenres.split(',').map(s => s.trim()).filter(Boolean);
             let limitedGenres = genresArr.slice(0, 2).join(', ');
@@ -853,7 +843,6 @@
             
             // 1. СПИСОК (Абсолютно идентичный и изолированный код из первого файла)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                // Снимаем блокировку, чтобы flex контейнера мог дышать
                 titleEl.style.display = ''; 
                 titleEl.style.whiteSpace = 'nowrap'; 
                 titleEl.style.webkitLineClamp = '';
@@ -883,7 +872,6 @@
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                // В карточках используем block
                 titleEl.style.display = 'block'; 
                 titleEl.style.whiteSpace = 'normal'; 
                 titleEl.style.webkitLineClamp = '';
@@ -895,13 +883,11 @@
                 titleEl.style.fontSize = currentSize + "px"; 
                 let minSize = 9;
 
-                // Проверяем по высоте контейнера (48px)
                 while (titleEl.scrollHeight > container.clientHeight && currentSize > minSize) { 
                     currentSize -= 0.5; 
                     titleEl.style.fontSize = currentSize + "px"; 
                 }
 
-                // Страховка (если и 9px не влезло)
                 if (titleEl.scrollHeight > container.clientHeight) { 
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '3'; 
@@ -921,17 +907,14 @@
             });
         };
 
-        // Запускаем с микро-задержкой, чтобы браузер успел применить CSS
         setTimeout(() => {
             resize();
-            // Повторяем при загрузке кастомных шрифтов
             if (document.fonts && document.fonts.ready) {
                 document.fonts.ready.then(resize);
             }
         }, 10);
     }
 
-    // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
     window.addEventListener('resize', autoResizeTitles);
 
     // ==========================================
@@ -950,7 +933,7 @@
         const titleEl = document.getElementById('modalTitle'); titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
         
-        // 6. Жанры в модальном окне
+        // 3. Жанры в модальном окне
         document.getElementById('modalGenres').textContent = movie.genres ? escapeHTML(movie.genres) : 'Нет жанра';
 
         let badgesHtml = '';
