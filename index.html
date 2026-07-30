@@ -788,20 +788,23 @@
     }
 
     // ==========================================
-    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ИСПРАВЛЕНО)
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ПОЛНОСТЬЮ РАЗДЕЛЕНА)
     // ==========================================
     function autoResizeTitles() {
         const resize = () => {
-            // 1. Для списка (Точно как в первой версии, которая работала идеально)
+            
+            // 1. СПИСОК (Полностью изолированная оригинальная логика)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                // Сбрасываем стили на случай ресайза экрана, чтобы не ломался flex
-                titleEl.style.display = '';
+                // Снимаем блокировку, чтобы flex контейнера мог дышать
+                titleEl.style.display = ''; 
+                titleEl.style.whiteSpace = 'nowrap'; 
                 titleEl.style.webkitLineClamp = '';
                 titleEl.style.webkitBoxOrient = '';
+                titleEl.style.overflow = '';
+                titleEl.style.textOverflow = '';
                 
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
-                titleEl.style.whiteSpace = 'nowrap'; 
                 
                 while (titleEl.scrollWidth > titleEl.parentElement.clientWidth && currentSize > 14) { 
                     currentSize -= 1; 
@@ -813,37 +816,43 @@
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
+                    titleEl.style.overflow = 'hidden';
                 } 
             });
 
-            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
-            document.querySelectorAll('.card-title-container').forEach(container => {
-                let titleEl = container.querySelector('.resize-title');
-                if (!titleEl) return;
+            // 2. ПЛИТКИ (Полностью изолированная логика для сетки)
+            document.querySelectorAll('.card-title-text').forEach(titleEl => {
+                // В карточках используем block
+                titleEl.style.display = 'block'; 
+                titleEl.style.whiteSpace = 'nowrap'; 
+                titleEl.style.webkitLineClamp = '';
+                titleEl.style.webkitBoxOrient = '';
+                titleEl.style.overflow = '';
+                titleEl.style.textOverflow = '';
                 
-                // Сбрасываем стили
-                titleEl.style.display = 'block';
-                titleEl.style.whiteSpace = 'normal';
-                
-                let currentSize = 16;
-                titleEl.style.fontSize = currentSize + "px";
-                
-                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
-                while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
-                    currentSize -= 0.5;
-                    titleEl.style.fontSize = currentSize + "px";
+                let currentSize = 16; 
+                titleEl.style.fontSize = currentSize + "px"; 
+                let minSize = 11;
+
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
+                    currentSize -= 1; 
+                    titleEl.style.fontSize = currentSize + "px"; 
                 }
 
-                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
-                if (titleEl.scrollHeight > container.clientHeight) {
-                    titleEl.style.display = '-webkit-box';
-                    titleEl.style.webkitLineClamp = '3'; // Максимум 3 строки
-                    titleEl.style.webkitBoxOrient = 'vertical';
+                if (titleEl.scrollWidth > titleEl.clientWidth) { 
+                    titleEl.style.whiteSpace = 'normal'; 
+                    titleEl.style.display = '-webkit-box'; 
+                    titleEl.style.webkitLineClamp = '2'; 
+                    titleEl.style.webkitBoxOrient = 'vertical'; 
                     titleEl.style.overflow = 'hidden';
+                } else { 
+                    titleEl.style.whiteSpace = 'nowrap'; 
+                    titleEl.style.textOverflow = 'ellipsis'; 
+                    titleEl.style.overflow = 'hidden'; 
                 }
             });
 
-            // 3. Для ников заказчиков
+            // 3. ИМЕНА ПОЛЬЗОВАТЕЛЕЙ
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -854,9 +863,10 @@
             });
         };
 
-        // Даем браузеру долю секунды на отрисовку DOM
+        // Запускаем с микро-задержкой, чтобы браузер успел применить CSS
         setTimeout(() => {
             resize();
+            // Повторяем при загрузке кастомных шрифтов
             if (document.fonts && document.fonts.ready) {
                 document.fonts.ready.then(resize);
             }
