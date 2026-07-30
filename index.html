@@ -245,8 +245,6 @@
             flex-shrink: 0;
         }
         
-        .card-bottom-info { margin-top: auto; width: 100%; }
-        
         .card-date-meta { font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
         
         .card-queue-box {
@@ -258,6 +256,23 @@
         .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
         .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--bg-deep); color: var(--mint-main); }
         .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; }
+
+        /* ================= ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ПЛИТОК ================= */
+        .banned-strip {
+            position: absolute; 
+            bottom: 0; left: 0; width: 100%; height: 6px; 
+            background: #e74c3c; z-index: 15;
+            box-shadow: 0 -2px 10px rgba(231, 76, 60, 0.4);
+        }
+        .card-copy-btn {
+            position: absolute; right: 8px; bottom: 8px; z-index: 16;
+            background: rgba(19, 15, 28, 0.85); border: 1px solid rgba(92, 242, 138, 0.4); color: var(--mint-main);
+            cursor: pointer; padding: 5px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; opacity: 0; transform: scale(0.8);
+        }
+        .card-view-item:hover .card-copy-btn { opacity: 1; transform: scale(1); }
+        .card-copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
+        .card-copy-btn.shifted { bottom: 16px; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -625,11 +640,11 @@
             if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerTr = document.createElement('tr');
                 dividerTr.innerHTML = `
-                    <td colspan="5" style="padding: 20px 15px; cursor: default; border-bottom: none;">
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
-                            <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
-                            <span style="font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
-                            <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
+                    <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
                         </div>
                     </td>
                 `;
@@ -657,10 +672,7 @@
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
-            
-            let displayType = escapeHTML(movie.type || 'Фильм');
-            if (displayType.toLowerCase() === 'мультфильм') displayType = 'Мульт';
-            const typeLabel = `<span class="content-type-badge">${displayType}</span>`;
+            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Фильм')}</span>`;
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -737,19 +749,33 @@
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;'); // Для кнопки копирования
             const userColor = stringToColor(cleanNick);
             
-            let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(217, 72, 72, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
+            // 1. Синий фон для "В очереди"
+            let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
+            // 2. Оценки ниже слёз 
             let bottomBadges = '';
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
+            
+            // Сначала слёзы...
+            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            
+            // ...а потом оценка, чтобы она была ниже слёз
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
                     ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` 
                     : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
             }
-            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+
+            // 3. Красный индикатор студии
+            const hasBannedStudios = movie.hasBannedStudios === true || movie.isBanned === true;
+            const bannedStripMarkup = hasBannedStudios ? `<div class="banned-strip" title="Запрещенная студия!"></div>` : '';
+            
+            // 4. Кнопка копирования, поднимается если есть красная полоска
+            const copyBtnClass = hasBannedStudios ? 'card-copy-btn shifted' : 'card-copy-btn';
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
             
@@ -763,6 +789,10 @@
             card.innerHTML = `
                 <div class="card-top">
                     <img src="${posterUrl}" class="card-poster" alt="">
+                    ${bannedStripMarkup}
+                    <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    </button>
                     <div class="card-overlay">
                         <div class="card-badges-top">
                             <div class="card-type-badge">${displayType}</div>
@@ -797,63 +827,71 @@
     }
 
     // ==========================================
-    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ПОЛНОСТЬЮ РАЗДЕЛЕНА)
     // ==========================================
     function autoResizeTitles() {
-        setTimeout(() => {
+        const resize = () => {
             
-            // 1. Для списка (Точно как в первой версии, которая работала идеально)
+            // 1. СПИСОК (Абсолютно идентичный и изолированный код из первого файла)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
+                // Снимаем блокировку, чтобы flex контейнера мог дышать
+                titleEl.style.display = ''; 
+                titleEl.style.whiteSpace = 'nowrap'; 
+                titleEl.style.webkitLineClamp = '';
+                titleEl.style.webkitBoxOrient = '';
+                titleEl.style.overflow = '';
+                titleEl.style.textOverflow = '';
+                
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
-                titleEl.style.whiteSpace = 'nowrap'; 
-                let minSize = 18;
                 
-                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
+                while (titleEl.scrollWidth > titleEl.parentElement.clientWidth && currentSize > 14) { 
                     currentSize -= 1; 
                     titleEl.style.fontSize = currentSize + "px"; 
                 }
-
-                if (titleEl.scrollWidth > titleEl.clientWidth) { 
+                
+                if (titleEl.scrollWidth > titleEl.parentElement.clientWidth) { 
                     titleEl.style.whiteSpace = 'normal'; 
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
-                } else {
-                    titleEl.style.whiteSpace = 'nowrap';
-                    titleEl.style.textOverflow = 'ellipsis';
                     titleEl.style.overflow = 'hidden';
-                }
+                } 
             });
 
-            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
+            // 2. ПЛИТКИ (Абсолютно идентичный и изолированный код из второго файла)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                // Сбрасываем стили
-                titleEl.style.display = 'block';
-                titleEl.style.whiteSpace = 'normal';
+                // В карточках используем block
+                titleEl.style.display = 'block'; 
+                titleEl.style.whiteSpace = 'normal'; 
+                titleEl.style.webkitLineClamp = '';
+                titleEl.style.webkitBoxOrient = '';
+                titleEl.style.overflow = '';
+                titleEl.style.textOverflow = '';
                 
-                let currentSize = 16;
-                titleEl.style.fontSize = currentSize + "px";
-                
-                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
-                while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
-                    currentSize -= 0.5;
-                    titleEl.style.fontSize = currentSize + "px";
+                let currentSize = 16; 
+                titleEl.style.fontSize = currentSize + "px"; 
+                let minSize = 9;
+
+                // Проверяем по высоте контейнера (48px)
+                while (titleEl.scrollHeight > container.clientHeight && currentSize > minSize) { 
+                    currentSize -= 0.5; 
+                    titleEl.style.fontSize = currentSize + "px"; 
                 }
 
-                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
-                if (titleEl.scrollHeight > container.clientHeight) {
-                    titleEl.style.display = '-webkit-box';
+                // Страховка (если и 9px не влезло)
+                if (titleEl.scrollHeight > container.clientHeight) { 
+                    titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '3'; 
-                    titleEl.style.webkitBoxOrient = 'vertical';
+                    titleEl.style.webkitBoxOrient = 'vertical'; 
                     titleEl.style.overflow = 'hidden';
                 }
             });
 
-            // 3. Для ников заказчиков
+            // 3. ИМЕНА ПОЛЬЗОВАТЕЛЕЙ
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -862,8 +900,16 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
-            
-        }, 10); // Оставляем микрозадержку из твоих рабочих скриптов
+        };
+
+        // Запускаем с микро-задержкой, чтобы браузер успел применить CSS
+        setTimeout(() => {
+            resize();
+            // Повторяем при загрузке кастомных шрифтов
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(resize);
+            }
+        }, 10);
     }
 
     // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
