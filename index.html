@@ -215,10 +215,9 @@
             box-sizing: border-box;
         }
 
-        /* Убрал ограничения ширины и троеточия для бейджей сверху */
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; }
-        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
-        .card-status { padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
+        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; }
+        .card-status { padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; margin-right: 4px; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -228,7 +227,6 @@
 
         .card-content { padding: 12px 10px 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
         
-        /* Блок фиксированной высоты для центрирования названия (без троеточий) */
         .card-title-container { 
             height: 48px; 
             display: flex; 
@@ -242,10 +240,10 @@
             font-family: var(--font-title); font-size: 16px; font-weight: 900; color: #fff;
             margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.15;
             width: 100%;
-            text-align: center;
-            display: block; 
             white-space: normal;
             word-wrap: break-word;
+            text-align: center;
+            flex-shrink: 0;
         }
         
         .card-bottom-info { margin-top: auto; width: 100%; }
@@ -662,7 +660,7 @@
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
             
             let displayType = escapeHTML(movie.type || 'Фильм');
-            if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
+            if (displayType.toLowerCase() === 'мультфильм') displayType = 'Мульт';
             const typeLabel = `<span class="content-type-badge">${displayType}</span>`;
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
@@ -794,9 +792,12 @@
         renderArea.appendChild(gridContainer);
     }
 
+    // ==========================================
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ИСПРАВЛЕНО)
+    // ==========================================
     function autoResizeTitles() {
-        setTimeout(() => {
-            // Для списка (Сжимаем до упора)
+        const resize = () => {
+            // 1. Для списка (Тут оставляем троеточия для 2 строк)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
@@ -814,23 +815,22 @@
                 } 
             });
 
-            // ДЛЯ КАРТОЧЕК (Сжимаем БЕЗ троеточий, пока не влезет полностью)
+            // 2. ДЛЯ КАРТОЧЕК (Измеряем реальную высоту scrollHeight без ограничений flexbox)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
                 let currentSize = 16;
                 titleEl.style.fontSize = currentSize + "px";
-                titleEl.style.whiteSpace = "normal"; 
                 
-                // Проверяем честную высоту контента
+                // Проверяем: пока РЕАЛЬНАЯ высота текста больше высоты контейнера (48px) - сжимаем
                 while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
                     currentSize -= 0.5;
                     titleEl.style.fontSize = currentSize + "px";
                 }
             });
 
-            // Для ников заказчиков
+            // 3. Для ников заказчиков
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -839,9 +839,21 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
+        };
 
-        }, 50); // Увеличил таймаут до 50мс, чтобы шрифты точно отрисовались до подсчета
+        // Запускаем сразу (для мгновенной реакции)
+        resize();
+        
+        // Ждем загрузки шрифта Comfortaa и запускаем ЕЩЕ РАЗ (очень важно!)
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(resize);
+        } else {
+            setTimeout(resize, 500); // Страховка
+        }
     }
+
+    // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
+    window.addEventListener('resize', autoResizeTitles);
 
     // ==========================================
     // ЛОГИКА МОДАЛЬНОГО ОКНА 
@@ -906,11 +918,19 @@
         if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block'; } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
 
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
-        setTimeout(() => {
+        
+        // Модальное окно тоже ждёт подгрузки шрифта
+        const resizeModal = () => {
             titleEl.style.fontSize = "34px"; titleEl.style.whiteSpace = 'nowrap'; titleEl.style.display = 'block';
             let currentSize = 34; while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) { currentSize -= 1; titleEl.style.fontSize = currentSize + "px"; }
             if (titleEl.scrollWidth > titleEl.clientWidth) { titleEl.style.whiteSpace = 'normal'; titleEl.style.display = '-webkit-box'; titleEl.style.webkitLineClamp = '2'; titleEl.style.webkitBoxOrient = 'vertical'; titleEl.style.overflow = 'hidden'; } else { titleEl.style.whiteSpace = 'nowrap'; titleEl.style.textOverflow = 'ellipsis'; titleEl.style.overflow = 'hidden'; }
-        }, 10);
+        };
+        
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(resizeModal);
+        } else {
+            setTimeout(resizeModal, 50);
+        }
     }
 
     function closeModal(arg) {
@@ -919,6 +939,7 @@
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
         }
     }
+    
     loadMovies();
 </script>
 </body>
