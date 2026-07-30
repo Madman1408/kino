@@ -1227,55 +1227,6 @@
       "dateWatched": "27.08.2025 16:40"
     },
     {
-      "title": "Роботы",
-      "year": "2005",
-      "type": "Мультфильм",
-      "runtime": "1 ч 31 мин",
-      "genres": "мультфильм, комедия, семейный, фантастика",
-      "studios": "🟢 Blue Sky Studios, 🟢 20th Century Fox Animation",
-      "budget": "75.000.000 $",
-      "revenue": "262.511.490 $",
-      "tmdbRating": "6.489",
-      "overview": "Действие фильма разворачивается в мире, населённом исключительно роботами. Как и в мире людей у них есть своя социальная лестница, свои герои и изгои. Молодой гений Родни мечтает сделать мир роботов лучше. А ещё ему очень нравится одна молоденькая сексапильная роботша Каппи. Но на пути всех его планов стоит ведущий дизайнер роботов Биг Велд, принадлежащий к тому же сословию, что и Каппи...",
-      "poster": "https://image.tmdb.org/t/p/w500/cxQWos3VQvYysu2bMF9nwa0lUG5.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/8p4gCdDT55PMY3UMDvo6ybzMrai.jpg",
-      "cast": [
-        {
-          "name": "Юэн Макгрегор",
-          "photo": "https://image.tmdb.org/t/p/w185/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg"
-        },
-        {
-          "name": "Хэлли Берри",
-          "photo": "https://image.tmdb.org/t/p/w185/84HRDZodRCuBSpYGSc3ow8WucI4.jpg"
-        },
-        {
-          "name": "Грег Киннир",
-          "photo": "https://image.tmdb.org/t/p/w185/iJezGc9XjY0DFPs00SypkuKImFK.jpg"
-        },
-        {
-          "name": "Mel Brooks",
-          "photo": "https://image.tmdb.org/t/p/w185/c21qNcMJlHnRolfhQhZOVacjtwI.jpg"
-        }
-      ],
-      "director": {
-        "name": "Крис Уэдж",
-        "photo": "https://image.tmdb.org/t/p/w185/mB0lfkbJEQ6lNsGgIcCMszAZYbu.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=Z-qzShJBJls",
-      "ageRating": "6+",
-      "keywords": "inventor, businessman, villain, steampunk, robot",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "Robots Collection",
-      "id": 6,
-      "dateRequested": "28.08.2025 11:26",
-      "status": "Смотрели",
-      "ourRating": "Без оценки",
-      "cried": true,
-      "isAuction": false,
-      "dateWatched": "29.08.2025 16:41"
-    },
-    {
       "title": "Джентльмены",
       "year": "2020",
       "type": "Фильм",
@@ -1811,6 +1762,55 @@
       "status": "Смотрели",
       "ourRating": "1000",
       "cried": false,
+      "isAuction": false,
+      "dateWatched": "30.07.2026 15:01"
+    },
+    {
+      "title": "Роботы",
+      "year": "2005",
+      "type": "Мультфильм",
+      "runtime": "1 ч 31 мин",
+      "genres": "мультфильм, комедия, семейный, фантастика",
+      "studios": "🟢 Blue Sky Studios, 🟢 20th Century Fox Animation",
+      "budget": "75.000.000 $",
+      "revenue": "262.511.490 $",
+      "tmdbRating": "6.489",
+      "overview": "Действие фильма разворачивается в мире, населённом исключительно роботами. Как и в мире людей у них есть своя социальная лестница, свои герои и изгои. Молодой гений Родни мечтает сделать мир роботов лучше. А ещё ему очень нравится одна молоденькая сексапильная роботша Каппи. Но на пути всех его планов стоит ведущий дизайнер роботов Биг Велд, принадлежащий к тому же сословию, что и Каппи...",
+      "poster": "https://image.tmdb.org/t/p/w500/cxQWos3VQvYysu2bMF9nwa0lUG5.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/8p4gCdDT55PMY3UMDvo6ybzMrai.jpg",
+      "cast": [
+        {
+          "name": "Юэн Макгрегор",
+          "photo": "https://image.tmdb.org/t/p/w185/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg"
+        },
+        {
+          "name": "Хэлли Берри",
+          "photo": "https://image.tmdb.org/t/p/w185/84HRDZodRCuBSpYGSc3ow8WucI4.jpg"
+        },
+        {
+          "name": "Грег Киннир",
+          "photo": "https://image.tmdb.org/t/p/w185/iJezGc9XjY0DFPs00SypkuKImFK.jpg"
+        },
+        {
+          "name": "Mel Brooks",
+          "photo": "https://image.tmdb.org/t/p/w185/c21qNcMJlHnRolfhQhZOVacjtwI.jpg"
+        }
+      ],
+      "director": {
+        "name": "Крис Уэдж",
+        "photo": "https://image.tmdb.org/t/p/w185/mB0lfkbJEQ6lNsGgIcCMszAZYbu.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=Z-qzShJBJls",
+      "ageRating": "6+",
+      "keywords": "inventor, businessman, villain, steampunk, robot",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
+      "collection": "Robots Collection",
+      "id": 6,
+      "dateRequested": "28.08.2025 11:26",
+      "status": "Смотрели",
+      "ourRating": "1000",
+      "cried": true,
       "isAuction": false,
       "dateWatched": "30.07.2026 15:01"
     }
