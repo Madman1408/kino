@@ -608,11 +608,12 @@
 
         currentViewData.forEach((movie, index) => {
             
-            // ЛОГИКА РАЗДЕЛИТЕЛЯ ДЛЯ ТАБЛИЦЫ
+            // ИСПРАВЛЕННАЯ ЛОГИКА РАЗДЕЛИТЕЛЯ
+            // Теперь ячейка не отключает нижний бордер, а отступы заданы одинаковые (по 30px).
             if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerTr = document.createElement('tr');
                 dividerTr.innerHTML = `
-                    <td colspan="5" style="padding: 40px 15px 20px; border-bottom: none; cursor: default;">
+                    <td colspan="5" style="padding: 30px 15px; cursor: default;">
                         <div style="display: flex; align-items: center; justify-content: center;">
                             <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
                             <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
