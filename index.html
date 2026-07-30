@@ -217,7 +217,7 @@
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
         .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
-        .card-status { padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -782,6 +782,8 @@
 
             let displayType = escapeHTML(movie.type || 'Фильм');
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
+            
+            let movieGenres = escapeHTML(movie.genres || 'Нет жанра');
 
             const card = document.createElement('div');
             card.className = 'card-view-item';
@@ -803,9 +805,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <div class="card-title-container">
+                    <div class="card-title-container" style="margin-bottom: 4px;">
                         <h3 class="card-title-text resize-title">${cleanTitle}</h3>
                     </div>
+                    
+                    <div style="width: 100%; border-bottom: 1px dashed rgba(92, 242, 138, 0.25); margin: 3px 0 5px 0;"></div>
+                    <div style="font-family: var(--font-text); font-size: 11px; font-weight: 600; color: var(--text-muted); width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;" title="${movieGenres}">${movieGenres}</div>
+                    <div style="width: 100%; border-bottom: 1px dashed rgba(92, 242, 138, 0.25); margin: 5px 0 8px 0;"></div>
+
                     <div style="margin-top: auto; width: 100%;">
                         <div class="card-date-meta">${movie.year || '----'} ✧ ${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : '?? мин'}</div>
                         <div class="card-queue-box">
