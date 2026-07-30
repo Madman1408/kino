@@ -790,6 +790,9 @@
         });
         
         renderArea.appendChild(gridContainer);
+
+        // ВАЖНО: вызываем функцию подгонки текста для карточек!
+        autoResizeTitles(); 
     }
 
     // ==========================================
@@ -797,7 +800,7 @@
     // ==========================================
     function autoResizeTitles() {
         const resize = () => {
-            // 1. Для списка (Тут оставляем троеточия для 2 строк)
+            // 1. Для списка
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
@@ -812,21 +815,35 @@
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
-                } 
+                } else {
+                    titleEl.style.display = 'block'; // Сброс при ресайзе
+                }
             });
 
-            // 2. ДЛЯ КАРТОЧЕК (Измеряем реальную высоту scrollHeight без ограничений flexbox)
+            // 2. ДЛЯ КАРТОЧЕК (Улучшенная версия)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
+                // Сбрасываем стили на случай, если окно изменило размер
+                titleEl.style.display = 'block';
+                
                 let currentSize = 16;
                 titleEl.style.fontSize = currentSize + "px";
                 
-                // Проверяем: пока РЕАЛЬНАЯ высота текста больше высоты контейнера (48px) - сжимаем
+                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
                 while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
                     currentSize -= 0.5;
                     titleEl.style.fontSize = currentSize + "px";
+                }
+
+                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило, 
+                // аккуратно обрезаем текст троеточием (не даем ему уехать вверх)
+                if (titleEl.scrollHeight > container.clientHeight) {
+                    titleEl.style.display = '-webkit-box';
+                    titleEl.style.webkitLineClamp = '3'; // Максимум 3 строки
+                    titleEl.style.webkitBoxOrient = 'vertical';
+                    titleEl.style.overflow = 'hidden';
                 }
             });
 
@@ -841,14 +858,12 @@
             });
         };
 
-        // Запускаем сразу (для мгновенной реакции)
         resize();
         
-        // Ждем загрузки шрифта Comfortaa и запускаем ЕЩЕ РАЗ (очень важно!)
         if (document.fonts && document.fonts.ready) {
             document.fonts.ready.then(resize);
         } else {
-            setTimeout(resize, 500); // Страховка
+            setTimeout(resize, 500); 
         }
     }
 
