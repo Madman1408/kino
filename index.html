@@ -215,9 +215,9 @@
             box-sizing: border-box;
         }
 
-        .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; }
-        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; }
-        .card-status { padding: 3px 6px; border-radius: 6px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); white-space: nowrap; margin-right: 4px; }
+        .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
+        .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -225,8 +225,7 @@
         .card-mini-badge.cried { color: #a0c4ff; border-color: #a0c4ff; }
         .card-mini-badge.rating { color: var(--mint-light); border-color: var(--mint-main); font-size: 11px; }
 
-        .card-content { padding: 12px 10px 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
-        
+        .card-content { padding: 15px 10px 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
         .card-title-container { 
             height: 48px; 
             display: flex; 
@@ -258,7 +257,7 @@
         
         .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
         .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--bg-deep); color: var(--mint-main); }
-        .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; overflow: hidden; }
+        .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -723,11 +722,13 @@
                 const dividerDiv = document.createElement('div');
                 dividerDiv.style.gridColumn = '1 / -1';
                 dividerDiv.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; margin: 15px 0;">
-                        <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
-                        <span style="font-family: var(--font-title); font-size: 20px; font-weight: 900; color: var(--mint-main); text-shadow: 0 0 15px rgba(92, 242, 138, 0.6); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
-                        <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
+                    <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0;"></div>
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.4;"></div>
+                        <span style="padding: 0 20px; font-family: var(--font-title); font-size: 20px; font-weight: 900; color: var(--mint-main); text-shadow: 0 0 15px rgba(92, 242, 138, 0.6); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.4;"></div>
                     </div>
+                    <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0 25px 0;"></div>
                 `;
                 gridContainer.appendChild(dividerDiv);
             }
@@ -738,7 +739,7 @@
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const userColor = stringToColor(cleanNick);
             
-            let statusMarkup = isWatched ? `<div class="card-status" style="background: var(--mint-main); color: var(--bg-deep);">Смотрели</div>` : `<div class="card-status" style="background: #b53131; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
+            let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(217, 72, 72, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
             let bottomBadges = '';
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
@@ -774,7 +775,7 @@
                     <div class="card-title-container">
                         <h3 class="card-title-text resize-title">${cleanTitle}</h3>
                     </div>
-                    <div class="card-bottom-info">
+                    <div style="margin-top: auto; width: 100%;">
                         <div class="card-date-meta">${movie.year || '----'} ✧ ${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : '?? мин'}</div>
                         <div class="card-queue-box">
                             <span class="card-queue-label">Заказ от</span>
@@ -796,35 +797,43 @@
     }
 
     // ==========================================
-    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ИСПРАВЛЕНО)
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
     // ==========================================
     function autoResizeTitles() {
-        const resize = () => {
-            // 1. Для списка (ВЕРНУЛ К ИЗНАЧАЛЬНОМУ РАБОЧЕМУ ВАРИАНТУ)
+        setTimeout(() => {
+            
+            // 1. Для списка (Точно как в первой версии, которая работала идеально)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
                 titleEl.style.whiteSpace = 'nowrap'; 
+                let minSize = 18;
                 
-                while (titleEl.scrollWidth > titleEl.parentElement.clientWidth && currentSize > 14) { 
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
                     currentSize -= 1; 
                     titleEl.style.fontSize = currentSize + "px"; 
                 }
-                if (titleEl.scrollWidth > titleEl.parentElement.clientWidth) { 
+
+                if (titleEl.scrollWidth > titleEl.clientWidth) { 
                     titleEl.style.whiteSpace = 'normal'; 
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
+                } else {
+                    titleEl.style.whiteSpace = 'nowrap';
+                    titleEl.style.textOverflow = 'ellipsis';
+                    titleEl.style.overflow = 'hidden';
                 }
             });
 
-            // 2. ДЛЯ КАРТОЧЕК (Улучшенная версия)
+            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                // Сбрасываем стили на случай, если окно изменило размер
+                // Сбрасываем стили
                 titleEl.style.display = 'block';
+                titleEl.style.whiteSpace = 'normal';
                 
                 let currentSize = 16;
                 titleEl.style.fontSize = currentSize + "px";
@@ -835,11 +844,10 @@
                     titleEl.style.fontSize = currentSize + "px";
                 }
 
-                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило, 
-                // аккуратно обрезаем текст троеточием (не даем ему уехать вверх)
+                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
                 if (titleEl.scrollHeight > container.clientHeight) {
                     titleEl.style.display = '-webkit-box';
-                    titleEl.style.webkitLineClamp = '3'; // Максимум 3 строки
+                    titleEl.style.webkitLineClamp = '3'; 
                     titleEl.style.webkitBoxOrient = 'vertical';
                     titleEl.style.overflow = 'hidden';
                 }
@@ -854,15 +862,8 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
-        };
-
-        resize();
-        
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(resize);
-        } else {
-            setTimeout(resize, 500); 
-        }
+            
+        }, 10); // Оставляем микрозадержку из твоих рабочих скриптов
     }
 
     // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
@@ -891,7 +892,6 @@
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
         let metaText = `${escapeHTML(movie.type || 'Свиток')}`;
-        if (metaText.toLowerCase().includes('мульт')) metaText = 'Мульт';
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") metaText += ` ✧ ${movie.runtime}`;
         document.getElementById('modalMeta').innerHTML = metaText;
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое утеряно во времени...';
@@ -931,19 +931,11 @@
         if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block'; } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
 
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
-        
-        // Модальное окно тоже ждёт подгрузки шрифта
-        const resizeModal = () => {
+        setTimeout(() => {
             titleEl.style.fontSize = "34px"; titleEl.style.whiteSpace = 'nowrap'; titleEl.style.display = 'block';
             let currentSize = 34; while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) { currentSize -= 1; titleEl.style.fontSize = currentSize + "px"; }
             if (titleEl.scrollWidth > titleEl.clientWidth) { titleEl.style.whiteSpace = 'normal'; titleEl.style.display = '-webkit-box'; titleEl.style.webkitLineClamp = '2'; titleEl.style.webkitBoxOrient = 'vertical'; titleEl.style.overflow = 'hidden'; } else { titleEl.style.whiteSpace = 'nowrap'; titleEl.style.textOverflow = 'ellipsis'; titleEl.style.overflow = 'hidden'; }
-        };
-        
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(resizeModal);
-        } else {
-            setTimeout(resizeModal, 50);
-        }
+        }, 10);
     }
 
     function closeModal(arg) {
@@ -952,7 +944,6 @@
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
         }
     }
-    
     loadMovies();
 </script>
 </body>
