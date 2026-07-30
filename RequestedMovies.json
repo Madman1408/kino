@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "30.07.2026 18:36"
+    "lastUpdated": "30.07.2026 18:37"
   },
   "MadMan1408": [
     {
@@ -1863,56 +1863,7 @@
       "dateWatched": "30.07.2026 15:00"
     }
   ],
-  "MadManB0T": [
-    {
-      "title": "Муви 43",
-      "year": "2013",
-      "type": "Фильм",
-      "runtime": "1 ч 37 мин",
-      "genres": "комедия",
-      "studios": "🟢 Witness Protection Films, 🟢 Relativity Media, 🟢 Virgin Produced, 🟢 GreeneStreet Films, 🟢 Wessler Entertainment",
-      "budget": "6.000.000 $",
-      "revenue": "32.443.111 $",
-      "tmdbRating": "4.7",
-      "overview": "25 cуперзвёзд первой величины — в комедийном проекте, который состоит из двух десятков мини-новелл с нескончаемым потоком шуток, острот и пародий, о страстях человеческих.",
-      "poster": "https://image.tmdb.org/t/p/w500/7wTrw29KbzOmOQ5TeqA5yOasAxp.jpg",
-      "tagline": "«Самый Большой Актёрский Состав, когда-либо Собранный для Самой Возмутительной Комедии из когда-либо Созданных»",
-      "backdrop": "https://image.tmdb.org/t/p/original/9bOjEovR9cdiFUYwZY7fyfNGWyL.jpg",
-      "cast": [
-        {
-          "name": "Деннис Куэйд",
-          "photo": "https://image.tmdb.org/t/p/w185/lMaDAJHzsKH7U3dln2B3kY3rOhE.jpg"
-        },
-        {
-          "name": "Грег Киннир",
-          "photo": "https://image.tmdb.org/t/p/w185/iJezGc9XjY0DFPs00SypkuKImFK.jpg"
-        },
-        {
-          "name": "Хью Джекман",
-          "photo": "https://image.tmdb.org/t/p/w185/4Xujtewxqt6aU0Y81tsS9gkjizk.jpg"
-        },
-        {
-          "name": "Кейт Уинслет",
-          "photo": "https://image.tmdb.org/t/p/w185/6qNnMsKtKz9si5rabpUEG85UfHp.jpg"
-        }
-      ],
-      "director": {
-        "name": "Steven Brill",
-        "photo": "https://image.tmdb.org/t/p/w185/bhWId1JKFtFECSJPCYo9DbXeOaS.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=9OZDyapdMjI",
-      "ageRating": "R",
-      "keywords": "california, anthology, slapstick comedy, hollywood, blunt",
-      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-600x600.png",
-      "collection": "",
-      "id": 44,
-      "dateRequested": "30.07.2026 18:36",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
+  "MadManB0T": [],
   "cross_loss": [],
   "Cross_loss": [],
   "chipotl_s": [
