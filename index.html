@@ -183,13 +183,7 @@
         tr.movie-row:hover .director-avatar { border-color: #ffb3c1; box-shadow: 0 6px 15px rgba(255, 143, 163, 0.3); }
 
         /* ================= КАРТОЧНЫЙ ВИД (СЕТКА 6 В РЯД) ================= */
-        .movies-grid { 
-            display: grid; 
-            /* Ставим ровно 6 колонок одинаковой ширины */
-            grid-template-columns: repeat(6, 1fr); 
-            gap: 15px; 
-            padding: 20px; 
-        }
+        .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
         
         .card-view-item {
             background: rgba(19, 15, 28, 0.85); border: 2px solid var(--mint-dark); border-radius: 16px;
@@ -609,8 +603,26 @@
             </table>`;
         renderArea.innerHTML = tableHTML;
         const tbody = document.getElementById('table-body');
+        
+        const sortMode = document.getElementById('sortSelect').value;
 
         currentViewData.forEach((movie, index) => {
+            
+            // ЛОГИКА РАЗДЕЛИТЕЛЯ ДЛЯ ТАБЛИЦЫ
+            if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
+                const dividerTr = document.createElement('tr');
+                dividerTr.innerHTML = `
+                    <td colspan="5" style="padding: 40px 15px 20px; border-bottom: none; cursor: default;">
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(dividerTr);
+            }
+
             const cleanNick = movie.requestedBy.replace('@', '').trim();
             const tr = document.createElement('tr'); tr.className = 'movie-row'; tr.onclick = () => openModal(index); 
             
@@ -686,7 +698,24 @@
         const gridContainer = document.createElement('div');
         gridContainer.className = 'movies-grid';
         
+        const sortMode = document.getElementById('sortSelect').value;
+
         currentViewData.forEach((movie, index) => {
+            
+            // ЛОГИКА РАЗДЕЛИТЕЛЯ ДЛЯ СЕТКИ
+            if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
+                const dividerDiv = document.createElement('div');
+                dividerDiv.style.gridColumn = '1 / -1';
+                dividerDiv.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0 10px 0;">
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                        <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
+                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                    </div>
+                `;
+                gridContainer.appendChild(dividerDiv);
+            }
+
             const cleanNick = movie.requestedBy.replace('@', '').trim();
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
