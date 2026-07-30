@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "30.07.2026 18:39"
+    "lastUpdated": "30.07.2026 18:40"
   },
   "MadMan1408": [
     {
@@ -1815,56 +1815,7 @@
       "dateWatched": "30.07.2026 15:00"
     }
   ],
-  "cross_loss": [
-    {
-      "title": "42",
-      "year": "2013",
-      "type": "Фильм",
-      "runtime": "2 ч 8 мин",
-      "genres": "драма",
-      "studios": "🟢 Legendary Pictures",
-      "budget": "40.000.000 $",
-      "revenue": "95.020.213 $",
-      "tmdbRating": "7.206",
-      "overview": "Фильм рассказывает историю двух людей, которые резко выступили против предрассудков и навсегда изменили мир. В 1946 году, столкнувшись с неприкрытым расизмом со всех сторон, Бранч Рики вошёл в историю, когда подписал профессиональный контракт с Джеки Робинсоном, нарушив расистские стандарты Главной лиги бейсбола. Критикуемый прессой, зрителями и другими игроками Робинсон смело решил не реагировать, а при помощи таланта на поле завоевать сердца зрителей и других членов команды, заставить критиков замолчать и проложить путь для других.",
-      "poster": "https://image.tmdb.org/t/p/w500/lbnbH0fYgqBLCwkEbR823Ht6ZjX.jpg",
-      "tagline": "«Реальная история легенды спорта»",
-      "backdrop": "https://image.tmdb.org/t/p/original/eyjWwMOgkq4nh0wMtyW8XPJ749H.jpg",
-      "cast": [
-        {
-          "name": "Чедвик Боузман",
-          "photo": "https://image.tmdb.org/t/p/w185/nL16SKfyP1b7Hk6LsuWiqMfbdb8.jpg"
-        },
-        {
-          "name": "Харрисон Форд",
-          "photo": "https://image.tmdb.org/t/p/w185/pjBMJVPpcZK23Vt1nzr1zEBTWrP.jpg"
-        },
-        {
-          "name": "Николь Бахари",
-          "photo": "https://image.tmdb.org/t/p/w185/7ZgUAk3hkCrWSfjLYvnbKdyaNiN.jpg"
-        },
-        {
-          "name": "Кристофер Мелони",
-          "photo": "https://image.tmdb.org/t/p/w185/nHlFFbRTh85vkohBBtRQjYnWEtb.jpg"
-        }
-      ],
-      "director": {
-        "name": "Брайан Хелгеленд",
-        "photo": "https://image.tmdb.org/t/p/w185/3nva1KGfPZMhqxBnr5PymluTOxf.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=EDxRHv6LUi4",
-      "ageRating": "Нет данных",
-      "keywords": "sports, baseball, biography, racial segregation, based on true story",
-      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png",
-      "collection": "",
-      "id": 43,
-      "dateRequested": "30.07.2026 18:39",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
+  "cross_loss": [],
   "MadManB0T": [],
   "Cross_loss": [],
   "chipotl_s": [
