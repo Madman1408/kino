@@ -208,7 +208,6 @@
         .card-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .card-view-item:hover .card-poster { transform: scale(1.05); }
 
-        /* box-sizing: border-box РЕШИЛ ПРОБЛЕМУ ВЫЛЕЗАЮЩИХ БЕЙДЖЕЙ */
         .card-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(19,15,28,0.1) 40%, rgba(19,15,28,0.95) 100%);
@@ -230,8 +229,11 @@
         .card-title-text { 
             font-family: var(--font-title); font-size: 15px; font-weight: 900; color: #fff;
             margin: 0 0 6px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.2;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
             width: 100%;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
+            flex-shrink: 0;
         }
         .card-date-meta { font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
         
@@ -243,7 +245,7 @@
         
         .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
         .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--bg-deep); color: var(--mint-main); }
-        .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); }
+        .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -752,7 +754,9 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title-text">${cleanTitle}</h3>
+                    <div class="card-title-container">
+                        <h3 class="card-title-text resize-title">${cleanTitle}</h3>
+                    </div>
                     <div style="margin-top: auto; width: 100%;">
                         <div class="card-date-meta">${movie.year || '----'} ✧ ${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : '?? мин'}</div>
                         <div class="card-queue-box">
@@ -769,17 +773,24 @@
         });
         
         renderArea.appendChild(gridContainer);
+
+        // ВАЖНО: вызываем функцию подгонки текста для карточек!
+        autoResizeTitles(); 
     }
 
+    // ==========================================
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ИСПРАВЛЕНО)
+    // ==========================================
     function autoResizeTitles() {
-        setTimeout(() => {
-            document.querySelectorAll('.movie-row .movie-title, .card-title-text').forEach(titleEl => {
-                let currentSize = titleEl.classList.contains('card-title-text') ? 15 : 24; 
+        const resize = () => {
+            // 1. Для списка (Точно как в первой версии, которая работала идеально)
+            document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
+                let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
                 titleEl.style.whiteSpace = 'nowrap'; 
-                titleEl.style.display = 'block';
-                let minSize = titleEl.classList.contains('card-title-text') ? 11 : 18;
-
+                titleEl.style.display = 'block'; // Нужно для точного расчета
+                let minSize = 18;
+                
                 while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
                     currentSize -= 1; 
                     titleEl.style.fontSize = currentSize + "px"; 
@@ -790,14 +801,41 @@
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
-                } 
-                else { 
-                    titleEl.style.whiteSpace = 'nowrap'; 
-                    titleEl.style.textOverflow = 'ellipsis'; 
-                    titleEl.style.overflow = 'hidden'; 
+                } else {
+                    titleEl.style.whiteSpace = 'nowrap';
+                    titleEl.style.textOverflow = 'ellipsis';
+                    titleEl.style.overflow = 'hidden';
                 }
             });
 
+            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
+            document.querySelectorAll('.card-title-container').forEach(container => {
+                let titleEl = container.querySelector('.card-title-text');
+                if (!titleEl) return;
+                
+                // Сбрасываем стили
+                titleEl.style.display = 'block';
+                titleEl.style.whiteSpace = 'normal';
+                
+                let currentSize = 16;
+                titleEl.style.fontSize = currentSize + "px";
+                
+                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
+                while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
+                    currentSize -= 0.5;
+                    titleEl.style.fontSize = currentSize + "px";
+                }
+
+                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
+                if (titleEl.scrollHeight > container.clientHeight) {
+                    titleEl.style.display = '-webkit-box';
+                    titleEl.style.webkitLineClamp = '3'; 
+                    titleEl.style.webkitBoxOrient = 'vertical';
+                    titleEl.style.overflow = 'hidden';
+                }
+            });
+
+            // 3. Для ников заказчиков
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -806,9 +844,19 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
+        };
 
+        // Даем браузеру долю секунды на отрисовку DOM
+        setTimeout(() => {
+            resize();
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(resize);
+            }
         }, 10);
     }
+
+    // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
+    window.addEventListener('resize', autoResizeTitles);
 
     // ==========================================
     // ЛОГИКА МОДАЛЬНОГО ОКНА 
