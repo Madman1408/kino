@@ -625,11 +625,11 @@
             if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerTr = document.createElement('tr');
                 dividerTr.innerHTML = `
-                    <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
-                        <div style="display: flex; align-items: center; justify-content: center;">
-                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
-                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
-                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                    <td colspan="5" style="padding: 20px 15px; cursor: default; border-bottom: none;">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
+                            <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
+                            <span style="font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">Просмотрено ✨</span>
+                            <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.5); opacity: 0.7;"></div>
                         </div>
                     </td>
                 `;
@@ -657,7 +657,10 @@
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
-            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Фильм')}</span>`;
+            
+            let displayType = escapeHTML(movie.type || 'Фильм');
+            if (displayType.toLowerCase() === 'мультфильм') displayType = 'Мульт';
+            const typeLabel = `<span class="content-type-badge">${displayType}</span>`;
             
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -749,6 +752,9 @@
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
+            
+            let displayType = escapeHTML(movie.type || 'Фильм');
+            if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
 
             const card = document.createElement('div');
             card.className = 'card-view-item';
@@ -759,7 +765,7 @@
                     <img src="${posterUrl}" class="card-poster" alt="">
                     <div class="card-overlay">
                         <div class="card-badges-top">
-                            <div class="card-type-badge">${escapeHTML(movie.type || 'Фильм')}</div>
+                            <div class="card-type-badge">${displayType}</div>
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -791,71 +797,63 @@
     }
 
     // ==========================================
-    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ (ПОЛНОСТЬЮ РАЗДЕЛЕНА)
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
     // ==========================================
     function autoResizeTitles() {
-        const resize = () => {
+        setTimeout(() => {
             
-            // 1. СПИСОК (Полностью изолированная оригинальная логика)
+            // 1. Для списка (Точно как в первой версии, которая работала идеально)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                // Снимаем блокировку, чтобы flex контейнера мог дышать
-                titleEl.style.display = ''; 
-                titleEl.style.whiteSpace = 'nowrap'; 
-                titleEl.style.webkitLineClamp = '';
-                titleEl.style.webkitBoxOrient = '';
-                titleEl.style.overflow = '';
-                titleEl.style.textOverflow = '';
-                
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
+                titleEl.style.whiteSpace = 'nowrap'; 
+                let minSize = 18;
                 
-                while (titleEl.scrollWidth > titleEl.parentElement.clientWidth && currentSize > 14) { 
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
                     currentSize -= 1; 
                     titleEl.style.fontSize = currentSize + "px"; 
                 }
-                
-                if (titleEl.scrollWidth > titleEl.parentElement.clientWidth) { 
+
+                if (titleEl.scrollWidth > titleEl.clientWidth) { 
                     titleEl.style.whiteSpace = 'normal'; 
                     titleEl.style.display = '-webkit-box'; 
                     titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.webkitBoxOrient = 'vertical'; 
+                } else {
+                    titleEl.style.whiteSpace = 'nowrap';
+                    titleEl.style.textOverflow = 'ellipsis';
                     titleEl.style.overflow = 'hidden';
-                } 
+                }
             });
 
-            // 2. ПЛИТКИ (Полностью изолированная логика для сетки)
+            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                // В карточках используем block
-                titleEl.style.display = 'block'; 
-                titleEl.style.whiteSpace = 'normal'; 
-                titleEl.style.webkitLineClamp = '';
-                titleEl.style.webkitBoxOrient = '';
-                titleEl.style.overflow = '';
-                titleEl.style.textOverflow = '';
+                // Сбрасываем стили
+                titleEl.style.display = 'block';
+                titleEl.style.whiteSpace = 'normal';
                 
-                let currentSize = 16; 
-                titleEl.style.fontSize = currentSize + "px"; 
-                let minSize = 9; // Жмем до 9px, если нужно
-
-                // Проверяем по высоте контейнера (48px)
-                while (titleEl.scrollHeight > container.clientHeight && currentSize > minSize) { 
-                    currentSize -= 0.5; 
-                    titleEl.style.fontSize = currentSize + "px"; 
+                let currentSize = 16;
+                titleEl.style.fontSize = currentSize + "px";
+                
+                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
+                while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
+                    currentSize -= 0.5;
+                    titleEl.style.fontSize = currentSize + "px";
                 }
 
-                // Страховка (если и 9px не влезло)
-                if (titleEl.scrollHeight > container.clientHeight) { 
-                    titleEl.style.display = '-webkit-box'; 
+                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
+                if (titleEl.scrollHeight > container.clientHeight) {
+                    titleEl.style.display = '-webkit-box';
                     titleEl.style.webkitLineClamp = '3'; 
-                    titleEl.style.webkitBoxOrient = 'vertical'; 
+                    titleEl.style.webkitBoxOrient = 'vertical';
                     titleEl.style.overflow = 'hidden';
                 }
             });
 
-            // 3. ИМЕНА ПОЛЬЗОВАТЕЛЕЙ
+            // 3. Для ников заказчиков
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -864,16 +862,8 @@
                     nameEl.style.fontSize = currentSize + "px";
                 }
             });
-        };
-
-        // Запускаем с микро-задержкой, чтобы браузер успел применить CSS
-        setTimeout(() => {
-            resize();
-            // Повторяем при загрузке кастомных шрифтов
-            if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(resize);
-            }
-        }, 10);
+            
+        }, 10); // Оставляем микрозадержку из твоих рабочих скриптов
     }
 
     // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
