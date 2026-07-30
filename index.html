@@ -217,7 +217,7 @@
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
         .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
-        .card-status { padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
@@ -257,22 +257,22 @@
         .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--bg-deep); color: var(--mint-main); }
         .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; }
 
-        /* ================= НОВЫЕ СТИЛИ ДЛЯ ПЛИТОК ================= */
-        .banned-dot {
-            position: absolute; right: 10px; bottom: 10px; width: 14px; height: 14px;
-            background-color: #ff4757; border-radius: 50%; z-index: 15;
-            box-shadow: 0 0 10px rgba(255, 71, 87, 0.8);
-            border: 2px solid var(--bg-deep);
+        /* ================= ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ПЛИТОК ================= */
+        .banned-strip {
+            position: absolute; 
+            bottom: 0; left: 0; width: 100%; height: 6px; 
+            background: #e74c3c; z-index: 15;
+            box-shadow: 0 -2px 10px rgba(231, 76, 60, 0.4);
         }
         .card-copy-btn {
             position: absolute; right: 8px; bottom: 8px; z-index: 16;
             background: rgba(19, 15, 28, 0.85); border: 1px solid rgba(92, 242, 138, 0.4); color: var(--mint-main);
-            cursor: pointer; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; padding: 5px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
             transition: all 0.3s; opacity: 0; transform: scale(0.8);
         }
         .card-view-item:hover .card-copy-btn { opacity: 1; transform: scale(1); }
         .card-copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
-        .card-copy-btn.shifted { bottom: 32px; } /* Сдвиг кнопки вверх, если есть красный шарик */
+        .card-copy-btn.shifted { bottom: 16px; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -749,21 +749,20 @@
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
-            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;'); // Для кнопки копирования
             const userColor = stringToColor(cleanNick);
             
-            // 1. Синий фон для "В очереди" (для фильмов)
+            // 1. Синий фон для "В очереди"
             let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
+            // 2. Оценки ниже слёз 
             let bottomBadges = '';
-            
-            // Аукцион всегда первый
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
             
-            // 2. Слёзы выше оценки
+            // Сначала слёзы...
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             
-            // Оценка идет под слезами
+            // ...а потом оценка, чтобы она была ниже слёз
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
@@ -771,15 +770,15 @@
                     : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
             }
 
-            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
-
-            // 3. Красный шарик запрещенной студии
-            const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
-            const bannedDotMarkup = hasBannedStudios ? `<div class="banned-dot" title="Запрещенная студия!"></div>` : '';
+            // 3. Красный индикатор студии
+            const hasBannedStudios = movie.hasBannedStudios === true || movie.isBanned === true;
+            const bannedStripMarkup = hasBannedStudios ? `<div class="banned-strip" title="Запрещенная студия!"></div>` : '';
             
-            // 4. Класс для кнопки (сдвиг вверх, если есть шарик)
+            // 4. Кнопка копирования, поднимается если есть красная полоска
             const copyBtnClass = hasBannedStudios ? 'card-copy-btn shifted' : 'card-copy-btn';
 
+            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
+            
             let displayType = escapeHTML(movie.type || 'Фильм');
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
 
@@ -790,7 +789,7 @@
             card.innerHTML = `
                 <div class="card-top">
                     <img src="${posterUrl}" class="card-poster" alt="">
-                    ${bannedDotMarkup}
+                    ${bannedStripMarkup}
                     <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </button>
