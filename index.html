@@ -757,7 +757,7 @@
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const userColor = stringToColor(cleanNick);
             
-            // 1. Синий фон для "В очереди"
+            // 1. Синий фон для "В очереди" (для фильмов)
             let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
             let bottomBadges = '';
