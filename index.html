@@ -569,7 +569,7 @@
             else if (typeof data === 'object' && data !== null) { for (const user in data) { if (user === "_metadata_") continue; if (Array.isArray(data[user])) data[user].forEach(movie => rawMoviesData.push({ ...movie, requestedBy: user, parsedDate: parseDateObj(movie.dateRequested) })); } }
             populateUserFilter(); updateToggleButton(); applyFilters();
         } catch (error) {
-            document.getElementById('render-area').innerHTML = `<div style="text-align: center; padding: 60px; color: var(--cute-pink); font-family: var(--font-text); font-weight: 700; font-size: 20px;">Свитки пока недоступны (Ошибка)</div>`;
+            document.getElementById('render-area').innerHTML = `<div style="text-align: center; padding: 60px; color: var(--cute-pink); font-family: var(--font-text); font-weight: 700; font-size: 20px;">Пока недоступно (Ошибка)</div>`;
         }
     }
 
