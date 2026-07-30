@@ -323,7 +323,7 @@
         .modal-title-wrapper:hover .copy-btn { opacity: 1; }
         .modal-title-wrapper .copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); }
         
-        .modal-meta-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; flex-wrap: wrap; }
+        .modal-meta-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; flex-wrap: wrap; }
         
         .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
 
@@ -465,6 +465,7 @@
                             </div>
                         </div>
                         <div class="modal-meta-wrapper" id="modalBadges"></div>
+                        <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         <div class="modal-grid">
@@ -930,8 +931,8 @@
         const titleEl = document.getElementById('modalTitle'); titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
         
+        // ВЕРХНИЕ БЕЙДЖИ (НАД ПУНКТИРНОЙ ЛИНИЕЙ)
         let badgesHtml = '';
-        
         let displayType = escapeHTML(movie.type || 'Фильм');
         if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
         badgesHtml += `<span class="outline-badge">${displayType}</span>`;
@@ -944,12 +945,20 @@
         if (movie.ageRating && movie.ageRating !== "Нет данных") badgesHtml += `<span class="outline-badge">${movie.ageRating}</span>`;
         badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         
-        if (movie.genres && movie.genres !== "Нет данных") {
-            badgesHtml += `<span class="outline-badge">${escapeHTML(movie.genres)}</span>`;
-        }
-
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
+        // ЖАНРЫ (ПОД ПУНКТИРНОЙ ЛИНИЕЙ) КАЖДОЕ СЛОВО В СВОЕЙ ПЛАШКЕ
+        let genresHtml = '';
+        if (movie.genres && movie.genres !== "Нет данных") {
+            const genresList = movie.genres.split(',').map(g => g.trim()).filter(g => g);
+            genresList.forEach(g => {
+                genresHtml += `<span class="outline-badge">${escapeHTML(g)}</span>`;
+            });
+        } else {
+            genresHtml = `<span class="outline-badge">Нет жанра</span>`;
+        }
+        document.getElementById('modalGenres').innerHTML = genresHtml;
+
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое утеряно во времени...';
         
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
