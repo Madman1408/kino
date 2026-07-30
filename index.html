@@ -323,8 +323,10 @@
         .modal-title-wrapper:hover .copy-btn { opacity: 1; }
         .modal-title-wrapper .copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); }
         
-        .modal-meta-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; flex-wrap: wrap; }
+        .modal-meta-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; flex-wrap: wrap; }
         .modal-meta { color: var(--mint-light); font-size: 16px; font-weight: 600; }
+
+        .modal-genres { font-size: 15px; color: var(--mint-light); font-weight: 700; margin-bottom: 12px; }
         
         .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
 
@@ -466,6 +468,7 @@
                             </div>
                         </div>
                         <div class="modal-meta-wrapper"><div class="modal-meta" id="modalMeta"></div><div id="modalBadges" style="display: flex; gap: 8px;"></div></div>
+                        <div class="modal-genres" id="modalGenres"></div>
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         <div class="modal-grid">
@@ -639,7 +642,6 @@
 
         currentViewData.forEach((movie, index) => {
             
-            // Забрал красивый градиентный разделитель из 2 кода, так как он выглядит аккуратнее 
             if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerTr = document.createElement('tr');
                 dividerTr.innerHTML = `
@@ -659,7 +661,9 @@
             
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
-            const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status" style="background: rgba(92,242,138,0.2); color: var(--mint-light); box-shadow: none;">В ОЧЕРЕДИ</span>`;
+            
+            // ОБНОВЛЕННЫЙ СТАТУС ДЛЯ СПИСКОВ С СИНИМ ФОНОМ (ИДЕНТИЧНО КАРТОЧКЕ)
+            const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
             
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
@@ -939,6 +943,10 @@
         let metaText = `${escapeHTML(movie.type || 'Свиток')}`;
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") metaText += ` ✧ ${movie.runtime}`;
         document.getElementById('modalMeta').innerHTML = metaText;
+        
+        // ДОБАВЛЕН ВЫВОД ЖАНРОВ В МОДАЛЬНОЕ ОКНО
+        document.getElementById('modalGenres').textContent = movie.genres ? escapeHTML(movie.genres) : 'Нет жанра';
+
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое утеряно во времени...';
         
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
