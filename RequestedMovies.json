@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "31.07.2026 10:52"
+    "lastUpdated": "31.07.2026 15:00"
   },
   "MadMan1408": [
     {
@@ -444,7 +444,7 @@
       "status": "Смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false,
+      "isAuction": true,
       "dateWatched": "17.07.2026 16:52"
     }
   ],
