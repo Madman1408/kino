@@ -608,12 +608,29 @@
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
         if (sortMode === 'waiting') { filtered = filtered.filter(m => m.status === 'Не смотрели').sort((a, b) => a.parsedDate - b.parsedDate); } 
-        else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Смотрели').sort((a, b) => a.parsedDate - b.parsedDate); }
+        else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Смотрели').sort((a, b) => b.parsedDate - a.parsedDate); }
         else if (sortMode === 'auction') { filtered = filtered.filter(m => m.isAuction === true).sort((a, b) => a.parsedDate - b.parsedDate); }
         else if (sortMode === 'cried') { filtered = filtered.filter(m => m.cried === true).sort((a, b) => a.parsedDate - b.parsedDate); }
         else if (sortMode === 'newest') { filtered.sort((a, b) => b.parsedDate - a.parsedDate); }
         else if (sortMode === 'date_asc') { filtered.sort((a, b) => a.parsedDate - b.parsedDate); }
-        else { filtered.sort((a, b) => { const priorityA = a.status === 'Не смотрели' ? 1 : 2; const priorityB = b.status === 'Не смотрели' ? 1 : 2; return priorityA !== priorityB ? priorityA - priorityB : a.parsedDate - b.parsedDate; }); }
+        else { 
+            filtered.sort((a, b) => { 
+                const isUnwatchedA = a.status === 'Не смотрели'; 
+                const isUnwatchedB = b.status === 'Не смотрели'; 
+                if (isUnwatchedA !== isUnwatchedB) { 
+                    return isUnwatchedA ? -1 : 1; 
+                } 
+                if (isUnwatchedA) { 
+                    return a.parsedDate - b.parsedDate; 
+                } else { 
+                    let dateA = a.dateWatched ? parseDateObj(a.dateWatched) : 0; 
+                    if (!dateA) dateA = a.parsedDate; 
+                    let dateB = b.dateWatched ? parseDateObj(b.dateWatched) : 0; 
+                    if (!dateB) dateB = b.parsedDate; 
+                    return dateB - dateA; 
+                } 
+            }); 
+        }
         
         currentViewData = filtered; renderView();
     }
