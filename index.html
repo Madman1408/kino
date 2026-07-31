@@ -247,8 +247,18 @@
         
         .card-bottom-info { margin-top: auto; width: 100%; }
         
-        .card-date-meta { font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
+        /* ОБНОВЛЕННЫЙ СТИЛЬ card-date-meta ДЛЯ ВЫРАВНИВАНИЯ */
+        .card-date-meta { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
         
+        /* НОВЫЙ КЛАСС ПЛАШКИ ДЛЯ ВРЕМЕНИ В КАРТОЧКАХ */
+        .grid-time-badge {
+            display: inline-flex; align-items: center; justify-content: center; gap: 4px; 
+            background: rgba(92, 242, 138, 0.1); color: var(--mint-main); 
+            border: 1px solid rgba(92, 242, 138, 0.4); padding: 2px 8px; border-radius: 10px; 
+            font-family: var(--font-text); font-size: 10px; font-weight: 800; 
+            text-transform: uppercase;
+        }
+
         .card-queue-box {
             background: rgba(34, 24, 54, 0.9); padding: 6px 8px; border-radius: 12px; border: 1px solid rgba(92, 242, 138, 0.2);
             display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); box-sizing: border-box;
@@ -469,7 +479,6 @@
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         
-                        <!-- ОБНОВЛЕННАЯ СЕТКА МОДАЛЬНОГО ОКНА (СВАП БЛОКОВ) -->
                         <div class="modal-grid">
                             <div class="grid-item"><div class="grid-label">Заказал</div><div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div></div>
                             <div class="grid-item"><div class="grid-label">Статус</div><div id="modalStatusLabel" style="margin-top: 4px;"></div></div>
@@ -785,6 +794,9 @@
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
             
             let movieGenres = escapeHTML(movie.genres || 'Нет жанра');
+            
+            // Текст для времени
+            let runtimeText = movie.runtime && movie.runtime !== 'Неизвестно' ? escapeHTML(movie.runtime) : '?? мин';
 
             const card = document.createElement('div');
             card.className = 'card-view-item';
@@ -815,7 +827,11 @@
                     <div style="width: 100%; border-bottom: 1px dashed rgba(92, 242, 138, 0.25); margin: 5px 0 8px 0;"></div>
 
                     <div style="margin-top: auto; width: 100%;">
-                        <div class="card-date-meta">${movie.year || '----'} ✧ ${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : '?? мин'}</div>
+                        <div class="card-date-meta">
+                            <span>${movie.year || '----'}</span>
+                            <span style="color: var(--mint-dark);">✧</span>
+                            <span class="grid-time-badge">${runtimeText}</span>
+                        </div>
                         <div class="card-queue-box">
                             <span class="card-queue-label">Заказ от</span>
                             <div class="card-user-info-row">
@@ -954,10 +970,8 @@
             : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
 
-        // ПОРЯДОК: ДЕНЬ ЗАКАЗА НАХОДИТСЯ СЛЕВА В ВЕРСТКЕ
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         
-        // ДЕНЬ ПРОСМОТРА СПРАВА
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (isWatched && movie.dateWatched) {
              let html = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
