@@ -134,7 +134,7 @@
         td:nth-child(2)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 25% 50%, rgba(92, 242, 138, 0.05) 0%, transparent 70%); z-index: -1; pointer-events: none; transition: opacity 0.3s ease; opacity: 0; }
         tr.movie-row:hover td:nth-child(2)::before { opacity: 1; }
         
-        .poster-wrapper { width: 140px; height: 210px; overflow: hidden; margin: 0 auto; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border: 2px solid rgba(92, 242, 138, 0.4); border-radius: 12px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .poster-wrapper { width: 140px; height: 210px; overflow: hidden; margin: 0 auto; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border: 2px solid rgba(92, 242, 138, 0.4); border-radius: 12px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: var(--bg-deep); }
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; } 
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 12px 25px rgba(92, 242, 138, 0.3); border-color: var(--mint-main); }
         
@@ -202,7 +202,7 @@
             border: 1px dashed rgba(92, 242, 138, 0.3); border-radius: 12px; pointer-events: none; z-index: 10;
         }
 
-        .card-top { position: relative; width: 100%; padding-top: 135%; overflow: hidden; border-bottom: 2px solid var(--mint-dark); transition: border-color 0.3s; }
+        .card-top { position: relative; width: 100%; padding-top: 135%; overflow: hidden; border-bottom: 2px solid var(--mint-dark); transition: border-color 0.3s; background: var(--bg-deep); }
         .card-view-item:hover .card-top { border-color: var(--mint-main); }
         
         .card-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
@@ -310,7 +310,7 @@
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg-velvet) 0%, transparent 100%); }
 
         .modal-body { padding: 0 40px 40px 40px; position: relative; margin-top: -120px; z-index: 2; display: flex; gap: 35px; }
-        .modal-poster { width: 200px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 2px solid var(--mint-main); align-self: flex-start; }
+        .modal-poster { width: 200px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 2px solid var(--mint-main); align-self: flex-start; background: var(--bg-deep); }
         
         .modal-info-main { flex: 1; background: rgba(34, 24, 54, 0.98); padding: 25px; border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.1); overflow: hidden; }
 
@@ -495,7 +495,15 @@
     let viewMode = localStorage.getItem('siteViewMode') || 'list'; 
 
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%23221836'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%2338255c'/%3E%3C/svg%3E";
-    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%23221836'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='30' fill='%235cf28a'%3EСвиток утерян%3C/text%3E%3C/svg%3E";
+    
+    // Новая заглушка для фильмов: стилизованная кинопленка с кнопкой Play и звездочками в цветах темы
+    const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -20)'%3E%3Crect x='160' y='270' width='180' height='250' rx='15' fill='%2338255c' stroke='%235cf28a' stroke-width='6'/%3E%3Crect x='195' y='270' width='110' height='250' fill='%23221836'/%3E%3Crect x='172' y='290' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='330' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='370' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='410' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='450' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='490' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='290' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='330' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='370' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='410' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='450' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='490' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Cpolygon points='230,365 230,425 275,395' fill='%23ff8fa3'/%3E%3Ccircle cx='345' cy='250' r='14' fill='%23ff8fa3'/%3E%3Ccircle cx='375' cy='280' r='10' fill='%23fce8a1'/%3E%3Ccircle cx='145' cy='520' r='12' fill='%23fce8a1'/%3E%3C/g%3E%3C/svg%3E";
+
+    // Глобальная функция для отлова ошибок загрузки картинок
+    window.handlePosterError = function(img) {
+        img.onerror = null;
+        img.src = fallbackPoster;
+    };
 
     function escapeHTML(str) { return !str ? '' : String(str).replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag])); }
 
@@ -659,7 +667,6 @@
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             
-            // ОБНОВЛЕННЫЙ СТАТУС ДЛЯ СПИСКОВ С СИНИМ ФОНОМ (ИДЕНТИЧНО КАРТОЧКЕ)
             const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
             
             let watchedDetails = '';
@@ -704,8 +711,9 @@
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Аукцион ✦</div>` : '';
 
+            // ДОБАВЛЕНО: onerror="handlePosterError(this)" для постера
             tr.innerHTML = `
-                <td><div class="poster-wrapper"><img src="${posterUrl}" alt=""></div></td>
+                <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
                 <td>
                     <div class="movie-info">
                         <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
@@ -759,18 +767,12 @@
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             const userColor = stringToColor(cleanNick);
             
-            // 1. Синий фон для "В очереди" (для фильмов)
             let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             
             let bottomBadges = '';
             
-            // Аукцион всегда первый
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
-            
-            // 2. Слёзы выше оценки
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-            
-            // Оценка идет под слезами
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
@@ -780,11 +782,8 @@
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
-            // 3. Красный шарик запрещенной студии
             const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
             const bannedDotMarkup = hasBannedStudios ? `<div class="banned-dot" title="Запрещенная студия!"></div>` : '';
-            
-            // 4. Класс для кнопки (сдвиг вверх, если есть шарик)
             const copyBtnClass = hasBannedStudios ? 'card-copy-btn shifted' : 'card-copy-btn';
 
             let displayType = escapeHTML(movie.type || 'Фильм');
@@ -796,9 +795,10 @@
             card.className = 'card-view-item';
             card.onclick = () => openModal(index);
             
+            // ДОБАВЛЕНО: onerror="handlePosterError(this)" для постера
             card.innerHTML = `
                 <div class="card-top">
-                    <img src="${posterUrl}" class="card-poster" alt="">
+                    <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${bannedDotMarkup}
                     <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
@@ -837,18 +837,15 @@
         
         renderArea.appendChild(gridContainer);
 
-        // ВАЖНО: вызываем функцию подгонки текста для карточек!
         autoResizeTitles(); 
     }
 
     // ==========================================
     // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
-    // ЭТОТ БЛОК ПОЛНОСТЬЮ ИЗ ПЕРВОГО КОДА. ОН НЕ ТРОНУТ.
     // ==========================================
     function autoResizeTitles() {
         setTimeout(() => {
             
-            // 1. Для списка (Точно как в первой версии, которая работала идеально)
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
@@ -872,25 +869,21 @@
                 }
             });
 
-            // 2. ДЛЯ КАРТОЧЕК (Из второй версии, которая работала идеально)
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                // Сбрасываем стили
                 titleEl.style.display = 'block';
                 titleEl.style.whiteSpace = 'normal';
                 
                 let currentSize = 16;
                 titleEl.style.fontSize = currentSize + "px";
                 
-                // Проверяем: пока реальная высота текста больше контейнера (48px) - сжимаем
                 while (titleEl.scrollHeight > container.clientHeight && currentSize > 9) {
                     currentSize -= 0.5;
                     titleEl.style.fontSize = currentSize + "px";
                 }
 
-                // ФИНАЛЬНАЯ СТРАХОВКА: если название огромное и даже 9px не хватило
                 if (titleEl.scrollHeight > container.clientHeight) {
                     titleEl.style.display = '-webkit-box';
                     titleEl.style.webkitLineClamp = '3'; 
@@ -899,7 +892,6 @@
                 }
             });
 
-            // 3. Для ников заказчиков
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -909,10 +901,9 @@
                 }
             });
             
-        }, 10); // Оставляем микрозадержку из твоих рабочих скриптов
+        }, 10); 
     }
 
-    // При изменении размера окна (или повороте экрана на телефоне) пересчитываем шрифты
     window.addEventListener('resize', autoResizeTitles);
 
     // ==========================================
@@ -926,12 +917,15 @@
         
         const heroEl = document.getElementById('modalHero');
         if (movie.backdrop) { heroEl.style.backgroundImage = `url('${movie.backdrop}')`; heroEl.style.display = 'block'; } else { heroEl.style.display = 'none'; }
-        document.getElementById('modalPoster').src = getSafePoster(movie.poster);
+        
+        // ДОБАВЛЕНО: привязка onerror в модальном окне
+        const posterEl = document.getElementById('modalPoster');
+        posterEl.src = getSafePoster(movie.poster);
+        posterEl.onerror = function() { handlePosterError(this); };
         
         const titleEl = document.getElementById('modalTitle'); titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
         
-        // ВЕРХНИЕ БЕЙДЖИ (НАД ПУНКТИРНОЙ ЛИНИЕЙ)
         let badgesHtml = '';
         let displayType = escapeHTML(movie.type || 'Фильм');
         if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
@@ -947,7 +941,6 @@
         
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
-        // ЖАНРЫ (ПОД ПУНКТИРНОЙ ЛИНИЕЙ) КАЖДОЕ СЛОВО В СВОЕЙ ПЛАШКЕ
         let genresHtml = '';
         if (movie.genres && movie.genres !== "Нет данных") {
             const genresList = movie.genres.split(',').map(g => g.trim()).filter(g => g);
