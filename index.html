@@ -469,12 +469,12 @@
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         
-                        <!-- ОБНОВЛЕННАЯ СЕТКА МОДАЛЬНОГО ОКНА -->
+                        <!-- ОБНОВЛЕННАЯ СЕТКА МОДАЛЬНОГО ОКНА (СВАП БЛОКОВ) -->
                         <div class="modal-grid">
                             <div class="grid-item"><div class="grid-label">Заказал</div><div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div></div>
                             <div class="grid-item"><div class="grid-label">Статус</div><div id="modalStatusLabel" style="margin-top: 4px;"></div></div>
-                            <div class="grid-item"><div class="grid-label" id="modalWatchedLabel">День просмотра</div><div id="modalDateWatched"></div></div>
                             <div class="grid-item"><div class="grid-label">День заказа</div><div id="modalDateReq"></div></div>
+                            <div class="grid-item"><div class="grid-label" id="modalWatchedLabel">День просмотра</div><div id="modalDateWatched"></div></div>
                             <div class="grid-item"><div class="grid-label">Бюджет / Сборы</div><div id="modalFinances"></div></div>
                             <div class="grid-item full-width"><div class="grid-label">Студии</div><div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal;">Архив скрыт</div></div>
                         </div>
@@ -903,7 +903,6 @@
         const heroEl = document.getElementById('modalHero');
         heroEl.style.display = 'block'; 
         
-        // ЛОГИКА ДЛЯ ПУСТОГО ИЛИ ОШИБОЧНОГО ФОНА В МОДАЛКЕ
         if (movie.backdrop && !movie.backdrop.includes('via.placeholder.com')) {
             const img = new Image();
             img.src = movie.backdrop;
@@ -949,16 +948,16 @@
 
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое утеряно во времени...';
         
-        // ДОБАВЛЕНА ЛОГИКА СТАТУСА ДЛЯ МОДАЛКИ
         const isWatched = movie.status === "Смотрели";
         let statusTextHTML = isWatched 
             ? `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">СМОТРЕЛИ</span>` 
             : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
 
-        // ДЕНЬ ПРОСМОТРА И ДЕНЬ ЗАКАЗА
+        // ПОРЯДОК: ДЕНЬ ЗАКАЗА НАХОДИТСЯ СЛЕВА В ВЕРСТКЕ
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         
+        // ДЕНЬ ПРОСМОТРА СПРАВА
         const dateWatchedEl = document.getElementById('modalDateWatched');
         if (isWatched && movie.dateWatched) {
              let html = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
