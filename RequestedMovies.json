@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "30.07.2026 18:40"
+    "lastUpdated": "31.07.2026 10:47"
   },
   "MadMan1408": [
     {
@@ -100,6 +100,54 @@
       "cried": true,
       "isAuction": false,
       "dateWatched": "02.06.2026 16:48"
+    },
+    {
+      "title": "Правдивая ложь",
+      "year": "1994",
+      "type": "Фильм",
+      "runtime": "2 ч 15 мин",
+      "genres": "боевик, триллер",
+      "studios": "🟢 Lightstorm Entertainment, 🟢 20th Century Fox",
+      "budget": "115.000.000 $",
+      "revenue": "378.900.000 $",
+      "tmdbRating": "7.099",
+      "overview": "Для своей семьи Гарри Таскер - любящий муж и отец, человек скромный и рассеянный, обыкновенный продавец компьютеров, «не вылезающий» с работы ни днем, ни ночью. Но лишь немногие знают, что на самом деле Гарри - специальный агент тайной правительственной службы, специализирующийся на особо опасных заданиях, владеющий кучей языков, всеми видами оружия и всеми возможными способами «отправки» злодеев на тот свет. Агент Таскер и дальше продолжал бы вести двойную жизнь, если бы зловещие арабские террористы не похитили Гарри, а вместе с ним и его ничего не подозревающую жену Хэлен. Но бандиты, к своему несчастью, даже не подозревали, с кем связались. И Хэлен узнала, что муж ее совсем не компьютерщик, и что она пятнадцать лет прожила с человеком, рядом с которым мускулистый Рэмбо выглядит ребенком…",
+      "poster": "https://image.tmdb.org/t/p/w500/ef1W30VcCkN94UIzMfJNts0spE.jpg",
+      "tagline": "«Когда он сказал \"люблю\", он не сказал что именно»",
+      "backdrop": "https://image.tmdb.org/t/p/original/jRZ3joUcg8YDCQYl4Tog5xhY6wk.jpg",
+      "cast": [
+        {
+          "name": "Арнольд Шварценеггер",
+          "photo": "https://image.tmdb.org/t/p/w185/2marNcjIfCUE5Z2HyrcEiJHPbsA.jpg"
+        },
+        {
+          "name": "Джейми Ли Кёртис",
+          "photo": "https://image.tmdb.org/t/p/w185/eWKubKAAssRzmFwCZKh1mdYqGCH.jpg"
+        },
+        {
+          "name": "Том Арнольд",
+          "photo": "https://image.tmdb.org/t/p/w185/z2ajL1ozVCS4Ug04zOGCNH06OPP.jpg"
+        },
+        {
+          "name": "Билл Пэкстон",
+          "photo": "https://image.tmdb.org/t/p/w185/aLdNe6mt1cSi2zWlUYRregzfis5.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джеймс Кэмерон",
+        "photo": "https://image.tmdb.org/t/p/w185/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "keywords": "florida, horseback riding, gun, kidnapping, spy",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 29,
+      "dateRequested": "31.07.2026 10:47",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "bazar_gure": [
@@ -253,54 +301,6 @@
   ],
   "DworfiQ": [
     {
-      "title": "Правдивая ложь",
-      "year": "1994",
-      "type": "Фильм",
-      "runtime": "2 ч 15 мин",
-      "genres": "боевик, триллер",
-      "studios": "🟢 Lightstorm Entertainment, 🟢 20th Century Fox",
-      "budget": "115.000.000 $",
-      "revenue": "378.900.000 $",
-      "tmdbRating": "7.098",
-      "overview": "Для своей семьи Гарри Таскер - любящий муж и отец, человек скромный и рассеянный, обыкновенный продавец компьютеров, «не вылезающий» с работы ни днем, ни ночью. Но лишь немногие знают, что на самом деле Гарри - специальный агент тайной правительственной службы, специализирующийся на особо опасных заданиях, владеющий кучей языков, всеми видами оружия и всеми возможными способами «отправки» злодеев на тот свет. Агент Таскер и дальше продолжал бы вести двойную жизнь, если бы зловещие арабские террористы не похитили Гарри, а вместе с ним и его ничего не подозревающую жену Хэлен. Но бандиты, к своему несчастью, даже не подозревали, с кем связались. И Хэлен узнала, что муж ее совсем не компьютерщик, и что она пятнадцать лет прожила с человеком, рядом с которым мускулистый Рэмбо выглядит ребенком…",
-      "poster": "https://image.tmdb.org/t/p/w500/ef1W30VcCkN94UIzMfJNts0spE.jpg",
-      "tagline": "«Когда он сказал \"люблю\", он не сказал что именно»",
-      "backdrop": "https://image.tmdb.org/t/p/original/jRZ3joUcg8YDCQYl4Tog5xhY6wk.jpg",
-      "cast": [
-        {
-          "name": "Арнольд Шварценеггер",
-          "photo": "https://image.tmdb.org/t/p/w185/2marNcjIfCUE5Z2HyrcEiJHPbsA.jpg"
-        },
-        {
-          "name": "Джейми Ли Кёртис",
-          "photo": "https://image.tmdb.org/t/p/w185/eWKubKAAssRzmFwCZKh1mdYqGCH.jpg"
-        },
-        {
-          "name": "Том Арнольд",
-          "photo": "https://image.tmdb.org/t/p/w185/z2ajL1ozVCS4Ug04zOGCNH06OPP.jpg"
-        },
-        {
-          "name": "Билл Пэкстон",
-          "photo": "https://image.tmdb.org/t/p/w185/aLdNe6mt1cSi2zWlUYRregzfis5.jpg"
-        }
-      ],
-      "director": {
-        "name": "Джеймс Кэмерон",
-        "photo": "https://image.tmdb.org/t/p/w185/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg"
-      },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "florida, horseback riding, gun, kidnapping, spy",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/5bdfab78-2ce3-4c92-886e-7437896bf7c0-profile_image-600x600.png",
-      "collection": "",
-      "id": 29,
-      "dateRequested": "26.07.2026 12:40",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
       "title": "Оскар",
       "year": "1991",
       "type": "Фильм",
@@ -450,54 +450,6 @@
   ],
   "serrrg0": [
     {
-      "title": "Трансформеры",
-      "year": "2007",
-      "type": "Фильм",
-      "runtime": "2 ч 20 мин",
-      "genres": "приключения, фантастика, боевик",
-      "studios": "🟢 DreamWorks Pictures, 🟢 di Bonaventura Pictures, 🟢 DeSanto/Murphy Productions, 🟢 Paramount Pictures",
-      "budget": "150.000.000 $",
-      "revenue": "709.709.780 $",
-      "tmdbRating": "6.84",
-      "overview": "В течение многих столетий две расы роботов-инопланетян, Автоботы и Десептиконы, вели войну, ставкой в которой была судьба Bселенной. И вот война докатилась до Земли. В то время, когда силы зла ищут ключ к верховной власти, наш последний шанс на спасение находится в руках юного землянина. Единственное, что стоит между несущими зло Десептиконами и высшей властью — это ключ, находящийся в руках простого парнишки.",
-      "poster": "https://image.tmdb.org/t/p/w500/eYFRGx7qk4JGOqUvjSWIpgToHLi.jpg",
-      "tagline": "«Наш мир. Их война»",
-      "backdrop": "https://image.tmdb.org/t/p/original/iCDMBi6WLjUBnt24dNwHqqF81UL.jpg",
-      "cast": [
-        {
-          "name": "Шайа ЛаБаф",
-          "photo": "https://image.tmdb.org/t/p/w185/egvlIdeizCkSkuHVoDuuduIThFA.jpg"
-        },
-        {
-          "name": "Меган Фокс",
-          "photo": "https://image.tmdb.org/t/p/w185/zQp2YM0zbC27Ws97LNbyicysk8p.jpg"
-        },
-        {
-          "name": "Марк Райан",
-          "photo": "https://image.tmdb.org/t/p/w185/9I0mFMnJJutVwVsCJhh3PtfqtFv.jpg"
-        },
-        {
-          "name": "Питер Каллен",
-          "photo": "https://image.tmdb.org/t/p/w185/9Snf4fBUkk5MrAjqtNtgZRJYJbj.jpg"
-        }
-      ],
-      "director": {
-        "name": "Майкл Бэй",
-        "photo": "https://image.tmdb.org/t/p/w185/rkC7lei20x5xlFH4SivAXXBh6uR.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=cSwuDTqx9uo",
-      "ageRating": "PG-13",
-      "keywords": "transformation, destroy, alien, based on toy, giant robot",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/51e15def-2f0e-4692-ae48-f922021be13f-profile_image-600x600.png",
-      "collection": "Трансформеры (Коллекция)",
-      "id": 30,
-      "dateRequested": "26.07.2026 12:41",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
       "title": "Суперсемейка",
       "year": "2004",
       "type": "Мультфильм",
@@ -596,489 +548,8 @@
       "dateWatched": "27.05.2026 16:48"
     }
   ],
-  "Mira_Noire": [
-    {
-      "title": "Марли и я",
-      "year": "2008",
-      "type": "Фильм",
-      "runtime": "1 ч 55 мин",
-      "genres": "комедия, семейный",
-      "studios": "🟢 Sunswept Entertainment, 🟢 Dune Entertainment III",
-      "budget": "60.000.000 $",
-      "revenue": "255.700.000 $",
-      "tmdbRating": "7.178",
-      "overview": "Молодой журналист со своей женой переезжает в другой город на новое место работы. У них грандиозные планы: покупка дома, дети… Но сначала они заводят собаку. Кто бы мог подумать, что именно она станет главным испытанием в их жизни.",
-      "poster": "https://image.tmdb.org/t/p/w500/xb7GQZ1ttzYCKmHAAXfsr7C3Me2.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/tVoWbAAfTDIhTeo78SbA2V6mv8E.jpg",
-      "cast": [
-        {
-          "name": "Оуэн Уилсон",
-          "photo": "https://image.tmdb.org/t/p/w185/5A46lNOwmpX77jAdhyKxU7e2Hub.jpg"
-        },
-        {
-          "name": "Дженнифер Энистон",
-          "photo": "https://image.tmdb.org/t/p/w185/PBSCmHDFdCMBhjx0EbXpTw4Z94.jpg"
-        },
-        {
-          "name": "Эрик Дэйн",
-          "photo": "https://image.tmdb.org/t/p/w185/4PsLKBKN4e0zRT2oS4BjE8Xu1un.jpg"
-        },
-        {
-          "name": "Кэтлин Тёрнер",
-          "photo": "https://image.tmdb.org/t/p/w185/hvmMGjWKy1CGmaJzPtOtbb3fD57.jpg"
-        }
-      ],
-      "director": {
-        "name": "Дэвид Фрэнкел",
-        "photo": "https://image.tmdb.org/t/p/w185/hfIjLMo8Upl6MXhn1YcoDoXeeZn.jpg"
-      },
-      "trailer": "",
-      "ageRating": "PG",
-      "keywords": "journalist, based on novel or book, melancholy, puppy, love",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9288628b-de93-4a60-988c-c6a2c29386e6-profile_image-600x600.png",
-      "collection": "Марли и я (Коллекция)",
-      "id": 31,
-      "dateRequested": "26.07.2026 12:45",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
+  "Mira_Noire": [],
   "cherteya": [
-    {
-      "title": "Вот это драма!",
-      "year": "2026",
-      "type": "Фильм",
-      "runtime": "1 ч 36 мин",
-      "genres": "мелодрама, комедия, драма",
-      "studios": "🟢 A24, 🟢 Square Peg, 🟢 Dilemma Films",
-      "budget": "28.000.000 $",
-      "revenue": "132.227.793 $",
-      "tmdbRating": "6.924",
-      "overview": "Чарли и Эмма познакомились в кафе два года назад, а через неделю должны пожениться. Они активно готовятся к торжеству: репетируют свадебный танец, общаются с диджеем и фотографом и выбирают напитки на праздничный стол. Однажды за ужином с друзьями Эмма раскрывает неожиданный секрет своего прошлого, и это откровение вынуждает Чарли задуматься, знает ли он её на самом деле.",
-      "poster": "https://image.tmdb.org/t/p/w500/mayjUmmXGM1n5E5AJnOfylig10W.jpg",
-      "tagline": "«Свадьба года»",
-      "backdrop": "https://image.tmdb.org/t/p/original/gQxnJoswBzsENExzygVnFiemvK7.jpg",
-      "cast": [
-        {
-          "name": "Зендея",
-          "photo": "https://image.tmdb.org/t/p/w185/1qup8tSt95HLbcy2c2xrx4iJNxv.jpg"
-        },
-        {
-          "name": "Роберт Паттинсон",
-          "photo": "https://image.tmdb.org/t/p/w185/sRUM2u8qLcsOaTm0jGJGlOEQhlQ.jpg"
-        },
-        {
-          "name": "Алана Хаим",
-          "photo": "https://image.tmdb.org/t/p/w185/uOU4uueRxH5BYhzNjzPxJOxZStJ.jpg"
-        },
-        {
-          "name": "Мамуду Ати",
-          "photo": "https://image.tmdb.org/t/p/w185/ycUbhfZRKC8MtNK9oMwscRsl3uM.jpg"
-        }
-      ],
-      "director": {
-        "name": "Кристоффер Боргли",
-        "photo": "https://image.tmdb.org/t/p/w185/ftLljVAuKvECl8rAG7JbiGANy8P.jpg"
-      },
-      "trailer": "",
-      "ageRating": "18+",
-      "keywords": "infidelity, boston, massachusetts, dark comedy, romcom, engaged couple",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 32,
-      "dateRequested": "26.07.2026 12:46",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "8 миля",
-      "year": "2002",
-      "type": "Фильм",
-      "runtime": "1 ч 50 мин",
-      "genres": "драма, музыка",
-      "studios": "🟢 Mikona Productions, 🟢 Imagine Entertainment",
-      "budget": "41.000.000 $",
-      "revenue": "242.875.078 $",
-      "tmdbRating": "7.147",
-      "overview": "Детройт, 90-ые. Джимми Смит-младший — молодой парень, работающий на фабрике. Он живёт на севере неблагополучного района 8 миля вместе со своей матерью-алкоголичкой, её жестоким бойфрендом и младшей сестрой. Единственная мечта Джимми — найти собственное звучание и стать популярным рэп-исполнителем. Выступления на музыкальных сценах Детройта приводят к падениям и взлётам, обостряя сильнейшую внутреннюю борьбу.",
-      "poster": "https://image.tmdb.org/t/p/w500/1016JRRJNu6QlOmcnEycOdBREQP.jpg",
-      "tagline": "«Каждый Миг - это Шанс»",
-      "backdrop": "https://image.tmdb.org/t/p/original/jNG7pl0DkN1nzxnbZj4MCGf2VEG.jpg",
-      "cast": [
-        {
-          "name": "Эминем",
-          "photo": "https://image.tmdb.org/t/p/w185/bRrrk9r1cYG6KVnYzjwYGT0g1Qi.jpg"
-        },
-        {
-          "name": "Ким Бейсингер",
-          "photo": "https://image.tmdb.org/t/p/w185/gGVt23JFgQfgQaSq8XkdVCL3WAz.jpg"
-        },
-        {
-          "name": "Мекай Файфер",
-          "photo": "https://image.tmdb.org/t/p/w185/jCvF0bpi9emIWBnu20MCMU0bwrf.jpg"
-        },
-        {
-          "name": "Бриттани Мёрфи",
-          "photo": "https://image.tmdb.org/t/p/w185/uLOrqcSk2h5o3ekNfcuGFDzN13W.jpg"
-        }
-      ],
-      "director": {
-        "name": "Curtis Hanson",
-        "photo": "https://image.tmdb.org/t/p/w185/rKKITJSuqKtkGy9QeCTyeMpp5pH.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=-8KnqCe8xJA",
-      "ageRating": "R",
-      "keywords": "individual, adolescence, rap music, hip-hop, rhyme battle",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 33,
-      "dateRequested": "26.07.2026 12:46",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Красавица и дракон",
-      "year": "2021",
-      "type": "Аниме",
-      "runtime": "2 ч 1 мин",
-      "genres": "мультфильм, фантастика, фэнтези",
-      "studios": "🟢 Studio Chizu, 🟢 Nippon Television Network Corporation, 🟢 dentsu, 🟢 TOHO, 🟢 KADOKAWA, 🟢 Hakuhodo DY Media Partners, 🟢 Yomiuri Telecasting Corporation, 🟢 BookWalker, 🟢 NTT Docomo, 🟢 Lawson Entertainment, 🟢 Yomiuri Shimbun Company, 🟢 movic",
-      "budget": "Нет данных",
-      "revenue": "63.501.160 $",
-      "tmdbRating": "7.61",
-      "overview": "17-летняя старшеклассница Судзу воспитывается отцом и никак не может смириться с ранней смертью матери. Так как вдвоём с мамой они очень любили петь, с тех пор Судзу забросила пение, но стала писать песни. Девушка решает, что в виртуальном пространстве U, где обитает 5 миллиардов пользователей, она станет другой личностью, и создаёт полную свою противоположность — красавицу-певицу по имени Белль. В этой новой реальности девушка быстро становится популярной и обретает миллионы поклонников. Однажды её виртуальный концерт срывает загадочный пользователь в виде дракона, и Судзу решает узнать, кто же он на самом деле.",
-      "poster": "https://image.tmdb.org/t/p/w500/s0Tx3CjieqroyN0mHcuMuCoHnCc.jpg",
-      "tagline": "«Открой мир, где ты можешь любить, где ты можешь быть собой»",
-      "backdrop": "https://image.tmdb.org/t/p/original/7aiVtavsu145yo6n4ZpazwMDLXL.jpg",
-      "cast": [
-        {
-          "name": "Кахо Накамура",
-          "photo": "https://image.tmdb.org/t/p/w185/kW0WsXcYUdGjxgVN7YsJgg1Rltp.jpg"
-        },
-        {
-          "name": "Рё Нарита",
-          "photo": "https://image.tmdb.org/t/p/w185/f42OXn4J7cM62wtykL196YW7x85.jpg"
-        },
-        {
-          "name": "Сёта Сомэтани",
-          "photo": "https://image.tmdb.org/t/p/w185/sEEfyEfEbd9TQB9gFlvDTQJov76.jpg"
-        },
-        {
-          "name": "Тина Тамасиро",
-          "photo": "https://image.tmdb.org/t/p/w185/u2OfpoFq4ZFaWnuCuH0JSpTo6hr.jpg"
-        }
-      ],
-      "director": {
-        "name": "Мамору Хосода",
-        "photo": "https://image.tmdb.org/t/p/w185/MBrgo5yaOdV454lUgDJsqvbdxP.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=eHXBEBOcROY",
-      "ageRating": "6+",
-      "keywords": "friendship, abusive father, love, slice of life, dead mother",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 34,
-      "dateRequested": "26.07.2026 12:47",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Девочка, покорившая время",
-      "year": "2006",
-      "type": "Аниме",
-      "runtime": "1 ч 38 мин",
-      "genres": "фэнтези, мультфильм, драма, фантастика",
-      "studios": "🟢 Madhouse, 🟢 Happinet Pictures, 🟢 KADOKAWA, 🟢 KADOKAWA Shoten, 🟢 Q-TEC, 🟢 Memory-Tech, 🟢 Studio Chizu",
-      "budget": "Нет данных",
-      "revenue": "3.478.290 $",
-      "tmdbRating": "7.773",
-      "overview": "17-летняя Макото Конно не слишком хорошо учится, часто опаздывает и не знает, кем хочет стать после окончания школы. По вечерам она играет с друзьями в бейсбол, каждое утро вскакивает на велосипед и торопится в школу. Но внезапно в её привычной размеренной жизни случается странное событие, после чего Макото обретает способность перемещаться во времени.",
-      "poster": "https://image.tmdb.org/t/p/w500/fm4EDWhUFcWQwzmwXHng4jWqS73.jpg",
-      "tagline": "«Есть будущее, которого мы не можем дождаться»",
-      "backdrop": "https://image.tmdb.org/t/p/original/6m2qbAqSMJTX4HUwRvVEQI6ioiO.jpg",
-      "cast": [
-        {
-          "name": "Рииса Нака",
-          "photo": "https://image.tmdb.org/t/p/w185/lQHNZeMCqEK8AJvNb15BFnji7qO.jpg"
-        },
-        {
-          "name": "Такуя Исида",
-          "photo": "https://image.tmdb.org/t/p/w185/aHQk6XxqyJinfvrVRADEIg31nOk.jpg"
-        },
-        {
-          "name": "Мицутака Итакура",
-          "photo": "https://image.tmdb.org/t/p/w185/mnKYU7HIsuRkx3YjdRO5FLXCdX5.jpg"
-        },
-        {
-          "name": "Аями Какиути",
-          "photo": "https://image.tmdb.org/t/p/w185/lUhVV9u5VGMCNdCAVhGzg8GFSdo.jpg"
-        }
-      ],
-      "director": {
-        "name": "Мамору Хосода",
-        "photo": "https://image.tmdb.org/t/p/w185/MBrgo5yaOdV454lUgDJsqvbdxP.jpg"
-      },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "high school, time travel, surrealism, love, slice of life",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 35,
-      "dateRequested": "26.07.2026 12:48",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Сплит",
-      "year": "2017",
-      "type": "Фильм",
-      "runtime": "1 ч 57 мин",
-      "genres": "ужасы, триллер",
-      "studios": "🟢 Blinding Edge Pictures, 🟢 Blumhouse Productions",
-      "budget": "9.000.000 $",
-      "revenue": "278.454.358 $",
-      "tmdbRating": "7.342",
-      "overview": "Кевин, человек, в котором живет не менее двадцати трех личностей, вынужден похитить трех девочек подросткового возраста. Тем временем, пока они находятся в заточении, самая главная личность Кевина — Чудовище — материализуется.",
-      "poster": "https://image.tmdb.org/t/p/w500/xrVZF8DJNTPiILFygj8sg4tmauV.jpg",
-      "tagline": "Внутри Кевина живут 23 личности. Вскоре еще одна явит себя миру",
-      "backdrop": "https://image.tmdb.org/t/p/original/9pkZesKMnblFfKxEhQx45YQ2kIe.jpg",
-      "cast": [
-        {
-          "name": "Джеймс МакЭвой",
-          "photo": "https://image.tmdb.org/t/p/w185/u4REKbm3zhFI2J5tVyqRovGRYUJ.jpg"
-        },
-        {
-          "name": "Аня Тейлор-Джой",
-          "photo": "https://image.tmdb.org/t/p/w185/qYNofOjlRke2MlJVihmJmEdQI4v.jpg"
-        },
-        {
-          "name": "Хейли Лу Ричардсон",
-          "photo": "https://image.tmdb.org/t/p/w185/iTNWzU5FlKT8s0CBZQyMIvebBPh.jpg"
-        },
-        {
-          "name": "Джессика Сула",
-          "photo": "https://image.tmdb.org/t/p/w185/2lLET7EhRy98ad5Mgc9jMk4Sb0S.jpg"
-        }
-      ],
-      "director": {
-        "name": "М. Найт Шьямалан",
-        "photo": "https://image.tmdb.org/t/p/w185/tOhFWjauKvJgjCVLJFnhbBCZuxZ.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=V2NjbzlCIr0",
-      "ageRating": "16+",
-      "keywords": "child abuse, philadelphia, pennsylvania, kidnapping, gore, sequel",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "Eastrail 177 Collection",
-      "id": 36,
-      "dateRequested": "26.07.2026 12:48",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Облачно, возможны осадки в виде фрикаделек",
-      "year": "2009",
-      "type": "Мультфильм",
-      "runtime": "1 ч 30 мин",
-      "genres": "мультфильм, комедия, семейный",
-      "studios": "🟢 Sony Pictures Animation, 🟢 Columbia Pictures",
-      "budget": "100.000.000 $",
-      "revenue": "242.988.466 $",
-      "tmdbRating": "6.662",
-      "overview": "Главный герой мультфильма — странный ученый Флинт Локвуд, который всегда хотел изобрести что-то такое, что сделает его родной городок счастливым. И вот, у него получилось! Еды теперь хватает всем, и она просто падает с неба, создавая новые пейзажи вокруг: можно любоваться закатом с живописных холмов из фруктового желе. Но иногда вкусные осадки в виде фрикаделек могут превратиться в настоящий торнадо из аппетитных, но уже опасных спагетти! Гениальному ученому и его друзьям предстоит исправить положение дел в сытом городке.",
-      "poster": "https://image.tmdb.org/t/p/w500/ePnI73UEGY8nE9ZGIWQKLj0qBPN.jpg",
-      "tagline": "«Приготовьтесь к подаче!»",
-      "backdrop": "https://image.tmdb.org/t/p/original/doNIj6jX27hhfcbD6GEb22ydLSF.jpg",
-      "cast": [
-        {
-          "name": "Билл Хейдер",
-          "photo": "https://image.tmdb.org/t/p/w185/qyT50vQ9PQIEctE1IxDTEsBKstU.jpg"
-        },
-        {
-          "name": "Анна Фэрис",
-          "photo": "https://image.tmdb.org/t/p/w185/tptTb0BQwCpKWETNqzkZzzf5qSZ.jpg"
-        },
-        {
-          "name": "Джеймс Каан",
-          "photo": "https://image.tmdb.org/t/p/w185/z2Lz3rtxZ7aJjzBUkCnExvo8stn.jpg"
-        },
-        {
-          "name": "Энди Сэмберг",
-          "photo": "https://image.tmdb.org/t/p/w185/jMXU5oG3i93SH1yhkpbBGskFiJl.jpg"
-        }
-      ],
-      "director": {
-        "name": "Крис Миллер",
-        "photo": "https://image.tmdb.org/t/p/w185/dr2yCgYtmNmO5vzjk9KNbjTpbzO.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=VJdrQntPee4",
-      "ageRating": "PG",
-      "keywords": "based on novel or book, inventor, weather, food, based on children's book",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "Облачно, возможны осадки в виде фрикаделек (Коллекция)",
-      "id": 38,
-      "dateRequested": "26.07.2026 12:50",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Эта дурацкая любовь",
-      "year": "2011",
-      "type": "Фильм",
-      "runtime": "1 ч 58 мин",
-      "genres": "комедия, драма, мелодрама",
-      "studios": "🔴 Warner Bros. Pictures",
-      "budget": "50.000.000 $",
-      "revenue": "145.079.584 $",
-      "tmdbRating": "7.275",
-      "overview": "У Кола Уивера, пуританских взглядов семьянина в возрасте «чуть-чуть за сорок», не жизнь, а мечта — хорошая работа, прекрасный дом, замечательные дети и брак со школьной возлюбленной. Но когда Кол узнает, что его жена Эмили изменила ему и хочет развода, его «идеальная» жизнь быстро рушится. Хуже того, говоря современным языком, Кол, который уже пару десятилетий не ходил на свидания, являет собой настоящего «лоха».И вот, проводя все свое свободное время в баре в дурном расположении духа, несчастный Кол становится протеже обаятельного («чуть-чуть за тридцать») игрока Джейкоба Палмера. Пытаясь помочь Колу забыть жену и начать собственную жизнь, Джейкоб открывает ему глаза на многочисленные возможности, открывающиеся перед ним: кокетливые женщины, крепкие напитки и чувство стиля, которое нельзя найти в дешевой парикмахерской или магазине распродаж.",
-      "poster": "https://image.tmdb.org/t/p/w500/ho2mxV5t3ZxsgSNP1JMHfxdxpkW.jpg",
-      "tagline": "Это - сумашествие",
-      "backdrop": "https://image.tmdb.org/t/p/original/vyrCniZsrXZAW08eECKIp1BMLPh.jpg",
-      "cast": [
-        {
-          "name": "Стив Карелл",
-          "photo": "https://image.tmdb.org/t/p/w185/cS7Cbyff6wFVfUGem497vy9LS7A.jpg"
-        },
-        {
-          "name": "Райан Гослинг",
-          "photo": "https://image.tmdb.org/t/p/w185/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg"
-        },
-        {
-          "name": "Джулианна Мур",
-          "photo": "https://image.tmdb.org/t/p/w185/3YF19rWusxWfEI59ZM33dFhasRq.jpg"
-        },
-        {
-          "name": "Эмма Стоун",
-          "photo": "https://image.tmdb.org/t/p/w185/cZ8a3QvAnj2cgcgVL6g4XaqPzpL.jpg"
-        }
-      ],
-      "director": {
-        "name": "Гленн Фикарра",
-        "photo": "https://image.tmdb.org/t/p/w185/23EaR6q7B1wcg9trxtr7xHzKu7q.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=SPklWG6YH94",
-      "ageRating": "PG-13",
-      "keywords": "friendship, soulmates, marriage crisis, midlife crisis, babysitter",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 40,
-      "dateRequested": "26.07.2026 12:51",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Отель «Гранд Будапешт»",
-      "year": "2014",
-      "type": "Фильм",
-      "runtime": "1 ч 40 мин",
-      "genres": "комедия, драма",
-      "studios": "🟢 Fox Searchlight Pictures, 🟢 Studio Babelsberg, 🟢 Indian Paintbrush, 🟢 TSG Entertainment, 🟢 American Empirical Pictures",
-      "budget": "30.000.000 $",
-      "revenue": "174.600.318 $",
-      "tmdbRating": "8.026",
-      "overview": "Картина расскажет о легендарном консьерже популярного европейского отеля и проследит за его жизнью между двумя мировыми войнами, а также за его дружбой с юным сотрудником, который становится его протеже. Сюжет включает в себя кражу бесценной картины эпохи Возрождения, борьбу за огромное наследство и потрясения, постигшие Европу во время первой половины XX века.",
-      "poster": "https://image.tmdb.org/t/p/w500/5qFxj03eBrkI0bUiGIonb4e0AI4.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/9udCLTxTFl28RxnK8Q05E154ZGa.jpg",
-      "cast": [
-        {
-          "name": "Рэйф Файнс",
-          "photo": "https://image.tmdb.org/t/p/w185/tJr9GcmGNHhLVVEH3i7QYbj6hBi.jpg"
-        },
-        {
-          "name": "Ф. Мюррей Абрахам",
-          "photo": "https://image.tmdb.org/t/p/w185/p2RYVGdrcP0m70BkkiKcwyrDeim.jpg"
-        },
-        {
-          "name": "Матьё Амальрик",
-          "photo": "https://image.tmdb.org/t/p/w185/fMhfoTbjlXQy2Iojp7oYx49hLQl.jpg"
-        },
-        {
-          "name": "Эдриен Броуди",
-          "photo": "https://image.tmdb.org/t/p/w185/qBc7ahQrpVpcllaZ5hkivsOEb3C.jpg"
-        }
-      ],
-      "director": {
-        "name": "Уэс Андерсон",
-        "photo": "https://image.tmdb.org/t/p/w185/s03CeUeC5yAXyB1acqP0zGNo2SC.jpg"
-      },
-      "trailer": "",
-      "ageRating": "18+",
-      "keywords": "hotel, painting, wartime, eastern europe, author",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 41,
-      "dateRequested": "26.07.2026 12:51",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Король Англии",
-      "year": "2019",
-      "type": "Фильм",
-      "runtime": "2 ч 20 мин",
-      "genres": "драма, история, военный",
-      "studios": "🟢 Plan B Entertainment, 🟢 Porchlight Films, 🟢 Blue-Tongue Films, 🟢 Yoki",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "7.157",
-      "overview": "Англия, начало XV века, разгар Столетней войны. Принц Уэльский Хел ведёт распутный образ жизни со своим приятелем Фальстафом и не помышляет о притязаниях на трон. Но когда от болезни умирает его отец, король Генрих IV, а младший брат погибает на поле боя, Хелу приходится принять корону. Став Генрихом V, молодой правитель ловко разбирается с заговорами и восстаниями, а также решает, что французские монархи не проявляют к нему должного уважения.",
-      "poster": "https://image.tmdb.org/t/p/w500/9a4NYjNifcgNWonUsKJTW7i91LC.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/nOqsmE2tdTDhq4bYawNrtwnpB9a.jpg",
-      "cast": [
-        {
-          "name": "Тимоти Шаламе",
-          "photo": "https://image.tmdb.org/t/p/w185/axENiFIrSz5B7UuWkMT7PDe7CaO.jpg"
-        },
-        {
-          "name": "Джоэл Эдгертон",
-          "photo": "https://image.tmdb.org/t/p/w185/r2TTDZ8cG5wrZqx7Drz1M95S9z3.jpg"
-        },
-        {
-          "name": "Шон Харрис",
-          "photo": "https://image.tmdb.org/t/p/w185/jouyaTu0UuZMNBrADRRkCQX1VX1.jpg"
-        },
-        {
-          "name": "Том Глинн-Карни",
-          "photo": "https://image.tmdb.org/t/p/w185/jJ3KqUW8ySGBwHXOCN3x2Wxjm5W.jpg"
-        }
-      ],
-      "director": {
-        "name": "David Michôd",
-        "photo": "https://image.tmdb.org/t/p/w185/quitkLI98GpeMaqZI4ZSy8s9YWX.jpg"
-      },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "biography, based on true story, hundred years' war, historical fiction, british history",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
-      "collection": "",
-      "id": 42,
-      "dateRequested": "26.07.2026 12:51",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
     {
       "title": "Похождения императора",
       "year": "2000",
