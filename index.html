@@ -247,10 +247,8 @@
         
         .card-bottom-info { margin-top: auto; width: 100%; }
         
-        /* ОБНОВЛЕННЫЙ СТИЛЬ card-date-meta ДЛЯ ВЫРАВНИВАНИЯ */
         .card-date-meta { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; }
         
-        /* НОВЫЙ КЛАСС ПЛАШКИ ДЛЯ ВРЕМЕНИ В КАРТОЧКАХ */
         .grid-time-badge {
             display: inline-flex; align-items: center; justify-content: center; gap: 4px; 
             background: rgba(92, 242, 138, 0.1); color: var(--mint-main); 
@@ -652,10 +650,12 @@
         const tbody = document.getElementById('table-body');
         
         const sortMode = document.getElementById('sortSelect').value;
+        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели').length;
+        const showDivider = activeCount >= 4;
 
         currentViewData.forEach((movie, index) => {
             
-            if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
+            if (sortMode === 'order' && index > 0 && showDivider && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerTr = document.createElement('tr');
                 dividerTr.innerHTML = `
                     <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
@@ -746,10 +746,12 @@
         gridContainer.className = 'movies-grid';
         
         const sortMode = document.getElementById('sortSelect').value;
+        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели').length;
+        const showDivider = activeCount >= 4;
 
         currentViewData.forEach((movie, index) => {
             
-            if (sortMode === 'order' && index > 0 && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
+            if (sortMode === 'order' && index > 0 && showDivider && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
                 const dividerDiv = document.createElement('div');
                 dividerDiv.style.gridColumn = '1 / -1';
                 dividerDiv.innerHTML = `
@@ -795,7 +797,6 @@
             
             let movieGenres = escapeHTML(movie.genres || 'Нет жанра');
             
-            // Текст для времени
             let runtimeText = movie.runtime && movie.runtime !== 'Неизвестно' ? escapeHTML(movie.runtime) : '?? мин';
 
             const card = document.createElement('div');
