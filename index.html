@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кинотеатр</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Подключаем скрипт плеера Kinobox -->
+    <script src="https://kinobox.tv/kinobox.min.js"></script>
+
     <style>
         :root {
             --bg-deep: #130f1c;
@@ -365,6 +369,19 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--mint-main); border-radius: 12px; margin-top: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
+        /* ДОБАВЛЕНО: Стили для плеера (копия стилей трейлера) */
+        .player-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: 2px solid var(--cute-pink);
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+
         .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 30px; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.8; }
         .footer-badge:hover { opacity: 1; }
         .footer-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--text-muted); transition: all 0.3s ease; }
@@ -497,6 +514,13 @@
                             <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px;">✨ Трейлер ✨</div>
                             <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
                         </div>
+
+                        <!-- ДОБАВЛЕНО: Блок для онлайн-плеера -->
+                        <div id="playerWrapper" style="display: none;">
+                            <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px; color: var(--cute-pink);">🍿 Смотреть онлайн 🍿</div>
+                            <div class="player-container kinobox_player"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -507,6 +531,9 @@
 </div>
 
 <script>
+    // ДОБАВЛЕНО: Глобальная переменная для управления плеером
+    let kinoboxPlayer = null;
+
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
@@ -1029,10 +1056,50 @@
         document.getElementById('modalCrewSection').innerHTML = dirHtml + castHtml;
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
-        const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
-        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block'; } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
+        // --- Трейлер ---
+        const trailerWrapper = document.getElementById('trailerWrapper'); 
+        const trailerIframe = document.getElementById('modalTrailer');
+        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { 
+            trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; 
+            trailerWrapper.style.display = 'block'; 
+        } else { 
+            trailerIframe.src = ""; 
+            trailerWrapper.style.display = 'none'; 
+        }
 
-        modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
+        // ДОБАВЛЕНО: Безопасная инициализация плеера Kinobox
+        const playerWrapper = document.getElementById('playerWrapper');
+        const playerContainer = document.querySelector('.kinobox_player');
+        
+        if (playerContainer) {
+            playerContainer.innerHTML = ''; // Очищаем от старого плеера
+        }
+        
+        if (movie.id && movie.id !== 0 && movie.id !== "0") {
+            playerWrapper.style.display = 'block';
+            
+            try {
+                // Проверяем, не заблокировал ли AdBlock наш скрипт Kinobox
+                if (typeof Kinobox !== 'undefined') {
+                    kinoboxPlayer = new Kinobox('.kinobox_player', {
+                        search: { kinopoisk: String(movie.id) }
+                    });
+                    kinoboxPlayer.init();
+                } else {
+                    console.warn('Скрипт Kinobox не загружен (возможно, работает AdBlock).');
+                    playerContainer.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 40px 20px; font-family: var(--font-text);">Плеер заблокирован (возможно, работает AdBlock). Отключите его для этого сайта, чтобы смотреть фильмы.</div>';
+                }
+            } catch (error) {
+                console.error('Ошибка инициализации плеера:', error);
+                playerContainer.innerHTML = '<div style="color: #ff4757; text-align: center; padding: 40px 20px; font-family: var(--font-text);">Произошла ошибка при загрузке плеера.</div>';
+            }
+        } else {
+            playerWrapper.style.display = 'none';
+        }
+
+        modal.classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+        
         setTimeout(() => {
             titleEl.style.fontSize = "34px"; titleEl.style.whiteSpace = 'nowrap'; titleEl.style.display = 'block';
             let currentSize = 34; while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) { currentSize -= 1; titleEl.style.fontSize = currentSize + "px"; }
@@ -1042,8 +1109,19 @@
 
     function closeModal(arg) {
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
-            document.getElementById('movieModal').classList.remove('active'); document.body.style.overflow = ''; 
+            document.getElementById('movieModal').classList.remove('active'); 
+            document.body.style.overflow = ''; 
+            
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
+
+            // ДОБАВЛЕНО: Безопасная очистка плеера при закрытии
+            setTimeout(() => { 
+                try {
+                    const playerContainer = document.querySelector('.kinobox_player');
+                    if(playerContainer) playerContainer.innerHTML = ''; 
+                    kinoboxPlayer = null;
+                } catch(e) {}
+            }, 300);
         }
     }
     loadMovies();
