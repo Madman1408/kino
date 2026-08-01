@@ -39,7 +39,6 @@
             overflow-x: hidden; 
         }
 
-        /* ... (Весь ваш CSS остается без изменений) ... */
         .main-wrapper { display: flex; justify-content: center; align-items: stretch; width: 100%; }
         .girl-col { width: 0; position: relative; z-index: 999; pointer-events: none; }
         .sticky-box { position: sticky; top: 50vh; width: 0; height: 0; overflow: visible; }
@@ -368,7 +367,7 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--mint-main); border-radius: 12px; margin-top: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* ================= СТИЛИ ДЛЯ ПЛЕЕРА ================= */
+        /* ================= СТИЛИ ДЛЯ ПЛУГИНА ПЛЕЕРА ================= */
         .player-container {
             width: 100%;
             aspect-ratio: 16/9;
@@ -530,9 +529,7 @@
 </div>
 
 <script>
-    // Инициализация переменной для хранения экземпляра плеера
     let kinoboxPlayer = null;
-
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
@@ -1055,22 +1052,28 @@
         document.getElementById('modalCrewSection').innerHTML = dirHtml + castHtml;
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
-        // --- Логика Трейлера ---
-        const trailerWrapper = document.getElementById('trailerWrapper'); const trailerIframe = document.getElementById('modalTrailer');
-        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; trailerWrapper.style.display = 'block'; } else { trailerIframe.src = ""; trailerWrapper.style.display = 'none'; }
+        // --- Трейлер ---
+        const trailerWrapper = document.getElementById('trailerWrapper'); 
+        const trailerIframe = document.getElementById('modalTrailer');
+        if (movie.trailer && movie.trailer.includes('youtube.com/watch?v=')) { 
+            trailerIframe.src = `https://www.youtube.com/embed/${movie.trailer.split('v=')[1].split('&')[0]}?color=white`; 
+            trailerWrapper.style.display = 'block'; 
+        } else { 
+            trailerIframe.src = ""; 
+            trailerWrapper.style.display = 'none'; 
+        }
 
-        // --- Логика Плеера Kinobox ---
+        // --- Плеер Kinobox ---
         const playerWrapper = document.getElementById('playerWrapper');
         const playerContainer = document.querySelector('.kinobox_player');
         
-        // Очищаем старый плеер, если он был
         playerContainer.innerHTML = '';
         
         if (movie.id) {
             playerWrapper.style.display = 'block';
             kinoboxPlayer = new Kinobox('.kinobox_player', {
                 search: { 
-                    kinopoisk: String(movie.id) // Передаем ID Кинопоиска из данных фильма
+                    kinopoisk: String(movie.id)
                 }
             });
             kinoboxPlayer.init();
@@ -1078,7 +1081,9 @@
             playerWrapper.style.display = 'none';
         }
 
-        modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
+        modal.classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
+        
         setTimeout(() => {
             titleEl.style.fontSize = "34px"; titleEl.style.whiteSpace = 'nowrap'; titleEl.style.display = 'block';
             let currentSize = 34; while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) { currentSize -= 1; titleEl.style.fontSize = currentSize + "px"; }
@@ -1088,12 +1093,11 @@
 
     function closeModal(arg) {
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
-            document.getElementById('movieModal').classList.remove('active'); document.body.style.overflow = ''; 
+            document.getElementById('movieModal').classList.remove('active'); 
+            document.body.style.overflow = ''; 
             
-            // Останавливаем трейлер
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
 
-            // Очищаем плеер при закрытии модального окна, чтобы видео не играло в фоне
             setTimeout(() => { 
                 const playerContainer = document.querySelector('.kinobox_player');
                 if(playerContainer) playerContainer.innerHTML = ''; 
