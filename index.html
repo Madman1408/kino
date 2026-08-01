@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кинотеатр</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <!-- Подключаем скрипт плеера Kinobox в head -->
+    <!-- ДОБАВЛЕНО: Скрипт Kinobox -->
     <script src="https://kinobox.tv/kinobox.min.js"></script>
     <style>
         :root {
@@ -367,13 +367,13 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--mint-main); border-radius: 12px; margin-top: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* ================= СТИЛИ ДЛЯ ПЛУГИНА ПЛЕЕРА ================= */
+        /* ДОБАВЛЕНО: Стили контейнера плеера (такие же как у трейлера) */
         .player-container {
             width: 100%;
             aspect-ratio: 16/9;
             border: 2px solid var(--cute-pink);
             border-radius: 12px;
-            margin-top: 25px;
+            margin-top: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             overflow: hidden;
             position: relative;
@@ -513,7 +513,7 @@
                             <div class="trailer-container"><iframe id="modalTrailer" src="" allowfullscreen></iframe></div>
                         </div>
 
-                        <!-- Контейнер для плеера -->
+                        <!-- ДОБАВЛЕНО: Контейнер для плеера -->
                         <div id="playerWrapper" style="display: none;">
                             <div class="grid-label" style="margin-top: 25px; text-align: center; font-size: 16px; color: var(--cute-pink);">🍿 Смотреть онлайн 🍿</div>
                             <div class="player-container kinobox_player"></div>
@@ -529,7 +529,9 @@
 </div>
 
 <script>
+    // ДОБАВЛЕНО: Глобальная переменная для управления плеером
     let kinoboxPlayer = null;
+
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
@@ -1063,18 +1065,17 @@
             trailerWrapper.style.display = 'none'; 
         }
 
-        // --- Плеер Kinobox ---
+        // ДОБАВЛЕНО: Интеграция плеера Kinobox
         const playerWrapper = document.getElementById('playerWrapper');
         const playerContainer = document.querySelector('.kinobox_player');
         
+        // Очищаем контейнер перед новой инициализацией
         playerContainer.innerHTML = '';
         
         if (movie.id) {
             playerWrapper.style.display = 'block';
             kinoboxPlayer = new Kinobox('.kinobox_player', {
-                search: { 
-                    kinopoisk: String(movie.id)
-                }
+                search: { kinopoisk: String(movie.id) }
             });
             kinoboxPlayer.init();
         } else {
@@ -1098,6 +1099,7 @@
             
             setTimeout(() => { document.getElementById('modalTrailer').src = ""; }, 300);
 
+            // ДОБАВЛЕНО: Очистка плеера при закрытии модального окна
             setTimeout(() => { 
                 const playerContainer = document.querySelector('.kinobox_player');
                 if(playerContainer) playerContainer.innerHTML = ''; 
