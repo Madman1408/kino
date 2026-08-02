@@ -290,7 +290,7 @@
         .card-copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
         .card-copy-btn.shifted { bottom: 32px; }
         
-        /* КНОПКА СМОТРЕТЬ ОНЛАЙН */
+        /* КНОПКА СМОТРЕТЬ ОНЛАЙН (ДЛЯ МОДАЛКИ) */
         .watch-online-btn {
             background: #ff4757;
             color: #ffffff;
@@ -316,7 +316,6 @@
             color: #ffffff;
             text-decoration: none;
         }
-        .watch-btn-table { height: fit-content; padding: 6px 14px; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -773,8 +772,6 @@
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Аукцион ✦</div>` : '';
 
-            const watchBtnHtml = movie.kinopoiskId ? `<a href="https://kinomix.web.app/movie/${movie.kinopoiskId}" target="_blank" class="watch-online-btn watch-btn-table" onclick="event.stopPropagation();">Смотреть Онлайн</a>` : '';
-
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
                 <td>
@@ -785,7 +782,7 @@
                         ${movie.tagline ? `<div class="movie-tagline">«${escapeHTML(movie.tagline)}»</div>` : ''}
                         ${movie.studios && movie.studios !== "Нет данных" ? `<div class="movie-studios-list">${escapeHTML(movie.studios)}</div>` : ''}
                         <div class="movie-overview-wrapper"><div class="movie-overview-text">${escapeHTML(movie.overview || '')}</div></div>
-                        <div class="crew-section">${directorHtml}${castHtml}${watchBtnHtml}</div>
+                        <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}</div></td>
