@@ -316,7 +316,7 @@
             color: #ffffff;
             text-decoration: none;
         }
-        .watch-btn-table { margin-top: 12px; width: 140px; box-sizing: border-box; }
+        .watch-btn-table { height: fit-content; padding: 6px 14px; }
 
         /* ================= МОДАЛЬНОЕ ОКНО ================= */
         .modal-overlay {
@@ -776,12 +776,7 @@
             const watchBtnHtml = movie.kinopoiskId ? `<a href="https://kinomix.web.app/movie/${movie.kinopoiskId}" target="_blank" class="watch-online-btn watch-btn-table" onclick="event.stopPropagation();">Смотреть Онлайн</a>` : '';
 
             tr.innerHTML = `
-                <td>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div>
-                        ${watchBtnHtml}
-                    </div>
-                </td>
+                <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
                 <td>
                     <div class="movie-info">
                         <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
@@ -790,7 +785,7 @@
                         ${movie.tagline ? `<div class="movie-tagline">«${escapeHTML(movie.tagline)}»</div>` : ''}
                         ${movie.studios && movie.studios !== "Нет данных" ? `<div class="movie-studios-list">${escapeHTML(movie.studios)}</div>` : ''}
                         <div class="movie-overview-wrapper"><div class="movie-overview-text">${escapeHTML(movie.overview || '')}</div></div>
-                        <div class="crew-section">${directorHtml}${castHtml}</div>
+                        <div class="crew-section">${directorHtml}${castHtml}${watchBtnHtml}</div>
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}</div></td>
