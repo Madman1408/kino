@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "02.08.2026 11:27"
+    "lastUpdated": "03.08.2026 01:21"
   },
   "MadMan1408": [
     {
@@ -102,18 +102,69 @@
       "dateWatched": "02.06.2026 16:48"
     },
     {
+      "title": "Майкл",
+      "year": "2026",
+      "type": "Фильм",
+      "kinopoiskId": "5437614",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5437614/",
+      "kinomixTiming": "",
+      "runtime": "2 ч 8 мин",
+      "genres": "музыка, драма",
+      "studios": "🟢 Lionsgate, 🟢 GK Films, 🟢 Optimum Productions",
+      "budget": "250.000.000 $",
+      "revenue": "1.010.218.278 $",
+      "tmdbRating": "8.696",
+      "overview": "Майкл Джексон – один из самых успешных артистов всех времён, а его песни изменили мир навсегда. Но до того, как стать королем поп-музыки, собирающим стадионы поклонников, он был просто... Майклом. И легендарнее его музыки лишь его жизнь – полная взлётов и падений на пути к головокружительной славе.",
+      "poster": "https://image.tmdb.org/t/p/w500/AsPFMI3PhgCsraMq7RmMJwFQh2b.jpg",
+      "tagline": "«Узнайте историю короля»",
+      "backdrop": "https://image.tmdb.org/t/p/original/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
+      "cast": [
+        {
+          "name": "Джаафар Джексон",
+          "photo": "https://image.tmdb.org/t/p/w185/tVSzFjQxOrLOcvnzFto0772Q9Bw.jpg"
+        },
+        {
+          "name": "Колман Доминго",
+          "photo": "https://image.tmdb.org/t/p/w185/t0cgfvtA7Thxnrtj5baRi656zlc.jpg"
+        },
+        {
+          "name": "Ниа Лонг",
+          "photo": "https://image.tmdb.org/t/p/w185/heVQkCGKUuKKRjRJaZIBrEKGhYA.jpg"
+        },
+        {
+          "name": "Жулиано Вальди",
+          "photo": "https://image.tmdb.org/t/p/w185/1rQYmcxdPD1IwHpa78DcfVEu1EN.jpg"
+        }
+      ],
+      "director": {
+        "name": "Антуан Фукуа",
+        "photo": "https://image.tmdb.org/t/p/w185/h58HRBCQOtWIR8zMqOIVgkHjssU.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=y6lhHDABCzM",
+      "ageRating": "18+",
+      "keywords": "child abuse, sibling relationship, 1970s, abusive father, ambition",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Майкл (Коллекция)",
+      "id": 48,
+      "dateRequested": "03.08.2026 01:12",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
       "title": "Троя",
       "year": "2004",
       "type": "Фильм",
-      "kinopoiskId": "84461",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/84461/",
+      "kinopoiskId": "3442",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/3442/",
       "kinomixTiming": "",
       "runtime": "2 ч 43 мин",
       "genres": "военный, боевик, история",
       "studios": "🔴 Warner Bros. Pictures | 🟢 Plan B Entertainment, 🟢 Radiant Productions, 🟢 Helena Productions",
       "budget": "175.000.000 $",
       "revenue": "497.409.852 $",
-      "tmdbRating": "7.2",
+      "tmdbRating": "7.183",
       "overview": "1193-ий год до нашей эры. Наследник престола Трои, Парис, украл прекрасную Елену - жену царя Спарты Менелая. За честь Менелая вступается его брат - царь Агамемнон. Его армия под предводительством сильного воина Ахиллеса подошла к Трое и взяла город в кровавую осаду, длившуюся долгих 10 лет. Два мира будут воевать за честь и власть. Тысячи умрут за славу. И за любовь нация сгорит дотла.",
       "poster": "https://image.tmdb.org/t/p/w500/bUd8lcSzYjruaQR9nNAQbTg99LV.jpg",
       "tagline": "«За Трою»",
@@ -146,7 +197,7 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "collection": "",
       "id": 47,
-      "dateRequested": "02.08.2026 11:17",
+      "dateRequested": "03.08.2026 01:20",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
