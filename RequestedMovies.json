@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "03.08.2026 11:25",
+    "lastUpdated": "03.08.2026 11:46",
     "isOnlineBtnVisible": false
   },
   "MadMan1408": [
@@ -14,7 +14,7 @@
       "studios": "🟢 Amblin Entertainment, 🟢 Reliance Entertainment, 🟢 Walden Media, 🟢 Alibaba Pictures Group, 🟢 Pariah",
       "budget": "16.000.000 $",
       "revenue": "78.871.079 $",
-      "tmdbRating": "8.051",
+      "tmdbRating": "8.055",
       "overview": "Старый пес Бадди прожил несколько жизней, прежде чем воссоединиться со своим первым хозяином. Но на этом цепь его перерождений не оборвалась. Он возвращается в теле щенка, получает кличку Молли и выполняет новую миссию – принести счастье проблемной девочке-подростку СиДжей.",
       "poster": "https://image.tmdb.org/t/p/w500/nTIYb1c3JcqFRo9V1RIzflsJTmj.jpg",
       "tagline": "«Настоящей дружбе одной жизни мало»",
@@ -51,7 +51,10 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": false,
+      "kinopoiskId": "1122114",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/1122114/",
+      "kinomixTiming": ""
     },
     {
       "title": "Лучше не бывает",
