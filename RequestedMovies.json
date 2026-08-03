@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "03.08.2026 12:03",
+    "lastUpdated": "03.08.2026 12:08",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -62,7 +62,7 @@
       "studios": "🟢 TriStar Pictures, 🟢 Gracie Films",
       "budget": "50.000.000 $",
       "revenue": "314.178.011 $",
-      "tmdbRating": "7.403",
+      "tmdbRating": "7.404",
       "overview": "Мелвин Адал, психически неуравновешенный эксцентричный писатель, ненавидит буквально всех вокруг. Из-за своего странного поведения он одинок и часто попадает в комичные ситуации. Но неожиданно его уединение нарушается. Мелвину приходится ухаживать за соседской собакой, и незаметно для себя он учится у нее доброте и преданности. За стеной собственного равнодушия ему открывается прекрасный мир человеческих чувств…",
       "poster": "https://image.tmdb.org/t/p/w500/76GO7Wwsnq2RSuFl2FQRhtaIbSv.jpg",
       "tagline": "",
@@ -70,7 +70,7 @@
       "cast": [
         {
           "name": "Джек Николсон",
-          "photo": "https://image.tmdb.org/t/p/w185/hBHcQIEa6P48HQAlLZkh0eKSSkG.jpg"
+          "photo": "https://image.tmdb.org/t/p/w185/aeCqQiVzohWwwmk8VKCXOxsjobS.jpg"
         },
         {
           "name": "Хелен Хант",
@@ -87,7 +87,7 @@
       ],
       "director": {
         "name": "Джеймс Брукс",
-        "photo": "https://image.tmdb.org/t/p/w185/mZBy39mFACFHMCqfbsN4Kc2qb2k.jpg"
+        "photo": "https://image.tmdb.org/t/p/w185/9mKjOFabm3yDRe5EIGsgSgNir9l.jpg"
       },
       "trailer": "https://www.youtube.com/watch?v=Y_jxpxIMwzw",
       "ageRating": "PG-13",
@@ -100,7 +100,9 @@
       "ourRating": "Без оценки",
       "cried": true,
       "isAuction": false,
-      "dateWatched": "02.06.2026 16:48"
+      "dateWatched": "02.06.2026 16:48",
+      "kinopoiskId": "4199",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/4199/"
     }
   ],
   "bazar_gure": [
