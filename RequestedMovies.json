@@ -1,8 +1,8 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "03.08.2026 11:53",
-    "isOnlineBtnVisible": false
+    "lastUpdated": "03.08.2026 11:55",
+    "isOnlineBtnVisible": true
   },
   "MadMan1408": [
     {
@@ -14,7 +14,7 @@
       "studios": "🟢 Amblin Entertainment, 🟢 Reliance Entertainment, 🟢 Walden Media, 🟢 Alibaba Pictures Group, 🟢 Pariah",
       "budget": "16.000.000 $",
       "revenue": "78.871.079 $",
-      "tmdbRating": "8.055",
+      "tmdbRating": "8.051",
       "overview": "Старый пес Бадди прожил несколько жизней, прежде чем воссоединиться со своим первым хозяином. Но на этом цепь его перерождений не оборвалась. Он возвращается в теле щенка, получает кличку Молли и выполняет новую миссию – принести счастье проблемной девочке-подростку СиДжей.",
       "poster": "https://image.tmdb.org/t/p/w500/nTIYb1c3JcqFRo9V1RIzflsJTmj.jpg",
       "tagline": "«Настоящей дружбе одной жизни мало»",
@@ -51,50 +51,47 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false,
-      "kinopoiskId": "1122114",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/1122114/",
-      "kinomixTiming": ""
+      "isAuction": false
     },
     {
       "title": "Лучше не бывает",
-      "year": "2015",
-      "type": "Сериал",
-      "runtime": "50 мин",
-      "genres": "драма",
-      "studios": "🟢 Sreda",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "0,0",
-      "overview": "",
-      "poster": "https://image.tmdb.org/t/p/w500/nNMhWcU4vMHEdkBhICYRLN0jwK1.jpg",
+      "year": "1997",
+      "type": "Фильм",
+      "runtime": "2 ч 19 мин",
+      "genres": "драма, комедия, мелодрама",
+      "studios": "🟢 TriStar Pictures, 🟢 Gracie Films",
+      "budget": "50.000.000 $",
+      "revenue": "314.178.011 $",
+      "tmdbRating": "7.403",
+      "overview": "Мелвин Адал, психически неуравновешенный эксцентричный писатель, ненавидит буквально всех вокруг. Из-за своего странного поведения он одинок и часто попадает в комичные ситуации. Но неожиданно его уединение нарушается. Мелвину приходится ухаживать за соседской собакой, и незаметно для себя он учится у нее доброте и преданности. За стеной собственного равнодушия ему открывается прекрасный мир человеческих чувств…",
+      "poster": "https://image.tmdb.org/t/p/w500/76GO7Wwsnq2RSuFl2FQRhtaIbSv.jpg",
       "tagline": "",
-      "backdrop": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/x7y8ezKtU1vRInk0dmbvDoKgJ8u.jpg",
       "cast": [
         {
-          "name": "Марина Коняшкина",
-          "photo": "https://image.tmdb.org/t/p/w185/giKPycMWgc12ltZGoZaNKTcyF47.jpg"
+          "name": "Джек Николсон",
+          "photo": "https://image.tmdb.org/t/p/w185/hBHcQIEa6P48HQAlLZkh0eKSSkG.jpg"
         },
         {
-          "name": "Дмитрий Шевченко",
-          "photo": "https://image.tmdb.org/t/p/w185/lUl4Pg992GH0VWeDGl8Y5PKJmeX.jpg"
+          "name": "Хелен Хант",
+          "photo": "https://image.tmdb.org/t/p/w185/bdhW2Ra84cJG3B5RDzUO6niUTO7.jpg"
         },
         {
-          "name": "Артём Осипов",
-          "photo": "https://image.tmdb.org/t/p/w185/mfiH6DbZQbWURid50bkzd9Qrdk3.jpg"
+          "name": "Грег Киннир",
+          "photo": "https://image.tmdb.org/t/p/w185/iJezGc9XjY0DFPs00SypkuKImFK.jpg"
         },
         {
-          "name": "Ирина Пегова",
-          "photo": "https://image.tmdb.org/t/p/w185/lknzq5mxB1CaPQuU3ImobIPRnYm.jpg"
+          "name": "Кьюба Гудинг мл.",
+          "photo": "https://image.tmdb.org/t/p/w185/2JguzbpOXoTGzSmLbWFlulKyyAe.jpg"
         }
       ],
       "director": {
-        "name": "Нет данных",
-        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+        "name": "Джеймс Брукс",
+        "photo": "https://image.tmdb.org/t/p/w185/mZBy39mFACFHMCqfbsN4Kc2qb2k.jpg"
       },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "",
+      "trailer": "https://www.youtube.com/watch?v=Y_jxpxIMwzw",
+      "ageRating": "PG-13",
+      "keywords": "new york city, friendship, waitress, single parent, restaurant",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "collection": "",
       "id": 18,
@@ -103,114 +100,7 @@
       "ourRating": "Без оценки",
       "cried": true,
       "isAuction": false,
-      "dateWatched": "02.06.2026 16:48",
-      "kinopoiskId": "",
-      "kinopoiskUrl": "",
-      "seasons": "1",
-      "episodes": "12",
-      "tvStatus": "Ended"
-    },
-    {
-      "title": "Майкл",
-      "year": "2026",
-      "type": "Фильм",
-      "kinopoiskId": "5437614",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5437614/",
-      "kinomixTiming": "",
-      "runtime": "2 ч 8 мин",
-      "genres": "музыка, драма",
-      "studios": "🟢 Lionsgate, 🟢 GK Films, 🟢 Optimum Productions",
-      "budget": "250.000.000 $",
-      "revenue": "1.010.218.278 $",
-      "tmdbRating": "8.696",
-      "overview": "Майкл Джексон – один из самых успешных артистов всех времён, а его песни изменили мир навсегда. Но до того, как стать королем поп-музыки, собирающим стадионы поклонников, он был просто... Майклом. И легендарнее его музыки лишь его жизнь – полная взлётов и падений на пути к головокружительной славе.",
-      "poster": "https://image.tmdb.org/t/p/w500/AsPFMI3PhgCsraMq7RmMJwFQh2b.jpg",
-      "tagline": "«Узнайте историю короля»",
-      "backdrop": "https://image.tmdb.org/t/p/original/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
-      "cast": [
-        {
-          "name": "Джаафар Джексон",
-          "photo": "https://image.tmdb.org/t/p/w185/tVSzFjQxOrLOcvnzFto0772Q9Bw.jpg"
-        },
-        {
-          "name": "Колман Доминго",
-          "photo": "https://image.tmdb.org/t/p/w185/t0cgfvtA7Thxnrtj5baRi656zlc.jpg"
-        },
-        {
-          "name": "Ниа Лонг",
-          "photo": "https://image.tmdb.org/t/p/w185/heVQkCGKUuKKRjRJaZIBrEKGhYA.jpg"
-        },
-        {
-          "name": "Жулиано Вальди",
-          "photo": "https://image.tmdb.org/t/p/w185/1rQYmcxdPD1IwHpa78DcfVEu1EN.jpg"
-        }
-      ],
-      "director": {
-        "name": "Антуан Фукуа",
-        "photo": "https://image.tmdb.org/t/p/w185/h58HRBCQOtWIR8zMqOIVgkHjssU.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=y6lhHDABCzM",
-      "ageRating": "18+",
-      "keywords": "child abuse, sibling relationship, 1970s, abusive father, ambition",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "Майкл (Коллекция)",
-      "id": 48,
-      "dateRequested": "03.08.2026 01:12",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Троя",
-      "year": "2004",
-      "type": "Фильм",
-      "kinopoiskId": "3442",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/3442/",
-      "kinomixTiming": "",
-      "runtime": "2 ч 43 мин",
-      "genres": "военный, боевик, история",
-      "studios": "🔴 Warner Bros. Pictures | 🟢 Plan B Entertainment, 🟢 Radiant Productions, 🟢 Helena Productions",
-      "budget": "175.000.000 $",
-      "revenue": "497.409.852 $",
-      "tmdbRating": "7.183",
-      "overview": "1193-ий год до нашей эры. Наследник престола Трои, Парис, украл прекрасную Елену - жену царя Спарты Менелая. За честь Менелая вступается его брат - царь Агамемнон. Его армия под предводительством сильного воина Ахиллеса подошла к Трое и взяла город в кровавую осаду, длившуюся долгих 10 лет. Два мира будут воевать за честь и власть. Тысячи умрут за славу. И за любовь нация сгорит дотла.",
-      "poster": "https://image.tmdb.org/t/p/w500/bUd8lcSzYjruaQR9nNAQbTg99LV.jpg",
-      "tagline": "«За Трою»",
-      "backdrop": "https://image.tmdb.org/t/p/original/y51M7Ca95sCXTCDvJaRP1uzxKbg.jpg",
-      "cast": [
-        {
-          "name": "Брэд Питт",
-          "photo": "https://image.tmdb.org/t/p/w185/cckcYc2v0yh1tc9QjRelptcOBko.jpg"
-        },
-        {
-          "name": "Орландо Блум",
-          "photo": "https://image.tmdb.org/t/p/w185/lwQoA0qJTCZ6l2FH6PjmhRQjiaB.jpg"
-        },
-        {
-          "name": "Эрик Бана",
-          "photo": "https://image.tmdb.org/t/p/w185/l9yoDgw3YFC2gMD1HTo5djGOwSY.jpg"
-        },
-        {
-          "name": "Брайан Кокс",
-          "photo": "https://image.tmdb.org/t/p/w185/scSjbFCTRngXlkJRoKptM5kQGw7.jpg"
-        }
-      ],
-      "director": {
-        "name": "Вольфганг Петерсен",
-        "photo": "https://image.tmdb.org/t/p/w185/g4F3DMUruouQX8mpUNHRGKMlmd1.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=FoelxneR-EY",
-      "ageRating": "16+",
-      "keywords": "adultery, sibling relationship, hostility, bravery, mythology",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "",
-      "id": 47,
-      "dateRequested": "03.08.2026 01:20",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
+      "dateWatched": "02.06.2026 16:48"
     }
   ],
   "bazar_gure": [
@@ -2069,59 +1959,6 @@
       "collection": "Трансформеры (Коллекция)",
       "id": 45,
       "dateRequested": "31.07.2026 11:27",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
-  "streamelements": [
-    {
-      "title": "Саван",
-      "year": "2025",
-      "type": "Фильм",
-      "kinopoiskId": "4966434",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/4966434/",
-      "kinomixTiming": "",
-      "runtime": "1 ч 59 мин",
-      "genres": "фантастика, детектив, ужасы, триллер",
-      "studios": "🟢 SBS Productions, 🟢 Prospero Pictures, 🟢 Saint Laurent Productions, 🟢 Gravetech Productions",
-      "budget": "15.000.000 $",
-      "revenue": "1.515.905 $",
-      "tmdbRating": "5.849",
-      "overview": "В центре сюжета бизнесмен Карш, у которого рак забрал жену. Он создает невероятное устройство, чтобы наблюдать за умершими внутри погребального савана. Революционная технология способна изменить мир, но события приобретают неожиданный поворот и заставляют главного героя пересмотреть свой взгляд на бизнес, брак и на верность памяти покойной жены.",
-      "poster": "https://image.tmdb.org/t/p/w500/1wIts7c6kq3eZCRKFCkAPsCukQ7.jpg",
-      "tagline": "",
-      "backdrop": "https://image.tmdb.org/t/p/original/kpzMKQyKbtaxf9OpJo0fiosSCMK.jpg",
-      "cast": [
-        {
-          "name": "Венсан Кассель",
-          "photo": "https://image.tmdb.org/t/p/w185/ivUQfhn5olOmR5hthN8C8GThBV4.jpg"
-        },
-        {
-          "name": "Диана Крюгер",
-          "photo": "https://image.tmdb.org/t/p/w185/o5gVowcjVw4ThYi0L3883Y4X7kH.jpg"
-        },
-        {
-          "name": "Гай Пирс",
-          "photo": "https://image.tmdb.org/t/p/w185/vTqk6Nh3WgqPubkS23eOlMAwmwa.jpg"
-        },
-        {
-          "name": "Сандрин Холт",
-          "photo": "https://image.tmdb.org/t/p/w185/qvuH2mRmfG2yIchpsHefprcKYLK.jpg"
-        }
-      ],
-      "director": {
-        "name": "Дэвид Кроненберг",
-        "photo": "https://image.tmdb.org/t/p/w185/3xh4e2gWHDilMLtucHzDGsmJMuQ.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=1_7ssc0YfHg",
-      "ageRating": "18+",
-      "keywords": "artificial intelligence (a.i.), widow, cemetery, toronto, canada, vandalism",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "",
-      "id": 46,
-      "dateRequested": "02.08.2026 11:27",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
