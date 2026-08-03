@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "03.08.2026 11:57",
+    "lastUpdated": "03.08.2026 12:03",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -55,43 +55,43 @@
     },
     {
       "title": "Лучше не бывает",
-      "year": "2015",
-      "type": "Сериал",
-      "runtime": "50 мин",
-      "genres": "драма",
-      "studios": "🟢 Sreda",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "0,0",
-      "overview": "",
-      "poster": "https://image.tmdb.org/t/p/w500/nNMhWcU4vMHEdkBhICYRLN0jwK1.jpg",
+      "year": "1997",
+      "type": "Фильм",
+      "runtime": "2 ч 19 мин",
+      "genres": "драма, комедия, мелодрама",
+      "studios": "🟢 TriStar Pictures, 🟢 Gracie Films",
+      "budget": "50.000.000 $",
+      "revenue": "314.178.011 $",
+      "tmdbRating": "7.403",
+      "overview": "Мелвин Адал, психически неуравновешенный эксцентричный писатель, ненавидит буквально всех вокруг. Из-за своего странного поведения он одинок и часто попадает в комичные ситуации. Но неожиданно его уединение нарушается. Мелвину приходится ухаживать за соседской собакой, и незаметно для себя он учится у нее доброте и преданности. За стеной собственного равнодушия ему открывается прекрасный мир человеческих чувств…",
+      "poster": "https://image.tmdb.org/t/p/w500/76GO7Wwsnq2RSuFl2FQRhtaIbSv.jpg",
       "tagline": "",
-      "backdrop": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/x7y8ezKtU1vRInk0dmbvDoKgJ8u.jpg",
       "cast": [
         {
-          "name": "Марина Коняшкина",
-          "photo": "https://image.tmdb.org/t/p/w185/giKPycMWgc12ltZGoZaNKTcyF47.jpg"
+          "name": "Джек Николсон",
+          "photo": "https://image.tmdb.org/t/p/w185/hBHcQIEa6P48HQAlLZkh0eKSSkG.jpg"
         },
         {
-          "name": "Дмитрий Шевченко",
-          "photo": "https://image.tmdb.org/t/p/w185/lUl4Pg992GH0VWeDGl8Y5PKJmeX.jpg"
+          "name": "Хелен Хант",
+          "photo": "https://image.tmdb.org/t/p/w185/bdhW2Ra84cJG3B5RDzUO6niUTO7.jpg"
         },
         {
-          "name": "Артём Осипов",
-          "photo": "https://image.tmdb.org/t/p/w185/mfiH6DbZQbWURid50bkzd9Qrdk3.jpg"
+          "name": "Грег Киннир",
+          "photo": "https://image.tmdb.org/t/p/w185/iJezGc9XjY0DFPs00SypkuKImFK.jpg"
         },
         {
-          "name": "Ирина Пегова",
-          "photo": "https://image.tmdb.org/t/p/w185/lknzq5mxB1CaPQuU3ImobIPRnYm.jpg"
+          "name": "Кьюба Гудинг мл.",
+          "photo": "https://image.tmdb.org/t/p/w185/2JguzbpOXoTGzSmLbWFlulKyyAe.jpg"
         }
       ],
       "director": {
-        "name": "Нет данных",
-        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+        "name": "Джеймс Брукс",
+        "photo": "https://image.tmdb.org/t/p/w185/mZBy39mFACFHMCqfbsN4Kc2qb2k.jpg"
       },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "",
+      "trailer": "https://www.youtube.com/watch?v=Y_jxpxIMwzw",
+      "ageRating": "PG-13",
+      "keywords": "new york city, friendship, waitress, single parent, restaurant",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "collection": "",
       "id": 18,
@@ -100,12 +100,7 @@
       "ourRating": "Без оценки",
       "cried": true,
       "isAuction": false,
-      "dateWatched": "02.06.2026 16:48",
-      "kinopoiskId": "",
-      "kinopoiskUrl": "",
-      "seasons": "1",
-      "episodes": "12",
-      "tvStatus": "Ended"
+      "dateWatched": "02.06.2026 16:48"
     }
   ],
   "bazar_gure": [
