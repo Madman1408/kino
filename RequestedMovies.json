@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 19:15",
+    "lastUpdated": "04.08.2026 19:16",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -149,6 +149,56 @@
       "collection": "Форсаж (Коллекция)",
       "id": 47,
       "dateRequested": "04.08.2026 19:15",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
+      "title": "Форсаж. Китайский дрифт",
+      "year": "2021",
+      "type": "Фильм",
+      "kinopoiskId": "",
+      "kinopoiskUrl": "",
+      "runtime": "1 ч 45 мин",
+      "genres": "боевик, драма",
+      "studios": "🟢 Shine Time Entertainment",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "6.4",
+      "overview": "Чтобы выиграть в чемпионате, гонщики берут в свою команду геймера, который мастерски играет в симулятор гонок...",
+      "poster": "https://image.tmdb.org/t/p/w500/5qbL6IhEpQjlzKtYD4Pvq4bcpoN.jpg",
+      "tagline": "Пришло время мощных скоростей",
+      "backdrop": "https://image.tmdb.org/t/p/original/zabQwfVp40PXX5OphqqgKCl33uF.jpg",
+      "cast": [
+        {
+          "name": "Hannah Quinlivan",
+          "photo": "https://image.tmdb.org/t/p/w185/4RckWxmFxBpIyLaCpQTA2y5K1wZ.jpg"
+        },
+        {
+          "name": "曹佑寧",
+          "photo": "https://image.tmdb.org/t/p/w185/wGbmdj5w132Eq5emOzzR3afo9Kr.jpg"
+        },
+        {
+          "name": "范逸臣",
+          "photo": "https://image.tmdb.org/t/p/w185/jhrR7n3TbHyHPU7qfE1JZ9SXxnr.jpg"
+        },
+        {
+          "name": "柯有倫",
+          "photo": "https://image.tmdb.org/t/p/w185/g8IxQtqtNrthAGCgGI7H5aGXcAr.jpg"
+        }
+      ],
+      "director": {
+        "name": "Jem Chen",
+        "photo": "https://image.tmdb.org/t/p/w185/a60Hpb2FUV3PmPTIDPn8KVVXIkR.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=yKJ92Rj27es",
+      "ageRating": "12+",
+      "keywords": "sports, racing, race car driver, motorsport, motor racing",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 48,
+      "dateRequested": "04.08.2026 19:16",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
