@@ -156,6 +156,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "1408",
+      "year": "2007",
+      "type": "Фильм",
+      "kinopoiskId": "195563",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/195563/",
+      "runtime": "1 ч 44 мин",
+      "genres": "ужасы, детектив",
+      "studios": "🟢 Dimension Films, 🟢 di Bonaventura Pictures",
+      "budget": "25.000.000 $",
+      "revenue": "133.000.000 $",
+      "tmdbRating": "6.692",
+      "overview": "Известный писатель Майк Энслин, сочиняющий свои романы в жанре «ужасы», пишет очередную книгу о необычных явлениях и полтергейсте в отелях. Не верящий в существование загробной жизни, Энслин решает поселиться в печально известном номере 1408 гостиницы «Дельфин», который пустует многие годы: по слухам, там обитают привидения. Невзирая на предупреждения старшего менеджера мистера Джеральда Олина о грозящей опасности, упрямец настаивает на своем, даже не предполагая, каким кошмаром обернется предстоящая ночь…",
+      "poster": "https://image.tmdb.org/t/p/w500/yE9MCW7ZNxSw5SC1TMqm51pMBIV.jpg",
+      "tagline": "«Единственные демоны в комнате 1408 - это те, кто внутри вас»",
+      "backdrop": "https://image.tmdb.org/t/p/original/a4ZupLMg23auAw8e1j1K39PCO6z.jpg",
+      "cast": [
+        {
+          "name": "Джон Кьюсак",
+          "photo": "https://image.tmdb.org/t/p/w185/aCwCx6JU7Jxbg6Q1ygcnLY750le.jpg"
+        },
+        {
+          "name": "Сэмюэл Л. Джексон",
+          "photo": "https://image.tmdb.org/t/p/w185/qdfRtvPCj51C9Uy5VEgjgj69JyV.jpg"
+        },
+        {
+          "name": "Мэри МакКормак",
+          "photo": "https://image.tmdb.org/t/p/w185/e2brLtFCfgLdOp356bcEyRzQkoJ.jpg"
+        },
+        {
+          "name": "Жасмин Джессика Энтони",
+          "photo": "https://image.tmdb.org/t/p/w185/7dx1ee9dRaSI1zT0DVxVw5fli5Y.jpg"
+        }
+      ],
+      "director": {
+        "name": "Микаэль Хофстрём",
+        "photo": "https://image.tmdb.org/t/p/w185/7zOeNtAlm2aSz1ku5fcsuBFG46j.jpg"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "keywords": "hotel, hotel room, new york city, research, fire",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "id": 4,
+      "dateRequested": "04.08.2026 20:33",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ]
 }
