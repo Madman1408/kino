@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 18:31",
+    "lastUpdated": "04.08.2026 18:34",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -461,7 +461,7 @@
       "studios": "🟢 DreamWorks Pictures, 🟢 di Bonaventura Pictures, 🟢 DeSanto/Murphy Productions, 🟢 Paramount Pictures",
       "budget": "150.000.000 $",
       "revenue": "709.709.780 $",
-      "tmdbRating": "6.84",
+      "tmdbRating": "6.843",
       "overview": "В течение многих столетий две расы роботов-инопланетян, Автоботы и Десептиконы, вели войну, ставкой в которой была судьба Bселенной. И вот война докатилась до Земли. В то время, когда силы зла ищут ключ к верховной власти, наш последний шанс на спасение находится в руках юного землянина. Единственное, что стоит между несущими зло Десептиконами и высшей властью — это ключ, находящийся в руках простого парнишки.",
       "poster": "https://image.tmdb.org/t/p/w500/eYFRGx7qk4JGOqUvjSWIpgToHLi.jpg",
       "tagline": "«Наш мир. Их война»",
@@ -498,7 +498,9 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": false,
+      "kinopoiskId": "81288",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/81288/"
     },
     {
       "title": "Суперсемейка",
