@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 20:53",
+    "lastUpdated": "04.08.2026 20:54",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -50,6 +50,56 @@
       "collection": "Матрица (Коллекция)",
       "id": 1,
       "dateRequested": "04.08.2026 20:52",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
+      "title": "Унесённые призраками",
+      "year": "2001",
+      "type": "Аниме",
+      "kinopoiskId": "370",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/370/",
+      "runtime": "2 ч 4 мин",
+      "genres": "мультфильм, семейный, фэнтези",
+      "studios": "🟢 Studio Ghibli, 🟢 Tokuma Shoten, 🟢 Nippon Television Network Corporation, 🟢 Mitsubishi, 🟢 dentsu, 🟢 TFC",
+      "budget": "19.000.000 $",
+      "revenue": "274.925.095 $",
+      "tmdbRating": "8.534",
+      "overview": "Тихиро с мамой и папой переезжает в новый дом. Заблудившись по дороге, они оказываются в странном пустынном городе, где их ждет великолепный пир. Родители с жадностью набрасываются на еду и к ужасу девочки превращаются в свиней, став пленниками злой колдуньи Юбабы. Теперь, оказавшись одна среди волшебных существ и загадочных видений, Тихиро должна придумать, как избавить своих родителей от чар коварной старухи.",
+      "poster": "https://image.tmdb.org/t/p/w500/xV3zYcOA6xFjYwizIMDDkl2MGT7.jpg",
+      "tagline": "«Туннель привел Тихиро в таинственный город ...»",
+      "backdrop": "https://image.tmdb.org/t/p/original/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
+      "cast": [
+        {
+          "name": "Руми Хиираги",
+          "photo": "https://image.tmdb.org/t/p/w185/nTKM4GgfkrZvAOFL55uhEuckt7M.jpg"
+        },
+        {
+          "name": "Мию Ирино",
+          "photo": "https://image.tmdb.org/t/p/w185/8qEEhHUObNvGQr4e6eqLu5z4qTz.jpg"
+        },
+        {
+          "name": "Мари Нацуки",
+          "photo": "https://image.tmdb.org/t/p/w185/MIFzUc77Sx57FQOZsoiGWEbpH2.jpg"
+        },
+        {
+          "name": "Такаши Наито",
+          "photo": "https://image.tmdb.org/t/p/w185/xwsm0ygjG79jLIogutwo6r64igy.jpg"
+        }
+      ],
+      "director": {
+        "name": "Хаяо Миядзаки",
+        "photo": "https://image.tmdb.org/t/p/w185/ouhjt9KugzhWtdEyBPipihB3ic8.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=Wlq6vnge20U",
+      "ageRating": "Нет данных",
+      "keywords": "witch, parent child relationship, darkness, bath house, magic",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 3,
+      "dateRequested": "04.08.2026 20:54",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
