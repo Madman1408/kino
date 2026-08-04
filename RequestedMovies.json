@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "05.08.2026 01:01",
+    "lastUpdated": "05.08.2026 01:04",
     "isOnlineBtnVisible": true
   },
   "MadManB0T": [
@@ -204,6 +204,58 @@
       "collection": "",
       "id": 4,
       "dateRequested": "05.08.2026 01:01",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    }
+  ],
+  "wizebot": [
+    {
+      "title": "Форсаж 8",
+      "year": "2017",
+      "type": "Фильм",
+      "kinopoiskId": "894027",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/894027/",
+      "runtime": "2 ч 16 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Universal Pictures",
+      "budget": "250.000.000 $",
+      "revenue": "1.236.000.000 $",
+      "tmdbRating": "6.9",
+      "overview": "Пристегните ремни — гонка продолжается. Гавана, Берлин, Нью-Йорк, для самой крутой команды в мире нет ничего невозможного, пока они вместе. Но когда на их пути окажется одна из самых красивых женщин на планете и по совместительству королева киберпреступности, дороги друзей разойдутся…",
+      "poster": "https://image.tmdb.org/t/p/w500/mMG9uMqEosiIMjliiPHsyycPcIA.jpg",
+      "tagline": "«Их дороги расходятся»",
+      "backdrop": "https://image.tmdb.org/t/p/original/3IJ8kG8i84PncXkSovu0PaZQfjM.jpg",
+      "cast": [
+        {
+          "name": "Вин Дизель",
+          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Джейсон Стейтем",
+          "photo": "https://image.tmdb.org/t/p/w185/pXGSq2UpcDE2NMF8LR56QZf5U1q.jpg"
+        },
+        {
+          "name": "Дуэйн 'Скала' Джонсон",
+          "photo": "https://image.tmdb.org/t/p/w185/5QApZVV8FUFlVxQpIK3Ew6cqotq.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        }
+      ],
+      "director": {
+        "name": "Ф. Гэри Грей",
+        "photo": "https://image.tmdb.org/t/p/w185/lVbwLnxtdiQaS8oGWFZMkhATLc5.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=jjHwutb695o",
+      "ageRating": "12+",
+      "keywords": "new york city, submarine, rescue mission, sequel, street race",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/09a4c472-4ea9-4041-a802-a86d08594eee-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 5,
+      "dateRequested": "05.08.2026 01:04",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
