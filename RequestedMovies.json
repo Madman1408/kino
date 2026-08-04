@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "05.08.2026 00:15",
+    "lastUpdated": "05.08.2026 00:59",
     "isOnlineBtnVisible": true
   },
   "MadManB0T": [
@@ -100,6 +100,58 @@
       "collection": "Крик (Коллекция)",
       "id": 2,
       "dateRequested": "05.08.2026 00:15",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    }
+  ],
+  "streamelements": [
+    {
+      "title": "Форсаж",
+      "year": "2001",
+      "type": "Фильм",
+      "kinopoiskId": "666",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/666/",
+      "runtime": "1 ч 46 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🟢 Ardustry Entertainment, 🟢 Universal Pictures, 🟢 Original Film, 🟢 Mediastream Film",
+      "budget": "38.000.000 $",
+      "revenue": "207.283.925 $",
+      "tmdbRating": "7.012",
+      "overview": "Его зовут Брайан, и он — фанатик турбин и нитроускорителей. Его цель — быть принятым в автобанду легендарного Доминика Торетто, чемпиона опасных и незаконных уличных гонок. Но это лишь часть правды… Брайан также полицейский, имеющий задание войти в доверие к Торетто, подозреваемому в причастности к дерзким грабежам трейлеров, совершенным прямо «с колес».Но чем больше доверяет нахальному новичку харизматичный Доминик, тем больше проникается герой идеалами «ангелов дорог». И тем меньше ему хочется выполнять свою миссию. И вот, наступает момент, когда Брайану придется выбирать между дружбой и долгом. И выбирать на скорости в 200 километров в час…",
+      "poster": "https://image.tmdb.org/t/p/w500/cHNzdyLZDZ25qRS6Uq3dXKhJJbv.jpg",
+      "tagline": "«Если у тебя есть то, что нужно... ты можешь получить всё»",
+      "backdrop": "https://image.tmdb.org/t/p/original/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
+      "cast": [
+        {
+          "name": "Пол Уокер",
+          "photo": "https://image.tmdb.org/t/p/w185/q2PLqKHYCs35HR7QybaNPH3JT96.jpg"
+        },
+        {
+          "name": "Вин Дизель",
+          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        },
+        {
+          "name": "Джордана Брюстер",
+          "photo": "https://image.tmdb.org/t/p/w185/ceL0zxeVbWfCfhoIDZIE1NYqBWb.jpg"
+        }
+      ],
+      "director": {
+        "name": "Роб Коэн",
+        "photo": "https://image.tmdb.org/t/p/w185/kVbB8Q0g8eXsn8l81flyC6TgMPW.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=_Oi9Ma7nxK8",
+      "ageRating": "16+",
+      "keywords": "street gang, undercover, car race, auto-tuning, street race",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 3,
+      "dateRequested": "05.08.2026 00:59",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
