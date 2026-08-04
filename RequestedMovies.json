@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "05.08.2026 02:27",
+    "lastUpdated": "05.08.2026 03:02",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -719,6 +719,56 @@
       "isAuction": false,
       "kinopoiskId": "452899",
       "kinopoiskUrl": "https://www.kinopoisk.ru/film/452899/"
+    },
+    {
+      "title": "Форсаж 7",
+      "year": "2015",
+      "type": "Фильм",
+      "kinopoiskId": "754481",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/754481/",
+      "runtime": "2 ч 17 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Universal Pictures",
+      "budget": "190.000.000 $",
+      "revenue": "1.515.400.000 $",
+      "tmdbRating": "7.216",
+      "overview": "Они покорили Токио и Рио, Лос-Анджелес и Лондон. Но мир больше не играет по их правилам. Зной арабских пустынь, неприлично высокие небоскребы, миллионы долларов на колесах и очень, очень знаменитый злодей. Скорость не знает границ.",
+      "poster": "https://image.tmdb.org/t/p/w500/i5A0OCxcinzkcxvesvefFu9vX3K.jpg",
+      "tagline": "«Месть не знает границ»",
+      "backdrop": "https://image.tmdb.org/t/p/original/ehzI1mVcnHqB58NqPyQwpMqcVoz.jpg",
+      "cast": [
+        {
+          "name": "Вин Дизель",
+          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Пол Уокер",
+          "photo": "https://image.tmdb.org/t/p/w185/q2PLqKHYCs35HR7QybaNPH3JT96.jpg"
+        },
+        {
+          "name": "Дуэйн 'Скала' Джонсон",
+          "photo": "https://image.tmdb.org/t/p/w185/5QApZVV8FUFlVxQpIK3Ew6cqotq.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джеймс Ван",
+        "photo": "https://image.tmdb.org/t/p/w185/bNJccMIKzCtYnndcOKniSKCzo5Y.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=JM472Wi3kRc",
+      "ageRating": "Нет данных",
+      "keywords": "car race, speed, sequel, street race, revenge",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/51e15def-2f0e-4692-ae48-f922021be13f-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 46,
+      "dateRequested": "05.08.2026 03:02",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true
     }
   ],
   "Mira_Noire": [
