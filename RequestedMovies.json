@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 21:04",
+    "lastUpdated": "04.08.2026 21:06",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -306,6 +306,56 @@
       "collection": "Форсаж (Коллекция)",
       "id": 6,
       "dateRequested": "04.08.2026 21:04",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true
+    },
+    {
+      "title": "Любовь зла",
+      "year": "2001",
+      "type": "Фильм",
+      "kinopoiskId": "827",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/827/",
+      "runtime": "1 ч 54 мин",
+      "genres": "комедия, драма, фэнтези, мелодрама",
+      "studios": "🟢 20th Century Fox, 🟢 Conundrum Entertainment",
+      "budget": "40.000.000 $",
+      "revenue": "141.069.860 $",
+      "tmdbRating": "6.183",
+      "overview": "Для Хэла начать длительные отношения с девушкой очень сложно, причем, виновата в этом даже не его не самая презентабельная внешность, а собственные чересчур завышенные запросы. Но жизнь меняется после неожиданной встречи в лифте - его случайный попутчик «открывает ему глаза», наделяя способностью видеть не внешнюю оболочку людей, а их внутреннюю красоту. Не подозревая о произошедшей с ним перемене, Хэл знакомится с Розмари, которая кажется ему настоящей красавицей, к тому же она умна, забавна и очень добра. Вот только окружающие вместо худенькой и стройной девушки видят необъятных размеров «слониху», под которой то и дело ломаются стулья...",
+      "poster": "https://image.tmdb.org/t/p/w500/rvkKJQD9lFAUa1aKEdNWPSgBeaM.jpg",
+      "tagline": "«Ты меленький парень?»",
+      "backdrop": "https://image.tmdb.org/t/p/original/7QkEgz9pEnS9AYzQmu465LMSwh0.jpg",
+      "cast": [
+        {
+          "name": "Джек Блэк",
+          "photo": "https://image.tmdb.org/t/p/w185/59IhgCtiWI5yTfzPhsjzg7GjCjm.jpg"
+        },
+        {
+          "name": "Гвинет Пэлтроу",
+          "photo": "https://image.tmdb.org/t/p/w185/x040uB0CDrHjVAUSONw8bbWMvDC.jpg"
+        },
+        {
+          "name": "Джейсон Александер",
+          "photo": "https://image.tmdb.org/t/p/w185/qRezZ2yhM2bmBERt7jVcxo8RVSA.jpg"
+        },
+        {
+          "name": "Joe Viterelli",
+          "photo": "https://image.tmdb.org/t/p/w185/bWltEIjQhNxdjMEa4nglDLKCk8G.jpg"
+        }
+      ],
+      "director": {
+        "name": "Bobby Farrelly",
+        "photo": "https://image.tmdb.org/t/p/w185/i5mt42m2MjMpFVrVYlYmp5ylLDy.jpg"
+      },
+      "trailer": "",
+      "ageRating": "PG-13",
+      "keywords": "overweight, hypnosis, overweight man, rejection, death of father",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "id": 8,
+      "dateRequested": "04.08.2026 21:06",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
