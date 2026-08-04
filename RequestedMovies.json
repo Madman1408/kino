@@ -53,7 +53,7 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": true
     }
   ]
 }
