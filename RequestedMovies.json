@@ -360,6 +360,59 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": true
+    },
+    {
+      "title": "Побег",
+      "year": "2005",
+      "type": "Сериал",
+      "kinopoiskId": "258048",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/258048/",
+      "runtime": "Неизвестно",
+      "genres": "Боевик и Приключения, криминал, драма",
+      "studios": "🟢 Adelstein/Parouse Productions, 🟢 20th Century Fox Television, 🟢 RAT Entertainment, 🟢 Dawn Olmstead Productions, 🟢 Adelstein Productions, 🟢 One Light Road Productions, 🟢 Original Film",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.065",
+      "overview": "Майкл убежден в невиновности брата, осужденного на казнь, и решает сам восстановить справедливость. Он намеренно совершает преступление, за которое попадает в ту самую тюрьму, где сидит брат. Ту самую, которую Майкл хорошо знает, потому что сам же ее и создавал, как инженер-строитель… План спасения гениально прост…",
+      "poster": "https://image.tmdb.org/t/p/w500/728jOvI7AyRfiV3Iu3ZzDBJ3Oku.jpg",
+      "tagline": "Совершить побег - не значит убежать...",
+      "backdrop": "https://image.tmdb.org/t/p/original/n3Brk7roueE9HOwVmYlJx5j462g.jpg",
+      "cast": [
+        {
+          "name": "Уэнтуорт Миллер",
+          "photo": "https://image.tmdb.org/t/p/w185/js09M98qo6rEyyIlTbRMI6XiZJH.jpg"
+        },
+        {
+          "name": "Доминик Пёрселл",
+          "photo": "https://image.tmdb.org/t/p/w185/5GtHSYdnH7o2x5UIm09XqqLoJKO.jpg"
+        },
+        {
+          "name": "Сара Уэйн Кэллис",
+          "photo": "https://image.tmdb.org/t/p/w185/uBtFalxNR1O0eARg0lsyLXkoJNG.jpg"
+        },
+        {
+          "name": "Пол Адельштейн",
+          "photo": "https://image.tmdb.org/t/p/w185/9qkGnEWPzGayZg9gaB4xbP8UL4g.jpg"
+        }
+      ],
+      "director": {
+        "name": "Пол Шойринг",
+        "photo": "https://image.tmdb.org/t/p/w185/2hNYumD0sMCDezKvTtDwginHP4L.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=O66QHWzzNKw",
+      "ageRating": "TV-14",
+      "keywords": "prison, prisoner, brother, conspiracy, escape",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "5",
+      "episodes": "88",
+      "tvStatus": "Ended",
+      "id": 9,
+      "dateRequested": "04.08.2026 21:06",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true
     }
   ],
   "cherteya": [
