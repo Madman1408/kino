@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 21:06",
+    "lastUpdated": "04.08.2026 21:07",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -201,6 +201,59 @@
       "collection": "Форсаж (Коллекция)",
       "id": 7,
       "dateRequested": "04.08.2026 21:02",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
+      "title": "Большое зло и мелкие пакости",
+      "year": "2005",
+      "type": "Сериал",
+      "kinopoiskId": "",
+      "kinopoiskUrl": "",
+      "runtime": "Неизвестно",
+      "genres": "драма, детектив",
+      "studios": "🟢 TVINDIE Film Production",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "0,0",
+      "overview": "Обычная встреча одноклассников в старой школе заканчивается трагедией. Кто-то тяжело ранит Марусю Суркову, ничем непримечательную мать-одиночку. Кому могла понадобиться смерть Маруси? Капитан Никоненко, ведущий расследование этого запутанного дела, приходит к выводу, что убийцу нужно искать среди старых друзей и однокашников, которые окружали Марусю в тот роковой вечер…",
+      "poster": "https://image.tmdb.org/t/p/w500/geYZ9oZfy2WtOtvx50iSA8ELUnp.jpg",
+      "tagline": "",
+      "backdrop": "",
+      "cast": [
+        {
+          "name": "Юлия Марченко",
+          "photo": "https://image.tmdb.org/t/p/w185/wWA8gGy9fSwGWOTuiX3XADMFtR5.jpg"
+        },
+        {
+          "name": "Екатерина Редникова",
+          "photo": "https://image.tmdb.org/t/p/w185/dsYqCUz39LlJg5kQiTVkvDhkeMn.jpg"
+        },
+        {
+          "name": "Дмитрий Муляр",
+          "photo": "https://image.tmdb.org/t/p/w185/3IdvrzXEu8Jubzkb4AN5uFmg91c.jpg"
+        },
+        {
+          "name": "Игорь Гордин",
+          "photo": "https://image.tmdb.org/t/p/w185/azSGMJQtpI8wy7pRkGrdFslDCgH.jpg"
+        }
+      ],
+      "director": {
+        "name": "Елена Жигаева",
+        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "keywords": "",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "1",
+      "episodes": "2",
+      "tvStatus": "Ended",
+      "id": 10,
+      "dateRequested": "04.08.2026 21:07",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
