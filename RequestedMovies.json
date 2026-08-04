@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 19:46",
+    "lastUpdated": "04.08.2026 20:24",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -49,163 +49,11 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "collection": "Форсаж (Коллекция)",
       "id": 1,
-      "dateRequested": "04.08.2026 19:39",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true
-    }
-  ],
-  "streamelements": [
-    {
-      "title": "Трансформеры 2: Месть Падших",
-      "year": "2009",
-      "type": "Фильм",
-      "kinopoiskId": "373391",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/373391/",
-      "runtime": "2 ч 27 мин",
-      "genres": "фантастика, боевик, приключения",
-      "studios": "🟢 DreamWorks Pictures, 🟢 Paramount Pictures, 🟢 di Bonaventura Pictures, 🟢 DeSanto/Murphy Productions, 🟢 Ian Bryce Productions",
-      "budget": "200.000.000 $",
-      "revenue": "836.304.167 $",
-      "tmdbRating": "6.224",
-      "overview": "Прошло 2 года с тех пор, как юный Сэм Уитвикки спас Вселенную, предотвратив глобальную битву между враждующими воинственными расами инопланетных роботов. Несмотря на свои героические подвиги, Сэм остаётся обычным подростком с обычными проблемами — поступление в колледж и родителями. Разумеется, отъезд будет тяжело воспринят лучшим другом, роботом — телохранителем Бамблби.",
-      "poster": "https://image.tmdb.org/t/p/w500/faLkNsOPqiw2ijqDOfEy2GUscw2.jpg",
-      "tagline": "«Месть неминуема»",
-      "backdrop": "https://image.tmdb.org/t/p/original/bH1bhjn37uA1zOPvyHbzJSvza7v.jpg",
-      "cast": [
-        {
-          "name": "Шайа ЛаБаф",
-          "photo": "https://image.tmdb.org/t/p/w185/egvlIdeizCkSkuHVoDuuduIThFA.jpg"
-        },
-        {
-          "name": "Меган Фокс",
-          "photo": "https://image.tmdb.org/t/p/w185/zQp2YM0zbC27Ws97LNbyicysk8p.jpg"
-        },
-        {
-          "name": "Питер Каллен",
-          "photo": "https://image.tmdb.org/t/p/w185/9Snf4fBUkk5MrAjqtNtgZRJYJbj.jpg"
-        },
-        {
-          "name": "Хьюго Уивинг",
-          "photo": "https://image.tmdb.org/t/p/w185/lSC8Et0PYi5zeQb3IpPkFje7hgR.jpg"
-        }
-      ],
-      "director": {
-        "name": "Майкл Бэй",
-        "photo": "https://image.tmdb.org/t/p/w185/rkC7lei20x5xlFH4SivAXXBh6uR.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=CBSIrwp9Iu4",
-      "ageRating": "PG-13",
-      "keywords": "egypt, chaos, sun, tank, symbol",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "Трансформеры (Коллекция)",
-      "id": 2,
-      "dateRequested": "04.08.2026 19:41",
+      "dateRequested": "04.08.2026 20:24",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
-    },
-    {
-      "title": "Форсаж 9",
-      "year": "2021",
-      "type": "Фильм",
-      "kinopoiskId": "964318",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/964318/",
-      "runtime": "2 ч 23 мин",
-      "genres": "боевик, приключения, криминал",
-      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Perfect Storm Entertainment, 🟢 Universal Pictures, 🟢 Roth-Kirschenbaum Films",
-      "budget": "200.000.000 $",
-      "revenue": "726.229.501 $",
-      "tmdbRating": "6.989",
-      "overview": "Доминик Торетто ведет спокойную жизнь вместе с Летти и сыном Брайаном, но новая опасность всегда где-то рядом. В этот раз Доминику придется встретиться с призраками прошлого, если он хочет спасти самых близких. Команда снова собирается вместе, чтобы предотвратить дерзкий план по захвату мира, который придумал самый опасный преступник и безбашенный водитель из всех, с кем они сталкивались ранее. Ситуация усложняется тем, что этот человек — брат Доминика Джейкоб, которого много лет назад изгнали из семьи.",
-      "poster": "https://image.tmdb.org/t/p/w500/3Abag0sIPHTLFIP2asXcC7E0QxP.jpg",
-      "tagline": "«Быстрая семья навсегда»",
-      "backdrop": "https://image.tmdb.org/t/p/original/xXHZeb1yhJvnSHPzZDqee0zfMb6.jpg",
-      "cast": [
-        {
-          "name": "Вин Дизель",
-          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
-        },
-        {
-          "name": "Мишель Родригес",
-          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
-        },
-        {
-          "name": "Тайриз Гибсон",
-          "photo": "https://image.tmdb.org/t/p/w185/jxoy4fbXNKFQtBdK73cLXEz3ufS.jpg"
-        },
-        {
-          "name": "Лудакрис",
-          "photo": "https://image.tmdb.org/t/p/w185/erkJijujhe48vhJ8iCEtVpNEeVn.jpg"
-        }
-      ],
-      "director": {
-        "name": "Джастин Лин",
-        "photo": "https://image.tmdb.org/t/p/w185/w0ryazdt8iS3GBrjXfv0FIwvUGY.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=XsXUVWy-Ld8",
-      "ageRating": "12+",
-      "keywords": "speed, family relationships, sequel, nostalgic, duringcreditsstinger",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 4,
-      "dateRequested": "04.08.2026 19:45",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "Форсаж 10",
-      "year": "2023",
-      "type": "Фильм",
-      "kinopoiskId": "959062",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/959062/",
-      "runtime": "2 ч 22 мин",
-      "genres": "боевик, криминал, триллер",
-      "studios": "🟢 Universal Pictures, 🟢 Original Film, 🟢 One Race, 🟢 Perfect Storm Entertainment",
-      "budget": "340.000.000 $",
-      "revenue": "704.709.660 $",
-      "tmdbRating": "6.985",
-      "overview": "Дом Торетто и его семья становятся мишенью для мстительного сына наркобарона Эрнана Рейеса.",
-      "poster": "https://image.tmdb.org/t/p/w500/MSc1kcaHXvvyGgoyjDa60jxdqq.jpg",
-      "tagline": "«Последний заезд»",
-      "backdrop": "https://image.tmdb.org/t/p/original/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg",
-      "cast": [
-        {
-          "name": "Вин Дизель",
-          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
-        },
-        {
-          "name": "Мишель Родригес",
-          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
-        },
-        {
-          "name": "Тайриз Гибсон",
-          "photo": "https://image.tmdb.org/t/p/w185/jxoy4fbXNKFQtBdK73cLXEz3ufS.jpg"
-        },
-        {
-          "name": "Лудакрис",
-          "photo": "https://image.tmdb.org/t/p/w185/erkJijujhe48vhJ8iCEtVpNEeVn.jpg"
-        }
-      ],
-      "director": {
-        "name": "Луи Летерье",
-        "photo": "https://image.tmdb.org/t/p/w185/bpqqRRyCLeoAup2OAv1Dtm5C8Tn.jpg"
-      },
-      "trailer": "",
-      "ageRating": "PG-13",
-      "keywords": "sequel, revenge, betrayal, racing, family",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 3,
-      "dateRequested": "04.08.2026 19:45",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true
     }
   ]
 }
