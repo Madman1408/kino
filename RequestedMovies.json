@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 18:56",
+    "lastUpdated": "04.08.2026 18:57",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -1966,7 +1966,9 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": false,
+      "kinopoiskId": "452899",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/452899/"
     }
   ],
   "wizebot": [
