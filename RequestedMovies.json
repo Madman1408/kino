@@ -1,58 +1,55 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 20:40",
+    "lastUpdated": "04.08.2026 20:52",
     "isOnlineBtnVisible": true
   },
-  "streamelements": [
+  "MadMan1408": [
     {
-      "title": "Во все тяжкие",
-      "year": "2008",
-      "type": "Сериал",
-      "kinopoiskId": "404900",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/404900/",
-      "runtime": "Неизвестно",
-      "genres": "драма, криминал",
-      "studios": "🟢 Sony Pictures Television, 🟢 High Bridge Productions, 🟢 Gran Via Productions",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "8.9",
-      "overview": "Школьный учитель химии Уолтер Уайт узнаёт, что болен раком лёгких. Учитывая сложное финансовое состояние дел семьи, а также перспективы, Уолтер решает заняться изготовлением метамфетамина. Для этого он привлекает своего бывшего ученика Джесси Пинкмана, когда-то исключённого из школы при активном содействии Уайта. Пинкман сам занимался варкой мета, но накануне, в ходе рейда УБН, он лишился подельника и лаборатории.",
-      "poster": "https://image.tmdb.org/t/p/w500/gwB6E7Zi5L3J9WA2y0zLeKuc3ul.jpg",
-      "tagline": "«Запомните моё имя»",
-      "backdrop": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+      "title": "Матрица",
+      "year": "1999",
+      "type": "Фильм",
+      "kinopoiskId": "301",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/301/",
+      "runtime": "2 ч 16 мин",
+      "genres": "боевик, фантастика",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 Village Roadshow Pictures, 🟢 Groucho II Film Partnership, 🟢 Silver Pictures",
+      "budget": "63.000.000 $",
+      "revenue": "463.517.383 $",
+      "tmdbRating": "8.253",
+      "overview": "Жизнь Томаса Андерсона разделена на две части: днём он — самый обычный офисный работник, получающий нагоняи от начальства, а ночью превращается в хакера по имени Нео, и нет места в сети, куда он бы не смог проникнуть. Но однажды всё меняется. Томас узнаёт ужасающую правду о реальности.",
+      "poster": "https://image.tmdb.org/t/p/w500/kEDbym5htJgDQNenjUtSJxAHysB.jpg",
+      "tagline": "«Добро пожаловать в реальный мир»",
+      "backdrop": "https://image.tmdb.org/t/p/original/tlm8UkiQsitc8rSuIAscQDCnP8d.jpg",
       "cast": [
         {
-          "name": "Брайан Крэнстон",
-          "photo": "https://image.tmdb.org/t/p/w185/npIIZJGSrcJIJ6yHdmbqO6Jzo5I.jpg"
+          "name": "Киану Ривз",
+          "photo": "https://image.tmdb.org/t/p/w185/8RZLOyYGsoRe9p44q3xin9QkMHv.jpg"
         },
         {
-          "name": "Аарон Пол",
-          "photo": "https://image.tmdb.org/t/p/w185/8Ac9uuoYwZoYVAIJfRLzzLsGGJn.jpg"
+          "name": "Лоренс Фишбёрн",
+          "photo": "https://image.tmdb.org/t/p/w185/2GbXERENPpl5MmlqOLlPVaVtifD.jpg"
         },
         {
-          "name": "Анна Ганн",
-          "photo": "https://image.tmdb.org/t/p/w185/adppyeu1a4REN3khtgmXusrapFi.jpg"
+          "name": "Кэрри-Энн Мосс",
+          "photo": "https://image.tmdb.org/t/p/w185/xD4jTA3KmVp5Rq3aHcymL9DUGjD.jpg"
         },
         {
-          "name": "Ар Джей Митт",
-          "photo": "https://image.tmdb.org/t/p/w185/sNPA92ZrssYhlaB1UA2pWcLD9db.jpg"
+          "name": "Хьюго Уивинг",
+          "photo": "https://image.tmdb.org/t/p/w185/lSC8Et0PYi5zeQb3IpPkFje7hgR.jpg"
         }
       ],
       "director": {
-        "name": "Винс Гиллиган",
-        "photo": "https://image.tmdb.org/t/p/w185/wJIxATESjzsjSgvRhVavOmdamXc.jpg"
+        "name": "Ларри Вачовски",
+        "photo": "https://image.tmdb.org/t/p/w185/4nE4ttPQBuw1virOz0LYT08c1Vm.jpg"
       },
-      "trailer": "",
-      "ageRating": "TV-MA",
-      "keywords": "new mexico, drug dealer, narcissism, psychopath, terminal illness",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "",
-      "seasons": "5",
-      "episodes": "62",
-      "tvStatus": "Ended",
+      "trailer": "https://www.youtube.com/watch?v=YihPA42fdQ8",
+      "ageRating": "16+",
+      "keywords": "man vs machine, martial arts, fortune teller, artificial intelligence (a.i.), saving the world",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Матрица (Коллекция)",
       "id": 1,
-      "dateRequested": "04.08.2026 20:40",
+      "dateRequested": "04.08.2026 20:52",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
