@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 23:49",
+    "lastUpdated": "04.08.2026 23:52",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -106,6 +106,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": true
+    },
+    {
+      "title": "Крик",
+      "year": "1996",
+      "type": "Фильм",
+      "kinopoiskId": "1807",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/1807/",
+      "runtime": "1 ч 51 мин",
+      "genres": "криминал, ужасы, детектив",
+      "studios": "🟢 Dimension Films, 🟢 Woods Entertainment",
+      "budget": "14.000.000 $",
+      "revenue": "173.046.663 $",
+      "tmdbRating": "7.4",
+      "overview": "По городу прокатилась волна жестоких убийств, жертвами становятся беззащитные люди. Новой жертвой телефонного маньяка из городка Вудсборо может стать ещё одна девушка — Сидни Прескотт. Год назад её мать была изнасилована и убита, а теперь маньяк угрожает ей самой. Но в первой ночной схватке с убийцей девушка смогла спастись. Полиция находит на месте покушения маску и плащ. Впрочем, такие маски можно купить в лавке ужасов, и проку для следствия от найденных улик нет никакого.",
+      "poster": "https://image.tmdb.org/t/p/w500/pV8EnIy3dZcTQBbA8uP74hcmdN6.jpg",
+      "tagline": "«Теперь все - жертвы и все - подозреваемые!»",
+      "backdrop": "https://image.tmdb.org/t/p/original/4w6nQYAY0eb7B0VVRDXilXcgAUV.jpg",
+      "cast": [
+        {
+          "name": "Нив Кэмпбелл",
+          "photo": "https://image.tmdb.org/t/p/w185/zQzNg6Kiufj2VCltprI6jilNtl3.jpg"
+        },
+        {
+          "name": "Скит Ульрих",
+          "photo": "https://image.tmdb.org/t/p/w185/moyTBJUTl82PaAhm8aHGwlvKr7r.jpg"
+        },
+        {
+          "name": "Роуз МакГоун",
+          "photo": "https://image.tmdb.org/t/p/w185/x8sHWjQ7cWVcHKhqGR09x0Y0tsP.jpg"
+        },
+        {
+          "name": "Мэттью Лиллард",
+          "photo": "https://image.tmdb.org/t/p/w185/mIEKAfe0iC41RDXibbTy48LtNOi.jpg"
+        }
+      ],
+      "director": {
+        "name": "Уэс Крэйвен",
+        "photo": "https://image.tmdb.org/t/p/w185/eqwl6owrYykeTGTpKxwcAkbEJmg.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=3wUQEcZj9M4",
+      "ageRating": "R",
+      "keywords": "high school, small town, california, riddle, killing",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-600x600.png",
+      "collection": "Крик (Коллекция)",
+      "id": 3,
+      "dateRequested": "04.08.2026 23:52",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ]
 }
