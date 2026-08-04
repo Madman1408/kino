@@ -4,61 +4,6 @@
     "lastUpdated": "04.08.2026 20:58",
     "isOnlineBtnVisible": true
   },
-  "streamelements": [
-    {
-      "title": "Во все тяжкие",
-      "year": "2008",
-      "type": "Сериал",
-      "kinopoiskId": "404900",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/404900/",
-      "runtime": "Неизвестно",
-      "genres": "драма, криминал",
-      "studios": "🟢 Sony Pictures Television, 🟢 High Bridge Productions, 🟢 Gran Via Productions",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "8.9",
-      "overview": "Школьный учитель химии Уолтер Уайт узнаёт, что болен раком лёгких. Учитывая сложное финансовое состояние дел семьи, а также перспективы, Уолтер решает заняться изготовлением метамфетамина. Для этого он привлекает своего бывшего ученика Джесси Пинкмана, когда-то исключённого из школы при активном содействии Уайта. Пинкман сам занимался варкой мета, но накануне, в ходе рейда УБН, он лишился подельника и лаборатории.",
-      "poster": "https://image.tmdb.org/t/p/w500/gwB6E7Zi5L3J9WA2y0zLeKuc3ul.jpg",
-      "tagline": "«Запомните моё имя»",
-      "backdrop": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
-      "cast": [
-        {
-          "name": "Брайан Крэнстон",
-          "photo": "https://image.tmdb.org/t/p/w185/npIIZJGSrcJIJ6yHdmbqO6Jzo5I.jpg"
-        },
-        {
-          "name": "Аарон Пол",
-          "photo": "https://image.tmdb.org/t/p/w185/8Ac9uuoYwZoYVAIJfRLzzLsGGJn.jpg"
-        },
-        {
-          "name": "Анна Ганн",
-          "photo": "https://image.tmdb.org/t/p/w185/adppyeu1a4REN3khtgmXusrapFi.jpg"
-        },
-        {
-          "name": "Ар Джей Митт",
-          "photo": "https://image.tmdb.org/t/p/w185/sNPA92ZrssYhlaB1UA2pWcLD9db.jpg"
-        }
-      ],
-      "director": {
-        "name": "Винс Гиллиган",
-        "photo": "https://image.tmdb.org/t/p/w185/wJIxATESjzsjSgvRhVavOmdamXc.jpg"
-      },
-      "trailer": "",
-      "ageRating": "TV-MA",
-      "keywords": "new mexico, drug dealer, narcissism, psychopath, terminal illness",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "",
-      "seasons": "5",
-      "episodes": "62",
-      "tvStatus": "Ended",
-      "id": 2,
-      "dateRequested": "04.08.2026 20:53",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
   "MadMan1408": [
     {
       "title": "Унесённые призраками",
@@ -205,11 +150,66 @@
       "collection": "Матрица (Коллекция)",
       "id": 1,
       "dateRequested": "04.08.2026 20:52",
-      "status": "Смотрели",
-      "ourRating": "1000",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
       "cried": true,
       "isAuction": true,
-      "dateWatched": "04.08.2026 20:58"
+      "dateWatched": ""
+    }
+  ],
+  "streamelements": [
+    {
+      "title": "Во все тяжкие",
+      "year": "2008",
+      "type": "Сериал",
+      "kinopoiskId": "404900",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/404900/",
+      "runtime": "Неизвестно",
+      "genres": "драма, криминал",
+      "studios": "🟢 Sony Pictures Television, 🟢 High Bridge Productions, 🟢 Gran Via Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.9",
+      "overview": "Школьный учитель химии Уолтер Уайт узнаёт, что болен раком лёгких. Учитывая сложное финансовое состояние дел семьи, а также перспективы, Уолтер решает заняться изготовлением метамфетамина. Для этого он привлекает своего бывшего ученика Джесси Пинкмана, когда-то исключённого из школы при активном содействии Уайта. Пинкман сам занимался варкой мета, но накануне, в ходе рейда УБН, он лишился подельника и лаборатории.",
+      "poster": "https://image.tmdb.org/t/p/w500/gwB6E7Zi5L3J9WA2y0zLeKuc3ul.jpg",
+      "tagline": "«Запомните моё имя»",
+      "backdrop": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+      "cast": [
+        {
+          "name": "Брайан Крэнстон",
+          "photo": "https://image.tmdb.org/t/p/w185/npIIZJGSrcJIJ6yHdmbqO6Jzo5I.jpg"
+        },
+        {
+          "name": "Аарон Пол",
+          "photo": "https://image.tmdb.org/t/p/w185/8Ac9uuoYwZoYVAIJfRLzzLsGGJn.jpg"
+        },
+        {
+          "name": "Анна Ганн",
+          "photo": "https://image.tmdb.org/t/p/w185/adppyeu1a4REN3khtgmXusrapFi.jpg"
+        },
+        {
+          "name": "Ар Джей Митт",
+          "photo": "https://image.tmdb.org/t/p/w185/sNPA92ZrssYhlaB1UA2pWcLD9db.jpg"
+        }
+      ],
+      "director": {
+        "name": "Винс Гиллиган",
+        "photo": "https://image.tmdb.org/t/p/w185/wJIxATESjzsjSgvRhVavOmdamXc.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-MA",
+      "keywords": "new mexico, drug dealer, narcissism, psychopath, terminal illness",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "5",
+      "episodes": "62",
+      "tvStatus": "Ended",
+      "id": 2,
+      "dateRequested": "04.08.2026 20:53",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "cherteya": [
