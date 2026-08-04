@@ -104,6 +104,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "Аватар: Путь воды",
+      "year": "2022",
+      "type": "Фильм",
+      "kinopoiskId": "505898",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/505898/",
+      "runtime": "3 ч 12 мин",
+      "genres": "боевик, приключения, фантастика",
+      "studios": "🟢 20th Century Studios, 🟢 Lightstorm Entertainment, 🟢 TSG Entertainment",
+      "budget": "460.000.000 $",
+      "revenue": "2.334.484.620 $",
+      "tmdbRating": "7.591",
+      "overview": "Джейк становится предводителем народа на’ви и берёт на себя миссию по защите новых друзей от корыстных бизнесменов с Земли. Теперь ему есть за кого бороться - с Джейком его прекрасная возлюбленная Нейтири. Когда на Пандору возвращаются до зубов вооружённые земляне, Джейк готов дать им отпор.",
+      "poster": "https://image.tmdb.org/t/p/w500/yFNn7uWudLLWDJqfj3fwh5CcUdR.jpg",
+      "tagline": "«Возвращение на Пандору»",
+      "backdrop": "https://image.tmdb.org/t/p/original/kJsPVzdyBrYHLomuNv5SJDXUQ2f.jpg",
+      "cast": [
+        {
+          "name": "Сэм Уортингтон",
+          "photo": "https://image.tmdb.org/t/p/w185/vM1WIfYQ1HUBtlVPwB9Hp9fLcn8.jpg"
+        },
+        {
+          "name": "Зои Салдана",
+          "photo": "https://image.tmdb.org/t/p/w185/fCJuIn1PMUQtYdRRSnnoZeMJVWs.jpg"
+        },
+        {
+          "name": "Сигурни Уивер",
+          "photo": "https://image.tmdb.org/t/p/w185/wTSnfktNBLd6kwQxgvkqYw6vEon.jpg"
+        },
+        {
+          "name": "Стивен Лэнг",
+          "photo": "https://image.tmdb.org/t/p/w185/gnO5VfkDgA2fsHweD0622LUY3Hu.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джеймс Кэмерон",
+        "photo": "https://image.tmdb.org/t/p/w185/9NAZnTjBQ9WcXAQEzZpKy4vdQto.jpg"
+      },
+      "trailer": "",
+      "ageRating": "PG-13",
+      "keywords": "dying and death, loss of loved one, alien life-form, resurrection, dysfunctional family",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Аватар (Коллекция)",
+      "id": 5,
+      "dateRequested": "04.08.2026 20:55",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "streamelements": [
