@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "05.08.2026 01:04",
+    "lastUpdated": "05.08.2026 01:05",
     "isOnlineBtnVisible": true
   },
   "MadManB0T": [
@@ -256,10 +256,11 @@
       "collection": "Форсаж (Коллекция)",
       "id": 5,
       "dateRequested": "05.08.2026 01:04",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
+      "status": "Смотрели",
+      "ourRating": "8",
+      "cried": true,
+      "isAuction": true,
+      "dateWatched": "05.08.2026 01:05"
     }
   ]
 }
