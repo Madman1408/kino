@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 20:54",
+    "lastUpdated": "04.08.2026 20:55",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -155,6 +155,58 @@
       "tvStatus": "Ended",
       "id": 2,
       "dateRequested": "04.08.2026 20:53",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    }
+  ],
+  "cherteya": [
+    {
+      "title": "1917",
+      "year": "2019",
+      "type": "Фильм",
+      "kinopoiskId": "1171976",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/1171976/",
+      "runtime": "1 ч 59 мин",
+      "genres": "военный, драма, история",
+      "studios": "🟢 DreamWorks Pictures, 🟢 Reliance Entertainment, 🟢 New Republic Pictures, 🟢 Neal Street Productions, 🟢 Mogambo Films",
+      "budget": "100.000.000 $",
+      "revenue": "446.064.352 $",
+      "tmdbRating": "7.985",
+      "overview": "6 апреля 1917 года, разгар Первой мировой войны, Западный фронт на севере Франции. Британский генерал поручает капралу Блэйку и его сослуживцу смертельно опасную миссию. Они должны пересечь вражескую территорию, вроде бы оставленную германскими войсками, и доставить приказ об отмене наступления во 2-й батальон Девонширского полка, иначе 1600 солдат попадут в ловушку противника, в том числе и брат Блэйка.",
+      "poster": "https://image.tmdb.org/t/p/w500/nfU1YXe2ztCSUWusLOpCUL75Zdw.jpg",
+      "tagline": "Время — наш главный враг",
+      "backdrop": "https://image.tmdb.org/t/p/original/2lBOQK06tltt8SQaswgb8d657Mv.jpg",
+      "cast": [
+        {
+          "name": "Джордж Маккей",
+          "photo": "https://image.tmdb.org/t/p/w185/wnDAg1CyCbBCklQAZ9I1dj5X6QY.jpg"
+        },
+        {
+          "name": "Дин-Чарльз Чепмен",
+          "photo": "https://image.tmdb.org/t/p/w185/xIVxI2ECxxN5J2XNkHPjRax0IHc.jpg"
+        },
+        {
+          "name": "Марк Стронг",
+          "photo": "https://image.tmdb.org/t/p/w185/3cNmatYsoifytg7TfQhI1EHow3v.jpg"
+        },
+        {
+          "name": "Эндрю Скотт",
+          "photo": "https://image.tmdb.org/t/p/w185/4F8XpjyQCvtuu21WFm5d8RF5Rl.jpg"
+        }
+      ],
+      "director": {
+        "name": "Sam Mendes",
+        "photo": "https://image.tmdb.org/t/p/w185/5z89X9rB76JDblqMQ52fviwXxAN.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=iHGSkWoPp0o",
+      "ageRating": "18+",
+      "keywords": "race against time, world war i, british army, survival, soldier",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
+      "collection": "",
+      "id": 4,
+      "dateRequested": "04.08.2026 20:55",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
