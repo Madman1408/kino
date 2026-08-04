@@ -203,6 +203,39 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "Форсаж",
+      "year": "2001",
+      "type": "Фильм",
+      "kinopoiskId": "41170",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/41170/",
+      "runtime": "51 мин",
+      "genres": "документальный",
+      "studios": "🟢 Risk Film and Video Studio",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "7.7",
+      "overview": "",
+      "poster": "https://image.tmdb.org/t/p/w500/tiXtmh7lPheqk0DHwAqLHNuc5b2.jpg",
+      "tagline": "",
+      "backdrop": "",
+      "cast": [],
+      "director": {
+        "name": "Наталия Гугуева",
+        "photo": "https://image.tmdb.org/t/p/w185/7oP2WLnI9UDLOVw7G8Dpuxe0SaR.jpg"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "keywords": "",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 49,
+      "dateRequested": "04.08.2026 19:16",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "bazar_gure": [
