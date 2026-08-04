@@ -207,8 +207,8 @@
       "dateRequested": "04.08.2026 20:52",
       "status": "Смотрели",
       "ourRating": "1000",
-      "cried": false,
-      "isAuction": false,
+      "cried": true,
+      "isAuction": true,
       "dateWatched": "04.08.2026 20:58"
     }
   ],
