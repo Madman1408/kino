@@ -311,6 +311,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "Трансформеры",
+      "year": "2007",
+      "type": "Фильм",
+      "kinopoiskId": "81288",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/81288/",
+      "runtime": "2 ч 20 мин",
+      "genres": "приключения, фантастика, боевик",
+      "studios": "🟢 DreamWorks Pictures, 🟢 di Bonaventura Pictures, 🟢 DeSanto/Murphy Productions, 🟢 Paramount Pictures",
+      "budget": "150.000.000 $",
+      "revenue": "709.709.780 $",
+      "tmdbRating": "6.843",
+      "overview": "В течение многих столетий две расы роботов-инопланетян, Автоботы и Десептиконы, вели войну, ставкой в которой была судьба Bселенной. И вот война докатилась до Земли. В то время, когда силы зла ищут ключ к верховной власти, наш последний шанс на спасение находится в руках юного землянина. Единственное, что стоит между несущими зло Десептиконами и высшей властью — это ключ, находящийся в руках простого парнишки.",
+      "poster": "https://image.tmdb.org/t/p/w500/eYFRGx7qk4JGOqUvjSWIpgToHLi.jpg",
+      "tagline": "«Наш мир. Их война»",
+      "backdrop": "https://image.tmdb.org/t/p/original/iCDMBi6WLjUBnt24dNwHqqF81UL.jpg",
+      "cast": [
+        {
+          "name": "Шайа ЛаБаф",
+          "photo": "https://image.tmdb.org/t/p/w185/egvlIdeizCkSkuHVoDuuduIThFA.jpg"
+        },
+        {
+          "name": "Меган Фокс",
+          "photo": "https://image.tmdb.org/t/p/w185/zQp2YM0zbC27Ws97LNbyicysk8p.jpg"
+        },
+        {
+          "name": "Марк Райан",
+          "photo": "https://image.tmdb.org/t/p/w185/9I0mFMnJJutVwVsCJhh3PtfqtFv.jpg"
+        },
+        {
+          "name": "Питер Каллен",
+          "photo": "https://image.tmdb.org/t/p/w185/9Snf4fBUkk5MrAjqtNtgZRJYJbj.jpg"
+        }
+      ],
+      "director": {
+        "name": "Майкл Бэй",
+        "photo": "https://image.tmdb.org/t/p/w185/rkC7lei20x5xlFH4SivAXXBh6uR.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=cSwuDTqx9uo",
+      "ageRating": "PG-13",
+      "keywords": "transformation, destroy, alien, based on toy, giant robot",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Трансформеры (Коллекция)",
+      "id": 12,
+      "dateRequested": "04.08.2026 21:08",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ],
   "streamelements": [
