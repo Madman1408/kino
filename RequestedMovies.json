@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 21:07",
+    "lastUpdated": "04.08.2026 21:08",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -254,6 +254,59 @@
       "tvStatus": "Ended",
       "id": 10,
       "dateRequested": "04.08.2026 21:07",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
+      "title": "Зло",
+      "year": "2019",
+      "type": "Сериал",
+      "kinopoiskId": "1200706",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/1200706/",
+      "runtime": "43 мин",
+      "genres": "криминал, драма, детектив",
+      "studios": "🟢 CBS Studios, 🟢 King Size Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "7.831",
+      "overview": "В центре сюжета — психолог, специализирующийся на событиях, которые пресса квалифицирует как «чудо». Реально ли этим явлениям нет объяснения или их все-таки можно научно обосновать? Компанию скептически настроенной девушке составят (неожиданно) священник и мутноватого вида «синий воротничок». Они сошлись, лед и пламень, то есть холодное научное знание и мистика — чета Кинг предлагает включиться в очередную увлекательную борьбу противоположностей.",
+      "poster": "https://image.tmdb.org/t/p/w500/ass1mllgRVJVd9cXYu2XnXcF3Ed.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/ttB60pxSxMyyW9mIDlq89RLf0vQ.jpg",
+      "cast": [
+        {
+          "name": "Katja Herbers",
+          "photo": "https://image.tmdb.org/t/p/w185/hGpfEsOtnF9o3KWRhpNZ0G3CqmT.jpg"
+        },
+        {
+          "name": "Майк Колтер",
+          "photo": "https://image.tmdb.org/t/p/w185/9LG9AzoY2ak6M2kwhKlGkLOUUot.jpg"
+        },
+        {
+          "name": "Асиф Мандви",
+          "photo": "https://image.tmdb.org/t/p/w185/hoBCqgxK2JqV3MOQYncHRMfwu8V.jpg"
+        },
+        {
+          "name": "Майкл Эмерсон",
+          "photo": "https://image.tmdb.org/t/p/w185/xOpr90SF1RCtjFNTu32nZQ90buY.jpg"
+        }
+      ],
+      "director": {
+        "name": "Michelle King",
+        "photo": "https://image.tmdb.org/t/p/w185/3hzUI7aOSGaBZmkZ2yZmWBDZIYJ.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-MA",
+      "keywords": "new york city, possession, priest, psychologist, paranormal investigation",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "4",
+      "episodes": "50",
+      "tvStatus": "Ended",
+      "id": 11,
+      "dateRequested": "04.08.2026 21:08",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
