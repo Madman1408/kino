@@ -156,6 +156,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "Форсаж 9",
+      "year": "2021",
+      "type": "Фильм",
+      "kinopoiskId": "964318",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/964318/",
+      "runtime": "2 ч 23 мин",
+      "genres": "боевик, приключения, криминал",
+      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Perfect Storm Entertainment, 🟢 Universal Pictures, 🟢 Roth-Kirschenbaum Films",
+      "budget": "200.000.000 $",
+      "revenue": "726.229.501 $",
+      "tmdbRating": "6.989",
+      "overview": "Доминик Торетто ведет спокойную жизнь вместе с Летти и сыном Брайаном, но новая опасность всегда где-то рядом. В этот раз Доминику придется встретиться с призраками прошлого, если он хочет спасти самых близких. Команда снова собирается вместе, чтобы предотвратить дерзкий план по захвату мира, который придумал самый опасный преступник и безбашенный водитель из всех, с кем они сталкивались ранее. Ситуация усложняется тем, что этот человек — брат Доминика Джейкоб, которого много лет назад изгнали из семьи.",
+      "poster": "https://image.tmdb.org/t/p/w500/3Abag0sIPHTLFIP2asXcC7E0QxP.jpg",
+      "tagline": "«Быстрая семья навсегда»",
+      "backdrop": "https://image.tmdb.org/t/p/original/xXHZeb1yhJvnSHPzZDqee0zfMb6.jpg",
+      "cast": [
+        {
+          "name": "Вин Дизель",
+          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        },
+        {
+          "name": "Тайриз Гибсон",
+          "photo": "https://image.tmdb.org/t/p/w185/jxoy4fbXNKFQtBdK73cLXEz3ufS.jpg"
+        },
+        {
+          "name": "Лудакрис",
+          "photo": "https://image.tmdb.org/t/p/w185/erkJijujhe48vhJ8iCEtVpNEeVn.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джастин Лин",
+        "photo": "https://image.tmdb.org/t/p/w185/w0ryazdt8iS3GBrjXfv0FIwvUGY.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=XsXUVWy-Ld8",
+      "ageRating": "12+",
+      "keywords": "speed, family relationships, sequel, nostalgic, duringcreditsstinger",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 4,
+      "dateRequested": "04.08.2026 19:45",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ]
 }
