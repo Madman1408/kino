@@ -1,207 +1,58 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 20:33",
+    "lastUpdated": "04.08.2026 20:40",
     "isOnlineBtnVisible": true
   },
-  "MadMan1408": [
-    {
-      "title": "Форсаж",
-      "year": "2001",
-      "type": "Фильм",
-      "kinopoiskId": "666",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/666/",
-      "runtime": "1 ч 46 мин",
-      "genres": "боевик, криминал, триллер",
-      "studios": "🟢 Ardustry Entertainment, 🟢 Universal Pictures, 🟢 Original Film, 🟢 Mediastream Film",
-      "budget": "38.000.000 $",
-      "revenue": "207.283.925 $",
-      "tmdbRating": "7.012",
-      "overview": "Его зовут Брайан, и он — фанатик турбин и нитроускорителей. Его цель — быть принятым в автобанду легендарного Доминика Торетто, чемпиона опасных и незаконных уличных гонок. Но это лишь часть правды… Брайан также полицейский, имеющий задание войти в доверие к Торетто, подозреваемому в причастности к дерзким грабежам трейлеров, совершенным прямо «с колес».Но чем больше доверяет нахальному новичку харизматичный Доминик, тем больше проникается герой идеалами «ангелов дорог». И тем меньше ему хочется выполнять свою миссию. И вот, наступает момент, когда Брайану придется выбирать между дружбой и долгом. И выбирать на скорости в 200 километров в час…",
-      "poster": "https://image.tmdb.org/t/p/w500/cHNzdyLZDZ25qRS6Uq3dXKhJJbv.jpg",
-      "tagline": "«Если у тебя есть то, что нужно... ты можешь получить всё»",
-      "backdrop": "https://image.tmdb.org/t/p/original/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
-      "cast": [
-        {
-          "name": "Пол Уокер",
-          "photo": "https://image.tmdb.org/t/p/w185/q2PLqKHYCs35HR7QybaNPH3JT96.jpg"
-        },
-        {
-          "name": "Вин Дизель",
-          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
-        },
-        {
-          "name": "Мишель Родригес",
-          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
-        },
-        {
-          "name": "Джордана Брюстер",
-          "photo": "https://image.tmdb.org/t/p/w185/ceL0zxeVbWfCfhoIDZIE1NYqBWb.jpg"
-        }
-      ],
-      "director": {
-        "name": "Роб Коэн",
-        "photo": "https://image.tmdb.org/t/p/w185/kVbB8Q0g8eXsn8l81flyC6TgMPW.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=_Oi9Ma7nxK8",
-      "ageRating": "16+",
-      "keywords": "street gang, undercover, car race, auto-tuning, street race",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 1,
-      "dateRequested": "04.08.2026 20:24",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    }
-  ],
   "streamelements": [
     {
-      "title": "Форсаж 10",
-      "year": "2023",
-      "type": "Фильм",
-      "kinopoiskId": "959062",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/959062/",
-      "runtime": "2 ч 22 мин",
-      "genres": "боевик, криминал, триллер",
-      "studios": "🟢 Universal Pictures, 🟢 Original Film, 🟢 One Race, 🟢 Perfect Storm Entertainment",
-      "budget": "340.000.000 $",
-      "revenue": "704.709.660 $",
-      "tmdbRating": "6.985",
-      "overview": "Дом Торетто и его семья становятся мишенью для мстительного сына наркобарона Эрнана Рейеса.",
-      "poster": "https://image.tmdb.org/t/p/w500/MSc1kcaHXvvyGgoyjDa60jxdqq.jpg",
-      "tagline": "«Последний заезд»",
-      "backdrop": "https://image.tmdb.org/t/p/original/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg",
+      "title": "Во все тяжкие",
+      "year": "2008",
+      "type": "Сериал",
+      "kinopoiskId": "404900",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/404900/",
+      "runtime": "Неизвестно",
+      "genres": "драма, криминал",
+      "studios": "🟢 Sony Pictures Television, 🟢 High Bridge Productions, 🟢 Gran Via Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.9",
+      "overview": "Школьный учитель химии Уолтер Уайт узнаёт, что болен раком лёгких. Учитывая сложное финансовое состояние дел семьи, а также перспективы, Уолтер решает заняться изготовлением метамфетамина. Для этого он привлекает своего бывшего ученика Джесси Пинкмана, когда-то исключённого из школы при активном содействии Уайта. Пинкман сам занимался варкой мета, но накануне, в ходе рейда УБН, он лишился подельника и лаборатории.",
+      "poster": "https://image.tmdb.org/t/p/w500/gwB6E7Zi5L3J9WA2y0zLeKuc3ul.jpg",
+      "tagline": "«Запомните моё имя»",
+      "backdrop": "https://image.tmdb.org/t/p/original/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
       "cast": [
         {
-          "name": "Вин Дизель",
-          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+          "name": "Брайан Крэнстон",
+          "photo": "https://image.tmdb.org/t/p/w185/npIIZJGSrcJIJ6yHdmbqO6Jzo5I.jpg"
         },
         {
-          "name": "Мишель Родригес",
-          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+          "name": "Аарон Пол",
+          "photo": "https://image.tmdb.org/t/p/w185/8Ac9uuoYwZoYVAIJfRLzzLsGGJn.jpg"
         },
         {
-          "name": "Тайриз Гибсон",
-          "photo": "https://image.tmdb.org/t/p/w185/jxoy4fbXNKFQtBdK73cLXEz3ufS.jpg"
+          "name": "Анна Ганн",
+          "photo": "https://image.tmdb.org/t/p/w185/adppyeu1a4REN3khtgmXusrapFi.jpg"
         },
         {
-          "name": "Лудакрис",
-          "photo": "https://image.tmdb.org/t/p/w185/erkJijujhe48vhJ8iCEtVpNEeVn.jpg"
+          "name": "Ар Джей Митт",
+          "photo": "https://image.tmdb.org/t/p/w185/sNPA92ZrssYhlaB1UA2pWcLD9db.jpg"
         }
       ],
       "director": {
-        "name": "Луи Летерье",
-        "photo": "https://image.tmdb.org/t/p/w185/bpqqRRyCLeoAup2OAv1Dtm5C8Tn.jpg"
+        "name": "Винс Гиллиган",
+        "photo": "https://image.tmdb.org/t/p/w185/wJIxATESjzsjSgvRhVavOmdamXc.jpg"
       },
       "trailer": "",
-      "ageRating": "PG-13",
-      "keywords": "sequel, revenge, betrayal, racing, family",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 2,
-      "dateRequested": "04.08.2026 20:24",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true
-    },
-    {
-      "title": "Форсаж 9",
-      "year": "2021",
-      "type": "Фильм",
-      "kinopoiskId": "964318",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/964318/",
-      "runtime": "2 ч 23 мин",
-      "genres": "боевик, приключения, криминал",
-      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Perfect Storm Entertainment, 🟢 Universal Pictures, 🟢 Roth-Kirschenbaum Films",
-      "budget": "200.000.000 $",
-      "revenue": "726.229.501 $",
-      "tmdbRating": "6.989",
-      "overview": "Доминик Торетто ведет спокойную жизнь вместе с Летти и сыном Брайаном, но новая опасность всегда где-то рядом. В этот раз Доминику придется встретиться с призраками прошлого, если он хочет спасти самых близких. Команда снова собирается вместе, чтобы предотвратить дерзкий план по захвату мира, который придумал самый опасный преступник и безбашенный водитель из всех, с кем они сталкивались ранее. Ситуация усложняется тем, что этот человек — брат Доминика Джейкоб, которого много лет назад изгнали из семьи.",
-      "poster": "https://image.tmdb.org/t/p/w500/3Abag0sIPHTLFIP2asXcC7E0QxP.jpg",
-      "tagline": "«Быстрая семья навсегда»",
-      "backdrop": "https://image.tmdb.org/t/p/original/xXHZeb1yhJvnSHPzZDqee0zfMb6.jpg",
-      "cast": [
-        {
-          "name": "Вин Дизель",
-          "photo": "https://image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
-        },
-        {
-          "name": "Мишель Родригес",
-          "photo": "https://image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
-        },
-        {
-          "name": "Тайриз Гибсон",
-          "photo": "https://image.tmdb.org/t/p/w185/jxoy4fbXNKFQtBdK73cLXEz3ufS.jpg"
-        },
-        {
-          "name": "Лудакрис",
-          "photo": "https://image.tmdb.org/t/p/w185/erkJijujhe48vhJ8iCEtVpNEeVn.jpg"
-        }
-      ],
-      "director": {
-        "name": "Джастин Лин",
-        "photo": "https://image.tmdb.org/t/p/w185/w0ryazdt8iS3GBrjXfv0FIwvUGY.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=XsXUVWy-Ld8",
-      "ageRating": "12+",
-      "keywords": "speed, family relationships, sequel, nostalgic, duringcreditsstinger",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 3,
-      "dateRequested": "04.08.2026 20:33",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false
-    },
-    {
-      "title": "1408",
-      "year": "2007",
-      "type": "Фильм",
-      "kinopoiskId": "195563",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/195563/",
-      "runtime": "1 ч 44 мин",
-      "genres": "ужасы, детектив",
-      "studios": "🟢 Dimension Films, 🟢 di Bonaventura Pictures",
-      "budget": "25.000.000 $",
-      "revenue": "133.000.000 $",
-      "tmdbRating": "6.692",
-      "overview": "Известный писатель Майк Энслин, сочиняющий свои романы в жанре «ужасы», пишет очередную книгу о необычных явлениях и полтергейсте в отелях. Не верящий в существование загробной жизни, Энслин решает поселиться в печально известном номере 1408 гостиницы «Дельфин», который пустует многие годы: по слухам, там обитают привидения. Невзирая на предупреждения старшего менеджера мистера Джеральда Олина о грозящей опасности, упрямец настаивает на своем, даже не предполагая, каким кошмаром обернется предстоящая ночь…",
-      "poster": "https://image.tmdb.org/t/p/w500/yE9MCW7ZNxSw5SC1TMqm51pMBIV.jpg",
-      "tagline": "«Единственные демоны в комнате 1408 - это те, кто внутри вас»",
-      "backdrop": "https://image.tmdb.org/t/p/original/a4ZupLMg23auAw8e1j1K39PCO6z.jpg",
-      "cast": [
-        {
-          "name": "Джон Кьюсак",
-          "photo": "https://image.tmdb.org/t/p/w185/aCwCx6JU7Jxbg6Q1ygcnLY750le.jpg"
-        },
-        {
-          "name": "Сэмюэл Л. Джексон",
-          "photo": "https://image.tmdb.org/t/p/w185/qdfRtvPCj51C9Uy5VEgjgj69JyV.jpg"
-        },
-        {
-          "name": "Мэри МакКормак",
-          "photo": "https://image.tmdb.org/t/p/w185/e2brLtFCfgLdOp356bcEyRzQkoJ.jpg"
-        },
-        {
-          "name": "Жасмин Джессика Энтони",
-          "photo": "https://image.tmdb.org/t/p/w185/7dx1ee9dRaSI1zT0DVxVw5fli5Y.jpg"
-        }
-      ],
-      "director": {
-        "name": "Микаэль Хофстрём",
-        "photo": "https://image.tmdb.org/t/p/w185/7zOeNtAlm2aSz1ku5fcsuBFG46j.jpg"
-      },
-      "trailer": "",
-      "ageRating": "Нет данных",
-      "keywords": "hotel, hotel room, new york city, research, fire",
+      "ageRating": "TV-MA",
+      "keywords": "new mexico, drug dealer, narcissism, psychopath, terminal illness",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
       "collection": "",
-      "id": 4,
-      "dateRequested": "04.08.2026 20:33",
+      "seasons": "5",
+      "episodes": "62",
+      "tvStatus": "Ended",
+      "id": 1,
+      "dateRequested": "04.08.2026 20:40",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
