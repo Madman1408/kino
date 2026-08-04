@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "04.08.2026 21:08",
+    "lastUpdated": "04.08.2026 21:10",
     "isOnlineBtnVisible": true
   },
   "MadMan1408": [
@@ -357,6 +357,56 @@
       "collection": "Трансформеры (Коллекция)",
       "id": 12,
       "dateRequested": "04.08.2026 21:08",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    },
+    {
+      "title": "Беги, Лола, беги",
+      "year": "1998",
+      "type": "Фильм",
+      "kinopoiskId": "413",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/413/",
+      "runtime": "1 ч 21 мин",
+      "genres": "боевик, драма, триллер",
+      "studios": "🟢 X Filme Creative Pool",
+      "budget": "1.530.000 $",
+      "revenue": "7.660.911 $",
+      "tmdbRating": "7.304",
+      "overview": "Лола и Манни живут в Берлине и безумно любят друг друга. И когда Манни — маленький курьер большого бандита — теряет сумку с деньгами своего босса, спасти его может только Лола. Но чтобы раздобыть совсем не маленькую сумму в сто тысяч марок, у девушки есть только 20 минут. Каждая секунда может означать разницу между жизнью и смертью.",
+      "poster": "https://image.tmdb.org/t/p/w500/sdSq9Od8RferOJOoYNDdmFpZsY4.jpg",
+      "tagline": "«Разница между жизнью и смертью может быть решена за долю секунды»",
+      "backdrop": "https://image.tmdb.org/t/p/original/wRcm3iwi4BeMN59U4fjO7u3dOVI.jpg",
+      "cast": [
+        {
+          "name": "Франка Потенте",
+          "photo": "https://image.tmdb.org/t/p/w185/aU6f9UemZsTkqKEG4l77zf6masg.jpg"
+        },
+        {
+          "name": "Мориц Бляйбтрой",
+          "photo": "https://image.tmdb.org/t/p/w185/xg2F0OM9ZTLrEvaQsqFSiMH79WB.jpg"
+        },
+        {
+          "name": "Herbert Knaup",
+          "photo": "https://image.tmdb.org/t/p/w185/1QmgD5ce0cUEZ4Jk3HqdoxvlGrZ.jpg"
+        },
+        {
+          "name": "Nina Petri",
+          "photo": "https://image.tmdb.org/t/p/w185/pw6sA1kMJsJe8cSutLCJCFfZSX0.jpg"
+        }
+      ],
+      "director": {
+        "name": "Том Тыквер",
+        "photo": "https://image.tmdb.org/t/p/w185/7Upo7OK9T1jKkpjXnZHA7bhgwlN.jpg"
+      },
+      "trailer": "",
+      "ageRating": "Нет данных",
+      "keywords": "race against time, berlin, germany, fate, excited",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "",
+      "id": 13,
+      "dateRequested": "04.08.2026 21:10",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
