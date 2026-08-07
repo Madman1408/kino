@@ -104,6 +104,56 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false
+    },
+    {
+      "title": "Хранители Снов",
+      "year": "2012",
+      "type": "Мультфильм",
+      "kinopoiskId": "466581",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/466581/",
+      "runtime": "1 ч 37 мин",
+      "genres": "боевик, приключения, мультфильм, семейный, фэнтези",
+      "studios": "🟢 DreamWorks Animation",
+      "budget": "145.000.000 $",
+      "revenue": "306.941.670 $",
+      "tmdbRating": "7.38",
+      "overview": "Когда злой дух Кромешник посягает на самое дорогое — детские мечты, Северянин, Ледяной Джек, Кролик, Зубная Фея и Песочный Человек впервые объединяются, чтобы создать команду Хранителей снов…",
+      "poster": "https://image.tmdb.org/t/p/w500/338JxTywTCKqel7RsGgMIqmYooJ.jpg",
+      "tagline": "«Непослушный, Милый. Тебе Лучше Поверить»",
+      "backdrop": "https://image.tmdb.org/t/p/original/sDPk862OKB0Ckkvebo4M2k5AKly.jpg",
+      "cast": [
+        {
+          "name": "Крис Пайн",
+          "photo": "https://image.tmdb.org/t/p/w185/vSe6sIsdtcoqBhuWRXynahFg8Vf.jpg"
+        },
+        {
+          "name": "Алек Болдуин",
+          "photo": "https://image.tmdb.org/t/p/w185/hzKy7x574eeUS3wt1R3yvWBRpeR.jpg"
+        },
+        {
+          "name": "Джуд Лоу",
+          "photo": "https://image.tmdb.org/t/p/w185/6UadpSbfC39WMChAcdnNunzwDxv.jpg"
+        },
+        {
+          "name": "Айла Фишер",
+          "photo": "https://image.tmdb.org/t/p/w185/vVeKcMyFMPcIDLYNAnGSGnQrJ3k.jpg"
+        }
+      ],
+      "director": {
+        "name": "Питер Рэмси",
+        "photo": "https://image.tmdb.org/t/p/w185/eAL9QdCEYyxiMP9cl9lQddg8zEa.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=OD0Up8pkPTE",
+      "ageRating": "PG",
+      "keywords": "new york city, friendship, amnesia, santa claus, cartoon",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/d53bb5aa-a7ce-42e0-bc1a-5b9321a8f7ca-profile_image-600x600.png",
+      "collection": "",
+      "id": 3,
+      "dateRequested": "07.08.2026 20:50",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
     }
   ]
 }
