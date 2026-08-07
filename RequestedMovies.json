@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "07.08.2026 20:54",
+    "lastUpdated": "07.08.2026 20:56",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -252,6 +252,58 @@
       "collection": "",
       "id": 5,
       "dateRequested": "07.08.2026 20:54",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false
+    }
+  ],
+  "DarudeFurystorm": [
+    {
+      "title": "Грань будущего",
+      "year": "2014",
+      "type": "Фильм",
+      "kinopoiskId": "505851",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/505851/",
+      "runtime": "1 ч 53 мин",
+      "genres": "боевик, фантастика",
+      "studios": "🔴 Warner Bros. Pictures | 🟢 RatPac Entertainment, 🟢 Village Roadshow Pictures, 🟢 VIZ Media, 🟢 3 Arts Entertainment",
+      "budget": "178.000.000 $",
+      "revenue": "370.541.256 $",
+      "tmdbRating": "7.641",
+      "overview": "В недалёком будущем раса инопланетян вторгается на Землю. Никакая армия в мире не может противостоять им. Майор Уильям Кейдж умирает в бою, но случается невозможное - он оказывается во времённой петле. Раз за разом он попадает в один и тот же бой, сражается и умирает... снова и снова. И каждое повторяющееся сражение приближает его к разгадке того, как победить врага.",
+      "poster": "https://image.tmdb.org/t/p/w500/98Ll6igWXdjHiKuZtCacTzRGyNX.jpg",
+      "tagline": "«Живи. Умри. И снова»",
+      "backdrop": "https://image.tmdb.org/t/p/original/4V1yIoAKPMRQwGBaSses8Bp2nsi.jpg",
+      "cast": [
+        {
+          "name": "Том Круз",
+          "photo": "https://image.tmdb.org/t/p/w185/maf8PhSvDCdEwjEMbYfGpojR5RP.jpg"
+        },
+        {
+          "name": "Эмили Блант",
+          "photo": "https://image.tmdb.org/t/p/w185/5nCSG5TL1bP1geD8aaBfaLnLLCD.jpg"
+        },
+        {
+          "name": "Брендан Глисон",
+          "photo": "https://image.tmdb.org/t/p/w185/ctPPJu5ZYDZr1IPmzoNpezczrm0.jpg"
+        },
+        {
+          "name": "Билл Пэкстон",
+          "photo": "https://image.tmdb.org/t/p/w185/aLdNe6mt1cSi2zWlUYRregzfis5.jpg"
+        }
+      ],
+      "director": {
+        "name": "Даг Лайман",
+        "photo": "https://image.tmdb.org/t/p/w185/5pPcmwI7GMZ45CyrYLJ3n0IXm6e.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=6l2yLRijoJM",
+      "ageRating": "12+",
+      "keywords": "deja vu, based on novel or book, restart, military officer, dystopia",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/65630fcf-9f80-4ae7-a3ec-76d99ae90877-profile_image-600x600.png",
+      "collection": "",
+      "id": 6,
+      "dateRequested": "07.08.2026 20:56",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
