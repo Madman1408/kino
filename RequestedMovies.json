@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "08.08.2026 21:26",
+    "lastUpdated": "08.08.2026 21:31",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -3095,7 +3095,7 @@
   ],
   "Neputeviy": [
     {
-      "title": "Внук Нурарихёна (1 сезон)",
+      "title": "Внук Нурарихёна",
       "year": "2010",
       "type": "Аниме",
       "kinopoiskId": "584034",
@@ -3146,8 +3146,7 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false,
-      "requestedSeason": 1,
-      "originalTitle": "Внук Нурарихёна"
+      "requestedSeason": 1
     },
     {
       "title": "Синий Экзорцист",
