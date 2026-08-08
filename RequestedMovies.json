@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "08.08.2026 21:39",
+    "lastUpdated": "08.08.2026 22:04",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -3403,56 +3403,6 @@
       "isAuction": false
     },
     {
-      "title": "Дневник памяти",
-      "year": "2004",
-      "type": "Фильм",
-      "kinopoiskId": "3561",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/3561/",
-      "runtime": "2 ч 4 мин",
-      "genres": "мелодрама, драма",
-      "studios": "🔴 New Line Cinema | 🟢 Avery Pix, 🟢 Gran Via Productions",
-      "budget": "29.000.000 $",
-      "revenue": "115.600.000 $",
-      "tmdbRating": "7.891",
-      "overview": "Это история отношений юноши и девушки из разных социальных слоев, живших в Южной Каролине. Ной и Элли провели вместе незабываемое лето, пока их не разделили вначале родители, а затем Вторая мировая война.  После войны все изменилось: Элли обручилась с удачливым бизнесменом, а Ной жил наедине со своими воспоминаниями в старинном доме, который ему удалось отреставрировать. Когда Элли прочла об этом в местной газете, она поняла: ей нужно найти его и решить наконец судьбу их любви...",
-      "poster": "https://image.tmdb.org/t/p/w500/vQWkMYdy0D4MiDngHG7Y0NQY7xe.jpg",
-      "tagline": "«За каждой большой любовью стоит большая история»",
-      "backdrop": "https://image.tmdb.org/t/p/original/zdXnJqBaGFVtLoPNuMeKfEYUViZ.jpg",
-      "cast": [
-        {
-          "name": "Райан Гослинг",
-          "photo": "https://image.tmdb.org/t/p/w185/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg"
-        },
-        {
-          "name": "Рэйчел МакАдамс",
-          "photo": "https://image.tmdb.org/t/p/w185/2DPh6KoNg0p57vvGc6N468zr3ct.jpg"
-        },
-        {
-          "name": "Джина Роулендс",
-          "photo": "https://image.tmdb.org/t/p/w185/7Hda4UFbmpufKnk48KpBuH7j05j.jpg"
-        },
-        {
-          "name": "Джеймс Гарнер",
-          "photo": "https://image.tmdb.org/t/p/w185/8186fvIAGrIGqnvb49CgULo34G4.jpg"
-        }
-      ],
-      "director": {
-        "name": "Nick Cassavetes",
-        "photo": "https://image.tmdb.org/t/p/w185/cSAkROMjuYBmzp7T3Da3WP6loZM.jpg"
-      },
-      "trailer": "",
-      "ageRating": "12+",
-      "keywords": "secret love, soulmates, based on novel or book, love of one's life, fight",
-      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/75305d54-c7cc-40d1-bb9c-91fbe85943c7-profile_image-600x600.png",
-      "collection": "",
-      "id": 58,
-      "dateRequested": "08.08.2026 14:35",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true
-    },
-    {
       "title": "Того",
       "year": "2019",
       "type": "Фильм",
@@ -3551,6 +3501,59 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": true
+    },
+    {
+      "title": "Дневник памяти",
+      "year": "2004",
+      "type": "Фильм",
+      "kinopoiskId": "3561",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/3561/",
+      "runtime": "2 ч 4 мин",
+      "genres": "мелодрама, драма",
+      "studios": "🔴 New Line Cinema | 🟢 Avery Pix, 🟢 Gran Via Productions",
+      "budget": "29.000.000 $",
+      "revenue": "115.600.000 $",
+      "tmdbRating": "7.891",
+      "overview": "Это история отношений юноши и девушки из разных социальных слоев, живших в Южной Каролине. Ной и Элли провели вместе незабываемое лето, пока их не разделили вначале родители, а затем Вторая мировая война.  После войны все изменилось: Элли обручилась с удачливым бизнесменом, а Ной жил наедине со своими воспоминаниями в старинном доме, который ему удалось отреставрировать. Когда Элли прочла об этом в местной газете, она поняла: ей нужно найти его и решить наконец судьбу их любви...",
+      "poster": "https://image.tmdb.org/t/p/w500/vQWkMYdy0D4MiDngHG7Y0NQY7xe.jpg",
+      "tagline": "«За каждой большой любовью стоит большая история»",
+      "backdrop": "https://image.tmdb.org/t/p/original/zdXnJqBaGFVtLoPNuMeKfEYUViZ.jpg",
+      "cast": [
+        {
+          "name": "Райан Гослинг",
+          "photo": "https://image.tmdb.org/t/p/w185/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg"
+        },
+        {
+          "name": "Рэйчел МакАдамс",
+          "photo": "https://image.tmdb.org/t/p/w185/2DPh6KoNg0p57vvGc6N468zr3ct.jpg"
+        },
+        {
+          "name": "Джина Роулендс",
+          "photo": "https://image.tmdb.org/t/p/w185/7Hda4UFbmpufKnk48KpBuH7j05j.jpg"
+        },
+        {
+          "name": "Джеймс Гарнер",
+          "photo": "https://image.tmdb.org/t/p/w185/8186fvIAGrIGqnvb49CgULo34G4.jpg"
+        }
+      ],
+      "director": {
+        "name": "Nick Cassavetes",
+        "photo": "https://image.tmdb.org/t/p/w185/cSAkROMjuYBmzp7T3Da3WP6loZM.jpg"
+      },
+      "trailer": "",
+      "ageRating": "12+",
+      "keywords": "secret love, soulmates, based on novel or book, love of one's life, fight",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/75305d54-c7cc-40d1-bb9c-91fbe85943c7-profile_image-600x600.png",
+      "collection": "",
+      "id": 58,
+      "dateRequested": "08.08.2026 14:35",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true,
+      "isBanned": true,
+      "isTheme": false,
+      "isWatching": false
     }
   ],
   "Mira_Noire": [
