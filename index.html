@@ -225,9 +225,9 @@
         .card-type-badge { background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.5); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; color: var(--mint-light); text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         .card-status { background: var(--mint-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 8px; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
-        .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
-        .card-mini-badge { font-size: 10px; font-weight: 800; background: var(--bg-velvet); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); }
-        .card-mini-badge.auction { color: var(--warm-star); border-color: var(--warm-star); text-transform: uppercase; }
+        .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
+        .card-mini-badge { font-size: 10px; font-weight: 800; background: rgba(34, 24, 54, 0.85); border: 1px solid rgba(92, 242, 138, 0.3); padding: 4px 8px; border-radius: 8px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .card-mini-badge.auction { color: var(--warm-star); border-color: var(--warm-star); }
         .card-mini-badge.cried { color: #a0c4ff; border-color: #a0c4ff; }
         .card-mini-badge.rating { color: var(--mint-light); border-color: var(--mint-main); font-size: 11px; }
 
@@ -537,7 +537,7 @@
     let currentViewData = []; 
     let currentModalMovie = null; 
     let viewMode = localStorage.getItem('siteViewMode') || 'list'; 
-    let isOnlineBtnVisible = true; // СДЕЛАЛ: Добавлена переменная, разрешающая показ кнопки онлайн
+    let isOnlineBtnVisible = true;
 
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%23221836'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%2338255c'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -20)'%3E%3Crect x='160' y='270' width='180' height='250' rx='15' fill='%2338255c' stroke='%235cf28a' stroke-width='6'/%3E%3Crect x='195' y='270' width='110' height='250' fill='%23221836'/%3E%3Crect x='172' y='290' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='330' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='370' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='410' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='450' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='172' y='490' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='290' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='330' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='370' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='410' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='450' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Crect x='316' y='490' width='12' height='16' rx='3' fill='%235cf28a'/%3E%3Cpolygon points='230,365 230,425 275,395' fill='%23ff8fa3'/%3E%3Ccircle cx='345' cy='250' r='14' fill='%23ff8fa3'/%3E%3Ccircle cx='375' cy='280' r='10' fill='%23fce8a1'/%3E%3Ccircle cx='145' cy='520' r='12' fill='%23fce8a1'/%3E%3C/g%3E%3C/svg%3E";
@@ -739,7 +739,6 @@
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             
-            // --- НОВАЯ ЛОГИКА СТАТУСА ---
             let statusText = '';
             if (movie.isWatching) {
                 statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);">СМОТРИМ</span>`;
@@ -749,7 +748,6 @@
                 statusText = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
             }
             
-            // --- НОВАЯ ЛОГИКА БЕЙДЖЕЙ (Оценка -> Слёзы -> Тема -> Бан) ---
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
@@ -768,7 +766,6 @@
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #e74c3c; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);">Получили БАН</div>`;
             }
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
-            // -----------------------------------------------------------
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -780,7 +777,7 @@
             const baseTitle = movie.title || 'Безымянный';
             const displayTitleText = movie.requestedSeason > 0 ? `${baseTitle} (${movie.requestedSeason} сезон)` : baseTitle;
             const cleanTitle = escapeHTML(displayTitleText);
-            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); // ТЕПЕРЬ КОПИРУЕТСЯ БЕЗ СЕЗОНА
+            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); 
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
@@ -801,10 +798,8 @@
             const userColor = stringToColor(cleanNick);
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             
-            // --- НОВОЕ ОФОРМЛЕНИЕ АУКЦИОНА И СЕЗОНОВ ---
             const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(34, 24, 54, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">✦ Аукцион ✦</div>` : '';
             const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: #fff; border-color: var(--mint-main); font-size: 13px;">${movie.requestedSeason} сезон</div>` : '';
-            // -------------------------------------------
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
@@ -860,7 +855,7 @@
             const baseTitle = movie.title || 'Безымянный';
             const displayTitleText = movie.requestedSeason > 0 ? `${baseTitle} (${movie.requestedSeason} сезон)` : baseTitle;
             const cleanTitle = escapeHTML(displayTitleText);
-            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); // ТЕПЕРЬ КОПИРУЕТСЯ БЕЗ СЕЗОНА
+            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); 
             
             const userColor = stringToColor(cleanNick);
             
@@ -873,15 +868,27 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
+            // --- НОВЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК ---
             let bottomBadges = '';
-            if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
-            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            
+            // Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
-                bottomBadges += parseFloat(movie.ourRating) === 1000 
-                    ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` 
-                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
+                bottomBadges = parseFloat(movie.ourRating) === 1000 
+                    ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` + bottomBadges
+                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>` + bottomBadges;
             }
+            // Аукцион (АУК) над оценкой
+            if (movie.isAuction) bottomBadges = `<div class="card-mini-badge auction">✦ АУК ✦</div>` + bottomBadges;
+            // Тем. неделя над аукционом
+            if (movie.isTheme) bottomBadges = `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 ТЕМ. НЕД.</div>` + bottomBadges;
+            // Слезы над темой
+            if (isWatched && movie.cried) bottomBadges = `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>` + bottomBadges;
+            // БАН над слезами
+            if (movie.isBanned) bottomBadges = `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>` + bottomBadges;
+            // СЕЗОН в самом верху колонки
+            if (movie.requestedSeason > 0) bottomBadges = `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>` + bottomBadges;
+            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
@@ -1094,6 +1101,9 @@
              if (movie.cried) html += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
         } 
         
+        if (movie.isTheme) html += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #9b59b6; background: rgba(155, 89, 182, 0.2);">🎨 Тем. неделя</div>`;
+        if (movie.isBanned) html += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2);">🚫 Получили БАН</div>`;
+
         if (html === '') { 
              html = `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent;">Еще не смотрели</div>`; 
         }
