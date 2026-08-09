@@ -584,7 +584,12 @@
     }
 
     function copyMovieNameFromTable(event, title, year, btnElement) { event.stopPropagation(); copyTextToClipboard(`${title} ${year}`, btnElement); }
-    function copyMovieNameFromModal() { if (currentModalMovie) copyTextToClipboard(`${currentModalMovie.title || ''} ${currentModalMovie.year || ''}`, document.getElementById('modalCopyBtn')); }
+    function copyMovieNameFromModal() { 
+        if (currentModalMovie) {
+            const baseTitle = currentModalMovie.title || '';
+            copyTextToClipboard(`${baseTitle} ${currentModalMovie.year || ''}`, document.getElementById('modalCopyBtn')); 
+        }
+    }
 
     async function loadCreatorAvatars() {
         try {
@@ -617,7 +622,6 @@
             const response = await fetch('RequestedMovies.json?t=' + new Date().getTime()); if (!response.ok) throw new Error();
             const data = await response.json(); rawMoviesData = [];
             
-            // СДЕЛАЛ: Проверяем, есть ли флаг в _metadata_
             if (data && data["_metadata_"] && typeof data["_metadata_"]["isOnlineBtnVisible"] !== 'undefined') {
                 isOnlineBtnVisible = data["_metadata_"]["isOnlineBtnVisible"];
             }
@@ -735,8 +739,17 @@
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
             
-            const statusText = isWatched ? `<span class="badge-status">СМОТРЕЛИ</span>` : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
+            // --- НОВАЯ ЛОГИКА СТАТУСА ---
+            let statusText = '';
+            if (movie.isWatching) {
+                statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);">СМОТРИМ</span>`;
+            } else if (isWatched) {
+                statusText = `<span class="badge-status">СМОТРЕЛИ</span>`;
+            } else {
+                statusText = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
+            }
             
+            // --- НОВАЯ ЛОГИКА БЕЙДЖЕЙ (Оценка -> Слёзы -> Тема -> Бан) ---
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
@@ -747,7 +760,15 @@
                 }
                 if (movie.cried) watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             }
+            
+            if (movie.isTheme) {
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #9b59b6; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(155, 89, 182, 0.4);">Тем. неделя</div>`;
+            }
+            if (movie.isBanned) {
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #e74c3c; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);">Получили БАН</div>`;
+            }
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
+            // -----------------------------------------------------------
 
             const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
             const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
@@ -756,8 +777,10 @@
             if (displayType.toLowerCase() === 'мультфильм') displayType = 'Мульт';
             const typeLabel = `<span class="content-type-badge">${displayType}</span>`;
             
-            const cleanTitle = escapeHTML(movie.title || 'Безымянный');
-            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const baseTitle = movie.title || 'Безымянный';
+            const displayTitleText = movie.requestedSeason > 0 ? `${baseTitle} (${movie.requestedSeason} сезон)` : baseTitle;
+            const cleanTitle = escapeHTML(displayTitleText);
+            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); // ТЕПЕРЬ КОПИРУЕТСЯ БЕЗ СЕЗОНА
 
             let castHtml = '';
             if (Array.isArray(movie.cast) && movie.cast.length > 0) {
@@ -777,13 +800,17 @@
 
             const userColor = stringToColor(cleanNick);
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
-            const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Аукцион ✦</div>` : '';
+            
+            // --- НОВОЕ ОФОРМЛЕНИЕ АУКЦИОНА И СЕЗОНОВ ---
+            const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(34, 24, 54, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">✦ Аукцион ✦</div>` : '';
+            const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: #fff; border-color: var(--mint-main); font-size: 13px;">${movie.requestedSeason} сезон</div>` : '';
+            // -------------------------------------------
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
                 <td>
                     <div class="movie-info">
-                        <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
+                        <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitleForCopy}', '${movie.year || ''}', this)" title="Скопировать"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
                         <div class="badges-container">${typeLabel} ${tmdbBadge} ${ageRating} <span class="outline-badge">ID №${movie.id || 0}</span></div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
                         ${movie.tagline ? `<div class="movie-tagline">«${escapeHTML(movie.tagline)}»</div>` : ''}
@@ -792,7 +819,7 @@
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
-                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}${seasonHTML}</div></td>
                 <td style="vertical-align: top;">${runtimeDisplay}</td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;">${statusText}${watchedDateHTML}</div></td>
             `;
@@ -829,14 +856,24 @@
             const cleanNick = movie.requestedBy.replace('@', '').trim();
             const posterUrl = getSafePoster(movie.poster);
             const isWatched = movie.status === "Смотрели";
-            const cleanTitle = escapeHTML(movie.title || 'Безымянный');
-            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            
+            const baseTitle = movie.title || 'Безымянный';
+            const displayTitleText = movie.requestedSeason > 0 ? `${baseTitle} (${movie.requestedSeason} сезон)` : baseTitle;
+            const cleanTitle = escapeHTML(displayTitleText);
+            const safeTitleForCopy = baseTitle.replace(/'/g, "\\'").replace(/"/g, '&quot;'); // ТЕПЕРЬ КОПИРУЕТСЯ БЕЗ СЕЗОНА
+            
             const userColor = stringToColor(cleanNick);
             
-            let statusMarkup = isWatched ? `<div class="card-status">Смотрели</div>` : `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
+            let statusMarkup = '';
+            if (movie.isWatching) {
+                statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c;">Смотрим</div>`;
+            } else if (isWatched) {
+                statusMarkup = `<div class="card-status">Смотрели</div>`;
+            } else {
+                statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
+            }
             
             let bottomBadges = '';
-            
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аукцион ✦</div>`;
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
@@ -856,7 +893,6 @@
             if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
             
             let movieGenres = escapeHTML(movie.genres || 'Нет жанра');
-            
             let runtimeText = movie.runtime && movie.runtime !== 'Неизвестно' ? escapeHTML(movie.runtime) : '?? мин';
 
             const card = document.createElement('div');
@@ -867,7 +903,7 @@
                 <div class="card-top">
                     <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${bannedDotMarkup}
-                    <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+                    <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitleForCopy}', '${movie.year || ''}', this)" title="Скопировать название">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </button>
                     <div class="card-overlay">
@@ -994,7 +1030,10 @@
         posterEl.src = getSafePoster(movie.poster);
         posterEl.onerror = function() { handlePosterError(this); };
         
-        const titleEl = document.getElementById('modalTitle'); titleEl.textContent = movie.title || 'Безымянный';
+        const baseTitle = movie.title || 'Безымянный';
+        const displayTitleText = movie.requestedSeason > 0 ? `${baseTitle} (${movie.requestedSeason} сезон)` : baseTitle;
+        const titleEl = document.getElementById('modalTitle'); titleEl.textContent = displayTitleText;
+        
         document.getElementById('modalYear').textContent = movie.year || '----';
         
         let badgesHtml = '';
@@ -1010,7 +1049,6 @@
         if (movie.ageRating && movie.ageRating !== "Нет данных") badgesHtml += `<span class="outline-badge">${movie.ageRating}</span>`;
         badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         
-        // СДЕЛАЛ: Добавлено условие isOnlineBtnVisible для кнопки!
         if (movie.kinopoiskId && isOnlineBtnVisible) {
             badgesHtml += `<a href="https://kinomix.web.app/movie/${movie.kinopoiskId}" target="_blank" class="watch-online-btn" style="margin-left: 4px;" onclick="event.stopPropagation();">Смотреть Онлайн</a>`;
         }
@@ -1031,24 +1069,36 @@
         document.getElementById('modalOverview').textContent = movie.overview || 'Содержимое утеряно во времени...';
         
         const isWatched = movie.status === "Смотрели";
-        let statusTextHTML = isWatched 
-            ? `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">СМОТРЕЛИ</span>` 
-            : `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
+        
+        let statusTextHTML = '';
+        if (movie.isWatching) {
+            statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 13px;">СМОТРИМ</span>`;
+        } else if (isWatched) {
+            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">СМОТРЕЛИ</span>`;
+        } else {
+            statusTextHTML = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
+        }
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
 
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
+        let html = '';
         if (isWatched && movie.dateWatched) {
-             let html = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
+             html += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
              if (movie.ourRating && movie.ourRating !== "Без оценки") {
                  const parsedRating = parseFloat(movie.ourRating);
                  if (parsedRating === 1000) html += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; flex-direction: column; gap: 2px; padding: 6px 16px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 18px;">1000</span></div>`;
                  else { const rColor = getRatingColor(movie.ourRating); html += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`; }
              }
              if (movie.cried) html += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-             dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${html}</div>`;
-        } else { dateWatchedEl.innerHTML = `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent;">Еще не смотрели</div>`; }
+        } 
+        
+        if (html === '') { 
+             html = `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent;">Еще не смотрели</div>`; 
+        }
+        
+        dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${html}</div>`;
         
         document.getElementById('modalFinances').innerHTML = (movie.budget || movie.revenue) ? `<div class="modal-grid-box">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">0 $ / 0 $</div>`;
 
