@@ -376,18 +376,38 @@
         .crew-card.director img { border-color: var(--cute-pink); } 
         .crew-card span { font-size: 13px; color: var(--text-main); line-height: 1.3; font-weight: 600; }
 
-        /* ИЗМЕНЕНА СЕТКА ДЛЯ МОДАЛКИ (ДОБАВЛЕН СТОЛБЕЦ) */
-        .modal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); }
+        /* ИЗМЕНЕНА СЕТКА ДЛЯ МОДАЛКИ ПО ТЗ */
+        .modal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            background: rgba(19, 15, 28, 0.5); 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid rgba(92, 242, 138, 0.15); 
+        }
+        
+        /* Класс для добавления третьей колонки (ОТМЕТКИ) */
+        .modal-grid.has-tags {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         .modal-grid-box { font-size: 15px; color: var(--mint-light); font-weight: 700; background: rgba(34, 24, 54, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 8px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; }
-        .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 8px; }
+        
+        .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 8px; padding: 10px 15px; }
+        
+        /* Границы между ячейками и строками */
+        .grid-item.border-right { border-right: 1px dashed rgba(92, 242, 138, 0.3); }
+        .grid-item.border-bottom { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
+        
         .grid-item.full-width { grid-column: 1 / -1; } 
-        .grid-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; }
+        .grid-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; margin-bottom: 4px; }
         .grid-value { color: var(--mint-main); font-weight: 700; font-size: 16px; }
         
-        .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; }
-        .modal-requester-link.hover-active:hover { transform: translateX(5px); }
+        .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .modal-requester-link:hover { transform: translateX(5px); }
         .modal-requester-link span.name-text { font-family: var(--font-text); font-size: 16px; color: var(--mint-main); transition: color 0.3s; font-weight: 700; }
-        .modal-requester-link.hover-active:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
+        .modal-requester-link:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
 
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--mint-main); border-radius: 12px; margin-top: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
@@ -415,7 +435,9 @@
             
             /* ФИКС СЕТКИ НА ТЕЛЕФОНЕ ДЛЯ МОДАЛКИ */
             .modal-grid { grid-template-columns: 1fr; }
-            #modalTagsColumn, #modalSeasonsBlock { grid-row: auto !important; grid-column: 1 / -1 !important; }
+            .grid-item.border-right { border-right: none; }
+            .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
             
             .header-top h1 { font-size: 32px; }
             .header-top h1::before, .header-top h1::after { display: none; }
@@ -515,48 +537,48 @@
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         
-                        <!-- НОВАЯ СЕТКА -->
-                        <div class="modal-grid">
+                        <!-- НОВАЯ СЕТКА МОДАЛЬНОГО ОКНА ПО ТЗ -->
+                        <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 10px;">
                             
                             <!-- ROW 1 -->
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom border-right">
                                 <div class="grid-label">Заказал</div>
-                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 4px;"></div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
                             </div>
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom" id="modalStatusCol">
                                 <div class="grid-label">Статус</div>
-                                <div id="modalStatusLabel" style="margin-top: 4px;"></div>
+                                <div id="modalStatusLabel"></div>
                             </div>
                             <!-- ОТМЕТКИ В ПОЛОСЕ ОЦЕНКИ -->
-                            <div class="grid-item" id="modalTagsColumn" style="grid-row: span 2;">
+                            <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 20px;">
                                 <div class="grid-label">Отметки</div>
-                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 4px;"></div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
                             </div>
 
                             <!-- ROW 2 -->
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom border-right">
                                 <div class="grid-label">День заказа</div>
-                                <div id="modalDateReq" style="margin-top: 4px;"></div>
+                                <div id="modalDateReq"></div>
                             </div>
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom" id="modalDateWatchedCol">
                                 <div class="grid-label" id="modalWatchedLabel">День просмотра</div>
-                                <div id="modalDateWatched" style="margin-top: 4px;"></div>
+                                <div id="modalDateWatched"></div>
                             </div>
 
                             <!-- ROW 3 -->
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom border-right">
                                 <div class="grid-label">Бюджет / Сборы</div>
-                                <div id="modalFinances" style="display:flex; flex-direction:column; align-items:flex-start; margin-top: 4px;"></div>
+                                <div id="modalFinances"></div>
                             </div>
-                            <div class="grid-item" id="modalSeasonsBlock" style="grid-column: span 2; display: none;">
+                            <div class="grid-item border-bottom" id="modalSeasonsBlock" style="display: none;">
                                 <div class="grid-label">Сезонов / Серий</div>
-                                <div id="modalSeasonsCount" style="margin-top: 4px;"></div>
+                                <div id="modalSeasonsCount"></div>
                             </div>
 
                             <!-- ROW 4 -->
-                            <div class="grid-item full-width" style="margin-top: 4px;">
+                            <div class="grid-item full-width" style="padding-top: 15px;">
                                 <div class="grid-label">Студии</div>
-                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
+                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal;">Архив скрыт</div>
                             </div>
 
                         </div>
@@ -910,10 +932,8 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
-            // --- ПРАВИЛЬНЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК (снизу вверх) ---
             let bottomBadges = '';
             
-            // 1. Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 if (parseFloat(movie.ourRating) === 1000) {
@@ -922,17 +942,11 @@
                     bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
                 }
             }
-            // 2. Аукцион (АУК) над оценкой
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
-            // 3. Тем. неделя над аукционом
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
-            // 4. Слезы над темой
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-            // 5. БАН над слезами
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
-            // 6. СЕЗОН в самом верху колонки
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
-            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
@@ -1121,6 +1135,7 @@
         
         const isWatched = movie.status === "Смотрели";
         
+        // --- ЛОГИКА СТАТУСА ---
         let statusTextHTML = '';
         if (movie.isWatching) {
             statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 13px;">СМОТРИМ</span>`;
@@ -1131,6 +1146,7 @@
         }
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
 
+        // --- ДЕНЬ ЗАКАЗА И ДЕНЬ ПРОСМОТРА ---
         document.getElementById('modalDateReq').innerHTML = movie.dateRequested ? `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
@@ -1145,6 +1161,7 @@
         
         // --- НОВЫЙ СТОЛБЕЦ ОТМЕТОК ---
         const tagsBlock = document.getElementById('modalTagsBlock');
+        const modalMainGrid = document.getElementById('modalMainGrid');
         let tagsHtml = '';
         
         // 1. Оценка
@@ -1164,21 +1181,29 @@
         // 4. БАН
         if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2);">🚫 Получили БАН</div>`;
         
+        const tagsCol = document.getElementById('modalTagsColumn');
         if (tagsHtml === '') {
-            document.getElementById('modalTagsColumn').style.display = 'none';
+            tagsCol.style.display = 'none';
+            modalMainGrid.classList.remove('has-tags');
         } else {
-            document.getElementById('modalTagsColumn').style.display = 'block';
+            tagsCol.style.display = 'flex';
             tagsBlock.innerHTML = tagsHtml;
+            modalMainGrid.classList.add('has-tags');
         }
         // -----------------------------
 
         // --- БЛОК СЕЗОНОВ ВОЗЛЕ БЮДЖЕТА ---
-        let financesHtml = (movie.budget || movie.revenue) ? `<div class="modal-grid-box">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal; margin-bottom: 8px;">0 $ / 0 $</div>`;
+        let financesHtml = (movie.budget || movie.revenue) ? `<div class="modal-grid-box">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">0 $ / 0 $</div>`;
+        document.getElementById('modalFinances').innerHTML = financesHtml;
+        
+        const seasonsBlock = document.getElementById('modalSeasonsBlock');
         let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
         if (isSeries) {
-            financesHtml += `<div class="modal-grid-box" style="margin-top: 8px; font-size: 13px; color: var(--mint-light); border-color: rgba(92, 242, 138, 0.3);">📺 Сезонов: ${movie.seasons} | Серий: ${movie.episodes}</div>`;
+            document.getElementById('modalSeasonsCount').innerHTML = `<div class="modal-grid-box" style="font-size: 13px; color: var(--mint-light); border-color: rgba(92, 242, 138, 0.3);">📺 Сезонов: ${movie.seasons} | Серий: ${movie.episodes}</div>`;
+            seasonsBlock.style.display = 'flex';
+        } else {
+            seasonsBlock.style.display = 'none';
         }
-        document.getElementById('modalFinances').innerHTML = financesHtml;
         // ----------------------------------
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -1186,7 +1211,7 @@
         let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:32px; height:32px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:10px;" alt="">` : `<div class="req-avatar" style="width:32px; height:32px; font-size:14px; border-width:2px; background-color: ${userColor}; border-color: ${userColor}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px; color:var(--bg-deep); font-weight:800;">${getInitials(cleanNick)}</div>`;
         
         // --- АУКЦИОН И СЕЗОН В БЛОКЕ "ЗАКАЗАЛ" (БЕЗ ХОВЕРА) ---
-        let reqInner = `<div class="modal-requester-link hover-active" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank')" style="display:flex; align-items:center; margin-bottom: 8px;">${avatarMarkup}<span class="name-text">${cleanNick}</span></div>`;
+        let reqInner = `<div class="modal-requester-link" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank')" style="display:flex; align-items:center; margin-bottom: 8px;">${avatarMarkup}<span class="name-text">${cleanNick}</span></div>`;
         if (movie.isAuction) reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 6px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(34, 24, 54, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">✦ Аукцион ✦</div>`;
         if (movie.requestedSeason > 0) reqInner += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: var(--mint-main); font-size: 13px;">${movie.requestedSeason} сезон</div>`;
         
