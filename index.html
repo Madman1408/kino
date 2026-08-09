@@ -408,6 +408,11 @@
         .modal-requester-link span.name-text { font-family: var(--font-text); font-size: 16px; color: var(--mint-main); transition: color 0.3s; font-weight: 700; }
         .modal-requester-link:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
 
+        /* Вспомогательные классы для честного деления строки на 2 (для Бюджета и Сезонов) */
+        .flex-row-responsive { display: flex; flex-direction: row; width: 100%; }
+        .flex-col-half { flex: 1; padding: 20px 25px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box; }
+        .border-right-dashed { border-right: 1px dashed rgba(92, 242, 138, 0.3); }
+
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--mint-main); border-radius: 12px; margin-top: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
@@ -434,13 +439,14 @@
             
             /* ФИКС СЕТКИ НА ТЕЛЕФОНЕ ДЛЯ МОДАЛКИ */
             .modal-grid { grid-template-columns: 1fr !important; }
-            .grid-item.border-right { border-right: none; }
+            .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
             #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 25px !important;}
             .grid-item.full-width { border-bottom: none; }
-            #modalFinancesCol { grid-column: 1 / -1 !important; border-right: none !important; }
-            #modalSeasonsBlock { grid-column: 1 / -1 !important; }
             
+            .flex-row-responsive { flex-direction: column; }
+            .flex-col-half.border-right-dashed { border-right: none; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
+
             .header-top h1 { font-size: 32px; }
             .header-top h1::before, .header-top h1::after { display: none; }
         }
@@ -540,7 +546,7 @@
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         
                         <!-- НОВАЯ СЕТКА МОДАЛЬНОГО ОКНА ПО ТЗ -->
-                        <div class="modal-grid" id="modalMainGrid">
+                        <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
                             
                             <!-- ROW 1 -->
                             <div class="grid-item border-bottom border-right" id="modalRequesterCol">
@@ -567,15 +573,8 @@
                                 <div id="modalDateWatched"></div>
                             </div>
 
-                            <!-- ROW 3 -->
-                            <div class="grid-item border-bottom border-right" id="modalFinancesCol">
-                                <div class="grid-label">Бюджет / Сборы</div>
-                                <div id="modalFinances" style="display:flex; flex-direction:column; align-items:flex-start;"></div>
-                            </div>
-                            <div class="grid-item border-bottom" id="modalSeasonsBlock" style="display: none;">
-                                <div class="grid-label">Сезонов / Серий</div>
-                                <div id="modalSeasonsCount"></div>
-                            </div>
+                            <!-- ROW 3 (Сгенерируется через JS для независимого разделения 50/50) -->
+                            <div id="modalRow3Wrapper" style="display: contents;"></div>
 
                             <!-- ROW 4 -->
                             <div class="grid-item full-width" style="border-bottom: none;">
@@ -1161,12 +1160,13 @@
         }
         dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${watchedHtml}</div>`;
         
-        // --- НОВЫЙ СТОЛБЕЦ ОТМЕТОК ---
+        // --- ОТМЕТКИ ---
         const tagsBlock = document.getElementById('modalTagsBlock');
         const modalMainGrid = document.getElementById('modalMainGrid');
+        const statusCol = document.getElementById('modalStatusCol');
+        const dateWatchedCol = document.getElementById('modalDateWatchedCol');
         let tagsHtml = '';
         
-        // 1. Оценка
         if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
             const parsedRating = parseFloat(movie.ourRating);
             if (parsedRating === 1000) {
@@ -1176,48 +1176,55 @@
                 tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`; 
             }
         }
-        // 2. Слёзы
         if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-        // 3. Тема
         if (movie.isTheme) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #9b59b6; background: rgba(155, 89, 182, 0.2);">🎨 Тем. неделя</div>`;
-        // 4. БАН
         if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2);">🚫 Получили БАН</div>`;
         
         const tagsCol = document.getElementById('modalTagsColumn');
         if (tagsHtml === '') {
             tagsCol.style.display = 'none';
             modalMainGrid.classList.remove('has-tags');
+            statusCol.classList.remove('border-right');
+            dateWatchedCol.classList.remove('border-right');
         } else {
             tagsCol.style.display = 'flex';
             tagsBlock.innerHTML = tagsHtml;
             modalMainGrid.classList.add('has-tags');
+            statusCol.classList.add('border-right');
+            dateWatchedCol.classList.add('border-right');
         }
         // -----------------------------
 
         // --- БЛОК СЕЗОНОВ ВОЗЛЕ БЮДЖЕТА ---
-        let financesHtml = (movie.budget || movie.revenue) ? `<div class="modal-grid-box">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal; margin-bottom: 8px;">0 $ / 0 $</div>`;
+        let financesValue = (movie.budget || movie.revenue) ? `<div class="modal-grid-box" style="margin-top: 4px;">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>` : `<div class="grid-value" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">0 $ / 0 $</div>`;
         let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
         
-        const seasonsBlock = document.getElementById('modalSeasonsBlock');
-        const financesCol = document.getElementById('modalFinancesCol');
-        
+        let row3Html = '';
         if (isSeries) {
-            financesHtml = `<div class="modal-grid-box" style="margin-top: 4px;">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>`;
-            document.getElementById('modalSeasonsCount').innerHTML = `<div class="modal-grid-box" style="margin-top: 4px; font-size: 13px; color: var(--mint-light); border-color: rgba(92, 242, 138, 0.3);">📺 Сезонов: ${movie.seasons} | Серий: ${movie.episodes}</div>`;
-            seasonsBlock.style.display = 'flex';
-            financesCol.style.gridColumn = 'auto'; // Бюджет занимает 1 колонку
+            let seasonsValue = `<div class="modal-grid-box" style="margin-top: 4px; font-size: 13px; color: var(--mint-light); border-color: rgba(92, 242, 138, 0.3);">📺 Сезонов: ${movie.seasons} | Серий: ${movie.episodes}</div>`;
+            row3Html = `
+                <div class="grid-item full-width border-bottom" style="padding: 0;">
+                    <div class="flex-row-responsive">
+                        <div class="flex-col-half border-right-dashed">
+                            <div class="grid-label">Бюджет / Сборы</div>
+                            ${financesValue}
+                        </div>
+                        <div class="flex-col-half">
+                            <div class="grid-label">Сезонов / Серий</div>
+                            ${seasonsValue}
+                        </div>
+                    </div>
+                </div>
+            `;
         } else {
-            financesHtml = `<div class="modal-grid-box" style="margin-top: 4px;">${movie.budget || '0 $'} / ${movie.revenue || '0 $'}</div>`;
-            seasonsBlock.style.display = 'none';
-            
-            // Если нет сериала, растягиваем бюджет
-            if(tagsHtml === '') {
-                 financesCol.style.gridColumn = 'span 2';
-            } else {
-                 financesCol.style.gridColumn = 'span 3';
-            }
+            row3Html = `
+                <div class="grid-item full-width border-bottom">
+                    <div class="grid-label">Бюджет / Сборы</div>
+                    ${financesValue}
+                </div>
+            `;
         }
-        document.getElementById('modalFinances').innerHTML = financesHtml;
+        document.getElementById('modalRow3Wrapper').innerHTML = row3Html;
         // ----------------------------------
 
         const cleanNick = movie.requestedBy.replace('@', '').trim();
