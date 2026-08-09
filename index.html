@@ -412,7 +412,11 @@
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
             .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
             .modal-poster { width: 140px; margin: 0 auto; }
+            
+            /* ФИКС СЕТКИ НА ТЕЛЕФОНЕ ДЛЯ МОДАЛКИ */
             .modal-grid { grid-template-columns: 1fr; }
+            #modalTagsColumn, #modalSeasonsBlock { grid-row: auto !important; grid-column: 1 / -1 !important; }
+            
             .header-top h1 { font-size: 32px; }
             .header-top h1::before, .header-top h1::after { display: none; }
         }
@@ -511,24 +515,50 @@
                         <div class="modal-overview" id="modalOverview"></div>
                         <div class="modal-crew-section" id="modalCrewSection"></div>
                         
+                        <!-- НОВАЯ СЕТКА -->
                         <div class="modal-grid">
+                            
+                            <!-- ROW 1 -->
                             <div class="grid-item">
                                 <div class="grid-label">Заказал</div>
-                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 4px;"></div>
                             </div>
-                            <div class="grid-item"><div class="grid-label">Статус</div><div id="modalStatusLabel" style="margin-top: 4px;"></div></div>
-                            <div class="grid-item"><div class="grid-label">День заказа</div><div id="modalDateReq"></div></div>
-                            <div class="grid-item"><div class="grid-label" id="modalWatchedLabel">День просмотра</div><div id="modalDateWatched"></div></div>
                             <div class="grid-item">
-                                <div class="grid-label">Бюджет / Сборы</div>
-                                <div id="modalFinances" style="display:flex; flex-direction:column; align-items:flex-start;"></div>
+                                <div class="grid-label">Статус</div>
+                                <div id="modalStatusLabel" style="margin-top: 4px;"></div>
                             </div>
-                            <!-- НОВЫЙ СТОЛБЕЦ ДЛЯ ОТМЕТОК -->
-                            <div class="grid-item" id="modalTagsColumn">
+                            <!-- ОТМЕТКИ В ПОЛОСЕ ОЦЕНКИ -->
+                            <div class="grid-item" id="modalTagsColumn" style="grid-row: span 2;">
                                 <div class="grid-label">Отметки</div>
                                 <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 4px;"></div>
                             </div>
-                            <div class="grid-item full-width"><div class="grid-label">Студии</div><div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal;">Архив скрыт</div></div>
+
+                            <!-- ROW 2 -->
+                            <div class="grid-item">
+                                <div class="grid-label">День заказа</div>
+                                <div id="modalDateReq" style="margin-top: 4px;"></div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="grid-label" id="modalWatchedLabel">День просмотра</div>
+                                <div id="modalDateWatched" style="margin-top: 4px;"></div>
+                            </div>
+
+                            <!-- ROW 3 -->
+                            <div class="grid-item">
+                                <div class="grid-label">Бюджет / Сборы</div>
+                                <div id="modalFinances" style="display:flex; flex-direction:column; align-items:flex-start; margin-top: 4px;"></div>
+                            </div>
+                            <div class="grid-item" id="modalSeasonsBlock" style="grid-column: span 2; display: none;">
+                                <div class="grid-label">Сезонов / Серий</div>
+                                <div id="modalSeasonsCount" style="margin-top: 4px;"></div>
+                            </div>
+
+                            <!-- ROW 4 -->
+                            <div class="grid-item full-width" style="margin-top: 4px;">
+                                <div class="grid-label">Студии</div>
+                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
+                            </div>
+
                         </div>
                         
                         <div id="trailerWrapper" style="display: none;">
@@ -880,8 +910,10 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
+            // --- ПРАВИЛЬНЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК (снизу вверх) ---
             let bottomBadges = '';
             
+            // 1. Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 if (parseFloat(movie.ourRating) === 1000) {
@@ -890,11 +922,17 @@
                     bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
                 }
             }
+            // 2. Аукцион (АУК) над оценкой
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
+            // 3. Тем. неделя над аукционом
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
+            // 4. Слезы над темой
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            // 5. БАН над слезами
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
+            // 6. СЕЗОН в самом верху колонки
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
+            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
