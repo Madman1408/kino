@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 08:33",
+    "lastUpdated": "09.08.2026 08:34",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -3601,13 +3601,14 @@
       "tvStatus": "Ended",
       "id": 79,
       "dateRequested": "09.08.2026 08:29",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
+      "status": "Смотрели",
+      "ourRating": "9",
       "cried": false,
       "isAuction": false,
       "isBanned": false,
       "isTheme": false,
-      "isWatching": false
+      "isWatching": false,
+      "dateWatched": "09.08.2026 08:34"
     }
   ],
   "nentome": [
