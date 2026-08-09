@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 08:28",
+    "lastUpdated": "09.08.2026 08:29",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -2774,6 +2774,66 @@
       "isAuction": false
     }
   ],
+  "Mrbug_Vld": [
+    {
+      "title": "Solo Leveling: Поднятие уровня в одиночку",
+      "year": "2024",
+      "type": "Аниме",
+      "kinopoiskId": "5230828",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5230828/",
+      "runtime": "24 мин",
+      "genres": "мультфильм, Боевик и Приключения, НФ и Фэнтези",
+      "studios": "🟢 A-1 Pictures, 🟢 Aniplex, 🟢 Netmarble, 🟢 D&C Media, 🟢 Kakao piccoma, 🟢 Crunchyroll, 🟢 Crunchyroll",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.669",
+      "overview": "10 лет назад открылись врата в другой мир, где людям дозволено убивать монстров. Так появились охотники, преследующие и уничтожающие тварей. Но не каждому из них суждено повысить свой уровень и стать сильнее. Сон Джин-у был охотником низшего E-ранга, у которого не было ни единого шанса продвинуться по ранговой лестнице, пока однажды он случайно не очутился в подземелье D-ранга. Чуть не погибнув от рук чудовищ, Джин-у открывает секрет повышения уровня.",
+      "poster": "https://image.tmdb.org/t/p/w500/8u56LKz0An8xa9YaFtkxsDKc5N5.jpg",
+      "tagline": "Раньше он был самым слабым.",
+      "backdrop": "https://image.tmdb.org/t/p/original/xMNH87maNLt9n2bMDYeI6db5VFm.jpg",
+      "cast": [
+        {
+          "name": "Тайто Бан",
+          "photo": "https://image.tmdb.org/t/p/w185/pSExEOVmjAujKUyJJJSxC1WEzOM.jpg"
+        },
+        {
+          "name": "Гэнта Накамура",
+          "photo": "https://image.tmdb.org/t/p/w185/bl3pu2fsaNfHqnZQSDugY4V1CE0.jpg"
+        },
+        {
+          "name": "Харуна Микава",
+          "photo": "https://image.tmdb.org/t/p/w185/nsrFjmDDzo4FDMhxyvuVk4mPEH3.jpg"
+        },
+        {
+          "name": "Рэина Уэда",
+          "photo": "https://image.tmdb.org/t/p/w185/2WV61uVU7y6XGYqNHLMpP0sApdu.jpg"
+        }
+      ],
+      "director": {
+        "name": "Нет данных",
+        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "keywords": "magic, survival, combat, super power, hunting",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/988ceb7c-841a-4de1-bfb4-c1f19951e389-profile_image-600x600.jpeg",
+      "collection": "",
+      "seasons": "1",
+      "episodes": "25",
+      "tvStatus": "Ended",
+      "id": 33,
+      "dateRequested": "08.08.2026 13:52",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "requestedSeason": 1,
+      "dateWatched": "",
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false
+    }
+  ],
   "susgirl1": [
     {
       "title": "Артур, ты король",
@@ -3969,65 +4029,5 @@
       "isAuction": false
     }
   ],
-  "moobot": [],
-  "Mrbug_Vld": [
-    {
-      "title": "Solo Leveling: Поднятие уровня в одиночку",
-      "year": "2024",
-      "type": "Аниме",
-      "kinopoiskId": "5230828",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5230828/",
-      "runtime": "24 мин",
-      "genres": "мультфильм, Боевик и Приключения, НФ и Фэнтези",
-      "studios": "🟢 A-1 Pictures, 🟢 Aniplex, 🟢 Netmarble, 🟢 D&C Media, 🟢 Kakao piccoma, 🟢 Crunchyroll, 🟢 Crunchyroll",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "8.669",
-      "overview": "10 лет назад открылись врата в другой мир, где людям дозволено убивать монстров. Так появились охотники, преследующие и уничтожающие тварей. Но не каждому из них суждено повысить свой уровень и стать сильнее. Сон Джин-у был охотником низшего E-ранга, у которого не было ни единого шанса продвинуться по ранговой лестнице, пока однажды он случайно не очутился в подземелье D-ранга. Чуть не погибнув от рук чудовищ, Джин-у открывает секрет повышения уровня.",
-      "poster": "https://image.tmdb.org/t/p/w500/8u56LKz0An8xa9YaFtkxsDKc5N5.jpg",
-      "tagline": "Раньше он был самым слабым.",
-      "backdrop": "https://image.tmdb.org/t/p/original/xMNH87maNLt9n2bMDYeI6db5VFm.jpg",
-      "cast": [
-        {
-          "name": "Тайто Бан",
-          "photo": "https://image.tmdb.org/t/p/w185/pSExEOVmjAujKUyJJJSxC1WEzOM.jpg"
-        },
-        {
-          "name": "Гэнта Накамура",
-          "photo": "https://image.tmdb.org/t/p/w185/bl3pu2fsaNfHqnZQSDugY4V1CE0.jpg"
-        },
-        {
-          "name": "Харуна Микава",
-          "photo": "https://image.tmdb.org/t/p/w185/nsrFjmDDzo4FDMhxyvuVk4mPEH3.jpg"
-        },
-        {
-          "name": "Рэина Уэда",
-          "photo": "https://image.tmdb.org/t/p/w185/2WV61uVU7y6XGYqNHLMpP0sApdu.jpg"
-        }
-      ],
-      "director": {
-        "name": "Нет данных",
-        "photo": "https://via.placeholder.com/185x278?text=No+Photo"
-      },
-      "trailer": "",
-      "ageRating": "TV-14",
-      "keywords": "magic, survival, combat, super power, hunting",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/988ceb7c-841a-4de1-bfb4-c1f19951e389-profile_image-600x600.jpeg",
-      "collection": "",
-      "seasons": "1",
-      "episodes": "25",
-      "tvStatus": "Ended",
-      "id": 33,
-      "dateRequested": "08.08.2026 13:52",
-      "status": "Смотрели",
-      "ourRating": "8",
-      "cried": false,
-      "isAuction": false,
-      "requestedSeason": 1,
-      "dateWatched": "09.08.2026 08:25",
-      "isBanned": false,
-      "isTheme": false,
-      "isWatching": false
-    }
-  ]
+  "moobot": []
 }
