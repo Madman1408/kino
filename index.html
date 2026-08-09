@@ -574,7 +574,7 @@
                             </div>
 
                             <!-- ROW 3 (Сгенерируется через JS для независимого разделения 50/50) -->
-                            <div id="modalRow3Wrapper" style="display: contents;"></div>
+                            <div id="modalRow3Wrapper" class="grid-item full-width border-bottom" style="padding: 0;"></div>
 
                             <!-- ROW 4 -->
                             <div class="grid-item full-width" style="border-bottom: none;">
@@ -601,7 +601,7 @@
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
-    let viewMode = localStorage.getItem('siteViewMode') || 'list'; 
+    let viewMode = localStorage.getItem('siteViewMode') || 'grid'; 
     let isOnlineBtnVisible = true;
 
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%23221836'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%2338255c'/%3E%3C/svg%3E";
@@ -933,8 +933,10 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
+            // --- ПРАВИЛЬНЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК (снизу вверх) ---
             let bottomBadges = '';
             
+            // 1. Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 if (parseFloat(movie.ourRating) === 1000) {
@@ -943,11 +945,17 @@
                     bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
                 }
             }
+            // 2. Аукцион (АУК) над оценкой
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
+            // 3. Тем. неделя над аукционом
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
+            // 4. Слезы над темой
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            // 5. БАН над слезами
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
+            // 6. СЕЗОН в самом верху колонки
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
+            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
@@ -1152,11 +1160,12 @@
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
         let watchedHtml = '';
-        if (isWatched && movie.dateWatched) {
-             watchedHtml = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
-        } 
-        if (watchedHtml === '') { 
-             watchedHtml = `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent;">Еще не смотрели</div>`; 
+        if (movie.isWatching) {
+            watchedHtml = `<div class="modal-grid-box" style="margin-top: 0; background: rgba(34, 24, 54, 0.9); border-color: rgba(92, 242, 138, 0.2); color: #ffd700;">В процессе...</div>`;
+        } else if (isWatched && movie.dateWatched) {
+            watchedHtml = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
+        } else { 
+            watchedHtml = `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent;">Еще не смотрели</div>`; 
         }
         dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${watchedHtml}</div>`;
         
@@ -1203,22 +1212,20 @@
         if (isSeries) {
             let seasonsValue = `<div class="modal-grid-box" style="margin-top: 4px; font-size: 13px; color: var(--mint-light); border-color: rgba(92, 242, 138, 0.3);">📺 Сезонов: ${movie.seasons} | Серий: ${movie.episodes}</div>`;
             row3Html = `
-                <div class="grid-item full-width border-bottom" style="padding: 0;">
-                    <div class="flex-row-responsive">
-                        <div class="flex-col-half border-right-dashed">
-                            <div class="grid-label">Бюджет / Сборы</div>
-                            ${financesValue}
-                        </div>
-                        <div class="flex-col-half">
-                            <div class="grid-label">Сезонов / Серий</div>
-                            ${seasonsValue}
-                        </div>
+                <div class="flex-row-responsive">
+                    <div class="flex-col-half border-right-dashed">
+                        <div class="grid-label">Бюджет / Сборы</div>
+                        ${financesValue}
+                    </div>
+                    <div class="flex-col-half">
+                        <div class="grid-label">Сезонов / Серий</div>
+                        ${seasonsValue}
                     </div>
                 </div>
             `;
         } else {
             row3Html = `
-                <div class="grid-item full-width border-bottom">
+                <div style="padding: 20px 25px; display: flex; flex-direction: column; gap: 4px;">
                     <div class="grid-label">Бюджет / Сборы</div>
                     ${financesValue}
                 </div>
