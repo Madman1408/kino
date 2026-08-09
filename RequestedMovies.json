@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 08:56",
+    "lastUpdated": "09.08.2026 09:36",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -2878,7 +2878,8 @@
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false
+      "isAuction": false,
+      "requestedSeason": 1
     }
   ],
   "placsameow": [
