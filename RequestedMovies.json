@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 09:37",
+    "lastUpdated": "09.08.2026 09:47",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -3970,7 +3970,7 @@
       "requestedSeason": 1,
       "dateWatched": "09.08.2026 09:37",
       "isBanned": true,
-      "isTheme": false,
+      "isTheme": true,
       "isWatching": false
     }
   ],
