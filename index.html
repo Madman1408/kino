@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #130f1c;         
-            --bg-sunset: #38255c;       
-            --bg-velvet: #221836;       
+            --bg-deep: #130f1c;
+            --bg-sunset: #38255c;
+            --bg-velvet: #221836;
             
-            --mint-light: #d1fce0;      
-            --mint-main: #5cf28a;       
-            --mint-dark: #278c47;       
+            --mint-light: #d1fce0;
+            --mint-main: #5cf28a;
+            --mint-dark: #278c47;
             
-            --warm-star: #fce8a1;       
-            --cute-pink: #ff8fa3;       
+            --warm-star: #fce8a1;
+            --cute-pink: #ff8fa3;
             
-            --text-main: #f0edf5;       
-            --text-muted: #b5adc4;      
+            --text-main: #f0edf5;
+            --text-muted: #b5adc4;
             
             --font-title: 'Comfortaa', cursive;
             --font-text: 'Nunito', sans-serif;
@@ -718,11 +718,11 @@
 
         // --- НОВАЯ СТРОГАЯ СОРТИРОВКА ПО ПРИОРИТЕТАМ ---
         const sortByOrder = (a, b) => { 
-            bool isWatchingA = a.isWatching === true;
-            bool isWatchingB = b.isWatching === true;
+            let isWatchingA = a.isWatching === true;
+            let isWatchingB = b.isWatching === true;
             
-            bool isUnwatchedA = a.status === 'Не смотрели'; 
-            bool isUnwatchedB = b.status === 'Не смотрели'; 
+            let isUnwatchedA = a.status === 'Не смотрели'; 
+            let isUnwatchedB = b.status === 'Не смотрели'; 
 
             // Приоритет 1: СМОТРИМ
             if (isWatchingA && !isWatchingB) return -1;
