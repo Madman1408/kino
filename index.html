@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #130f1c;
-            --bg-sunset: #38255c;
-            --bg-velvet: #221836;
+            --bg-deep: #130f1c;         
+            --bg-sunset: #38255c;       
+            --bg-velvet: #221836;       
             
-            --mint-light: #d1fce0;
-            --mint-main: #5cf28a;
-            --mint-dark: #278c47;
+            --mint-light: #d1fce0;      
+            --mint-main: #5cf28a;       
+            --mint-dark: #278c47;       
             
-            --warm-star: #fce8a1;
-            --cute-pink: #ff8fa3;
+            --warm-star: #fce8a1;       
+            --cute-pink: #ff8fa3;       
             
-            --text-main: #f0edf5;
-            --text-muted: #b5adc4;
+            --text-main: #f0edf5;       
+            --text-muted: #b5adc4;      
             
             --font-title: 'Comfortaa', cursive;
             --font-text: 'Nunito', sans-serif;
@@ -716,15 +716,30 @@
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
+        // --- НОВАЯ СТРОГАЯ СОРТИРОВКА ПО ПРИОРИТЕТАМ ---
         const sortByOrder = (a, b) => { 
-            const isUnwatchedA = a.status === 'Не смотрели'; 
-            const isUnwatchedB = b.status === 'Не смотрели'; 
-            if (isUnwatchedA !== isUnwatchedB) return isUnwatchedA ? -1 : 1; 
-            if (isUnwatchedA) return a.parsedDate - b.parsedDate; 
-            let dateA = a.dateWatched ? parseDateObj(a.dateWatched) : 0; 
-            if (!dateA) dateA = a.parsedDate; 
-            let dateB = b.dateWatched ? parseDateObj(b.dateWatched) : 0; 
-            if (!dateB) dateB = b.parsedDate; 
+            bool isWatchingA = a.isWatching === true;
+            bool isWatchingB = b.isWatching === true;
+            
+            bool isUnwatchedA = a.status === 'Не смотрели'; 
+            bool isUnwatchedB = b.status === 'Не смотрели'; 
+
+            // Приоритет 1: СМОТРИМ
+            if (isWatchingA && !isWatchingB) return -1;
+            if (!isWatchingA && isWatchingB) return 1;
+
+            // Приоритет 2: В ОЧЕРЕДИ (Не смотрели)
+            if (isUnwatchedA && !isUnwatchedB) return -1;
+            if (!isUnwatchedA && isUnwatchedB) return 1;
+
+            // Если оба в СМОТРИМ или оба В ОЧЕРЕДИ -> сортируем по дате заказа (Старые выше)
+            if ((isWatchingA && isWatchingB) || (isUnwatchedA && isUnwatchedB)) {
+                return a.parsedDate - b.parsedDate;
+            }
+
+            // Приоритет 3: СМОТРЕЛИ -> сортируем по дате просмотра (Новые выше)
+            let dateA = a.dateWatched ? parseDateObj(a.dateWatched) : a.parsedDate; 
+            let dateB = b.dateWatched ? parseDateObj(b.dateWatched) : b.parsedDate; 
             return dateB - dateA; 
         };
 
@@ -779,23 +794,27 @@
         const tbody = document.getElementById('table-body');
         
         const sortMode = document.getElementById('sortSelect').value;
-        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели').length;
-        const showDivider = activeCount >= 4;
+        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели' || m.isWatching === true).length;
+        const showDivider = activeCount > 0;
 
         currentViewData.forEach((movie, index) => {
             
-            if (sortMode === 'order' && index > 0 && showDivider && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
-                const dividerTr = document.createElement('tr');
-                dividerTr.innerHTML = `
-                    <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
-                        <div style="display: flex; align-items: center; justify-content: center;">
-                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
-                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">✨ Просмотрено ✨</span>
-                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(dividerTr);
+            // ЛОГИКА РАЗДЕЛИТЕЛЯ: если текущий СМОТРЕЛИ, а предыдущий СМОТРИМ или В ОЧЕРЕДИ
+            if (sortMode === 'order' && index > 0 && showDivider) {
+                const prevMovie = currentViewData[index - 1];
+                if ((prevMovie.status === 'Не смотрели' || prevMovie.isWatching === true) && movie.status === 'Смотрели') {
+                    const dividerTr = document.createElement('tr');
+                    dividerTr.innerHTML = `
+                        <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                                <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">✨ Просмотрено ✨</span>
+                                <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.3;"></div>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(dividerTr);
+                }
             }
 
             const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -893,24 +912,28 @@
         gridContainer.className = 'movies-grid';
         
         const sortMode = document.getElementById('sortSelect').value;
-        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели').length;
-        const showDivider = activeCount >= 4;
+        const activeCount = currentViewData.filter(m => m.status === 'Не смотрели' || m.isWatching === true).length;
+        const showDivider = activeCount > 0;
 
         currentViewData.forEach((movie, index) => {
             
-            if (sortMode === 'order' && index > 0 && showDivider && currentViewData[index - 1].status === 'Не смотрели' && movie.status === 'Смотрели') {
-                const dividerDiv = document.createElement('div');
-                dividerDiv.style.gridColumn = '1 / -1';
-                dividerDiv.innerHTML = `
-                    <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0;"></div>
-                    <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
-                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.4;"></div>
-                        <span style="padding: 0 20px; font-family: var(--font-title); font-size: 20px; font-weight: 900; color: var(--mint-main); text-shadow: 0 0 15px rgba(92, 242, 138, 0.6); text-transform: uppercase; letter-spacing: 2px;">✨ Просмотрено ✨</span>
-                        <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.4;"></div>
-                    </div>
-                    <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0 25px 0;"></div>
-                `;
-                gridContainer.appendChild(dividerDiv);
+            // ЛОГИКА РАЗДЕЛИТЕЛЯ: если текущий СМОТРЕЛИ, а предыдущий СМОТРИМ или В ОЧЕРЕДИ
+            if (sortMode === 'order' && index > 0 && showDivider) {
+                const prevMovie = currentViewData[index - 1];
+                if ((prevMovie.status === 'Не смотрели' || prevMovie.isWatching === true) && movie.status === 'Смотрели') {
+                    const dividerDiv = document.createElement('div');
+                    dividerDiv.style.gridColumn = '1 / -1';
+                    dividerDiv.innerHTML = `
+                        <div style="width: 100%; border-top: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0;"></div>
+                        <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.4;"></div>
+                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 20px; font-weight: 900; color: var(--mint-main); text-shadow: 0 0 15px rgba(92, 242, 138, 0.6); text-transform: uppercase; letter-spacing: 2px;">✨ Просмотрено ✨</span>
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--mint-main)); opacity: 0.4;"></div>
+                        </div>
+                        <div style="width: 100%; border-bottom: 2px dashed rgba(92, 242, 138, 0.4); margin: 15px 0 25px 0;"></div>
+                    `;
+                    gridContainer.appendChild(dividerDiv);
+                }
             }
 
             const cleanNick = movie.requestedBy.replace('@', '').trim();
@@ -933,10 +956,8 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
-            // --- ПРАВИЛЬНЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК (снизу вверх) ---
             let bottomBadges = '';
             
-            // 1. Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 if (parseFloat(movie.ourRating) === 1000) {
@@ -945,17 +966,11 @@
                     bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
                 }
             }
-            // 2. Аукцион (АУК) над оценкой
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
-            // 3. Тем. неделя над аукционом
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
-            // 4. Слезы над темой
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-            // 5. БАН над слезами
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
-            // 6. СЕЗОН в самом верху колонки
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
-            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
