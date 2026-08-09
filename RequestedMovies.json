@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 17:25",
+    "lastUpdated": "09.08.2026 18:08",
     "isOnlineBtnVisible": true
   },
   "cross_loss": [
@@ -51,6 +51,60 @@
       "collection": "",
       "id": 1,
       "dateRequested": "09.08.2026 17:25",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false
+    },
+    {
+      "title": "Любовь-морковь",
+      "requestedSeason": 0,
+      "year": "2007",
+      "type": "Фильм",
+      "kinopoiskId": "254776",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/254776/",
+      "runtime": "1 ч 40 мин",
+      "genres": "комедия, фэнтези",
+      "studios": "🟢 Real Dakota",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "4.608",
+      "overview": "На свадьбе супруги Голубевы клялись друг другу в вечной любви. Со временем страсть ушла, а ее место заняли карьера, быт, друзья и личные увлечения. Они все больше ругаются по пустякам, все меньше проводят времени вместе… Перед супругами замаячила перспектива развода. Последний шанс спасти семью — консультация у семейного психолога доктора Когана. Но доктор Коган лечит семейные отношения не вполне традиционным методом. Утром они просыпаются у себя дома, но теперь они поменялись местами. Им предстоит научиться принимать тела и желания друг друга как свои собственные…",
+      "poster": "https://image.tmdb.org/t/p/w500/22TlILLLWmzAwQpv7Y3eS7NDvR9.jpg",
+      "tagline": "",
+      "backdrop": "https://image.tmdb.org/t/p/original/tHCcRwEDMEvcj7KSF2vcGQqHE3I.jpg",
+      "cast": [
+        {
+          "name": "Гоша Куценко",
+          "photo": "https://image.tmdb.org/t/p/w185/lwolU8kCUWRaW2NfkefvXXThb0f.jpg"
+        },
+        {
+          "name": "Кристина Орбакайте",
+          "photo": "https://image.tmdb.org/t/p/w185/72kPAyBhiOm9n1WNnGZu0LdtVFE.jpg"
+        },
+        {
+          "name": "Евгений Стычкин",
+          "photo": "https://image.tmdb.org/t/p/w185/A6l4ebUDXeBnPJUY6E9tEB7PXFD.jpg"
+        },
+        {
+          "name": "Михаил Козаков",
+          "photo": "https://image.tmdb.org/t/p/w185/mWRsbW2PSq7a19dgZULKdZBpbSp.jpg"
+        }
+      ],
+      "director": {
+        "name": "Александр Стриженов",
+        "photo": "https://image.tmdb.org/t/p/w185/1TNEi3qdIFh5xiv2ZEUfrB8uEox.jpg"
+      },
+      "trailer": "",
+      "ageRating": "12+",
+      "keywords": "",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png",
+      "collection": "Любовь-морковь (Коллекция)",
+      "id": 2,
+      "dateRequested": "09.08.2026 18:08",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
