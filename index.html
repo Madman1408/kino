@@ -868,19 +868,29 @@
                 statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);">В очереди</div>`;
             }
             
+            // --- ПРАВИЛЬНЫЙ ПОРЯДОК БЕЙДЖЕЙ ДЛЯ ПЛИТОК (снизу вверх) ---
             let bottomBadges = '';
             
+            // 1. Оценка (в самом низу)
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
-                bottomBadges = parseFloat(movie.ourRating) === 1000 
-                    ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` + bottomBadges
-                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>` + bottomBadges;
+                if (parseFloat(movie.ourRating) === 1000) {
+                    bottomBadges += `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>`;
+                } else {
+                    bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
+                }
             }
-            if (movie.isAuction) bottomBadges = `<div class="card-mini-badge auction">✦ АУК ✦</div>` + bottomBadges;
-            if (movie.isTheme) bottomBadges = `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 ТЕМ. НЕД.</div>` + bottomBadges;
-            if (isWatched && movie.cried) bottomBadges = `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>` + bottomBadges;
-            if (movie.isBanned) bottomBadges = `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>` + bottomBadges;
-            if (movie.requestedSeason > 0) bottomBadges = `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>` + bottomBadges;
+            // 2. Аукцион (АУК) над оценкой
+            if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
+            // 3. Тем. неделя над аукционом
+            if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
+            // 4. Слезы над темой
+            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            // 5. БАН над слезами
+            if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
+            // 6. СЕЗОН в самом верху колонки
+            if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
+            // ----------------------------------------
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
 
