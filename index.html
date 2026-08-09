@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #130f1c;
-            --bg-sunset: #38255c;
-            --bg-velvet: #221836;
+            --bg-deep: #130f1c;         
+            --bg-sunset: #38255c;       
+            --bg-velvet: #221836;       
             
-            --mint-light: #d1fce0;
-            --mint-main: #5cf28a;
-            --mint-dark: #278c47;
+            --mint-light: #d1fce0;      
+            --mint-main: #5cf28a;       
+            --mint-dark: #278c47;       
             
-            --warm-star: #fce8a1;
-            --cute-pink: #ff8fa3;
+            --warm-star: #fce8a1;       
+            --cute-pink: #ff8fa3;       
             
-            --text-main: #f0edf5;
-            --text-muted: #b5adc4;
+            --text-main: #f0edf5;       
+            --text-muted: #b5adc4;      
             
             --font-title: 'Comfortaa', cursive;
             --font-text: 'Nunito', sans-serif;
@@ -493,6 +493,8 @@
                         <option value="waiting">В ожидании</option>
                         <option value="watched">Смотрели</option>
                         <option value="auction">Аукцион</option>
+                        <option value="theme">Тем. неделя</option>
+                        <option value="banned">Баны</option>
                         <option value="cried">Вызвали слёзы</option>
                     </select>
                     
@@ -716,7 +718,6 @@
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
-        // --- НОВАЯ СТРОГАЯ СОРТИРОВКА ПО ПРИОРИТЕТАМ ---
         const sortByOrder = (a, b) => { 
             let isWatchingA = a.isWatching === true;
             let isWatchingB = b.isWatching === true;
@@ -755,6 +756,8 @@
         else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Смотрели').sort(sortByWatchedDateDesc); }
         else if (sortMode === 'auction') { filtered = filtered.filter(m => m.isAuction === true).sort(sortByOrder); }
         else if (sortMode === 'cried') { filtered = filtered.filter(m => m.cried === true).sort(sortByWatchedDateDesc); }
+        else if (sortMode === 'theme') { filtered = filtered.filter(m => m.isTheme === true).sort(sortByWatchedDateDesc); }
+        else if (sortMode === 'banned') { filtered = filtered.filter(m => m.isBanned === true).sort(sortByWatchedDateDesc); }
         else if (sortMode === 'newest') { filtered.sort((a, b) => b.parsedDate - a.parsedDate); }
         else if (sortMode === 'date_asc') { filtered.sort((a, b) => a.parsedDate - b.parsedDate); }
         else { filtered.sort(sortByOrder); }
@@ -799,7 +802,6 @@
 
         currentViewData.forEach((movie, index) => {
             
-            // ЛОГИКА РАЗДЕЛИТЕЛЯ: если текущий СМОТРЕЛИ, а предыдущий СМОТРИМ или В ОЧЕРЕДИ
             if (sortMode === 'order' && index > 0 && showDivider) {
                 const prevMovie = currentViewData[index - 1];
                 if ((prevMovie.status === 'Не смотрели' || prevMovie.isWatching === true) && movie.status === 'Смотрели') {
@@ -917,7 +919,6 @@
 
         currentViewData.forEach((movie, index) => {
             
-            // ЛОГИКА РАЗДЕЛИТЕЛЯ: если текущий СМОТРЕЛИ, а предыдущий СМОТРИМ или В ОЧЕРЕДИ
             if (sortMode === 'order' && index > 0 && showDivider) {
                 const prevMovie = currentViewData[index - 1];
                 if ((prevMovie.status === 'Не смотрели' || prevMovie.isWatching === true) && movie.status === 'Смотрели') {
