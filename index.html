@@ -1203,7 +1203,7 @@
         }
         if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
         if (movie.isTheme) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #9b59b6; background: rgba(155, 89, 182, 0.2);">🎨 Тем. неделя</div>`;
-        if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2); font-size: 12px;">🚫 Получили БАН</div>`;
+        if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2); font-size: 13px;">🚫 Получили БАН</div>`;
         
         const tagsCol = document.getElementById('modalTagsColumn');
         if (tagsHtml === '') {
