@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "09.08.2026 13:20",
+    "lastUpdated": "11.08.2026 09:52",
     "isOnlineBtnVisible": true
   },
   "sarachuma": [
@@ -3974,7 +3974,8 @@
       "dateWatched": "09.08.2026 09:37",
       "isBanned": true,
       "isTheme": true,
-      "isWatching": false
+      "isWatching": false,
+      "isMarvel": true
     }
   ],
   "wizebot": [],
