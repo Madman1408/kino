@@ -3499,61 +3499,6 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": true
-    },
-    {
-      "title": "Бегущий по лезвию 2049",
-      "requestedSeason": 0,
-      "year": "2017",
-      "type": "Фильм",
-      "kinopoiskId": "589290",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/589290/",
-      "runtime": "2 ч 44 мин",
-      "genres": "фантастика, драма",
-      "studios": "🟢 Alcon Entertainment, 🟢 Columbia Pictures, 🟢 Scott Free Productions, 🟢 Bud Yorkin Productions, 🟢 Torridon Films, 🟢 16:14 Entertainment",
-      "budget": "150.000.000 $",
-      "revenue": "259.239.658 $",
-      "tmdbRating": "7.601",
-      "overview": "Содержимое тайной могилы вызывает интерес промышленного магната, а также офицера Кей из полиции Лос-Анджелеса, который отправляется на поиски пропавшей легенды.",
-      "poster": "https://image.tmdb.org/t/p/w500/fnIJeT9GZvscKm5PbmAvhTYDsLh.jpg",
-      "tagline": "«Ключ к будущему наконец-то найден»",
-      "backdrop": "https://image.tmdb.org/t/p/original/gNdLJU9TxrpGx4dkZidjys3fyy0.jpg",
-      "cast": [
-        {
-          "name": "Райан Гослинг",
-          "photo": "https://image.tmdb.org/t/p/w185/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg"
-        },
-        {
-          "name": "Харрисон Форд",
-          "photo": "https://image.tmdb.org/t/p/w185/pjBMJVPpcZK23Vt1nzr1zEBTWrP.jpg"
-        },
-        {
-          "name": "Ана де Армас",
-          "photo": "https://image.tmdb.org/t/p/w185/eDuBeSHV0R7vuCnHHXrfa7d7IfB.jpg"
-        },
-        {
-          "name": "Дейв Батиста",
-          "photo": "https://image.tmdb.org/t/p/w185/snk6JiXOOoRjPtHU5VMoy6qbd32.jpg"
-        }
-      ],
-      "director": {
-        "name": "Дени Вильнёв",
-        "photo": "https://image.tmdb.org/t/p/w185/zdDx9Xs93UIrJFWYApYR28J8M6b.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=OK3Yw2FGvBw",
-      "ageRating": "16+",
-      "keywords": "future, android, bounty hunter, artificial intelligence (a.i.), dystopia",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "Бегущий по лезвию (Коллекция)",
-      "id": 79,
-      "dateRequested": "11.08.2026 17:14",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true,
-      "isBanned": false,
-      "isTheme": false,
-      "isWatching": false,
-      "isMarvel": false
     }
   ],
   "nentome": [
