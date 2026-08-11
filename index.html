@@ -494,6 +494,7 @@
                         <option value="watched">Смотрели</option>
                         <option value="auction">Аукцион</option>
                         <option value="theme">Тем. неделя</option>
+                        <option value="marvel">Марвел</option>
                         <option value="banned">Баны</option>
                         <option value="cried">Вызвали слёзы</option>
                     </select>
@@ -755,9 +756,10 @@
         if (sortMode === 'waiting') { filtered = filtered.filter(m => m.status === 'Не смотрели').sort((a, b) => a.parsedDate - b.parsedDate); } 
         else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Смотрели').sort(sortByWatchedDateDesc); }
         else if (sortMode === 'auction') { filtered = filtered.filter(m => m.isAuction === true).sort(sortByOrder); }
-        else if (sortMode === 'cried') { filtered = filtered.filter(m => m.cried === true).sort(sortByWatchedDateDesc); }
-        else if (sortMode === 'theme') { filtered = filtered.filter(m => m.isTheme === true).sort(sortByWatchedDateDesc); }
-        else if (sortMode === 'banned') { filtered = filtered.filter(m => m.isBanned === true).sort(sortByWatchedDateDesc); }
+        else if (sortMode === 'theme') { filtered = filtered.filter(m => m.isTheme === true).sort(sortByOrder); }
+        else if (sortMode === 'marvel') { filtered = filtered.filter(m => m.isMarvel === true).sort(sortByOrder); }
+        else if (sortMode === 'banned') { filtered = filtered.filter(m => m.isBanned === true).sort(sortByOrder); }
+        else if (sortMode === 'cried') { filtered = filtered.filter(m => m.cried === true).sort(sortByOrder); }
         else if (sortMode === 'newest') { filtered.sort((a, b) => b.parsedDate - a.parsedDate); }
         else if (sortMode === 'date_asc') { filtered.sort((a, b) => a.parsedDate - b.parsedDate); }
         else { filtered.sort(sortByOrder); }
@@ -847,6 +849,9 @@
             
             if (movie.isTheme) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #9b59b6; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(155, 89, 182, 0.4);">Тем. неделя</div>`;
+            }
+            if (movie.isMarvel) {
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #e62429; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(230, 36, 41, 0.4);">🦸‍♂️ MARVEL</div>`;
             }
             if (movie.isBanned) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; background: #e74c3c; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);">Получили БАН</div>`;
@@ -969,6 +974,7 @@
             }
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(155, 89, 182, 0.85); border-color: #9b59b6;">🎨 Тем.Нед.</div>`;
+            if (movie.isMarvel) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.85); border-color: #e62429;">🦸‍♂️ MARVEL</div>`;
             if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg width="14" height="14" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(231, 76, 60, 0.85); border-color: #e74c3c;">🚫 БАН</div>`;
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--mint-main);">СЕЗОН ${movie.requestedSeason}</div>`;
@@ -1203,6 +1209,7 @@
         }
         if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
         if (movie.isTheme) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #9b59b6; background: rgba(155, 89, 182, 0.2);">🎨 Тем. неделя</div>`;
+        if (movie.isMarvel) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e62429; background: rgba(230, 36, 41, 0.2);">🦸‍♂️ MARVEL</div>`;
         if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e74c3c; background: rgba(231, 76, 60, 0.2); font-size: 13px;">🚫 Получили БАН</div>`;
         
         const tagsCol = document.getElementById('modalTagsColumn');
