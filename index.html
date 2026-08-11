@@ -191,10 +191,11 @@
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; border-left: 3px solid var(--magic-dark); padding-left: 12px; background: linear-gradient(to right, rgba(168, 85, 247, 0.1), transparent); border-radius: 0 10px 10px 0; }
         .movie-studios-list { font-size: 13px; color: var(--warm-star); font-weight: 700; letter-spacing: 0.5px; margin-top: 2px; }
 
+        /* ИСПРАВЛЕНИЕ: Описание раскрывается ТОЛЬКО при наведении на постер */
         .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.5s ease; }
         .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        tr.movie-row:hover .movie-overview-wrapper { max-height: 300px; }
-        tr.movie-row:hover .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 300px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
 
         .requester-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.3s; margin: 0 auto; }
         .requester-badge:hover { transform: scale(1.08); }
