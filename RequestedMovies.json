@@ -3499,6 +3499,57 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": true
+    },
+    {
+      "title": "Блэйд",
+      "requestedSeason": 0,
+      "year": "1998",
+      "type": "Фильм",
+      "kinopoiskId": "4554",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/4554/",
+      "runtime": "2 ч 0 мин",
+      "genres": "ужасы, боевик",
+      "studios": "🔴 New Line Cinema | 🟢 Amen Ra Films, 🟢 Imaginary Forces",
+      "budget": "45.000.000 $",
+      "revenue": "131.183.530 $",
+      "tmdbRating": "6.85",
+      "overview": "Получеловек-полувампир Блэйд намерен уничтожить виновника своей судьбы - Дьякона Фроста. Когда-то в кровь Блэйда попало совсем немного вампирского яда, но с течением времени он стал ощущать неизбежность своего превращения. Желая избавить людей от тайной и могущественной армии вампиров, заполонившей общество, он отправляется на решающий бой.",
+      "poster": "https://image.tmdb.org/t/p/w500/zw6SzepkSSWbR9fvHHdikbQnk2L.jpg",
+      "tagline": "«Вампирам не место на Земле»",
+      "backdrop": "https://image.tmdb.org/t/p/original/7NKfxJrQn053UJeLftlx4m4NTzo.jpg",
+      "cast": [
+        {
+          "name": "Уэсли Снайпс",
+          "photo": "https://image.tmdb.org/t/p/w185/iDmPuZXAGheRMbMyB80acMWYJ2s.jpg"
+        },
+        {
+          "name": "Стивен Дорфф",
+          "photo": "https://image.tmdb.org/t/p/w185/bhlM1xNzBvc8jTw42YloUKlGTCL.jpg"
+        },
+        {
+          "name": "Крис Кристофферсон",
+          "photo": "https://image.tmdb.org/t/p/w185/efD2Uu8QYBN7ZWSFa79mm3Pkk4L.jpg"
+        },
+        {
+          "name": "Н'Буш Райт",
+          "photo": "https://image.tmdb.org/t/p/w185/jSXuSko6tZQ69LfJEMmNLiXEOS8.jpg"
+        }
+      ],
+      "director": {
+        "name": "Стивен Норрингтон",
+        "photo": "https://image.tmdb.org/t/p/w185/yz6mmhcGoglQEILf5uUCK636NH8.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=eSLLmPBvs-A",
+      "ageRating": "16+",
+      "keywords": "martial arts, hero, vampire, superhero, supernatural",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Блэйд (Коллекция)",
+      "id": 79,
+      "dateRequested": "11.08.2026 17:17",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true
     }
   ],
   "nentome": [
