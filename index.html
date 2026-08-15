@@ -127,13 +127,14 @@
         }
         .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
+        /* ИСПРАВЛЕНИЕ: Плашка создателя (sarachuma) теперь овальная */
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
-            background: rgba(12, 30, 91, 0.6); padding: 6px 12px 6px 6px; cursor: pointer;
-            transition: all 0.3s ease; opacity: 0.9; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
+            background: rgba(12, 30, 91, 0.6); padding: 6px 16px 6px 6px; cursor: pointer;
+            transition: all 0.3s ease; opacity: 0.9; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 30px;
         }
         .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
-        .creator-badge img { width: 38px; height: 38px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
+        .creator-badge img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
         .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
@@ -433,9 +434,10 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--accent-main); border-radius: 2px; margin-top: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 30px; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.9; }
-        .footer-badge:hover { opacity: 1; }
-        .footer-badge img { width: 38px; height: 38px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
+        /* ИСПРАВЛЕНИЕ: Плашка создателя внизу (MadMan1408) - теперь тоже овальная и с фоном */
+        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 30px auto 20px auto; padding: 6px 16px 6px 6px; width: fit-content; background: rgba(12, 30, 91, 0.6); border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 30px; cursor: pointer; transition: all 0.3s ease; opacity: 0.9; }
+        .footer-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
+        .footer-badge img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .footer-badge:hover img { box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); transform: scale(1.05); }
         .footer-badge .creator-name { font-size: 20px; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px; color: #fff; }
         .footer-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
