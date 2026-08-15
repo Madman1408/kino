@@ -906,7 +906,7 @@
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
                 </td>
-                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}${seasonHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name resize-list-username" style="display: block; max-width: 115px; white-space: nowrap; overflow: hidden; text-overflow: clip;">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}${seasonHTML}</div></td>
                 <td style="vertical-align: top;">${runtimeDisplay}</td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;">${statusText}${watchedDateHTML}</div></td>
             `;
@@ -1098,6 +1098,15 @@
                 let currentSize = 15;
                 nameEl.style.fontSize = currentSize + "px";
                 while (nameEl.scrollWidth > nameEl.parentElement.clientWidth - 30 && currentSize > 8) {
+                    currentSize -= 0.5;
+                    nameEl.style.fontSize = currentSize + "px";
+                }
+            });
+
+            document.querySelectorAll('.resize-list-username').forEach(nameEl => {
+                let currentSize = 16;
+                nameEl.style.fontSize = currentSize + "px";
+                while (nameEl.scrollWidth > 115 && currentSize > 8) {
                     currentSize -= 0.5;
                     nameEl.style.fontSize = currentSize + "px";
                 }
