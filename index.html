@@ -117,12 +117,15 @@
             color: var(--accent-main); filter: drop-shadow(0 0 8px rgba(254, 0, 0, 0.6)); 
         }
 
+        /* Кнопка "В Архивы" как ссылка */
         .back-btn {
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
             background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
             padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
             font-family: var(--font-title); font-weight: 700; font-size: 18px; text-transform: uppercase; transition: all 0.3s ease; z-index: 10;
+            text-decoration: none; /* Убираем подчеркивание */
         }
+        .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
@@ -188,7 +191,8 @@
         .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
-        .content-type-badge { background: var(--accent-main); color: var(--bg-deep); padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.3); }
+        /* Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ */
+        .content-type-badge { background: var(--accent-main); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); }
         .outline-badge, .tmdb-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 13px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
 
         .movie-genres { font-size: 15px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
@@ -211,7 +215,7 @@
         .time-box svg { stroke: var(--accent-main); width: 16px; height: 16px; }
         .time-box.episodes { font-size: 13px; flex-direction: column; gap: 3px; align-items: center; text-align: center; background: rgba(12, 30, 91, 0.6); border-color: rgba(254, 0, 0, 0.2); padding: 6px 12px; margin-top: 0; }
 
-        .badge-status { font-size: 14px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; background: var(--accent-main); box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
+        .badge-status { font-size: 14px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
 
         .crew-section { display: flex; align-items: center; margin-top: 15px; gap: 12px; }
         .avatar-container { position: relative; z-index: 1; transition: transform 0.3s ease; } 
@@ -253,7 +257,8 @@
         }
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
-        .card-type-badge { background: var(--bg-deep); border: 1px solid rgba(254, 0, 0, 0.5); padding: 3px 6px; border-radius: 2px; font-size: 12px; font-family: var(--font-title); color: var(--text-main); letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        /* Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ */
+        .card-type-badge { background: var(--accent-main); border: 1px solid rgba(254, 0, 0, 0.5); padding: 3px 6px; border-radius: 2px; font-size: 12px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
@@ -358,7 +363,6 @@
         .modal-info-main { flex: 1; background: rgba(12, 30, 91, 0.85); padding: 25px; border-radius: 4px; border: 1px solid rgba(254, 0, 0, 0.3); backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 
         .modal-title-wrapper { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: nowrap; max-width: 100%; overflow: hidden; }
-        /* ДОБАВЛЕН БЕЛЫЙ ЦВЕТ ДЛЯ НАЗВАНИЯ В МОДАЛКЕ С КРАСНОЙ ТЕНЬЮ */
         .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
         .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
         .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
@@ -467,11 +471,11 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="header">
-                <!-- Убрана ссылка, теперь это просто кнопка -->
-                <div class="back-btn" style="cursor: default;">
+                <!-- Кнопка "В Архивы" сделана как ссылка, но никуда не ведет (href="#") -->
+                <a href="#" class="back-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     В Архивы
-                </div>
+                </a>
 
                 <div class="creator-badge" onclick="window.open('https://twitch.tv/sarachuma', '_blank')">
                     <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="sarachumaAvatar" alt="sarachuma">
@@ -816,7 +820,8 @@
             if (movie.isWatching) {
                 statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);">СМОТРИМ</span>`;
             } else if (isWatched) {
-                statusText = `<span class="badge-status" style="background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</span>`;
+                // Красная плашка, белый текст для СМОТРЕЛИ в списке
+                statusText = `<span class="badge-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</span>`;
             } else {
                 statusText = `<span class="badge-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6);">В ОЧЕРЕДИ</span>`;
             }
@@ -937,7 +942,8 @@
             if (movie.isWatching) {
                 statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c;">СМОТРИМ</div>`;
             } else if (isWatched) {
-                statusMarkup = `<div class="card-status" style="background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</div>`;
+                // Красная плашка, белый текст для СМОТРЕЛИ в плитке
+                statusMarkup = `<div class="card-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</div>`;
             } else {
                 statusMarkup = `<div class="card-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5);">В ОЧЕРЕДИ</div>`;
             }
@@ -1115,7 +1121,8 @@
         let badgesHtml = '';
         let displayType = escapeHTML(movie.type || 'Фильм');
         if (displayType.toLowerCase().includes('мульт')) displayType = 'Мульт';
-        badgesHtml += `<span class="outline-badge">${displayType}</span>`;
+        // Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в модалке
+        badgesHtml += `<span class="content-type-badge" style="background: var(--accent-main); color: #ffffff; border: none; box-shadow: 0 0 10px rgba(254,0,0,0.5);">${displayType}</span>`;
 
         if (movie.runtime && movie.runtime !== "Неизвестно" && movie.runtime !== "Нет данных") {
             badgesHtml += `<span class="outline-badge">${escapeHTML(movie.runtime)}</span>`;
@@ -1150,7 +1157,8 @@
         if (movie.isWatching) {
             statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 16px;">СМОТРИМ</span>`;
         } else if (isWatched) {
-            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 16px; background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</span>`;
+            // Красная плашка, белый текст для СМОТРЕЛИ в модалке
+            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 16px; background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.5);">СМОТРЕЛИ</span>`;
         } else {
             statusTextHTML = `<span class="badge-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 16px;">В ОЧЕРЕДИ</span>`;
         }
