@@ -61,7 +61,7 @@
 
         body {
             background-color: var(--bg-deep);
-            background-image: url('background2.webp');
+            background-image: url('background.webp');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
@@ -119,11 +119,11 @@
 
         .back-btn {
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(254, 0, 0, 0.1); color: var(--accent-main); text-decoration: none;
+            background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); text-decoration: none;
             padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
             font-family: var(--font-title); font-weight: 700; font-size: 18px; text-transform: uppercase; transition: all 0.3s ease; z-index: 10;
         }
-        .back-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); }
+        .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
@@ -156,15 +156,15 @@
 
         .view-toggle-btn {
             background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
-            padding: 0 20px; color: var(--accent-main); font-size: 17px; font-family: var(--font-title); font-weight: 700;
+            padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); font-size: 17px; font-family: var(--font-title); font-weight: 700;
             cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
             box-sizing: border-box; height: 40px; letter-spacing: 1px;
         }
-        .view-toggle-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); }
+        .view-toggle-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
 
         
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: var(--accent-main); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
+        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(254, 0, 0, 0.15); }
         tr:last-child td { border-bottom: none; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -467,15 +467,15 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="header">
-                <a href="https://cherteya.github.io/lists/" class="back-btn">
+                <a href="#" onclick="event.preventDefault();" class="back-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     В Архивы
                 </a>
 
-                <div class="creator-badge" onclick="window.open('https://twitch.tv/cherteya', '_blank')">
-                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="cherteyaAvatar" alt="cherteya">
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/sarachuma', '_blank')">
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="sarachumaAvatar" alt="sarachuma">
                     <div class="creator-info">
-                        <span class="creator-name">cherteya</span>
+                        <span class="creator-name">sarachuma</span>
                     </div>
                 </div>
                 
@@ -547,7 +547,7 @@
                         
                         <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
                             <div class="grid-item border-bottom border-right" id="modalRequesterCol">
-                                <div class="grid-label">Заказал</div>
+                                <div class="grid-label">Заказчик</div>
                                 <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
                             </div>
                             <div class="grid-item border-bottom" id="modalStatusCol">
@@ -652,8 +652,8 @@
 
     async function loadCreatorAvatars() {
         try {
-            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=cherteya'); const data1 = await res1.json();
-            if (data1 && data1.length > 0 && data1[0].logo) document.getElementById('cherteyaAvatar').src = data1[0].logo.replace('300x300', '150x150');
+            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=sarachuma'); const data1 = await res1.json();
+            if (data1 && data1.length > 0 && data1[0].logo) document.getElementById('sarachumaAvatar').src = data1[0].logo.replace('300x300', '150x150');
             const res2 = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408'); const data2 = await res2.json();
             if (data2 && data2.length > 0 && data2[0].logo) document.getElementById('madmanAvatar').src = data2[0].logo.replace('300x300', '150x150');
         } catch (e) { }
@@ -771,7 +771,7 @@
                     <tr>
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
-                        <th style="width: 145px; min-width: 145px;">Заказал</th>
+                        <th style="width: 145px; min-width: 145px;">Заказчик</th>
                         <th style="width: 130px; min-width: 130px;">Длительность</th>
                         <th style="width: 135px; min-width: 135px;">Статус</th>
                     </tr>
