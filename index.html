@@ -1227,10 +1227,10 @@
         if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
             const parsedRating = parseFloat(movie.ourRating);
             if (parsedRating === 1000) {
-                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; "><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px; padding: 5px 10px;">Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
+                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
             } else {
                 const rColor = getRatingColor(movie.ourRating); 
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`; 
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 4px 10px;">Оценка: ${movie.ourRating}</div>`; 
             }
         }
         if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--text-main); border-color: var(--accent-main); padding: 5px 11px;"><svg class="icon-3d-effect" width="16" height="16" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
