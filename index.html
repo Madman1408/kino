@@ -135,7 +135,7 @@
         .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
         .creator-badge img { width: 38px; height: 38px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
-        .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
+        .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; }
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
 
         .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
@@ -150,7 +150,7 @@
         .search-box:focus, .sort-select:focus { border-color: var(--accent-main); color: #fff; box-shadow: 0 0 15px rgba(254, 0, 0, 0.4); }
         
         .sort-select { 
-            cursor: pointer; appearance: none; padding-right: 30px; font-size: 15px; color: var(--text-main); font-family: var(--font-title); letter-spacing: 1px;
+            cursor: pointer; appearance: none; padding-right: 30px; font-size: 15px; color: var(--text-main); font-family: var(--font-title); 
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23fe0000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); 
             background-repeat: no-repeat; background-position: right 12px center; 
         }
@@ -160,13 +160,13 @@
             background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
             padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-size: 17px; font-family: var(--font-title); font-weight: 700;
             cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-sizing: border-box; height: 40px; letter-spacing: 1px;
+            box-sizing: border-box; height: 40px; 
         }
         .view-toggle-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
 
         
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
+        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-weight: 700; font-size: 18px; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(254, 0, 0, 0.15); }
         tr:last-child td { border-bottom: none; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -182,7 +182,7 @@
         
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; overflow: hidden; }
         .movie-header { display: flex; align-items: flex-start; justify-content: flex-start; gap: 12px; width: 100%; margin-bottom: 5px; } 
-        .movie-title { font-size: 28px; font-weight: 700; color: #fff; font-family: var(--font-title); text-shadow: 2px 2px 0 rgba(0,0,0,0.8); flex: 0 1 auto; min-width: 0; line-height: 1.1; letter-spacing: 1px; }
+        .movie-title { font-size: 28px; font-weight: 700; color: #fff; font-family: var(--font-title); text-shadow: 2px 2px 0 rgba(0,0,0,0.8); flex: 0 1 auto; min-width: 0; line-height: 1.1; }
         .movie-meta-box { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 1px; }
         .movie-year { color: var(--accent-light); font-size: 20px; font-family: var(--font-title); white-space: nowrap; flex-shrink: 0; } 
         
@@ -191,13 +191,12 @@
         .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
-        /* Темно-синий фон, красная обводка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в списке */
-        .content-type-badge { background: var(--bg-deep); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); border: 1px solid var(--accent-main); }
-        .outline-badge, .tmdb-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 13px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
+        .content-type-badge { background: var(--accent-main); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); border: 1px solid var(--accent-main); }
+        .outline-badge, .tmdb-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 13px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); }
 
-        .movie-genres { font-size: 15px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
+        .movie-genres { font-size: 15px; color: var(--text-main); font-weight: 600; opacity: 0.9; font-family: var(--font-title); }
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; border-left: 2px solid var(--accent-main); padding-left: 8px; font-family: var(--font-text); }
-        .movie-studios-list { font-size: 14px; color: var(--accent-light); font-weight: 600; letter-spacing: 1px; margin-top: 2px; text-transform: uppercase; font-family: var(--font-title); }
+        .movie-studios-list { font-size: 14px; color: var(--accent-light); font-weight: 600; margin-top: 2px; font-family: var(--font-title); }
 
         .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; }
         .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); font-family: var(--font-text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -208,14 +207,14 @@
         .requester-badge:hover .req-avatar { border-color: var(--text-main); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); }
         .requester-badge:hover .req-name { color: #fff; text-shadow: 0 0 10px rgba(254, 0, 0, 0.8); }
         .req-avatar { width: 44px; height: 44px; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: var(--font-title); font-size: 22px; color: var(--bg-deep); font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.6); object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s; background: var(--text-main); }
-        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text-main); transition: all 0.3s; letter-spacing: 1px; }
+        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text-main); transition: all 0.3s; }
         
-        .date-badge, .time-box { font-size: 14px; color: var(--accent-light); font-weight: 600; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 14px; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 6px; font-family: var(--font-title); letter-spacing: 1px;}
+        .date-badge, .time-box { font-size: 14px; color: var(--accent-light); font-weight: 600; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 14px; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 6px; font-family: var(--font-title); }
         .date-badge { margin-top: 10px; }
         .time-box svg { stroke: var(--accent-main); width: 16px; height: 16px; }
-        .time-box.episodes { font-size: 13px; flex-direction: column; gap: 3px; align-items: center; text-align: center; background: rgba(12, 30, 91, 0.6); border-color: rgba(254, 0, 0, 0.2); padding: 6px 12px; margin-top: 0; text-transform: uppercase; }
+        .time-box.episodes { font-size: 13px; flex-direction: column; gap: 3px; align-items: center; text-align: center; background: rgba(12, 30, 91, 0.6); border-color: rgba(254, 0, 0, 0.2); padding: 6px 12px; margin-top: 0; }
 
-        .badge-status { font-size: 14px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
+        .badge-status { font-size: 14px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
 
         .crew-section { display: flex; align-items: center; margin-top: 15px; gap: 12px; }
         .avatar-container { position: relative; z-index: 1; transition: transform 0.3s ease; } 
@@ -257,47 +256,65 @@
         }
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
-        /* Темно-синий фон, красная обводка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в плитке */
-        .card-type-badge { background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 3px 6px; border-radius: 2px; font-size: 12px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
-        .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        
+        /* Исправление 5: Бейджики ФИЛЬМ/МУЛЬТ (уменьшен размер и отступы) */
+        .card-type-badge { background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); color: #ffffff; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 2px 6px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); font-weight: 900; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         
         .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
-        .card-mini-badge { font-size: 12px; font-family: var(--font-title); font-weight: 800; text-transform: uppercase; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.4); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); backdrop-filter: blur(4px); letter-spacing: 1px; }
+        .card-mini-badge { font-size: 11px; font-family: var(--font-title); font-weight: 800; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.4); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
         .card-mini-badge.auction { color: var(--warm-star); border-color: var(--warm-star); }
         .card-mini-badge.cried { color: var(--text-main); border-color: var(--accent-main); }
-        .card-mini-badge.rating { color: var(--accent-light); border-color: var(--accent-main); font-size: 14px; }
+        .card-mini-badge.rating { color: var(--accent-light); border-color: var(--accent-main); font-size: 13px; }
 
-        .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
+        .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; overflow: hidden; }
+        
         .card-title-container { 
             height: 55px; 
             display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 6px; overflow: hidden; 
         }
+        
+        /* Исправление 4: Названия фильмов (нормальный перенос слов) */
         .card-title-text { 
-            font-family: var(--font-title); font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 1px;
+            font-family: var(--font-title); font-size: 20px; font-weight: 700; color: #fff;
             margin: 0; text-shadow: 2px 2px 0px rgba(0,0,0,0.9); line-height: 1.1;
-            width: 100%; white-space: normal; word-wrap: break-word; text-align: center; flex-shrink: 0;
+            width: 100%; text-align: center; flex-shrink: 0;
+            word-break: normal; /* Важно: отменяем разрыв по буквам */
+            overflow-wrap: break-word; /* Важно: перенос по словам */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Ограничиваем 2 строками */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .card-bottom-info { margin-top: auto; width: 100%; }
         
         .card-date-meta { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-title); font-size: 16px; color: var(--text-main); margin-bottom: 8px; }
         
+        /* Исправление 2: Время на одной строке */
         .grid-time-badge {
             display: inline-flex; align-items: center; justify-content: center; gap: 4px; 
             background: rgba(254, 0, 0, 0.1); color: var(--accent-light); 
             border: 1px solid rgba(254, 0, 0, 0.4); padding: 2px 8px; border-radius: 2px; 
-            font-family: var(--font-title); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            font-family: var(--font-title); font-size: 11px; font-weight: 800;
+            white-space: nowrap; /* Важно: запрет переноса на новую строку */
         }
 
         .card-queue-box {
             background: rgba(3, 6, 36, 0.95); padding: 6px 8px; border-radius: 2px; border: 1px solid rgba(254, 0, 0, 0.3);
-            display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); box-sizing: border-box;
+            display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); box-sizing: border-box; overflow: hidden;
         }
-        .card-queue-label { font-size: 11px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 4px; }
+        .card-queue-label { font-size: 11px; font-family: var(--font-title); color: var(--text-muted); font-weight: 800; margin-bottom: 4px; }
         
-        .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
+        .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; overflow: hidden;}
         .card-user-avatar { width: 22px; height: 22px; border-radius: 2px; border: 1.5px solid var(--accent-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-family: var(--font-title); color: var(--text-main); background: var(--bg-deep); }
-        .card-queue-name { font-size: 15px; font-family: var(--font-title); font-weight: 700; color: var(--text-main); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; letter-spacing: 1px; }
+        
+        /* Исправление 1: Ник заказчика (уменьшаем, обрезаем с троеточием) */
+        .card-queue-name { 
+            font-size: 14px; font-family: var(--font-title); font-weight: 700; color: var(--text-main); 
+            white-space: nowrap; display: block; max-width: calc(100% - 28px); 
+            overflow: hidden; text-overflow: ellipsis; /* Важно: троеточие для длинных имен */
+        }
 
         
         .banned-dot {
@@ -318,7 +335,7 @@
         
         .watch-online-btn {
             background: var(--accent-main); color: #ffffff; padding: 4px 12px; font-size: 13px; font-weight: 900;
-            text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); border-radius: 2px;
+            font-family: var(--font-title); border-radius: 2px;
             box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); text-decoration: none; display: inline-flex;
             align-items: center; justify-content: center; transition: all 0.3s; border: 1px solid rgba(255, 255, 255, 0.3); cursor: pointer;
         }
@@ -363,7 +380,7 @@
         .modal-info-main { flex: 1; background: rgba(12, 30, 91, 0.85); padding: 25px; border-radius: 4px; border: 1px solid rgba(254, 0, 0, 0.3); backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 
         .modal-title-wrapper { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: nowrap; max-width: 100%; overflow: hidden; }
-        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; letter-spacing: 2px; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
+        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
         .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
         .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
 
@@ -381,7 +398,7 @@
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 75px; text-align: center; }
         .crew-card img { width: 65px; height: 65px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-dark); margin-bottom: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
         .crew-card.director img { border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254,0,0,0.4); } 
-        .crew-card span { font-size: 15px; color: var(--text-main); font-family: var(--font-title); font-weight: 700; line-height: 1.2; letter-spacing: 1px; }
+        .crew-card span { font-size: 15px; color: var(--text-main); font-family: var(--font-title); font-weight: 700; line-height: 1.2; }
 
         
         .modal-grid { 
@@ -397,7 +414,7 @@
             grid-template-columns: repeat(3, 1fr);
         }
 
-        .modal-grid-box { font-size: 16px; font-family: var(--font-title); color: var(--text-main); font-weight: 900; background: rgba(12, 30, 91, 0.9); border: 1px solid var(--accent-dark); padding: 8px 16px; border-radius: 2px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase;}
+        .modal-grid-box { font-size: 16px; font-family: var(--font-title); color: var(--text-main); font-weight: 900; background: rgba(12, 30, 91, 0.9); border: 1px solid var(--accent-dark); padding: 8px 16px; border-radius: 2px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; margin-top: 4px; }
         
         .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 4px; padding: 20px 25px; box-sizing: border-box; }
         
@@ -405,12 +422,12 @@
         .grid-item.border-bottom { border-bottom: 1px solid rgba(254, 0, 0, 0.3); }
         
         .grid-item.full-width { grid-column: 1 / -1; } 
-        .grid-label { color: var(--accent-light); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 900; margin-bottom: 4px; }
-        .grid-value { color: var(--text-main); font-family: var(--font-title); font-weight: 700; font-size: 18px; letter-spacing: 1px;}
+        .grid-label { color: var(--accent-light); font-size: 14px; font-family: var(--font-title); font-weight: 900; margin-bottom: 4px; }
+        .grid-value { color: var(--text-main); font-family: var(--font-title); font-weight: 700; font-size: 18px; }
         
         .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
         .modal-requester-link:hover { transform: translateX(5px); }
-        .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 18px; color: var(--text-main); transition: color 0.3s; font-weight: 900; letter-spacing: 1px; }
+        .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 18px; color: var(--text-main); transition: color 0.3s; font-weight: 900; }
         .modal-requester-link:hover span.name-text { color: var(--accent-main); text-shadow: 0 0 15px rgba(254, 0, 0, 0.6); }
 
         
@@ -426,7 +443,7 @@
         .footer-badge img { width: 36px; height: 36px; border-radius: 2px; object-fit: cover; border: 2px solid var(--text-muted); transition: all 0.3s ease; }
         .footer-badge:hover img { border-color: var(--accent-main); box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); }
         .footer-badge:hover .creator-name { color: var(--accent-main); text-shadow: 0 0 10px rgba(254,0,0,0.5); }
-        .footer-badge .creator-label { display:block; font-size:12px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+        .footer-badge .creator-label { display:block; font-size:12px; font-family: var(--font-title); color: var(--text-muted); font-weight: 800; }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-deep); }
@@ -941,7 +958,6 @@
             if (movie.isWatching) {
                 statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c; text-transform: uppercase;">СМОТРИМ</div>`;
             } else if (isWatched) {
-                // СМОТРЕЛИ остается сплошным красным
                 statusMarkup = `<div class="card-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3); text-transform: uppercase;">СМОТРЕЛИ</div>`;
             } else {
                 statusMarkup = `<div class="card-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); text-transform: uppercase;">В ОЧЕРЕДИ</div>`;
@@ -989,7 +1005,7 @@
                     </button>
                     <div class="card-overlay">
                         <div class="card-badges-top">
-                            <div class="card-type-badge">${displayType}</div>
+                            <div class="card-type-badge" style="background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); color: #ffffff; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase;">${displayType}</div>
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -997,18 +1013,18 @@
                 </div>
                 <div class="card-content">
                     <div class="card-title-container" style="margin-bottom: 4px;">
-                        <h3 class="card-title-text resize-title">${cleanTitle}</h3>
+                        <h3 class="card-title-text resize-title" style="word-break: normal; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${cleanTitle}</h3>
                     </div>
                     
                     <div style="width: 100%; border-bottom: 1px solid rgba(254, 0, 0, 0.25); margin: 3px 0 5px 0;"></div>
-                    <div style="font-family: var(--font-title); font-size: 13px; font-weight: 700; color: var(--text-muted); width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; text-transform: uppercase; letter-spacing: 1px;" title="${movieGenres}">${movieGenres}</div>
+                    <div style="font-family: var(--font-title); font-size: 11px; font-weight: 700; color: var(--text-muted); width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; text-transform: uppercase; letter-spacing: 1px;" title="${movieGenres}">${movieGenres}</div>
                     <div style="width: 100%; border-bottom: 1px solid rgba(254, 0, 0, 0.25); margin: 5px 0 8px 0;"></div>
 
                     <div style="margin-top: auto; width: 100%;">
                         <div class="card-date-meta">
                             <span>${movie.year || '----'}</span>
                             <span style="color: var(--accent-main);">♦</span>
-                            <span class="grid-time-badge">${runtimeText}</span>
+                            <span class="grid-time-badge" style="white-space: nowrap;">${runtimeText}</span>
                         </div>
                         <div class="card-queue-box">
                             <span class="card-queue-label">Заказчик</span>
@@ -1056,7 +1072,7 @@
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                titleEl.style.display = 'block';
+                titleEl.style.display = '-webkit-box';
                 titleEl.style.whiteSpace = 'normal';
                 
                 let currentSize = 20;
@@ -1068,9 +1084,7 @@
                 }
 
                 if (titleEl.scrollHeight > container.clientHeight) {
-                    titleEl.style.display = '-webkit-box';
-                    titleEl.style.webkitLineClamp = '3'; 
-                    titleEl.style.webkitBoxOrient = 'vertical';
+                    titleEl.style.webkitLineClamp = '2'; 
                     titleEl.style.overflow = 'hidden';
                 }
             });
