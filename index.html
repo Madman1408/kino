@@ -191,7 +191,7 @@
         .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
-        /* Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ */
+        /* Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в списке */
         .content-type-badge { background: var(--accent-main); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); }
         .outline-badge, .tmdb-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 13px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
 
@@ -257,8 +257,8 @@
         }
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
-        /* Красная заливка, белый текст для бейджа ФИЛЬМ/МУЛЬТ */
-        .card-type-badge { background: var(--accent-main); border: 1px solid rgba(254, 0, 0, 0.5); padding: 3px 6px; border-radius: 2px; font-size: 12px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        /* Темно-синий фон, красная обводка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в плитке */
+        .card-type-badge { background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 3px 6px; border-radius: 2px; font-size: 12px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
