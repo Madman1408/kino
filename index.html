@@ -61,7 +61,7 @@
 
         body {
             background-color: var(--bg-deep);
-            background-image: url('background.webp');
+            background-image: url('background2.webp');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
@@ -119,11 +119,10 @@
 
         .back-btn {
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); text-decoration: none;
+            background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
             padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
             font-family: var(--font-title); font-weight: 700; font-size: 18px; text-transform: uppercase; transition: all 0.3s ease; z-index: 10;
         }
-        .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
@@ -156,7 +155,7 @@
 
         .view-toggle-btn {
             background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
-            padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); font-size: 17px; font-family: var(--font-title); font-weight: 700;
+            padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-size: 17px; font-family: var(--font-title); font-weight: 700;
             cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
             box-sizing: border-box; height: 40px; letter-spacing: 1px;
         }
@@ -164,7 +163,7 @@
 
         
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
+        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(254, 0, 0, 0.15); }
         tr:last-child td { border-bottom: none; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
@@ -359,7 +358,8 @@
         .modal-info-main { flex: 1; background: rgba(12, 30, 91, 0.85); padding: 25px; border-radius: 4px; border: 1px solid rgba(254, 0, 0, 0.3); backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 
         .modal-title-wrapper { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: nowrap; max-width: 100%; overflow: hidden; }
-        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: var(--accent-main); text-transform: uppercase; letter-spacing: 2px; text-shadow: 3px 3px 0 var(--accent-dark), 0 0 20px rgba(254,0,0,0.4); flex-shrink: 1; min-width: 0; line-height: 1.1; }
+        /* ДОБАВЛЕН БЕЛЫЙ ЦВЕТ ДЛЯ НАЗВАНИЯ В МОДАЛКЕ С КРАСНОЙ ТЕНЬЮ */
+        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
         .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
         .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
 
@@ -467,10 +467,11 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="header">
-                <a href="#" onclick="event.preventDefault();" class="back-btn">
+                <!-- Убрана ссылка, теперь это просто кнопка -->
+                <div class="back-btn" style="cursor: default;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     В Архивы
-                </a>
+                </div>
 
                 <div class="creator-badge" onclick="window.open('https://twitch.tv/sarachuma', '_blank')">
                     <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="sarachumaAvatar" alt="sarachuma">
@@ -796,7 +797,7 @@
                         <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px solid rgba(254, 0, 0, 0.3);">
                             <div style="display: flex; align-items: center; justify-content: center;">
                                 <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--accent-main)); opacity: 0.5;"></div>
-                                <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: var(--text-main); text-shadow: 0 0 15px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Просмотрено ✦</span>
+                                <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 15px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Просмотрено ✦</span>
                                 <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--accent-main)); opacity: 0.5;"></div>
                             </div>
                         </td>
@@ -815,7 +816,7 @@
             if (movie.isWatching) {
                 statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);">СМОТРИМ</span>`;
             } else if (isWatched) {
-                statusText = `<span class="badge-status" style="background: var(--accent-main); color: #fff;">СМОТРЕЛИ</span>`;
+                statusText = `<span class="badge-status" style="background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</span>`;
             } else {
                 statusText = `<span class="badge-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6);">В ОЧЕРЕДИ</span>`;
             }
@@ -861,7 +862,7 @@
             }
 
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
-            let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="badge-status" style="background: rgba(12, 30, 91, 0.8); color: var(--text-main); box-shadow: none; border: 1px solid rgba(254,0,0,0.4);">${isSeries ? 'ЗА СЕРИЮ' : 'ВРЕМЯ'}</span><div class="time-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно'}</span></div>`;
+            let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="badge-status" style="background: rgba(12, 30, 91, 0.8); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); box-shadow: none; border: 1px solid rgba(254,0,0,0.4);">${isSeries ? 'ЗА СЕРИЮ' : 'ВРЕМЯ'}</span><div class="time-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно'}</span></div>`;
             if (isSeries) runtimeDisplay += `<div class="time-box episodes"><span>Сезонов: ${movie.seasons}</span><span>Серий: ${movie.episodes}</span></div>`;
             runtimeDisplay += `</div>`;
 
@@ -912,7 +913,7 @@
                         <div style="width: 100%; border-top: 2px solid rgba(254, 0, 0, 0.4); margin: 15px 0;"></div>
                         <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
                             <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--accent-main)); opacity: 0.6;"></div>
-                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: var(--text-main); text-shadow: 0 0 20px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Просмотрено ✦</span>
+                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 20px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Просмотрено ✦</span>
                             <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--accent-main)); opacity: 0.6;"></div>
                         </div>
                         <div style="width: 100%; border-bottom: 2px solid rgba(254, 0, 0, 0.4); margin: 15px 0 25px 0;"></div>
@@ -936,7 +937,7 @@
             if (movie.isWatching) {
                 statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c;">СМОТРИМ</div>`;
             } else if (isWatched) {
-                statusMarkup = `<div class="card-status">СМОТРЕЛИ</div>`;
+                statusMarkup = `<div class="card-status" style="background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</div>`;
             } else {
                 statusMarkup = `<div class="card-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5);">В ОЧЕРЕДИ</div>`;
             }
@@ -1005,7 +1006,7 @@
                             <span class="grid-time-badge">${runtimeText}</span>
                         </div>
                         <div class="card-queue-box">
-                            <span class="card-queue-label">Заказ от</span>
+                            <span class="card-queue-label">Заказчик</span>
                             <div class="card-user-info-row">
                                 ${avatarMarkup}
                                 <span class="card-queue-name resize-username">${cleanNick}</span>
@@ -1149,7 +1150,7 @@
         if (movie.isWatching) {
             statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 16px;">СМОТРИМ</span>`;
         } else if (isWatched) {
-            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 16px;">СМОТРЕЛИ</span>`;
+            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 16px; background: rgba(3, 6, 36, 0.8); color: var(--accent-main); border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3);">СМОТРЕЛИ</span>`;
         } else {
             statusTextHTML = `<span class="badge-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 16px;">В ОЧЕРЕДИ</span>`;
         }
