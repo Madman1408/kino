@@ -1227,7 +1227,7 @@
         if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
             const parsedRating = parseFloat(movie.ourRating);
             if (parsedRating === 1000) {
-                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px; padding: 5px 10px;">Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
+                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; "><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px; padding: 5px 10px;">Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
             } else {
                 const rColor = getRatingColor(movie.ourRating); 
                 tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`; 
