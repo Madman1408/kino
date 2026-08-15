@@ -794,8 +794,10 @@
                         <th style="width: 160px; min-width: 160px; text-transform: uppercase;">Постер</th>
                         <th style="width: 100%; text-transform: uppercase;">Описание</th>
                         <th style="width: 145px; min-width: 145px; text-transform: uppercase;">Заказчик</th>
-                        <th style="width: 130px; min-width: 130px; text-transform: uppercase;">Длительность</th>
-                        <th style="width: 135px; min-width: 135px; text-transform: uppercase;">Статус</th>
+                        <!-- Изменены width и min-width для Длительности -->
+                        <th style="width: 170px; min-width: 170px; text-transform: uppercase;">Длительность</th>
+                        <!-- Изменены width и min-width для Статуса -->
+                        <th style="width: 120px; min-width: 120px; text-transform: uppercase;">Статус</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -883,7 +885,8 @@
             }
 
             let isSeries = movie.seasons && movie.episodes && String(movie.seasons) !== "0" && String(movie.episodes) !== "0";
-            let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="badge-status" style="background: rgba(12, 30, 91, 0.8); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); box-shadow: none; border: 1px solid rgba(254,0,0,0.4); text-transform: uppercase;">${isSeries ? 'ЗА СЕРИЮ' : 'ВРЕМЯ'}</span><div class="time-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно'}</span></div>`;
+            // Добавлено white-space: nowrap; для time-box и уменьшен размер шрифта для span
+            let runtimeDisplay = `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="badge-status" style="background: rgba(12, 30, 91, 0.8); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8); box-shadow: none; border: 1px solid rgba(254,0,0,0.4); text-transform: uppercase;">${isSeries ? 'ЗА СЕРИЮ' : 'ВРЕМЯ'}</span><div class="time-box" style="white-space: nowrap;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span style="font-size: 12px;">${movie.runtime && movie.runtime !== 'Неизвестно' ? movie.runtime : 'Неизвестно'}</span></div>`;
             if (isSeries) runtimeDisplay += `<div class="time-box episodes"><span>Сезонов: ${movie.seasons}</span><span>Серий: ${movie.episodes}</span></div>`;
             runtimeDisplay += `</div>`;
 
