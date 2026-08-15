@@ -477,6 +477,11 @@
             color: #ffffff;
             text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8);
         }
+
+        /* Эффект 3D для иконок */
+        .icon-3d-effect {
+            filter: drop-shadow(2px 2px 0px var(--accent-dark)) drop-shadow(0 0 10px rgba(254, 0, 0, 0.8));
+        }
     </style>
 </head>
 <body>
@@ -562,7 +567,7 @@
                             <div class="modal-title-extras">
                                 <span class="modal-year" id="modalYear"></span>
                                 <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                                 </button>
                             </div>
                         </div>
@@ -661,7 +666,7 @@
         navigator.clipboard.writeText(text).then(() => {
             if (btnElement) {
                 const originalHTML = btnElement.innerHTML;
-                btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.innerHTML = `<svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
                 btnElement.classList.add('copied');
                 setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
             }
@@ -868,8 +873,8 @@
             
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
-            const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge">TMDB ${movie.tmdbRating}</span>` : '';
-            const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge">${movie.ageRating}</span>` : '';
+            const tmdbBadge = movie.tmdbRating ? `<span class="tmdb-badge text-3d-effect">TMDB ${movie.tmdbRating}</span>` : '';
+            const ageRating = (movie.ageRating && movie.ageRating !== "Нет данных") ? `<span class="outline-badge text-3d-effect">${movie.ageRating}</span>` : '';
             
             let displayType = escapeHTML(movie.type || 'Фильм');
             if (displayType.toLowerCase() === 'мультфильм') displayType = 'Мульт';
@@ -906,11 +911,11 @@
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
                 <td>
                     <div class="movie-info">
-                        <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitleForCopy}', '${movie.year || ''}', this)" title="Скопировать"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
-                        <div class="badges-container">${typeLabel} ${tmdbBadge} ${ageRating} <span class="outline-badge">ID №${movie.id || 0}</span></div>
+                        <div class="movie-header"><span class="movie-title">${cleanTitle}</span><div class="movie-meta-box"><span class="movie-year">${movie.year || '----'}</span><button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitleForCopy}', '${movie.year || ''}', this)" title="Скопировать"><svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></button></div></div>
+                        <div class="badges-container">${typeLabel} ${tmdbBadge} ${ageRating} <span class="outline-badge text-3d-effect">ID №${movie.id || 0}</span></div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
                         ${movie.tagline ? `<div class="movie-tagline">«${escapeHTML(movie.tagline)}»</div>` : ''}
-                        ${movie.studios && movie.studios !== "Нет данных" ? `<div class="movie-studios-list">${escapeHTML(movie.studios)}</div>` : ''}
+                        ${movie.studios && movie.studios !== "Нет данных" ? `<div class="movie-studios-list text-3d-effect">${escapeHTML(movie.studios)}</div>` : ''}
                         <div class="movie-overview-wrapper"><div class="movie-overview-text">${escapeHTML(movie.overview || '')}</div></div>
                         <div class="crew-section">${directorHtml}${castHtml}</div>
                     </div>
@@ -1011,7 +1016,7 @@
                     <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${bannedDotMarkup}
                     <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitleForCopy}', '${movie.year || ''}', this)" title="Скопировать название">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                        <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                     </button>
                     <div class="card-overlay">
                         <div class="card-badges-top">
