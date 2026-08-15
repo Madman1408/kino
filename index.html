@@ -109,7 +109,7 @@
 
         .header-top h1 { 
             font-family: var(--font-title); font-size: 52px; font-weight: 700; margin: 0 0 15px 0;
-            position: relative; display: inline-block; color: #ffffff; text-transform: uppercase; letter-spacing: 2px;
+            position: relative; display: inline-block; color: #ffffff;
             text-shadow: -3px 0 var(--bg-sunset), 3px 0 var(--accent-main), 0 0 20px rgba(254, 0, 0, 0.5); 
         }
         .header-top h1::before, .header-top h1::after {
@@ -122,7 +122,7 @@
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
             background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
             padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
-            font-family: var(--font-title); font-weight: 700; font-size: 18px; text-transform: uppercase; transition: all 0.3s ease; z-index: 10;
+            font-family: var(--font-title); font-weight: 700; font-size: 18px; transition: all 0.3s ease; z-index: 10;
             text-decoration: none; /* Убираем подчеркивание */
         }
         .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
@@ -135,7 +135,7 @@
         .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
         .creator-badge img { width: 38px; height: 38px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
-        .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); text-transform: uppercase; transition: text-shadow 0.3s ease; letter-spacing: 1px;}
+        .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
 
         .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
@@ -146,11 +146,11 @@
             box-sizing: border-box; height: 40px; 
         }
         .search-box { width: 220px; color: var(--text-main); font-size: 15px; font-family: var(--font-text); }
-        .search-box::placeholder { color: var(--text-muted); text-transform: uppercase; font-size: 13px; font-family: var(--font-text); }
+        .search-box::placeholder { color: var(--text-muted); font-size: 13px; font-family: var(--font-text); }
         .search-box:focus, .sort-select:focus { border-color: var(--accent-main); color: #fff; box-shadow: 0 0 15px rgba(254, 0, 0, 0.4); }
         
         .sort-select { 
-            cursor: pointer; appearance: none; padding-right: 30px; text-transform: uppercase; font-size: 15px; color: var(--text-main); font-family: var(--font-title); letter-spacing: 1px;
+            cursor: pointer; appearance: none; padding-right: 30px; font-size: 15px; color: var(--text-main); font-family: var(--font-title); letter-spacing: 1px;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23fe0000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); 
             background-repeat: no-repeat; background-position: right 12px center; 
         }
@@ -182,7 +182,7 @@
         
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; overflow: hidden; }
         .movie-header { display: flex; align-items: flex-start; justify-content: flex-start; gap: 12px; width: 100%; margin-bottom: 5px; } 
-        .movie-title { font-size: 28px; font-weight: 700; color: #fff; font-family: var(--font-title); text-transform: uppercase; text-shadow: 2px 2px 0 rgba(0,0,0,0.8); flex: 0 1 auto; min-width: 0; line-height: 1.1; letter-spacing: 1px; }
+        .movie-title { font-size: 28px; font-weight: 700; color: #fff; font-family: var(--font-title); text-shadow: 2px 2px 0 rgba(0,0,0,0.8); flex: 0 1 auto; min-width: 0; line-height: 1.1; letter-spacing: 1px; }
         .movie-meta-box { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 1px; }
         .movie-year { color: var(--accent-light); font-size: 20px; font-family: var(--font-title); white-space: nowrap; flex-shrink: 0; } 
         
@@ -191,7 +191,8 @@
         .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
-        .content-type-badge { background: var(--accent-main); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.3); }
+        /* Темно-синий фон, красная обводка, белый текст для бейджа ФИЛЬМ/МУЛЬТ в списке */
+        .content-type-badge { background: var(--bg-deep); color: #ffffff; padding: 3px 10px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); border: 1px solid var(--accent-main); }
         .outline-badge, .tmdb-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 13px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
 
         .movie-genres { font-size: 15px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
@@ -207,7 +208,7 @@
         .requester-badge:hover .req-avatar { border-color: var(--text-main); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); }
         .requester-badge:hover .req-name { color: #fff; text-shadow: 0 0 10px rgba(254, 0, 0, 0.8); }
         .req-avatar { width: 44px; height: 44px; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: var(--font-title); font-size: 22px; color: var(--bg-deep); font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.6); object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s; background: var(--text-main); }
-        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: all 0.3s; letter-spacing: 1px; }
+        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text-main); transition: all 0.3s; letter-spacing: 1px; }
         
         .date-badge, .time-box { font-size: 14px; color: var(--accent-light); font-weight: 600; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 14px; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 6px; font-family: var(--font-title); letter-spacing: 1px;}
         .date-badge { margin-top: 10px; }
@@ -257,9 +258,9 @@
 
         .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
         
-        /* Исправление 5: Бейджики ФИЛЬМ/МУЛЬТ (уменьшен размер и отступы) */
+        /* Исправление 5: Бейджики ФИЛЬМ/МУЛЬТ (уменьшен размер и отступы) в плитке */
         .card-type-badge { background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 5px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
-        .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 2px 5px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 3px 6px; border-radius: 2px; font-size: 11px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
         
         .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 12px; font-family: var(--font-title); font-weight: 800; text-transform: uppercase; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.4); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); backdrop-filter: blur(4px); letter-spacing: 1px; }
@@ -267,7 +268,8 @@
         .card-mini-badge.cried { color: var(--text-main); border-color: var(--accent-main); }
         .card-mini-badge.rating { color: var(--accent-light); border-color: var(--accent-main); font-size: 14px; }
 
-        .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
+        .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; overflow: hidden; }
+        
         .card-title-container { 
             height: 55px; 
             display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 6px; overflow: hidden; 
@@ -297,14 +299,14 @@
 
         .card-queue-box {
             background: rgba(3, 6, 36, 0.95); padding: 6px 8px; border-radius: 2px; border: 1px solid rgba(254, 0, 0, 0.3);
-            display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); box-sizing: border-box;
+            display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); box-sizing: border-box; overflow: hidden;
         }
         .card-queue-label { font-size: 11px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 4px; }
         
-        .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
+        .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; overflow: hidden;}
         .card-user-avatar { width: 22px; height: 22px; border-radius: 2px; border: 1.5px solid var(--accent-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-family: var(--font-title); color: var(--text-main); background: var(--bg-deep); }
         
-        /* Исправление 1: Ник заказчика */
+        /* Исправление 1: Ник заказчика (убираем троеточие в CSS, сжимаем в JS) */
         .card-queue-name { 
             font-size: 15px; font-family: var(--font-title); font-weight: 700; color: var(--text-main); 
             display: block; max-width: calc(100% - 28px); letter-spacing: 1px; 
@@ -374,7 +376,7 @@
         .modal-info-main { flex: 1; background: rgba(12, 30, 91, 0.85); padding: 25px; border-radius: 4px; border: 1px solid rgba(254, 0, 0, 0.3); backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 
         .modal-title-wrapper { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: nowrap; max-width: 100%; overflow: hidden; }
-        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
+        .modal-title { font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; letter-spacing: 2px; text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main); flex-shrink: 1; min-width: 0; line-height: 1.1; }
         .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
         .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
 
@@ -392,7 +394,7 @@
         .crew-card { display: flex; flex-direction: column; align-items: center; width: 75px; text-align: center; }
         .crew-card img { width: 65px; height: 65px; border-radius: 2px; object-fit: cover; border: 2px solid var(--accent-dark); margin-bottom: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
         .crew-card.director img { border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254,0,0,0.4); } 
-        .crew-card span { font-size: 15px; color: var(--text-main); text-transform: uppercase; font-family: var(--font-title); font-weight: 700; line-height: 1.2; letter-spacing: 1px; }
+        .crew-card span { font-size: 15px; color: var(--text-main); font-family: var(--font-title); font-weight: 700; line-height: 1.2; letter-spacing: 1px; }
 
         
         .modal-grid { 
@@ -484,7 +486,7 @@
             <div class="header">
                 <!-- Кнопка "В Архивы" сделана как ссылка, но никуда не ведет (href="#") -->
                 <a href="#" class="back-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 5"></polyline></svg>
                     В Архивы
                 </a>
 
@@ -952,7 +954,6 @@
             if (movie.isWatching) {
                 statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c; text-transform: uppercase;">СМОТРИМ</div>`;
             } else if (isWatched) {
-                // СМОТРЕЛИ остается сплошным красным
                 statusMarkup = `<div class="card-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3); text-transform: uppercase;">СМОТРЕЛИ</div>`;
             } else {
                 statusMarkup = `<div class="card-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); text-transform: uppercase;">В ОЧЕРЕДИ</div>`;
@@ -1000,7 +1001,7 @@
                     </button>
                     <div class="card-overlay">
                         <div class="card-badges-top">
-                            <div class="card-type-badge" style="background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 5px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); color: #ffffff; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase;">${displayType}</div>
+                            <div class="card-type-badge" style="background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 5px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase;">${displayType}</div>
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -1025,7 +1026,7 @@
                             <span class="card-queue-label">Заказчик</span>
                             <div class="card-user-info-row">
                                 ${avatarMarkup}
-                                <span class="card-queue-name resize-username">${cleanNick}</span>
+                                <span class="card-queue-name resize-username" style="display: block; max-width: calc(100% - 28px); font-size: 15px; font-family: var(--font-title); font-weight: 700; color: var(--text-main); letter-spacing: 1px;">${cleanNick}</span>
                             </div>
                         </div>
                     </div>
@@ -1067,7 +1068,7 @@
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
                 
-                titleEl.style.display = 'block';
+                titleEl.style.display = '-webkit-box';
                 titleEl.style.whiteSpace = 'normal';
                 
                 let currentSize = 20;
@@ -1079,9 +1080,7 @@
                 }
 
                 if (titleEl.scrollHeight > container.clientHeight) {
-                    titleEl.style.display = '-webkit-box';
                     titleEl.style.webkitLineClamp = '2'; 
-                    titleEl.style.webkitBoxOrient = 'vertical';
                     titleEl.style.overflow = 'hidden';
                 }
             });
