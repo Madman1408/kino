@@ -123,7 +123,7 @@
             background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
             padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
             font-family: var(--font-title); font-weight: 700; font-size: 18px; transition: all 0.3s ease; z-index: 10;
-            text-decoration: none; border-radius: 5px; /* Убираем подчеркивание */
+            text-decoration: none; /* Убираем подчеркивание */
         }
         .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
@@ -131,10 +131,10 @@
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
             background: rgba(12, 30, 91, 0.6); padding: 6px 16px 6px 6px; cursor: pointer;
-            transition: all 0.3s ease; opacity: 0.9; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 5px;
+            transition: all 0.3s ease; opacity: 0.9; border: 1px solid rgba(254, 0, 0, 0.3);
         }
         .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
-        .creator-badge img { width: 35px; height: 35px; border-radius: 10%; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
+        .creator-badge img { width: 35px; height: 35px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
         .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
@@ -431,9 +431,9 @@
         .trailer-container { width: 100%; aspect-ratio: 16/9; border: 2px solid var(--accent-main); border-radius: 2px; margin-top: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); overflow: hidden; position: relative;}
         .trailer-container iframe { width: 100%; height: 100%; border: none; }
 
-        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 30px auto 20px auto; padding: 6px 16px 6px 6px; width: fit-content; background: rgba(12, 30, 91, 0.6); border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 5px; cursor: pointer; transition: all 0.3s ease; opacity: 0.9; }
+        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 30px auto 20px auto; padding: 6px 16px 6px 6px; width: fit-content; background: rgba(12, 30, 91, 0.6); border: 1px solid rgba(254, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease; opacity: 0.9; }
         .footer-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
-        .footer-badge img { width: 35px; height: 35px; border-radius: 10%; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
+        .footer-badge img { width: 35px; height: 35px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; }
         .footer-badge:hover img { box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); transform: scale(1.05); }
         .footer-badge .creator-name { font-size: 20px; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px; color: #fff; }
         .footer-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
