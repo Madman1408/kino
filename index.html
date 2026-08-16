@@ -697,23 +697,22 @@
         const r = parseFloat(rating);
         if (isNaN(r)) return 'var(--accent-main)';
         
-        // Ограничиваем значение от 1 до 10
-        const safeR = Math.max(1, Math.min(10, r));
+        // Округляем оценку, чтобы подобрать для неё конкретный цвет (например, 5.5 возьмет цвет шестерки)
+        const rounded = Math.round(r);
+
+        // Прописываем цвета для каждой оценки (меняй HEX-коды в кавычках на любые свои!)
+        if (rounded >= 10) return '#00d708'; // 10 - Ярко-зеленый (твой цвет)
+        if (rounded === 9) return '#32cd32'; // 9  - Лаймовый
+        if (rounded === 8) return '#80ff00'; // 8  - Салатовый
+        if (rounded === 7) return '#ccff00'; // 7  - Желто-зеленый
+        if (rounded === 6) return '#ffff00'; // 6  - Ярко-желтый
+        if (rounded === 5) return '#ffcc00'; // 5  - Желто-оранжевый
+        if (rounded === 4) return '#ffa500'; // 4  - Оранжевый
+        if (rounded === 3) return '#ff7300'; // 3  - Темно-оранжевый
+        if (rounded === 2) return '#ff4500'; // 2  - Красно-оранжевый
+        if (rounded <= 1)  return '#ff1f1f'; // 1  - Ярко-красный (твой цвет)
         
-        // Вычисляем позицию от 0 до 1
-        const t = (safeR - 1) / 9;
-        
-        // Цвет 1: #ff1f1f (Красный)
-        const r1 = 255, g1 = 31, b1 = 31;
-        // Цвет 10: #00d708 (Зеленый)
-        const r2 = 0, g2 = 215, b2 = 8;
-        
-        // Плавно смешиваем цвета
-        const rOut = Math.round(r1 + t * (r2 - r1));
-        const gOut = Math.round(g1 + t * (g2 - g1));
-        const bOut = Math.round(b1 + t * (b2 - b1));
-        
-        return `rgb(${rOut}, ${gOut}, ${bOut})`;
+        return 'var(--accent-main)';
     }
 
     function getInitials(name) { return (name || '??').replace('@', '').trim().substring(0, 1).toUpperCase(); }
