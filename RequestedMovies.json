@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "16.08.2026 15:15",
+    "lastUpdated": "16.08.2026 15:27",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -51,6 +51,61 @@
       "collection": "",
       "id": 81,
       "dateRequested": "16.08.2026 15:15",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    },
+    {
+      "title": "Вечное сияние чистого разума",
+      "requestedSeason": 0,
+      "year": "2004",
+      "type": "Фильм",
+      "kinopoiskId": "5492",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5492/",
+      "runtime": "1 ч 48 мин",
+      "genres": "фантастика, драма, мелодрама",
+      "studios": "🟢 Focus Features, 🟢 Anonymous Content, 🟢 This is that",
+      "budget": "20.000.000 $",
+      "revenue": "72.258.126 $",
+      "tmdbRating": "8.088",
+      "overview": "Застенчивый и меланхоличный Джоэл живёт ничем не примечательной серой и унылой жизнью. Но однажды вместо привычного рабочего маршрута молодой человек вдруг садится на электричку в другом направлении и устремляется к морю. На песчаном берегу Джоэл замечает девушку с ярко-синими волосами. На обратном пути они знакомятся в вагоне электрички и парень понимает, что у них с Клементиной очень много общего, как будто он уже знает эту девушку. Совсем скоро Джоэл поймёт, что действительно был знаком с ней, более того - они были парой.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/sigtn1tCMBOcHUB4kAMapb5tO4U.jpg",
+      "tagline": "«Можно стереть любовь из памяти. Выкинуть из сердца - это уже другая история»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/W1ffLQGHoxfAOq0ZYdPtJlvAdb.jpg",
+      "cast": [
+        {
+          "name": "Джим Керри",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/y3U9QfPN6sJaGl6l68xjwWj28ig.jpg"
+        },
+        {
+          "name": "Кейт Уинслет",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/6qNnMsKtKz9si5rabpUEG85UfHp.jpg"
+        },
+        {
+          "name": "Кирстен Данст",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/yhLKGjuiMMdbGnFrR8AREkCZcVF.jpg"
+        },
+        {
+          "name": "Марк Руффало",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5GilHMOt5PAQh6rlUKZzGmaKEI7.jpg"
+        }
+      ],
+      "director": {
+        "name": "Michel Gondry",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/4U9DhwQtrs2UUFPya2ixaYh091i.jpg"
+      },
+      "trailer": "",
+      "ageRating": "R",
+      "keywords": "new york city, regret, jealousy, deja vu, amnesia",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "id": 82,
+      "dateRequested": "16.08.2026 15:27",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
