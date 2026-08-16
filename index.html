@@ -658,8 +658,15 @@
         renderView();
     }
 
-    function getSafePhoto(url) { return (!url || url.includes('via.placeholder.com')) ? fallbackImage : url; }
-    function getSafePoster(url) { return (!url || url.includes('via.placeholder.com')) ? fallbackPoster : url; }
+    function getSafePhoto(url) { 
+        if (!url || url.includes('via.placeholder.com')) return fallbackImage;
+        return url.includes('image.tmdb.org') ? url.replace('https://image.tmdb.org', 'https://wsrv.nl/?url=image.tmdb.org') : url; 
+    }
+    
+    function getSafePoster(url) { 
+        if (!url || url.includes('via.placeholder.com')) return fallbackPoster;
+        return url.includes('image.tmdb.org') ? url.replace('https://image.tmdb.org', 'https://wsrv.nl/?url=image.tmdb.org') : url; 
+    }
 
     function copyTextToClipboard(text, btnElement) {
         navigator.clipboard.writeText(text).then(() => {
@@ -1158,9 +1165,12 @@
         heroEl.style.display = 'block'; 
         
         if (movie.backdrop && !movie.backdrop.includes('via.placeholder.com')) {
+            const safeBackdrop = movie.backdrop.includes('image.tmdb.org') 
+                ? movie.backdrop.replace('https://image.tmdb.org', 'https://wsrv.nl/?url=image.tmdb.org') 
+                : movie.backdrop;
             const img = new Image();
-            img.src = movie.backdrop;
-            img.onload = () => { heroEl.style.backgroundImage = `url('${movie.backdrop}')`; };
+            img.src = safeBackdrop;
+            img.onload = () => { heroEl.style.backgroundImage = `url('${safeBackdrop}')`; };
             img.onerror = () => { heroEl.style.backgroundImage = `url("${fallbackBackdrop}")`; };
             heroEl.style.backgroundImage = `url("${fallbackBackdrop}")`;
         } else {
