@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кинотеатр</title>
     
-    <!-- Шрифты из 2-го кода (Готика) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Палитра из 2-го кода */
             --bg-deep: #1a090a;          
             --bg-sunset: #9e391b;        
             --bg-velvet: #4a1a1e;        
@@ -40,17 +38,43 @@
             overflow-x: hidden; 
         }
 
+        /* ===== ЗВЕЗДНЫЙ ФОН ===== */
+        .bg-stars, .bg-twinkling {
+            position: fixed; /* Чтобы фон не уезжал при скролле */
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            display: block;
+            pointer-events: none; /* Чтобы не блокировали клики по сайту */
+        }
+
+        .bg-stars {
+            background: transparent url('https://i.postimg.cc/hhFD7Nkf/apps-47636-13819498107583324-fb06b53a-4974-4acb-85e6-f6f363f85ab6-edec48d0-ec35-4a1f-8bf5-c455987b4a.png') repeat top center;
+            z-index: -2;
+            opacity: 0.7; /* Легкая прозрачность, чтобы текст читался лучше */
+        }
+
+        .bg-twinkling {
+            background: transparent url('https://i.postimg.cc/CLpNr4PF/twinkling.png') repeat top center;
+            z-index: -1;
+            animation: 4s twinkle infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes twinkle {
+            from { background-position: 0 0; }
+            to { background-position: -100px 0; }
+        }
+        /* ======================== */
+
         .main-wrapper { display: flex; justify-content: center; align-items: stretch; width: 100%; }
         .girl-col { width: 0; position: relative; z-index: 999; pointer-events: none; }
         .sticky-box { position: sticky; top: 50vh; width: 0; height: 0; overflow: visible; }
         .girl-img { position: absolute; height: 650px; top: -325px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.6)); }
-        /* Оставил позиционирование из 2-го кода, расширения png из 1-го */
         .left-img { right: -164px; }
         .right-img { left: -172px; }
 
         @media (max-width: 1550px) { .girl-col { display: none; } }
 
-        /* Контейнер из 2-го кода с уголками */
         .container {
             width: 100%; max-width: 1150px; min-height: 80vh; 
             background: rgba(36, 14, 16, 0.93); backdrop-filter: blur(8px); 
@@ -71,7 +95,6 @@
 
         .content-wrapper { background: rgba(0, 0, 0, 0.2); position: relative; z-index: 2; height: 100%; min-height: 80vh; }
 
-        /* Хедер */
         .header {
             padding: 35px 30px 25px; text-align: center; position: relative;
             border-bottom: 1px solid rgba(245, 194, 133, 0.4); 
@@ -91,7 +114,6 @@
             font-family: var(--font-text); font-weight: 400; color: var(--gold-main); filter: drop-shadow(0 0 5px rgba(245, 194, 133, 0.2)); 
         }
 
-        /* Кнопка "В Архивы" из 1-го, но стилизована под 2-ой */
         .back-btn {
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
             background: rgba(245, 194, 133, 0.05); color: var(--gold-main); text-shadow: 0 2px 4px rgba(0,0,0,0.9);
@@ -101,7 +123,6 @@
         }
         .back-btn:hover { background: var(--gold-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(245, 194, 133, 0.4); text-shadow: none; }
 
-        /* Создатели (Круглые аватарки из 2-го) */
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
             background: transparent; padding: 5px; cursor: pointer; transition: all 0.3s ease; opacity: 0.9;
@@ -112,7 +133,6 @@
         .creator-name { font-size: 18px; font-weight: 600; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(245, 194, 133, 0.8); }
 
-        /* Панель управления */
         .controls-panel { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
         .search-box, .sort-select {
             background: transparent; border: none; border-bottom: 1px solid var(--gold-main);
@@ -133,7 +153,6 @@
         }
         .view-toggle-btn:hover { background: var(--gold-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(245, 194, 133, 0.4); text-shadow: none; }
 
-        /* Таблица */
         table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
         th { text-align: center; color: var(--gold-light); font-weight: 700; font-size: 12px; text-transform: uppercase; padding: 20px 12px 12px; border-bottom: 1px solid rgba(245, 170, 107, 0.4); font-family: var(--font-title); letter-spacing: 2px; text-shadow: 0 0 5px rgba(245, 194, 133, 0.3); }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
@@ -158,7 +177,6 @@
         .movie-meta-box { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-top: 4px; }
         .movie-year { color: var(--gold-light); font-size: 20px; font-style: italic; white-space: nowrap; flex-shrink: 0; } 
         
-        /* Кнопка копирования Перо (2-й код) */
         .copy-btn { background: none; border: none; color: var(--gold-dark); cursor: pointer; padding: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0; flex-shrink: 0; }
         tr.movie-row:hover .copy-btn { opacity: 0.8; }
         .copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); opacity: 1 !important; } 
@@ -202,7 +220,6 @@
         tr.movie-row:hover .cast-group .avatar-container:nth-child(3) { transform: translateX(32px); }
         tr.movie-row:hover .cast-group .avatar-container:nth-child(4) { transform: translateX(48px); }
 
-        /* Сетка Плиткой */
         .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px 0; }
         .card-view-item {
             background: rgba(36, 14, 16, 0.85); border: 1px solid var(--gold-dark); border-radius: 4px;
@@ -290,7 +307,6 @@
         .card-copy-btn:hover { color: #fff; filter: drop-shadow(0 0 8px var(--gold-main)); border-color: var(--gold-light); }
         .card-copy-btn.shifted { bottom: 32px; }
         
-        
         .watch-online-btn {
             background: var(--blood-red); color: #ffffff; padding: 4px 12px; font-size: 11px; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 4px;
@@ -299,7 +315,6 @@
         }
         .watch-online-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(230, 34, 34, 0.8); color: #ffffff; border-color: var(--gold-light); }
 
-        /* Модальное окно */
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, rgba(74, 26, 30, 0.9) 0%, rgba(15, 7, 7, 0.98) 100%);
@@ -358,24 +373,11 @@
         .crew-card.director img { border-color: var(--blood-red); box-shadow: 0 0 15px rgba(230,34,34,0.4); } 
         .crew-card span { font-size: 15px; color: #fff; font-family: var(--font-text); font-style: italic; line-height: 1.2; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
 
-        
-        .modal-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            background: rgba(0,0,0,0.3); 
-            border-radius: 4px; 
-            border: 1px solid var(--gold-dark); 
-            overflow: hidden; 
-        }
-        
-        .modal-grid.has-tags {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
+        .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid var(--gold-dark); overflow: hidden; }
+        .modal-grid.has-tags { grid-template-columns: repeat(3, 1fr); }
         .modal-grid-box { font-size: 14px; font-family: var(--font-title); color: var(--gold-light); font-weight: 600; text-shadow: 0 0 5px rgba(0,0,0,0.8); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(245, 194, 133, 0.3); padding: 8px 16px; border-radius: 4px; box-shadow: 0 0 8px rgba(245, 194, 133, 0.15); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; margin-top: 4px; letter-spacing: 0.5px;}
         
         .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 4px; padding: 20px 8px 20px 10px; box-sizing: border-box; }
-        
         .grid-item.border-right { border-right: 1px solid rgba(245, 194, 133, 0.25); }
         .grid-item.border-bottom { border-bottom: 1px solid rgba(245, 194, 133, 0.25); }
         
@@ -388,7 +390,6 @@
         .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 20px; color: var(--gold-main); transition: color 0.3s; font-weight: 900; }
         .modal-requester-link:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(245, 194, 133, 0.8); }
 
-        
         .flex-row-responsive { display: flex; flex-direction: row; width: 100%; }
         .flex-col-half { flex: 1; padding: 20px 25px; display: flex; flex-direction: column; gap: 4px; box-sizing: border-box; }
         .border-right-dashed { border-right: 1px solid rgba(245, 194, 133, 0.25); }
@@ -440,9 +441,13 @@
 </head>
 <body>
 
+<!-- Анимация звездного фона -->
+<div class="bg-stars"></div>
+<div class="bg-twinkling"></div>
+
 <div class="main-wrapper">
     <div class="girl-col">
-        <div class="sticky-box"><img src="girl-left.webp" class="girl-img left-img" alt=""></div>
+        <div class="sticky-box"><img src="girl-left.png" class="girl-img left-img" alt=""></div>
     </div>
 
     <div class="container">
@@ -508,13 +513,13 @@
     </div>
 
     <div class="girl-col">
-        <div class="sticky-box"><img src="girl-right.webp" class="girl-img right-img" alt=""></div>
+        <div class="sticky-box"><img src="girl-right.png" class="girl-img right-img" alt=""></div>
     </div>
 </div>
 
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="main-wrapper" style="pointer-events: none; height: 100%;">
-        <div class="modal-girl-col"><img src="girl-left.webp" class="modal-girl-img modal-left-img" alt=""></div>
+        <div class="modal-girl-col"><img src="girl-left.png" class="modal-girl-img modal-left-img" alt=""></div>
 
         <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
             <div class="modal-inner">
@@ -579,7 +584,7 @@
             </div>
         </div>
         
-        <div class="modal-girl-col"><img src="girl-right.webp" class="modal-girl-img modal-right-img" alt=""></div>
+        <div class="modal-girl-col"><img src="girl-right.png" class="modal-girl-img modal-right-img" alt=""></div>
     </div>
 </div>
 
@@ -590,7 +595,6 @@
     let viewMode = localStorage.getItem('siteViewMode') || 'grid'; 
     let isOnlineBtnVisible = true;
 
-    // Готические плейсхолдеры
     const fallbackImage = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='185' height='278' viewBox='0 0 185 278'%3E%3Crect width='185' height='278' fill='%230a0303'/%3E%3Cpath d='M92.5 130c19.3 0 35-15.7 35-35s-15.7-35-35-35-35 15.7-35 35 15.7 35 35 35zm0 15c-23.3 0-70 11.7-70 35v25h140v-25c0-23.3-46.7-35-70-35z' fill='%23381503'/%3E%3C/svg%3E";
     const fallbackPoster = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Crect width='500' height='750' fill='%230a0303'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='30' fill='%236e4418' font-style='italic'%3EЛик утерян%3C/text%3E%3C/svg%3E";
     const fallbackBackdrop = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Crect width='1000' height='320' fill='%231a090a'/%3E%3Crect y='80' width='1000' height='160' fill='%234a1a1e' opacity='0.3'/%3E%3C/svg%3E";
