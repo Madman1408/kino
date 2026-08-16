@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "16.08.2026 20:22",
+    "lastUpdated": "16.08.2026 20:24",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -219,14 +219,15 @@
       "collection": "",
       "id": 83,
       "dateRequested": "16.08.2026 20:22",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
+      "status": "Смотрели",
+      "ourRating": "6",
       "cried": false,
-      "isAuction": false,
-      "isBanned": false,
-      "isTheme": false,
+      "isAuction": true,
+      "isBanned": true,
+      "isTheme": true,
       "isWatching": false,
-      "isMarvel": false
+      "isMarvel": true,
+      "dateWatched": "16.08.2026 20:24"
     }
   ],
   "DarudeFurystorm": [
