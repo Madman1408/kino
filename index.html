@@ -1320,7 +1320,7 @@
 
         let dirHtml = '', castHtml = '';
         if (movie.director && movie.director.name && movie.director.name !== "Нет данных") dirHtml = `<div class="modal-crew-group"><div class="grid-label">Творец</div><div class="crew-card director"><img src="${getSafePhoto(movie.director.photo)}" alt=""><span>${escapeHTML(movie.director.name)}</span></div></div>`;
-        if (Array.isArray(movie.cast) && movie.cast.length > 0) castHtml = `<div class="modal-crew-group"><div class="grid-label">Лица</div><div class="modal-crew-list">${movie.cast.map(a => `<div class="crew-card"><img src="${getSafePhoto(a.photo)}" alt=""><span>${escapeHTML(a.name || '')}</span></div>`).join('')}</div></div>`;
+        if (Array.isArray(movie.cast) && movie.cast.length > 0) castHtml = `<div class="modal-crew-group"><div class="grid-label">Актёры</div><div class="modal-crew-list">${movie.cast.map(a => `<div class="crew-card"><img src="${getSafePhoto(a.photo)}" alt=""><span>${escapeHTML(a.name || '')}</span></div>`).join('')}</div></div>`;
         document.getElementById('modalCrewSection').innerHTML = dirHtml + castHtml;
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
