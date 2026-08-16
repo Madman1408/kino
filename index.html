@@ -422,7 +422,7 @@
 
 <div class="main-wrapper">
     <div class="girl-col">
-        <div class="sticky-box"><img src="girl-left.png" class="girl-img left-img" alt=""></div>
+        <div class="sticky-box"><img src="girl-left.webp" class="girl-img left-img" alt=""></div>
     </div>
 
     <div class="container">
@@ -487,13 +487,13 @@
     </div>
 
     <div class="girl-col">
-        <div class="sticky-box"><img src="girl-right.png" class="girl-img right-img" alt=""></div>
+        <div class="sticky-box"><img src="girl-right.webp" class="girl-img right-img" alt=""></div>
     </div>
 </div>
 
 <div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
     <div class="main-wrapper" style="pointer-events: none; height: 100%;">
-        <div class="modal-girl-col"><img src="girl-left.png" class="modal-girl-img modal-left-img" alt=""></div>
+        <div class="modal-girl-col"><img src="girl-left.webp" class="modal-girl-img modal-left-img" alt=""></div>
 
         <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
             <div class="modal-inner">
@@ -558,7 +558,7 @@
             </div>
         </div>
         
-        <div class="modal-girl-col"><img src="girl-right.png" class="modal-girl-img modal-right-img" alt=""></div>
+        <div class="modal-girl-col"><img src="girl-right.webp" class="modal-girl-img modal-right-img" alt=""></div>
     </div>
 </div>
 
@@ -771,7 +771,7 @@
         
         const sortMode = document.getElementById('sortSelect').value;
         const activeCount = currentViewData.filter(m => m.status === 'Не смотрели' || m.isWatching === true).length;
-        const showDivider = activeCount > 0;
+        const showDivider = activeCount >= 4;
 
         currentViewData.forEach((movie, index) => {
             
@@ -853,7 +853,7 @@
             runtimeDisplay += `</div>`;
 
             const userColor = stringToColor(cleanNick);
-            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` : `<div class="req-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
+            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             
             const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Дар Аукциона ✦</div>` : '';
             const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: #fff; border-color: var(--gold-main); font-size: 12px;">${movie.requestedSeason} сезон</div>` : '';
@@ -886,7 +886,7 @@
         
         const sortMode = document.getElementById('sortSelect').value;
         const activeCount = currentViewData.filter(m => m.status === 'Не смотрели' || m.isWatching === true).length;
-        const showDivider = activeCount > 0;
+        const showDivider = activeCount >= 4;
 
         currentViewData.forEach((movie, index) => {
             
@@ -1153,6 +1153,7 @@
         if (movie.isWatching) {
             statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 14px; text-transform: uppercase;">СМОТРИМ</span>`;
         } else if (isWatched) {
+            
             statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 14px; background: rgba(0,0,0,0.7); color: #ffffff; border: 1px solid var(--gold-main); box-shadow: 0 0 10px rgba(245, 194, 133, 0.3); text-transform: uppercase;">СМОТРЕЛИ</span>`;
         } else {
             statusTextHTML = `<span class="badge-status" style="background: rgba(0,0,0,0.7); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 14px; text-transform: uppercase;">В ОЧЕРЕДИ</span>`;
@@ -1168,7 +1169,7 @@
         } else if (isWatched && movie.dateWatched) {
             watchedHtml = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
         } else { 
-            watchedHtml = `<div class="modal-grid-box" style="background: rgba(0,0,0,0.2); border-color: transparent;">Еще не смотрели</div>`; 
+            watchedHtml = `<div class="modal-grid-box" style="background: rgba(0,0,0,0.2); border-color: transparent; margin-top: 0;">Еще не смотрели</div>`; 
         }
         dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${watchedHtml}</div>`;
         
