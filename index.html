@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кинотеатр</title>
+    <title>Афиша нашего Чатика</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -25,46 +25,25 @@
             --font-text: 'Cormorant Garamond', serif;
         }
 
-        body {
+        html {
+            /* Градиент перенесен в html, чтобы Canvas был виден под контентом */
             background-color: var(--bg-deep);
             background-image: radial-gradient(circle at 50% 0%, var(--bg-sunset) 0%, var(--bg-velvet) 50%, var(--bg-deep) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        body {
+            /* Сделано прозрачным, чтобы пропускать звезды */
+            background: transparent;
             color: var(--text-parchment);
             font-family: var(--font-text);
             margin: 0;
             padding: 50px 20px;
             min-height: 100vh;
-            background-attachment: fixed;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
             overflow-x: hidden; 
         }
-
-        /* ===== ЗВЕЗДНЫЙ ФОН ===== */
-        .bg-stars, .bg-twinkling {
-            position: fixed; /* Чтобы фон не уезжал при скролле */
-            top: 0; left: 0; right: 0; bottom: 0;
-            width: 100%; height: 100%;
-            display: block;
-            pointer-events: none; /* Чтобы не блокировали клики по сайту */
-        }
-
-        .bg-stars {
-            background: transparent url('https://i.postimg.cc/hhFD7Nkf/apps-47636-13819498107583324-fb06b53a-4974-4acb-85e6-f6f363f85ab6-edec48d0-ec35-4a1f-8bf5-c455987b4a.png') repeat top center;
-            z-index: -2;
-            opacity: 0.7; /* Легкая прозрачность, чтобы текст читался лучше */
-        }
-
-        .bg-twinkling {
-            background: transparent url('https://i.postimg.cc/CLpNr4PF/twinkling.png') repeat top center;
-            z-index: -1;
-            animation: 4s twinkle infinite linear;
-            opacity: 0.6;
-        }
-
-        @keyframes twinkle {
-            from { background-position: 0 0; }
-            to { background-position: -100px 0; }
-        }
-        /* ======================== */
 
         .main-wrapper { display: flex; justify-content: center; align-items: stretch; width: 100%; }
         .girl-col { width: 0; position: relative; z-index: 999; pointer-events: none; }
@@ -441,17 +420,12 @@
 </head>
 <body>
 
-<!-- Анимация звездного фона -->
-<div class="bg-stars"></div>
-<div class="bg-twinkling"></div>
-
 <div class="main-wrapper">
     <div class="girl-col">
         <div class="sticky-box"><img src="girl-left.png" class="girl-img left-img" alt=""></div>
     </div>
 
     <div class="container">
-        <!-- Готические рамки -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
         <div class="corner-ornament corner-bl"></div>
@@ -493,7 +467,7 @@
                     </select>
                     
                     <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleViewMode()">
-                        <!-- SVG меняется в JS --> Плиткой
+                        Плиткой
                     </button>
                 </div>
             </div>
@@ -1295,5 +1269,75 @@
     }
     loadMovies();
 </script>
+
+<!-- Скрипт магического фона из Canvas -->
+<script>
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starsCanvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function initCanvasStars() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        stars = [];
+        
+        const numStars = Math.floor((width * height) / 4000); 
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5 + 0.3, 
+                velocity: Math.random() * 0.4 + 0.1, 
+                alpha: Math.random(), 
+                twinkleSpeed: (Math.random() * 0.02) + 0.005, 
+                fadeDir: Math.random() > 0.5 ? 1 : -1 
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, width, height);
+        
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            // Используем золотистый цвет (наш --gold-light) для атмосферы
+            ctx.fillStyle = `rgba(255, 246, 209, ${star.alpha})`;
+            ctx.fill();
+            
+            star.y -= star.velocity;
+            
+            if (star.y < 0) {
+                star.y = height;
+                star.x = Math.random() * width;
+            }
+
+            star.alpha += star.twinkleSpeed * star.fadeDir;
+            if (star.alpha <= 0.1) {
+                star.alpha = 0.1;
+                star.fadeDir = 1;
+            } else if (star.alpha >= 1) {
+                star.alpha = 1;
+                star.fadeDir = -1;
+            }
+        });
+        requestAnimationFrame(drawStars);
+    }
+    
+    initCanvasStars();
+    drawStars();
+    window.addEventListener('resize', initCanvasStars);
+</script>
+
 </body>
 </html>
