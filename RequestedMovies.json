@@ -4,64 +4,7 @@
     "lastUpdated": "16.08.2026 12:23",
     "isOnlineBtnVisible": true
   },
-  "streamelements": [
-    {
-      "title": "Начало",
-      "requestedSeason": 0,
-      "year": "2010",
-      "type": "Фильм",
-      "kinopoiskId": "447301",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/447301/",
-      "runtime": "2 ч 28 мин",
-      "genres": "боевик, фантастика, приключения",
-      "studios": "🔴 Warner Bros. Pictures | 🟢 Legendary Pictures, 🟢 Syncopy",
-      "budget": "160.000.000 $",
-      "revenue": "839.030.630 $",
-      "tmdbRating": "8.372",
-      "overview": "Дом Кобб — талантливый вор, лучший из лучших в опасном искусстве извлечения: он крадёт ценные секреты из глубин подсознания во время сна, когда человеческий разум наиболее уязвим. Редкие способности Кобба сделали его ценным игроком в привычном к предательству мире промышленного шпионажа, но они же превратили его в извечного беглеца и лишили всего, что он когда-либо любил.  И вот у Кобба появляется шанс исправить ошибки. Его последнее дело может вернуть всё назад, но для этого ему нужно совершить невозможное — инициацию. Вместо идеальной кражи Кобб и его команда спецов должны будут провернуть обратное. Теперь их задача — не украсть идею, а внедрить её. Если у них получится, это и станет идеальным преступлением.  Но никакое планирование или мастерство не могут подготовить команду к встрече с опасным противником, который, кажется, предугадывает каждый их ход. Врагом, увидеть которого мог бы лишь Кобб.",
-      "poster": "https://image.tmdb.org/t/p/w500/piQXcdOGgv1O9HQ07pI0tnjkGJw.jpg",
-      "tagline": "«Твой разум – место преступления»",
-      "backdrop": "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
-      "cast": [
-        {
-          "name": "Леонардо ДиКаприо",
-          "photo": "https://image.tmdb.org/t/p/w185/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg"
-        },
-        {
-          "name": "Джозеф Гордон-Левитт",
-          "photo": "https://image.tmdb.org/t/p/w185/z2FA8js799xqtfiFjBTicFYdfk.jpg"
-        },
-        {
-          "name": "Кэн Ватанабэ",
-          "photo": "https://image.tmdb.org/t/p/w185/psAXOYp9SBOXvg6AXzARDedNQ9P.jpg"
-        },
-        {
-          "name": "Том Харди",
-          "photo": "https://image.tmdb.org/t/p/w185/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg"
-        }
-      ],
-      "director": {
-        "name": "Кристофер Нолан",
-        "photo": "https://image.tmdb.org/t/p/w185/xuAIuYSmsUzKlUMBFGVZaWsY3DZ.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=RlKr_lO45Nc",
-      "ageRating": "12+",
-      "keywords": "mission, dreams, kidnapping, spy, allegory",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "",
-      "id": 81,
-      "dateRequested": "15.08.2026 22:42",
-      "status": "Смотрели",
-      "ourRating": "8",
-      "cried": true,
-      "isAuction": true,
-      "isBanned": true,
-      "isTheme": true,
-      "isWatching": false,
-      "isMarvel": true,
-      "dateWatched": "15.08.2026 22:46"
-    }
-  ],
+  "streamelements": [],
   "DarudeFurystorm": [
     {
       "title": "Грань будущего",
