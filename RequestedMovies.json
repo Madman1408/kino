@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "16.08.2026 18:52",
+    "lastUpdated": "16.08.2026 20:16",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -172,61 +172,6 @@
       "isWatching": false,
       "isMarvel": false,
       "dateWatched": "05.03.2026 10:53"
-    },
-    {
-      "title": "Ловец снов",
-      "requestedSeason": 0,
-      "year": "2003",
-      "type": "Фильм",
-      "kinopoiskId": "6060",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/6060/",
-      "runtime": "2 ч 16 мин",
-      "genres": "драма, ужасы, фантастика, триллер",
-      "studios": "🔴 Castle Rock Entertainment | 🟢 Kasdan Pictures, 🟢 Village Roadshow Pictures, 🟢 NPV Entertainment, 🟢 WV Films II",
-      "budget": "68.000.000 $",
-      "revenue": "81.240.206 $",
-      "tmdbRating": "5.644",
-      "overview": "Джонси, Генри, Пит и Бивер. Двадцать лет назад они были просто мальчишками, проживающими в одном небольшом городке штата Мэн, - детьми, нашедшими в себе достаточно мужества, чтобы героически ответить на детскую жестокость. Награда за спасение странноватого мальчика по имени Даддитс совершенно неожиданно пришла к ним в виде сверхъестественных сил, связавших всех пятерых крепчайшими узами братства.Но когда на ежегодной охоте друзья собираются вместе в лесной хижине, то вместо ожидаемой теплой веселой атмосферы над ними начинает сгущаться абсолютное зло, приносящее гибель. Сначала к ним попадает незнакомец - затерявшийся в лесу охотник, которому и невдомек, что его организм поражен смертельной заразой. А вслед за ним возникает неистовствующий снежный буран, в эпицентре которого движется нечто еще более зловещее... Впереди - крупнейшее противостояние ужасу, не имеющему аналогов.",
-      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/mRo7SHrbKGaoCR5RMssyVNVfdQb.jpg",
-      "tagline": "«Злу удается проскользнуть»",
-      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/fKEF2MD4tA8G9Eywqq0k9E76sxw.jpg",
-      "cast": [
-        {
-          "name": "Томас Джейн",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/9frnlc2zoDcoeqZALB6aeYSQddl.jpg"
-        },
-        {
-          "name": "Дэмиэн Льюис",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/puOXtVatFnAxoOmsFO8z7KTfyJW.jpg"
-        },
-        {
-          "name": "Морган Фримен",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/905k0RFzH0Kd6gx8oSxRdnr6FL.jpg"
-        },
-        {
-          "name": "Джейсон Ли",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/64tEXo3xR9IFXsIJKSlJ2LUrrEA.jpg"
-        }
-      ],
-      "director": {
-        "name": "Лоуренс Кэздан",
-        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/1c57YAUDEsyI6jwc3buKISgh2pf.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=YG0ZoVrndh0",
-      "ageRating": "Нет данных",
-      "keywords": "based on novel or book, 1970s, religion and supernatural, snowstorm, alien",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "",
-      "id": 83,
-      "dateRequested": "16.08.2026 18:52",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": true,
-      "isBanned": false,
-      "isTheme": false,
-      "isWatching": false,
-      "isMarvel": false
     }
   ],
   "DarudeFurystorm": [
