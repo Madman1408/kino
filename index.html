@@ -693,8 +693,27 @@
     function stringToColor(str) { let hash = 0; for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash); return `hsl(${Math.abs(hash) % 360}, 70%, 75%)`; }
     
     function getRatingColor(rating) {
-        if (!rating) return 'var(--accent-main)'; const r = parseFloat(rating); if (isNaN(r)) return 'var(--accent-main)';
-        let hue = ((r - 1) / 9) * 140; if (hue < 0) hue = 0; if (hue > 140) hue = 140; return `hsl(${hue}, 80%, 65%)`;
+        if (!rating) return 'var(--accent-main)';
+        const r = parseFloat(rating);
+        if (isNaN(r)) return 'var(--accent-main)';
+        
+        // Ограничиваем значение от 1 до 10
+        const safeR = Math.max(1, Math.min(10, r));
+        
+        // Вычисляем позицию от 0 до 1
+        const t = (safeR - 1) / 9;
+        
+        // Цвет 1: #ff1f1f (Красный)
+        const r1 = 255, g1 = 31, b1 = 31;
+        // Цвет 10: #00d708 (Зеленый)
+        const r2 = 0, g2 = 215, b2 = 8;
+        
+        // Плавно смешиваем цвета
+        const rOut = Math.round(r1 + t * (r2 - r1));
+        const gOut = Math.round(g1 + t * (g2 - g1));
+        const bOut = Math.round(b1 + t * (b2 - b1));
+        
+        return `rgb(${rOut}, ${gOut}, ${bOut})`;
     }
 
     function getInitials(name) { return (name || '??').replace('@', '').trim().substring(0, 1).toUpperCase(); }
