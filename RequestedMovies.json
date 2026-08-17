@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "",
-    "lastUpdated": "17.08.2026 11:37",
+    "lastUpdated": "17.08.2026 12:13",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -60,6 +60,123 @@
       "isWatching": false,
       "isMarvel": true,
       "dateWatched": "17.08.2026 11:37"
+    },
+    {
+      "title": "Друзья",
+      "requestedSeason": 1,
+      "year": "1994",
+      "type": "Сериал",
+      "kinopoiskId": "77044",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/77044/",
+      "runtime": "Неизвестно",
+      "genres": "комедия",
+      "studios": "🔴 Warner Bros. Television | 🟢 Bright/Kauffman/Crane Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.414",
+      "overview": "Главные герои – шестеро друзей – Рейчел, Моника, Фиби, Джоуи, Чендлер и Росс. Три девушки и три парня, которые дружат, живут по соседству, вместе убивают время и противостоят жестокой реальности, делятся своими секретами и иногда очень сильно влюбляются.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/zBOs8S3UOHyWLzOl9gF8lknBxlL.jpg",
+      "tagline": "",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/l0qVZIpXtIo7km9u5Yqh0nKPOr5.jpg",
+      "cast": [
+        {
+          "name": "Дженнифер Энистон",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/PBSCmHDFdCMBhjx0EbXpTw4Z94.jpg"
+        },
+        {
+          "name": "Кортни Кокс",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/cSOORhCRPJiwKghozXVXrOBi3Tp.jpg"
+        },
+        {
+          "name": "Лиза Кудроу",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ziatnwJRiBJIcc8jlk6xoClhfOy.jpg"
+        },
+        {
+          "name": "Мэтт Леблан",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/a7Fl1sLUq1UDJ4pHsnwpBdEiDEZ.jpg"
+        }
+      ],
+      "director": {
+        "name": "Марта Кауффман",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/AsX4ZOoQP5oQVLiA51zdRiTNKTm.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "keywords": "new york city, roommates, friendship, cafe, apartment building",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "10",
+      "episodes": "228",
+      "tvStatus": "Ended",
+      "id": 16,
+      "dateRequested": "17.08.2026 12:10",
+      "status": "Смотрели",
+      "ourRating": "10",
+      "cried": true,
+      "isAuction": true,
+      "isBanned": true,
+      "isTheme": true,
+      "isWatching": false,
+      "isMarvel": true,
+      "dateWatched": "17.08.2026 12:11"
+    },
+    {
+      "title": "Доктор Хаус",
+      "requestedSeason": 3,
+      "year": "2004",
+      "type": "Сериал",
+      "kinopoiskId": "178710",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/178710/",
+      "runtime": "44 мин",
+      "genres": "драма",
+      "studios": "🟢 Universal Television, 🟢 Bad Hat Harry Productions, 🟢 Heel & Toe Films, 🟢 Shore Z Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.566",
+      "overview": "Сериал рассказывает о команде врачей, которые должны правильно поставить диагноз пациенту и спасти его. Возглавляет команду доктор Грегори Хаус, который ходит с тростью после того, как его мышечный инфаркт в правой ноге слишком поздно правильно диагностировали. Как врач Хаус просто гений, но сам не отличается проникновенностью в общении с больными и с удовольствием избегает их, если только есть возможность. Он сам всё время проводит в борьбе с собственной болью, а трость в его руке только подчеркивает его жесткую, ядовитую манеру общения. Порой его поведение можно назвать почти бесчеловечным, и при этом он прекрасный врач, обладающий нетипичным умом и безупречным инстинктом, что снискало ему глубокое уважение. Будучи инфекционистом, он ещё и замечательный диагност, который любит разгадывать медицинские загадки, чтобы спасти кому-то жизнь. Если бы все было по его воле, то Хаус лечил бы больных не выходя из своего кабинета.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/hXoGcvNOeWZkxbaitu7ZvEM0hQJ.jpg",
+      "tagline": "Уже лучше?",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
+      "cast": [
+        {
+          "name": "Хью Лори",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/akArncggHnusP5jxzMBKmJDRrMo.jpg"
+        },
+        {
+          "name": "Роберт Шон Леонард",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/jXehZM0AWLJ2OIz4o0jFtHEzcMI.jpg"
+        },
+        {
+          "name": "Омар Эппс",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/iURSiniuHrfOCtjVMAw9HKxJh6z.jpg"
+        },
+        {
+          "name": "Джесси Спенсер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/nFqghuc1WaM6HxYZYc86A06wJbC.jpg"
+        }
+      ],
+      "director": {
+        "name": "Дэвид Шор",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5xVWN3KCGtGjGkEIrHqHrx8UikG.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "keywords": "medicine, drug addiction, misanthrophy, hospital, doctor",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "8",
+      "episodes": "176",
+      "tvStatus": "Ended",
+      "id": 17,
+      "dateRequested": "17.08.2026 12:13",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
     }
   ],
   "MadMan1408": [],
