@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "",
-    "lastUpdated": "17.08.2026 12:13",
+    "lastUpdated": "17.08.2026 12:27",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -169,6 +169,226 @@
       "tvStatus": "Ended",
       "id": 17,
       "dateRequested": "17.08.2026 12:13",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    },
+    {
+      "title": "Мстители",
+      "requestedSeason": 0,
+      "year": "2012",
+      "type": "Фильм",
+      "kinopoiskId": "263531",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/263531/",
+      "runtime": "2 ч 17 мин",
+      "genres": "фантастика, боевик, приключения",
+      "studios": "🟢 Marvel Studios",
+      "budget": "220.000.000 $",
+      "revenue": "1.518.815.515 $",
+      "tmdbRating": "8.066",
+      "overview": "В погоне за могуществом бог Локи вступает в сговор с воинственной расой Читаури, которая обещает ему армию для захвата Земли в обмен на Тессеракт – небольшой куб, содержащий в себе огромную силу. Проникнув в секретный центр организации «Щ.И.Т.», он объявляет о своих намерениях, после чего похищает Тессеракт и берет под контроль нескольких агентов, обеспечивших ему побег. В ответ на угрозу глава «Щ.И.Т.’а» Ник Фьюри созывает сильнейших супергероев планеты, которыми оказываются Железный человек, Черная вдова, Капитан Америка, Халк и Тор. Чтобы дать противнику достойный отпор, им придется отложить все свои разногласия и научиться работать в команде, иначе человечество ждет неминуемая гибель…",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/ztkYgL0zHJLnEPY5VabK9OlmXxx.jpg",
+      "tagline": "​«Мстители, общий сбор!»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg",
+      "cast": [
+        {
+          "name": "Роберт Дауни мл.",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"
+        },
+        {
+          "name": "Крис Эванс",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/3bOGNsHlrswhyW79uvIHH1V43JI.jpg"
+        },
+        {
+          "name": "Марк Руффало",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5GilHMOt5PAQh6rlUKZzGmaKEI7.jpg"
+        },
+        {
+          "name": "Крис Хемсворт",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg"
+        }
+      ],
+      "director": {
+        "name": "Джосс Уидон",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/tAcIXWQWgGzoSsw2BUBuDbCGgii.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=5iw-hJ6xteE",
+      "ageRating": "12+",
+      "keywords": "new york city, superhero, shield, based on comic, alien invasion",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "Мстители (Коллекция)",
+      "id": 18,
+      "dateRequested": "17.08.2026 12:21",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": true
+    },
+    {
+      "title": "Мадагаскар",
+      "requestedSeason": 0,
+      "year": "2005",
+      "type": "Мультфильм",
+      "kinopoiskId": "6006",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/6006/",
+      "runtime": "1 ч 26 мин",
+      "genres": "приключения, мультфильм, комедия, семейный",
+      "studios": "🟢 Pacific Data Images, 🟢 DreamWorks Animation",
+      "budget": "75.000.000 $",
+      "revenue": "542.064.525 $",
+      "tmdbRating": "6.929",
+      "overview": "Четверо изнеженных животных из Центрального зоопарка в Нью-Йорке - лев Алекс, зебра Марти, жираф Мелман и гиппопотамиха Глория - решаются на побег. Оказавшись после кораблекрушения на экзотическом острове Мадагаскар, населенном лемурами и поедающими их фоссами, путешественники с ужасом понимают, что с городскими привычками им придется распрощаться.\r Здесь нет людей, любимых клеток, вкусной кормежки. Начинается шоу «Последний герой» только с животными - нашим друзьям нужно выжить в непривычной среде обитания, где на каждом шагу подстерегает опасность.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/vwPFZT7tS8b9zDSN0PdvOzeGlfW.jpg",
+      "tagline": "«Они не были рождены в дикой местности... Их перевезли туда...»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/tPaurpIUskVji5vwV0dhy9pq4Vs.jpg",
+      "cast": [
+        {
+          "name": "Бен Стиллер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/scgpxhI05JpdNXXfmpK6z0rPOWN.jpg"
+        },
+        {
+          "name": "Крис Рок",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5lILFeBvX3sC0EfbHhrvMEc7bPD.jpg"
+        },
+        {
+          "name": "Дэвид Швиммер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/XtKzJ9lM5Xwa7vCmE4xNHy6Owf.jpg"
+        },
+        {
+          "name": "Джада Пинкетт-Смит",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/3RyvVVSlgRbZANDFkYiAsRMaHW.jpg"
+        }
+      ],
+      "director": {
+        "name": "Эрик Дарнелл",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/l3yiLuFKqpPlDGWH0kKA0X1jZKM.jpg"
+      },
+      "trailer": "",
+      "ageRating": "0+",
+      "keywords": "friendship, island, escape, africa, lion",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "Мадагаскар (Коллекция)",
+      "id": 19,
+      "dateRequested": "17.08.2026 12:22",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    },
+    {
+      "title": "Семь",
+      "requestedSeason": 0,
+      "year": "1995",
+      "type": "Фильм",
+      "kinopoiskId": "377",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/377/",
+      "runtime": "2 ч 7 мин",
+      "genres": "криминал, детектив, триллер",
+      "studios": "🔴 New Line Cinema | 🟢 Juno Pix, 🟢 Arnold Kopelson Productions",
+      "budget": "33.000.000 $",
+      "revenue": "327.311.859 $",
+      "tmdbRating": "8.38",
+      "overview": "Детектив Уильям Сомерсет — ветеран уголовного розыска, мечтающий уйти на пенсию и уехать подальше от города и его грешных обитателей. За семь дней до пенсии на Сомерсета сваливаются две неприятности: молодой напарник Миллс и особо изощренное убийство. Острый ум опытного следователя сразу определяет, что за этим преступлением, скорее всего, последуют другие.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/1e7WmKXLo6xqibkYBwwGWOcF43E.jpg",
+      "tagline": "«Он возомнил себя Богом и начал карать...»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/i5H7zusQGsysGQ8i6P361Vnr0n2.jpg",
+      "cast": [
+        {
+          "name": "Морган Фримен",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/905k0RFzH0Kd6gx8oSxRdnr6FL.jpg"
+        },
+        {
+          "name": "Брэд Питт",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg"
+        },
+        {
+          "name": "Гвинет Пэлтроу",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/x040uB0CDrHjVAUSONw8bbWMvDC.jpg"
+        },
+        {
+          "name": "Джон Кассини",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/kn2Rtn0I8ivCR7ydZTY74XUBh1K.jpg"
+        }
+      ],
+      "director": {
+        "name": "Дэвид Финчер",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/tpEczFclQZeKAiCeKZZ0adRvtfz.jpg"
+      },
+      "trailer": "",
+      "ageRating": "R",
+      "keywords": "rage and hate, police, s.w.a.t., sadism, self-fulfilling prophecy",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "id": 20,
+      "dateRequested": "17.08.2026 12:23",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    },
+    {
+      "title": "12 обезьян",
+      "requestedSeason": 0,
+      "year": "1995",
+      "type": "Фильм",
+      "kinopoiskId": "502",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/502/",
+      "runtime": "2 ч 9 мин",
+      "genres": "фантастика, триллер, детектив",
+      "studios": "🟢 Universal Pictures, 🟢 Atlas Entertainment, 🟢 Classico, 🟢 Twelve Monkeys Productions",
+      "budget": "29.000.000 $",
+      "revenue": "168.841.459 $",
+      "tmdbRating": "7.612",
+      "overview": "2035 год... Чудовищный, неизлечимый вирус уничтожил пять миллиардов человек, то есть 99% населения Земли. Оставшиеся в живых люди вынуждены обитать под землей. Уголовник Джеймс Коул добровольно отправляется в опасное путешествие на машине времени. Он должен попасть в прошлое, чтобы помочь ученым найти источник возникновения этого ужасного вируса и раскрыть загадку таинственных «Двенадцати обезьян»...",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/p8WRofuh7P4a0ttjnZdAslnyex1.jpg",
+      "tagline": "«Когда будущее становится историей»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/mKIkGoyuR71qz6FdiEiOjxvBQcS.jpg",
+      "cast": [
+        {
+          "name": "Брюс Уиллис",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/w3aXr1e7gQCn8MSp1vW4sXHn99P.jpg"
+        },
+        {
+          "name": "Мэделин Стоу",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/k7iQLoCP11e7iVMp1LQimUQLZe8.jpg"
+        },
+        {
+          "name": "Брэд Питт",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg"
+        },
+        {
+          "name": "Кристофер Пламмер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/u0YBwss0ebEUp8sjRtQKnK2wZdR.jpg"
+        }
+      ],
+      "director": {
+        "name": "Терри Гиллиам",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/7qBkaXxANmnb6hqQCBc4iWqXEL6.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=mwamyHYboUQ",
+      "ageRating": "R",
+      "keywords": "biological weapon, philadelphia, pennsylvania, schizophrenia, stockholm syndrome, airplane",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "id": 21,
+      "dateRequested": "17.08.2026 12:27",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": false,
