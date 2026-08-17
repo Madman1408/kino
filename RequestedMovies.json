@@ -166,13 +166,13 @@
       "tvStatus": "Ended",
       "id": 83,
       "dateRequested": "17.08.2026 14:59",
-      "status": "Смотрели",
+      "status": "Не смотрели",
       "ourRating": "Без оценки",
       "cried": true,
       "isAuction": true,
       "isBanned": true,
       "isTheme": true,
-      "isWatching": false,
+      "isWatching": true,
       "isMarvel": true,
       "dateWatched": "17.08.2026 20:45"
     }
