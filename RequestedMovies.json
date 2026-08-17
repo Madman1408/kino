@@ -172,7 +172,7 @@
       "isAuction": true,
       "isBanned": true,
       "isTheme": true,
-      "isWatching": true,
+      "isWatching": false,
       "isMarvel": true,
       "dateWatched": "17.08.2026 20:45"
     }
