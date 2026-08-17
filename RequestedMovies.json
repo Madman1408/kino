@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "",
-    "lastUpdated": "17.08.2026 20:30",
+    "lastUpdated": "17.08.2026 20:39",
     "isOnlineBtnVisible": true
   },
   "puf_98": [
@@ -63,65 +63,6 @@
   ],
   "streamelements": [
     {
-      "title": "Друзья",
-      "requestedSeason": 1,
-      "year": "1994",
-      "type": "Сериал",
-      "kinopoiskId": "77044",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/77044/",
-      "runtime": "Неизвестно",
-      "genres": "комедия",
-      "studios": "🔴 Warner Bros. Television | 🟢 Bright/Kauffman/Crane Productions",
-      "budget": "Нет данных",
-      "revenue": "Нет данных",
-      "tmdbRating": "8.414",
-      "overview": "Главные герои – шестеро друзей – Рейчел, Моника, Фиби, Джоуи, Чендлер и Росс. Три девушки и три парня, которые дружат, живут по соседству, вместе убивают время и противостоят жестокой реальности, делятся своими секретами и иногда очень сильно влюбляются.",
-      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/zBOs8S3UOHyWLzOl9gF8lknBxlL.jpg",
-      "tagline": "",
-      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/l0qVZIpXtIo7km9u5Yqh0nKPOr5.jpg",
-      "cast": [
-        {
-          "name": "Дженнифер Энистон",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/PBSCmHDFdCMBhjx0EbXpTw4Z94.jpg"
-        },
-        {
-          "name": "Кортни Кокс",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/cSOORhCRPJiwKghozXVXrOBi3Tp.jpg"
-        },
-        {
-          "name": "Лиза Кудроу",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ziatnwJRiBJIcc8jlk6xoClhfOy.jpg"
-        },
-        {
-          "name": "Мэтт Леблан",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/a7Fl1sLUq1UDJ4pHsnwpBdEiDEZ.jpg"
-        }
-      ],
-      "director": {
-        "name": "Марта Кауффман",
-        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/AsX4ZOoQP5oQVLiA51zdRiTNKTm.jpg"
-      },
-      "trailer": "",
-      "ageRating": "TV-14",
-      "keywords": "new york city, roommates, friendship, cafe, apartment building",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
-      "collection": "",
-      "seasons": "10",
-      "episodes": "228",
-      "tvStatus": "Ended",
-      "id": 83,
-      "dateRequested": "17.08.2026 14:59",
-      "status": "Смотрели",
-      "ourRating": "10",
-      "cried": true,
-      "isAuction": true,
-      "isBanned": true,
-      "isTheme": true,
-      "isWatching": true,
-      "isMarvel": true,
-      "dateWatched": "17.08.2026 14:59"
-    },
-    {
       "title": "Начало",
       "requestedSeason": 0,
       "year": "2010",
@@ -175,6 +116,65 @@
       "isTheme": false,
       "isWatching": true,
       "isMarvel": false
+    },
+    {
+      "title": "Друзья",
+      "requestedSeason": 1,
+      "year": "1994",
+      "type": "Сериал",
+      "kinopoiskId": "77044",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/77044/",
+      "runtime": "Неизвестно",
+      "genres": "комедия",
+      "studios": "🔴 Warner Bros. Television | 🟢 Bright/Kauffman/Crane Productions",
+      "budget": "Нет данных",
+      "revenue": "Нет данных",
+      "tmdbRating": "8.414",
+      "overview": "Главные герои – шестеро друзей – Рейчел, Моника, Фиби, Джоуи, Чендлер и Росс. Три девушки и три парня, которые дружат, живут по соседству, вместе убивают время и противостоят жестокой реальности, делятся своими секретами и иногда очень сильно влюбляются.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/zBOs8S3UOHyWLzOl9gF8lknBxlL.jpg",
+      "tagline": "",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/l0qVZIpXtIo7km9u5Yqh0nKPOr5.jpg",
+      "cast": [
+        {
+          "name": "Дженнифер Энистон",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/PBSCmHDFdCMBhjx0EbXpTw4Z94.jpg"
+        },
+        {
+          "name": "Кортни Кокс",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/cSOORhCRPJiwKghozXVXrOBi3Tp.jpg"
+        },
+        {
+          "name": "Лиза Кудроу",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ziatnwJRiBJIcc8jlk6xoClhfOy.jpg"
+        },
+        {
+          "name": "Мэтт Леблан",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/a7Fl1sLUq1UDJ4pHsnwpBdEiDEZ.jpg"
+        }
+      ],
+      "director": {
+        "name": "Марта Кауффман",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/AsX4ZOoQP5oQVLiA51zdRiTNKTm.jpg"
+      },
+      "trailer": "",
+      "ageRating": "TV-14",
+      "keywords": "new york city, roommates, friendship, cafe, apartment building",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/74a96970-cd03-4ca5-89ce-92d8b04813df-profile_image-600x600.png",
+      "collection": "",
+      "seasons": "10",
+      "episodes": "228",
+      "tvStatus": "Ended",
+      "id": 83,
+      "dateRequested": "17.08.2026 14:59",
+      "status": "Смотрели",
+      "ourRating": "8",
+      "cried": true,
+      "isAuction": true,
+      "isBanned": true,
+      "isTheme": true,
+      "isWatching": true,
+      "isMarvel": true,
+      "dateWatched": "17.08.2026 20:39"
     }
   ],
   "moobot": [
