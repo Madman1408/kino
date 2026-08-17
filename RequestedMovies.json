@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "",
-    "lastUpdated": "17.08.2026 17:17",
+    "lastUpdated": "17.08.2026 20:30",
     "isOnlineBtnVisible": true
   },
   "puf_98": [
@@ -230,7 +230,7 @@
       "isAuction": false,
       "isBanned": false,
       "isTheme": false,
-      "isWatching": false,
+      "isWatching": true,
       "isMarvel": false
     }
   ],
