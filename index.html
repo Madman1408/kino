@@ -366,7 +366,7 @@
         
         .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
         .modal-requester-link:hover { transform: translateX(5px); }
-        .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 20px; color: var(--gold-main); transition: color 0.3s; font-weight: 900; }
+        .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 15px; color: var(--gold-main); transition: color 0.3s; font-weight: 900; }
         .modal-requester-link:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(245, 194, 133, 0.8); }
 
         .flex-row-responsive { display: flex; flex-direction: row; width: 100%; }
@@ -1240,7 +1240,7 @@
         let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:32px; height:32px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:10px;" alt="">` : `<div class="req-avatar" style="width:32px; height:32px; font-size:14px; font-family: var(--font-title); border-width:2px; background-color: ${userColor}; border-color: var(--gold-main); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px; color:#000; font-weight:800;">${getInitials(cleanNick)}</div>`;
         
         let reqInner = `<div class="modal-requester-link hover-active" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank')" style="display:flex; align-items:center; margin-bottom: 8px;">${avatarMarkup}<span class="name-text">${cleanNick}</span></div>`;
-        if (movie.isAuction) reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 6px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>`;
+        if (movie.isAuction) reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 6px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; padding: 3px 8px;">✦ Аукцион ✦</div>`;
         if (movie.requestedSeason > 0) reqInner += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: var(--gold-main); font-size: 14px;">${movie.requestedSeason} сезон</div>`;
         
         document.getElementById('modalRequesterBlock').innerHTML = reqInner;
