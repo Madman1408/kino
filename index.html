@@ -809,7 +809,7 @@
             
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
-                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; padding: 3px 10px;">${movie.dateWatched.split(' ')[0]}</div>`;
                 if (movie.ourRating && movie.ourRating !== "Без оценки") {
                     const parsedRating = parseFloat(movie.ourRating);
                     if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 9px; text-transform: uppercase; opacity: 0.9;">Наша оценка:</span><span style="font-size: 14px; font-family: var(--font-title);">1000</span></div>`;
