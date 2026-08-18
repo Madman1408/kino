@@ -809,11 +809,11 @@
             
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
-                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; padding: 3px 10px;">${movie.dateWatched.split(' ')[0]}</div>`;
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
                 if (movie.ourRating && movie.ourRating !== "Без оценки") {
                     const parsedRating = parseFloat(movie.ourRating);
                     if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 9px; text-transform: uppercase; opacity: 0.9;">Наша оценка:</span><span style="font-size: 14px; font-family: var(--font-title);">1000</span></div>`;
-                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша оценка: ${movie.ourRating}</div>`; }
+                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5); padding: 3px 9px;">Наша оценка: ${movie.ourRating}</div>`; }
                 }
                 if (movie.cried) watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); font-size: 11px; letter-spacing: 1px; color: #a0c4ff; border-color: #a0c4ff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слезы</div>`;
             }
