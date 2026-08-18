@@ -232,7 +232,7 @@
         
         .card-bottom-badges { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
         .card-mini-badge { font-size: 10px; font-weight: 700; font-family: var(--font-title); background: rgba(0,0,0,0.7); border: 1px solid rgba(245, 194, 133, 0.4); padding: 3px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); }
-        .card-mini-badge.auction { color: var(--gold-main); border-color: var(--gold-main); text-transform: uppercase; letter-spacing: 1px; }
+        .card-mini-badge.auction { color: var(--gold-main); border-color: var(--gold-main); text-transform: uppercase; letter-spacing: 1px; padding: 1px 4px;}
         .card-mini-badge.cried { color: #a0c4ff; border-color: #a0c4ff; font-family: var(--font-text); }
         .card-mini-badge.rating { color: var(--gold-light); border-color: var(--gold-main); font-size: 11px; }
 
@@ -939,9 +939,9 @@
                 }
             }
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
-            if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: var(--gold-light); background: rgba(75, 0, 130, 0.9); border-color: var(--gold-main);">ТЕМ. НЕДЕЛЯ</div>`;
+            if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: var(--gold-light); background: rgba(75, 0, 130, 0.9); border-color: var(--gold-main); padding: 2px 5px;">ТЕМ. НЕДЕЛЯ</div>`;
             if (movie.isMarvel) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.9); border-color: var(--gold-main); padding: 2px 9px 2px 8px;">MARVEL</div>`;
-            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried" style="color: #a0c4ff; border-color: #a0c4ff;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
+            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried" style="color: #a0c4ff; border-color: #a0c4ff; padding: 3px 6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
             if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.9); border-color: #e62429;">🚫 БАН</div>`;
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--gold-main);">СЕЗОН ${movie.requestedSeason}</div>`;
 
