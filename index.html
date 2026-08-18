@@ -1185,10 +1185,10 @@
                 tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Наша оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
             } else {
                 const rColor = getRatingColor(movie.ourRating); 
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 4px 10px;">Наша оценка: ${movie.ourRating}</div>`; 
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 2px 10px;">Наша оценка: ${movie.ourRating}</div>`; 
             }
         }
-        if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #a0c4ff; border-color: #a0c4ff; padding: 5px 11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
+        if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #a0c4ff; border-color: #a0c4ff; padding: 2px 9px 2px 7px; font-size: 11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1" style="margin-right: 0px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
         if (movie.isTheme) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--gold-light); border-color: var(--gold-main); background: rgba(75, 0, 130, 0.4); padding: 4px 6px; font-size: 12px;">Тем. неделя</div>`;
         if (movie.isMarvel) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: var(--gold-main); background: rgba(230, 36, 41, 0.4); padding: 4px 10px;">MARVEL</div>`;
         if (movie.isBanned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #fff; border-color: #e62429; background: rgba(230, 36, 41, 0.4); padding: 4px 10px;">🚫 БАН</div>`;
