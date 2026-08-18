@@ -856,7 +856,7 @@
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             
             const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>` : '';
-            const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: #fff; border-color: var(--gold-main); font-size: 12px;">${movie.requestedSeason} сезон</div>` : '';
+            const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: var(--gold-light); border-color: var(--gold-main); font-size: 12px;">${movie.requestedSeason} сезон</div>` : '';
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
