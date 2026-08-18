@@ -941,8 +941,8 @@
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
             if (movie.isTheme) bottomBadges += `<div class="card-mini-badge" style="color: var(--gold-light); background: rgba(75, 0, 130, 0.9); border-color: var(--gold-main); padding: 2px 5px;">ТЕМ. НЕДЕЛЯ</div>`;
             if (movie.isMarvel) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.9); border-color: var(--gold-main); padding: 2px 9px 2px 8px;">MARVEL</div>`;
-            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried" style="color: #a0c4ff; border-color: #a0c4ff; padding: 3px 6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
-            if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.9); border-color: #e62429;">🚫 БАН</div>`;
+            if (isWatched && movie.cried) bottomBadges += `<div class="card-mini-badge cried" style="color: #a0c4ff; border-color: #a0c4ff; padding: 3px 8px 3px 6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
+            if (movie.isBanned) bottomBadges += `<div class="card-mini-badge" style="color: #fff; background: rgba(230, 36, 41, 0.9); border-color: #fff; padding: 1px 7px 1px 4px;">🚫 БАН</div>`;
             if (movie.requestedSeason && movie.requestedSeason > 0) bottomBadges += `<div class="card-mini-badge" style="color: #fff; border-color: var(--gold-main);">СЕЗОН ${movie.requestedSeason}</div>`;
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
