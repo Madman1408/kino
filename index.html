@@ -812,8 +812,8 @@
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
                 if (movie.ourRating && movie.ourRating !== "Без оценки") {
                     const parsedRating = parseFloat(movie.ourRating);
-                    if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 9px; text-transform: uppercase; opacity: 0.9;">Оценка:</span><span style="font-size: 14px; font-family: var(--font-title);">1000</span></div>`;
-                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Оценка: ${movie.ourRating}</div>`; }
+                    if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 9px; text-transform: uppercase; opacity: 0.9;">Наша оценка:</span><span style="font-size: 14px; font-family: var(--font-title);">1000</span></div>`;
+                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша оценка: ${movie.ourRating}</div>`; }
                 }
                 if (movie.cried) watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-title); font-size: 11px; letter-spacing: 1px; color: #a0c4ff; border-color: #a0c4ff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слезы</div>`;
             }
@@ -855,7 +855,7 @@
             const userColor = stringToColor(cleanNick);
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor};">${getInitials(cleanNick)}</div>`;
             
-            const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Дар Аукциона ✦</div>` : '';
+            const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--gold-main); border-color: var(--gold-main); background: rgba(0,0,0,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>` : '';
             const seasonHTML = movie.requestedSeason > 0 ? `<div class="date-badge" style="margin-top: 8px; color: #fff; border-color: var(--gold-main); font-size: 12px;">${movie.requestedSeason} сезон</div>` : '';
 
             tr.innerHTML = `
@@ -933,9 +933,9 @@
             if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
                 const rColor = getRatingColor(movie.ourRating);
                 if (parseFloat(movie.ourRating) === 1000) {
-                    bottomBadges += `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>`;
+                    bottomBadges += `<div class="card-mini-badge rating legendary-badge">Наша оценка: 1000</div>`;
                 } else {
-                    bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
+                    bottomBadges += `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Наша оценка: ${movie.ourRating}</div>`;
                 }
             }
             if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ АУК ✦</div>`;
@@ -1182,10 +1182,10 @@
         if (isWatched && movie.ourRating && movie.ourRating !== "Без оценки") {
             const parsedRating = parseFloat(movie.ourRating);
             if (parsedRating === 1000) {
-                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
+                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Наша оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
             } else {
                 const rColor = getRatingColor(movie.ourRating); 
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 4px 10px;">Оценка: ${movie.ourRating}</div>`; 
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 4px 10px;">Наша оценка: ${movie.ourRating}</div>`; 
             }
         }
         if (isWatched && movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #a0c4ff; border-color: #a0c4ff; padding: 5px 11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#a0c4ff" stroke="#a0c4ff" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
