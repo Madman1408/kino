@@ -130,14 +130,6 @@
         }
         .view-toggle-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); }
         
-        .wishlist-link-btn {
-            background: rgba(255, 143, 163, 0.1); border: 1px solid var(--cute-pink); border-radius: 20px;
-            padding: 0 20px; color: var(--cute-pink); font-size: 15px; font-family: var(--font-title); font-weight: 700;
-            text-decoration: none; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-sizing: border-box; height: 40px;
-        }
-        .wishlist-link-btn:hover { background: var(--cute-pink); color: var(--bg-deep); box-shadow: 0 0 15px rgba(255, 143, 163, 0.4); }
-        
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
         th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
@@ -246,6 +238,60 @@
         .card-bottom-info { margin-top: auto; width: 100%; }
         .card-date-meta { font-family: var(--font-text); font-size: 12px; color: var(--mint-light); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; }
         
+        /* ---- НОВЫЕ СТИЛИ ДЛЯ ЦЕН И КНОПОК ДОНАТА (ПЛИТКА) ---- */
+        .card-price-box {
+            background: rgba(19, 15, 28, 0.8);
+            border: 1px dashed rgba(92, 242, 138, 0.4);
+            border-radius: 12px;
+            padding: 8px;
+            text-align: center;
+            margin-bottom: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        .card-price-box .price-value {
+            color: #fff;
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .donate-buttons-grid {
+            display: flex;
+            flex-direction: row; 
+            gap: 8px; 
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .don-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1; 
+            height: 38px; 
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .don-btn svg {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .don-btn:hover svg {
+            transform: scale(1.25);
+        }
+
+        .da-btn { background: rgba(245, 130, 32, 0.1); color: #f58220; border: 1px solid rgba(245, 130, 32, 0.3); }
+        .da-btn:hover { background: #f58220; color: #130f1c; box-shadow: 0 0 12px rgba(245, 130, 32, 0.5); transform: translateY(-2px); }
+
+        .dp-btn { background: rgba(76, 91, 180, 0.1); color: #7986cb; border: 1px solid rgba(76, 91, 180, 0.3); }
+        .dp-btn:hover { background: #7986cb; color: #130f1c; box-shadow: 0 0 12px rgba(76, 91, 180, 0.5); transform: translateY(-2px); }
+
+        .mono-btn { background: rgba(255, 255, 255, 0.05); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .mono-btn:hover { background: #ffffff; color: #000000; box-shadow: 0 0 12px rgba(255, 255, 255, 0.5); transform: translateY(-2px); }
+
         .grid-steam-link { 
             display: inline-flex; align-items: center; justify-content: center; gap: 4px; 
             background: rgba(92, 242, 138, 0.1); color: var(--mint-main); 
@@ -664,7 +710,7 @@
     let viewMode = localStorage.getItem('siteViewModeGames') || 'list'; 
 
     const fallbackPosterUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -30)'%3E%3Cpath d='M150 400 c0-50 40-90 90-90 h20 c50 0 90 40 90 90 v20 c0 30 15 50 30 70 l10 15 c15 20 0 45-20 45 h-30 c-20 0-30-10-35-30 l-5-20 h-100 l-5 20 c-5 20-15 30-35 30 h-30 c-20 0-35-25-20-45 l10-15 c15-20 30-40 30-70 v-20 z' fill='%2338255c' stroke='%235cf28a' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M180 390 h20 v-20 h20 v20 h20 v20 h-20 v20 h-20 v-20 h-20 z' fill='%23221836'/%3E%3Ccircle cx='210' cy='400' r='3' fill='%235cf28a'/%3E%3Ccircle cx='330' cy='380' r='14' fill='%23ff8fa3'/%3E%3Ccircle cx='360' cy='410' r='14' fill='%23fce8a1'/%3E%3Crect x='235' y='395' width='30' height='10' rx='5' fill='%23221836'/%3E%3C/g%3E%3C/svg%3E";
-    const fallbackBackdropUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Cdefs%3E%3ClinearGradient id='bgH' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%235cf28a' stroke-width='1' opacity='0.05'/%3E%3C/pattern%3E%3Cpattern id='dots' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23fce8a1' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1000' height='320' fill='url(%23bgH)'/%3E%3Crect width='1000' height='320' fill='url(%23grid)'/%3E%3Crect width='1000' height='320' fill='url(%23dots)'/%3E%3Cg transform='translate(500, 160) scale(1.5)'%3E%3Cpath d='M-50,0 C-50,-20 -30,-40 0,-40 C30,-40 50,-20 50,0 C50,20 40,30 25,30 C15,30 10,20 0,20 C-10,20 -15,30 -25,30 C-40,30 -50,20 -50,0 Z' fill='%2338255c' stroke='%235cf28a' stroke-width='3' opacity='0.8'/%3E%3Cpath d='M-30,-5 h5 v-5 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 z' fill='%23221836' opacity='0.9'/%3E%3Ccircle cx='20' cy='-5' r='3' fill='%23ff8fa3' opacity='0.9'/%3E%3Ccircle cx='30' cy='5' r='3' fill='%23fce8a1' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E";
+    const fallbackBackdropUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Cdefs%3E%3ClinearGradient id='bgH' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%235cf28a' stroke-width='1' opacity='0.05'/%3E%3C/pattern%3E%3Cpattern id='dots' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23fce8a1' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1000' height='320' fill='url(%23bgH)'/%3E%3Crect width='1000' height='320' fill='url(%23grid)'/%3E%3Crect width='1000' height='320' fill='url(%23dots)'/%3E%3Cg transform='translate(500, 160) scale(1.5)'%3E%3Cpath d='M-50,0 C-50,-20 -30,-40 0,-40 C30,-40 50,-20 50,0 C50,20 40,30 25,30 C15,30 10,20 0,20 C-10,20 -15,30 -25,30 C-40,30 -50,20 -50,0 Z' fill='%2338255c' stroke='%235cf28a' stroke-width='3' opacity='0.8'/%3E%3Cpath d='M-30,-5 h5 v-5 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 z' fill='%23221836' opacity='0.9'/%3E%3Ccircle cx='20' cy='-5' r='3' fill='%235cf28a' opacity='0.9'/%3E%3Ccircle cx='30' cy='5' r='3' fill='%23fce8a1' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E";
 
     window.handlePosterError = function(img) {
         img.onerror = null;
@@ -970,15 +1016,16 @@
             
             let tagsDetails = '';
             
-            // НОВАЯ ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В ТАБЛИЦЕ
+            // ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В ТАБЛИЦЕ (ОБНОВЛЕННЫЙ ТЕКСТ)
             if (movie.difficulty) {
                 let diffColor = ''; let diffIcon = '<circle cx="12" cy="12" r="8" fill="currentColor"/>';
-                if (movie.difficulty === 'Легкая') diffColor = 'var(--mint-main)';
-                else if (movie.difficulty === 'Средняя') diffColor = 'var(--warm-star)';
-                else if (movie.difficulty === 'Сложная') diffColor = '#ff6b6b';
+                let diffText = '';
+                if (movie.difficulty === 'Легкая') { diffColor = 'var(--mint-main)'; diffText = 'На лёгком'; }
+                else if (movie.difficulty === 'Средняя') { diffColor = 'var(--warm-star)'; diffText = 'На среднем'; }
+                else if (movie.difficulty === 'Сложная') { diffColor = '#ff6b6b'; diffText = 'На сложном'; }
                 
                 if (diffColor) {
-                    tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;">${diffIcon}</svg> ${movie.difficulty}</div>`;
+                    tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;">${diffIcon}</svg> ${diffText}</div>`;
                 }
             }
 
@@ -1090,14 +1137,15 @@
             
             let bottomBadges = '';
             
-            // НОВАЯ ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В ПЛИТКАХ
+            // ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В ПЛИТКАХ (ОБНОВЛЕННЫЙ ТЕКСТ)
             if (movie.difficulty) {
                 let diffClass = '';
-                if (movie.difficulty === 'Легкая') diffClass = 'diff-easy';
-                else if (movie.difficulty === 'Средняя') diffClass = 'diff-med';
-                else if (movie.difficulty === 'Сложная') diffClass = 'diff-hard';
+                let diffText = '';
+                if (movie.difficulty === 'Легкая') { diffClass = 'diff-easy'; diffText = 'На лёгком'; }
+                else if (movie.difficulty === 'Средняя') { diffClass = 'diff-med'; diffText = 'На среднем'; }
+                else if (movie.difficulty === 'Сложная') { diffClass = 'diff-hard'; diffText = 'На сложном'; }
                 if (diffClass) {
-                    bottomBadges += `<div class="card-mini-badge ${diffClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 2px;"><circle cx="12" cy="12" r="8"/></svg>${movie.difficulty}</div>`;
+                    bottomBadges += `<div class="card-mini-badge ${diffClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 2px;"><circle cx="12" cy="12" r="8"/></svg>${diffText}</div>`;
                 }
             }
 
@@ -1394,15 +1442,16 @@
             }
         }
         
-        // НОВАЯ ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В МОДАЛЬНОМ ОКНЕ
+        // ЛОГИКА ДЛЯ СЛОЖНОСТЕЙ В МОДАЛЬНОМ ОКНЕ (ОБНОВЛЕННЫЙ ТЕКСТ)
         if (movie.difficulty) {
             let diffColor = ''; let diffIcon = '<circle cx="12" cy="12" r="8" fill="currentColor"/>';
-            if (movie.difficulty === 'Легкая') diffColor = 'var(--mint-main)';
-            else if (movie.difficulty === 'Средняя') diffColor = 'var(--warm-star)';
-            else if (movie.difficulty === 'Сложная') diffColor = '#ff6b6b';
+            let diffText = '';
+            if (movie.difficulty === 'Легкая') { diffColor = 'var(--mint-main)'; diffText = 'На лёгком'; }
+            else if (movie.difficulty === 'Средняя') { diffColor = 'var(--warm-star)'; diffText = 'На среднем'; }
+            else if (movie.difficulty === 'Сложная') { diffColor = '#ff6b6b'; diffText = 'На сложном'; }
             
             if (diffColor) {
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">${diffIcon}</svg> Сложность: ${movie.difficulty}</div>`;
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">${diffIcon}</svg> ${diffText}</div>`;
             }
         }
 
