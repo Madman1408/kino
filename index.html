@@ -223,9 +223,9 @@
         .card-mini-badge.rating { color: var(--mint-light); border-color: var(--mint-main); font-size: 11px; }
 
         /* НОВЫЕ БЕЙДЖИ СЛОЖНОСТЕЙ ДЛЯ ПЛИТОК */
-        .card-mini-badge.diff-easy { color: var(--mint-main); border-color: var(--mint-main); }
-        .card-mini-badge.diff-med { color: var(--warm-star); border-color: var(--warm-star); }
-        .card-mini-badge.diff-hard { color: #ff6b6b; border-color: #ff6b6b; }
+        .card-mini-badge.diff-easy { color: var(--mint-main); border-color: var(--mint-main); gap: 1px; padding: 3px 7px 3px 5px; }
+        .card-mini-badge.diff-med { color: var(--warm-star); border-color: var(--warm-star); gap: 1px; padding: 3px 7px 3px 5px;  }
+        .card-mini-badge.diff-hard { color: #ff6b6b; border-color: #ff6b6b; gap: 1px; padding: 3px 7px 3px 5px;  }
 
         .card-content { padding: 15px 10px 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
         .card-title-container { height: 48px; display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 6px; overflow: hidden; }
@@ -1158,7 +1158,7 @@
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
                     ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` 
-                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor};">Оценка: ${movie.ourRating}</div>`;
+                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor}; padding: 3px 7px 3px 9px;">Оценка: ${movie.ourRating}</div>`;
             }
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
@@ -1439,7 +1439,7 @@
                 tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Оценка:</span><span style="font-size: 16px;">1000</span></div>`;
             } else {
                 const rColor = getRatingColor(movie.ourRating); 
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; font-size: 14px;">Наша Оценка: ${movie.ourRating}</div>`; 
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; font-size: 14px; padding: 5px 7px 4px 8px;">Наша Оценка: ${movie.ourRating}</div>`; 
             }
         }
         
@@ -1452,7 +1452,7 @@
             else if (movie.difficulty === 'Сложная') { diffColor = '#ff6b6b'; diffText = 'На сложном'; }
             
             if (diffColor) {
-                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">${diffIcon}</svg> ${diffText}</div>`;
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${diffColor}; border-color: ${diffColor}; box-shadow: 0 0 8px ${diffColor}40; gap: 1px; padding: 4px 8px 5px 6px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">${diffIcon}</svg> ${diffText}</div>`;
             }
         }
 
