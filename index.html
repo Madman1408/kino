@@ -787,24 +787,22 @@
             }
         });
     }
-
-    function copyMovieNameFromTable(event, title, year, btnElement) {
+	
+	function copyMovieNameFromTable(event, title, year, btnElement) {
         event.stopPropagation();
-        copyTextToClipboard(`${title} ${year}`, btnElement);
+        copyTextToClipboard(title, btnElement);
     }
 	
     function copyMovieNameFromModal() {
-        if (currentModalMovie) copyTextToClipboard(`${currentModalMovie.title || ''} ${currentModalMovie.year || ''}`, document.getElementById('modalCopyBtn'));
+        if (currentModalMovie) copyTextToClipboard(currentModalMovie.title || '', document.getElementById('modalCopyBtn'));
     }
-	
 
-    // НОВАЯ ФУНКЦИЯ ДЛЯ КОПИРОВАНИЯ КОМАНДЫ ДАННЫХ
+    
+    
     function copyUpdateCmdFromModal(btnElement) {
         if (currentModalMovie) {
             const title = (currentModalMovie.title || '').trim();
-            const year = currentModalMovie.year || '';
-            const yearPart = (year && year !== '----' && year !== '????') ? ` ${year}` : '';
-            const cmd = `!gz ${title}${yearPart} (data)`;
+            const cmd = `!gz ${title} (data)`;
             copyTextToClipboard(cmd, btnElement);
         }
     }
@@ -1634,8 +1632,7 @@
         }
         
         const titleForCmd = (movie.title || 'Безымянный').trim();
-        const yearForCmd = (movie.year && movie.year !== '----' && movie.year !== '????') ? ` ${movie.year}` : '';
-        updateCmdEl.textContent = `!gz ${titleForCmd}${yearForCmd} (data)`;
+        updateCmdEl.textContent = `!gz ${titleForCmd} (data)`;
 
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
