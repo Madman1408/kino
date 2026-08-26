@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "26.08.2026 11:39",
+    "lastUpdated": "26.08.2026 11:40",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -231,64 +231,6 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "collection": "Властелин колец (Коллекция)",
       "id": 4,
-      "dateRequested": "26.08.2026 11:39",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false,
-      "isBanned": false,
-      "isTheme": false,
-      "isWatching": false,
-      "isMarvel": false
-    },
-    {
-      "title": "Властелин колец",
-      "requestedSeason": 0,
-      "year": "1978",
-      "type": "Мультфильм",
-      "tmdbId": 123,
-      "kinopoiskId": "5919",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/5919/",
-      "altPoster": "",
-      "postUrl": "",
-      "runtime": "2 ч 12 мин",
-      "genres": "приключения, мультфильм, фэнтези",
-      "studios": "🟢 Fantasy Films, 🟢 Bakshi Productions, 🟢 Saul Zaentz Film Productions",
-      "budget": "4.000.000 $",
-      "revenue": "30.477.175 $",
-      "tmdbRating": "6.58",
-      "overview": "Хроника Великой войны за Кольцо, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу. Хоббит Фродо призван уничтожить Кольцо. Он отправился за ним в Мордор и на огненную Гору Судьбы вместе с союзниками - эльфами, гномами, людьми и хоббитами.",
-      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/d5AGSVGfM79paYiQfLpBMnSl4kN.jpg",
-      "tagline": "«За пределами вашего воображения»",
-      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/TXSxV23MWYkezZ3219gtgcSX6n.jpg",
-      "cast": [
-        {
-          "name": "Кристофер Гард",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/9fiBRqKot5xXngtjQGJq0CdZvYp.jpg"
-        },
-        {
-          "name": "William Squire",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/k3HPWslxIahGKovuQLgvk3CuB8i.jpg"
-        },
-        {
-          "name": "Michael Scholes",
-          "photo": "https://via.placeholder.com/185x278?text=No+Photo"
-        },
-        {
-          "name": "Джон Хёрт",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/bjNSzt1d7uK3q5PbtFXUJrRt4qg.jpg"
-        }
-      ],
-      "director": {
-        "name": "Ralph Bakshi",
-        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/16QlhXfXKQ3WeTVussYQRMYIUTk.jpg"
-      },
-      "trailer": "",
-      "ageRating": "PG",
-      "keywords": "mission, based on novel or book, elves, dwarf, troll",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "",
-      "id": 5,
       "dateRequested": "26.08.2026 11:39",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
