@@ -350,7 +350,7 @@
       "dateRequested": "26.08.2026 11:50",
       "status": "Не смотрели",
       "ourRating": "Без оценки",
-      "cried": false,
+      "cried": true,
       "isAuction": false,
       "isBanned": false,
       "isTheme": false,
