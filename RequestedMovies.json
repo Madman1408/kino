@@ -126,64 +126,6 @@
   ],
   "MadMan1408": [
     {
-      "title": "Форсаж",
-      "requestedSeason": 0,
-      "year": "2001",
-      "type": "Фильм",
-      "tmdbId": 9799,
-      "kinopoiskId": "666",
-      "kinopoiskUrl": "https://www.kinopoisk.ru/film/666/",
-      "altPoster": "",
-      "postUrl": "",
-      "runtime": "1 ч 46 мин",
-      "genres": "боевик, криминал, триллер",
-      "studios": "🟢 Ardustry Entertainment, 🟢 Universal Pictures, 🟢 Original Film, 🟢 Mediastream Film",
-      "budget": "38.000.000 $",
-      "revenue": "207.283.925 $",
-      "tmdbRating": "7.013",
-      "overview": "Его зовут Брайан, и он — фанатик турбин и нитроускорителей. Его цель — быть принятым в автобанду легендарного Доминика Торетто, чемпиона опасных и незаконных уличных гонок. Но это лишь часть правды… Брайан также полицейский, имеющий задание войти в доверие к Торетто, подозреваемому в причастности к дерзким грабежам трейлеров, совершенным прямо «с колес».Но чем больше доверяет нахальному новичку харизматичный Доминик, тем больше проникается герой идеалами «ангелов дорог». И тем меньше ему хочется выполнять свою миссию. И вот, наступает момент, когда Брайану придется выбирать между дружбой и долгом. И выбирать на скорости в 200 километров в час…",
-      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/cHNzdyLZDZ25qRS6Uq3dXKhJJbv.jpg",
-      "tagline": "«Если у тебя есть то, что нужно... ты можешь получить всё»",
-      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
-      "cast": [
-        {
-          "name": "Пол Уокер",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/q2PLqKHYCs35HR7QybaNPH3JT96.jpg"
-        },
-        {
-          "name": "Вин Дизель",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
-        },
-        {
-          "name": "Мишель Родригес",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
-        },
-        {
-          "name": "Джордана Брюстер",
-          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ceL0zxeVbWfCfhoIDZIE1NYqBWb.jpg"
-        }
-      ],
-      "director": {
-        "name": "Роб Коэн",
-        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/kVbB8Q0g8eXsn8l81flyC6TgMPW.jpg"
-      },
-      "trailer": "https://www.youtube.com/watch?v=_Oi9Ma7nxK8",
-      "ageRating": "16+",
-      "keywords": "street gang, undercover, car race, auto-tuning, street race",
-      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
-      "collection": "Форсаж (Коллекция)",
-      "id": 3,
-      "dateRequested": "26.08.2026 11:39",
-      "status": "Не смотрели",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "isAuction": false,
-      "isBanned": false,
-      "isTheme": false,
-      "isWatching": false,
-      "isMarvel": false
-    },
-    {
       "title": "Властелин колец: две крепости",
       "requestedSeason": 0,
       "year": "2002",
@@ -294,6 +236,64 @@
       "ourRating": "Без оценки",
       "cried": false,
       "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    },
+    {
+      "title": "Форсаж",
+      "requestedSeason": 0,
+      "year": "2001",
+      "type": "Фильм",
+      "tmdbId": 9799,
+      "kinopoiskId": "666",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/666/",
+      "altPoster": "",
+      "postUrl": "",
+      "runtime": "1 ч 46 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🟢 Ardustry Entertainment, 🟢 Universal Pictures, 🟢 Original Film, 🟢 Mediastream Film",
+      "budget": "38.000.000 $",
+      "revenue": "207.283.925 $",
+      "tmdbRating": "7.013",
+      "overview": "Его зовут Брайан, и он — фанатик турбин и нитроускорителей. Его цель — быть принятым в автобанду легендарного Доминика Торетто, чемпиона опасных и незаконных уличных гонок. Но это лишь часть правды… Брайан также полицейский, имеющий задание войти в доверие к Торетто, подозреваемому в причастности к дерзким грабежам трейлеров, совершенным прямо «с колес».Но чем больше доверяет нахальному новичку харизматичный Доминик, тем больше проникается герой идеалами «ангелов дорог». И тем меньше ему хочется выполнять свою миссию. И вот, наступает момент, когда Брайану придется выбирать между дружбой и долгом. И выбирать на скорости в 200 километров в час…",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/cHNzdyLZDZ25qRS6Uq3dXKhJJbv.jpg",
+      "tagline": "«Если у тебя есть то, что нужно... ты можешь получить всё»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
+      "cast": [
+        {
+          "name": "Пол Уокер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/q2PLqKHYCs35HR7QybaNPH3JT96.jpg"
+        },
+        {
+          "name": "Вин Дизель",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        },
+        {
+          "name": "Джордана Брюстер",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/ceL0zxeVbWfCfhoIDZIE1NYqBWb.jpg"
+        }
+      ],
+      "director": {
+        "name": "Роб Коэн",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/kVbB8Q0g8eXsn8l81flyC6TgMPW.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=_Oi9Ma7nxK8",
+      "ageRating": "16+",
+      "keywords": "street gang, undercover, car race, auto-tuning, street race",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 3,
+      "dateRequested": "26.08.2026 11:39",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": true,
       "isBanned": false,
       "isTheme": false,
       "isWatching": false,
