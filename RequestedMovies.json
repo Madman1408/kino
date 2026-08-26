@@ -63,5 +63,65 @@
       "isWatching": false,
       "isMarvel": false
     }
+  ],
+  "MadManB0T": [
+    {
+      "title": "Форсаж 8",
+      "requestedSeason": 0,
+      "year": "2017",
+      "type": "Фильм",
+      "tmdbId": 337339,
+      "kinopoiskId": "894027",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/894027/",
+      "altPoster": "",
+      "postUrl": "",
+      "runtime": "2 ч 16 мин",
+      "genres": "боевик, криминал, триллер",
+      "studios": "🟢 Original Film, 🟢 One Race, 🟢 Universal Pictures",
+      "budget": "250.000.000 $",
+      "revenue": "1.236.000.000 $",
+      "tmdbRating": "6.85",
+      "overview": "Пристегните ремни — гонка продолжается. Гавана, Берлин, Нью-Йорк, для самой крутой команды в мире нет ничего невозможного, пока они вместе. Но когда на их пути окажется одна из самых красивых женщин на планете и по совместительству королева киберпреступности, дороги друзей разойдутся…",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/mMG9uMqEosiIMjliiPHsyycPcIA.jpg",
+      "tagline": "«Их дороги расходятся»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/3IJ8kG8i84PncXkSovu0PaZQfjM.jpg",
+      "cast": [
+        {
+          "name": "Вин Дизель",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/nZdVry7lnUkE24PnXakok9okvL4.jpg"
+        },
+        {
+          "name": "Джейсон Стейтем",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/pXGSq2UpcDE2NMF8LR56QZf5U1q.jpg"
+        },
+        {
+          "name": "Дуэйн 'Скала' Джонсон",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5QApZVV8FUFlVxQpIK3Ew6cqotq.jpg"
+        },
+        {
+          "name": "Мишель Родригес",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/wVcbrae4eRqGMFZz8Eh52Dl1biP.jpg"
+        }
+      ],
+      "director": {
+        "name": "Ф. Гэри Грей",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/lVbwLnxtdiQaS8oGWFZMkhATLc5.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=jjHwutb695o",
+      "ageRating": "12+",
+      "keywords": "new york city, submarine, rescue mission, sequel, street race",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-600x600.png",
+      "collection": "Форсаж (Коллекция)",
+      "id": 2,
+      "dateRequested": "26.08.2026 11:49",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
+    }
   ]
 }
