@@ -182,6 +182,64 @@
       "isTheme": false,
       "isWatching": false,
       "isMarvel": false
+    },
+    {
+      "title": "Властелин колец: две крепости",
+      "requestedSeason": 0,
+      "year": "2002",
+      "type": "Фильм",
+      "tmdbId": 121,
+      "kinopoiskId": "312",
+      "kinopoiskUrl": "https://www.kinopoisk.ru/film/312/",
+      "altPoster": "",
+      "postUrl": "",
+      "runtime": "2 ч 59 мин",
+      "genres": "приключения, фэнтези, боевик",
+      "studios": "🔴 New Line Cinema | 🟢 WingNut Films, 🟢 The Saul Zaentz Company",
+      "budget": "79.000.000 $",
+      "revenue": "926.287.400 $",
+      "tmdbRating": "8.427",
+      "overview": "Фродо и Сэм идутв Мордор, чтобы уничтожить Кольцо Всевластия. Тем временем Гимли, Леголас и Арагорн отправляются на поиски Мерри и Пиппина, которых схватили орки.",
+      "poster": "https://wsrv.nl/?url=image.tmdb.org/t/p/w500/fl7QZlAoZ4MLcxvgOaBjeUxlpQt.jpg",
+      "tagline": "«Приключение продолжается»",
+      "backdrop": "https://wsrv.nl/?url=image.tmdb.org/t/p/original/6G73mNyooWAEQTpckPSnFxFoNmc.jpg",
+      "cast": [
+        {
+          "name": "Элайджа Вуд",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/7UKRbJBNG7mxBl2QQc5XsAh6F8B.jpg"
+        },
+        {
+          "name": "Иэн МакКеллен",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/5cnnnpnJG6TiYUSS7qgJheUZgnv.jpg"
+        },
+        {
+          "name": "Вигго Мортенсен",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/vH5gVSpHAMhDaFWfh0Q7BG61O1y.jpg"
+        },
+        {
+          "name": "Шон Эстин",
+          "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/As3ctGUtBYmG4zj4Ifyrcqd71HP.jpg"
+        }
+      ],
+      "director": {
+        "name": "Питер Джексон",
+        "photo": "https://wsrv.nl/?url=image.tmdb.org/t/p/w185/bNc908d59Ba8VDNr4eCcm4G1cR.jpg"
+      },
+      "trailer": "https://www.youtube.com/watch?v=Ynxi7kx9dVI",
+      "ageRating": "12+",
+      "keywords": "mission, based on novel or book, elves, dwarf, magic",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "collection": "Властелин колец (Коллекция)",
+      "id": 4,
+      "dateRequested": "26.08.2026 11:39",
+      "status": "Не смотрели",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "isAuction": false,
+      "isBanned": false,
+      "isTheme": false,
+      "isWatching": false,
+      "isMarvel": false
     }
   ]
 }
