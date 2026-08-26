@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "26.08.2026 11:46",
+    "lastUpdated": "26.08.2026 11:47",
     "isOnlineBtnVisible": true
   },
   "streamelements": [
@@ -292,7 +292,7 @@
       "dateRequested": "26.08.2026 11:40",
       "status": "Смотрели",
       "ourRating": "8",
-      "cried": true,
+      "cried": false,
       "isAuction": false,
       "isBanned": false,
       "isTheme": false,
