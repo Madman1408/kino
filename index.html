@@ -1232,7 +1232,7 @@
             const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
             const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Игра')}</span>`;
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
-            const cleanOverview = escapeHTML(movie.overview || '');
+            
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
            
