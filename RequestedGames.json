@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "05.09.2026 11:35",
+    "lastUpdated": "05.09.2026 11:38",
     "isOnlineBtnVisible": true
   },
   "cherteya": [
@@ -484,6 +484,53 @@
         "https://video.akamai.steamstatic.com/store_trailers/3751260/1958643357/2d75bc53117e78963b9242fdaa4d50fd7ffed9c3/1780700754/hls_264_master.m3u8?t=1785244343",
         "https://video.akamai.steamstatic.com/store_trailers/3751260/970361478/9cdf4e06738a27ee446ce04320ddb8a35fbbd8ec/1777453585/hls_264_master.m3u8?t=1785232636",
         "https://video.akamai.steamstatic.com/store_trailers/3751260/254046899/6a47e78c0f9de7854536299ce9318aa1e3525f2a/1750388378/hls_264_master.m3u8?t=1773928497"
+      ],
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "dateRequested": "05.09.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false,
+      "difficulty": "",
+      "postUrl": "",
+      "tgRecordUrl": "",
+      "boostyUrl": "",
+      "youtubeUrl": "",
+      "reviewUrl": ""
+    },
+    {
+      "id": 17,
+      "title": "Escape From Crimson Manor: Trapped Together",
+      "year": "2026",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Приключенческие игры",
+      "studios": "MediaCity Games (Изд: MediaCity Games)",
+      "overview": "Работайте сообща, чтобы сбежать из особняка в &quot;Trapped Together&quot; — сюжетной кооперативной кампании-головоломке, где царит логика, а смерть — не вариант. Общайтесь, обменивайтесь предметами через кухонный лифт и решайте сложные загадки.",
+      "detailedDesc": "ESCAPE FROM CRIMSON MANOR: TRAPPED TOGETHERДва разума, один побег. Идеальная кооперативная игра-головоломка.Escape from Crimson Manor: Trapped Together — это прежде всего проверка на коммуникацию и дедукцию. Эта игра, действие которой происходит в викторианском особняке, переносит сложные головоломки The Inheritance of Crimson Manor в формат, созданный специально для двух игроков.🗝️ ГЛАВНОЕ СОБЫТИЕ: Кооперативная кампания (2 игрока) &quot;Trapped Together&quot;Создано для тех, кто ставит логику выше паники. В этой полноценной сюжетной кампании вы не можете умереть. За вами не гонится монстр; преградой на вашем пути стоит только сам особняк.* Разделены, но связаны: Вы просыпаетесь в противоположных крыльях особняка. Вы не можете видеть то, что видит ваш напарник; голосовая связь — ваш единственный инструмент.* Чистая дедукция: Без угрозы смерти вы можете не торопясь решать сложные механические головоломки и расшифровывать загадки в обстановке без стресса.* Механика обмена: У одного игрока рецепт, у другого ингредиенты. Освойте систему кухонных лифтов, чтобы передавать друг другу инструменты, ключи и важные подсказки между этажами и продвигаться дальше вместе.🩸 СКОРО - БЕСПЛАТНОЕ ОБНОВЛЕНИЕ С БОНУСНЫМ РЕЖИМОМ: Асимметричное выживание (3v1) &quot;The Blood Harvest&quot; [ДОСТУПНО В Q3 2026]Ищете адреналин после головоломок? Смените темп в этом реиграбельном режиме с высокими ставками, где выживание не гарантировано.Алхимик против Выживших: Один игрок становится одержимым Алхимиком, охотящимся на группу до трех Выживших.Охота: В отличие от основной кампании, здесь смерть реальна. Алхимик использует лифты, чтобы устраивать засады на жертв и выкачивать их сущность, чтобы стать моложе и быстрее.Побег: Выжившие должны использовать скрытность и саботаж, чтобы найти флаконы с кровью и снять блокировку, прежде чем их обескровят.КЛЮЧЕВЫЕ ОСОБЕННОСТИДва разных опыта: Кооперативная кампания на чистую изобретательность и асимметричный режим хоррора в одном флаконе.Динамичный особняк: 2 этажа, 2 крыла и Центральный Нексус, соединенные сетью туннелей.Готическая атмосфера: Захватывающее викторианское окружение с улучшенными визуальными эффектами и новыми темными зонами.Система анемии (Только PvP): В режиме Blood Harvest здоровье — это ресурс. Потеря крови затуманивает зрение и замедляет движения; берегите свои жизненные силы, чтобы выжить.",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/2345430/library_600x900_2x.jpg",
+      "backdrop": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2345430?t=1782171958",
+      "steamAppId": "2345430",
+      "price": "$7,49 / 590 ₽ / 295 ₴ / 3 960 ₸",
+      "datePriceUpdated": "05.09.2026",
+      "isFree": "false",
+      "metacriticScore": "Нет оценок",
+      "metacriticUrl": "",
+      "website": "https://www.thecrimsonmanor.com",
+      "dlcCount": "0",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_0873c17bff8b254d84663e9399164b98e63f9efc.1920x1080.jpg?t=1782171958",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_37d02896733a746c43adb0edb551b8d14fdf93e5.1920x1080.jpg?t=1782171958",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_7573d7dc605499531a506b8d641385a7b343755a.1920x1080.jpg?t=1782171958",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_ee37cb8361f95be3c5f2ad67fdfd981100002b82.1920x1080.jpg?t=1782171958",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_036acd9612ac95adffe91bc536466f9313cde34b.1920x1080.jpg?t=1782171958",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2345430/ss_510946451fa423a5c41bbecfc4b7d55b915e1652.1920x1080.jpg?t=1782171958"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/2345430/1581938073/1404ba705ed31ec6c868aa965331dad68a9812fa/1769902078/hls_264_master.m3u8?t=1769904148",
+        "https://video.akamai.steamstatic.com/store_trailers/2345430/968095405/12b5d036025efac850ded13e30552046ba8939d5/1767492661/hls_264_master.m3u8?t=1767494156",
+        "https://video.akamai.steamstatic.com/store_trailers/2345430/570109/674720f0d51643769fe721308adfb3f945827ef6/1750909412/hls_264_master.m3u8?t=1684969293"
       ],
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "dateRequested": "05.09.2026",
