@@ -370,39 +370,17 @@
             border: 2px solid var(--bg-deep);
         }
 
-        /* --- КОНТЕЙНЕР ДЛЯ КНОПОК В КАРТОЧКЕ (БАШЕНКА) --- */
-        .card-actions-col {
+        .card-copy-btn {
             position: absolute; right: 8px; bottom: 8px; z-index: 16;
-            display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
-        }
-
-        /* Общие стили для квадратных кнопок в карточке */
-        .card-copy-btn, .card-play-btn {
-            background: rgba(19, 15, 28, 0.85); cursor: pointer; padding: 6px; 
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            transition: all 0.3s; margin: 0; position: static;
-        }
-
-        .card-copy-btn { 
-            border: 1px solid rgba(92, 242, 138, 0.4); color: var(--mint-main); 
-            opacity: 0; transform: scale(0.8); 
+            background: rgba(19, 15, 28, 0.85); border: 1px solid rgba(92, 242, 138, 0.4); color: var(--mint-main);
+            cursor: pointer; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; opacity: 0; transform: scale(0.8);
         }
         .card-view-item:hover .card-copy-btn { opacity: 1; transform: scale(1); }
         .card-copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
+        .card-copy-btn.shifted { bottom: 42px; }
 
-        .card-play-btn.tg-post { border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; text-decoration: none; }
-        .card-play-btn.tg-post:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
-
-        .card-play-btn.tg-rec { border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; text-decoration: none; }
-        .card-play-btn.tg-rec:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
-
-        .card-play-btn.boosty { border: 1px solid rgba(245, 130, 32, 0.4); color: #f58220; text-decoration: none; }
-        .card-play-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 10px rgba(245, 130, 32, 0.5); }
-
-        .card-play-btn.yt { border: 1px solid rgba(255, 74, 74, 0.4); color: #ff4a4a; text-decoration: none; }
-        .card-play-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 10px rgba(255, 74, 74, 0.5); }
-
-        /* --- СТИЛИ ДЛЯ ТАБЛИЦЫ --- */
+        
         .tg-link-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 6px;
             background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);
@@ -412,6 +390,7 @@
         }
         .tg-link-btn:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 12px rgba(56, 189, 248, 0.5); transform: translateY(-2px); }
 
+        /* --- НОВЫЕ КНОПКИ ДЛЯ ТАБЛИЦЫ --- */
         .play-link-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 6px;
             padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text);
@@ -427,7 +406,40 @@
         .play-link-btn.yt { background: rgba(255, 74, 74, 0.1); color: #ff4a4a; border: 1px solid rgba(255, 74, 74, 0.3); }
         .play-link-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 12px rgba(255, 74, 74, 0.5); transform: translateY(-2px); }
 
-        /* --- СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА --- */
+
+        .card-tg-btn {
+            position: absolute; right: 8px; bottom: 8px; z-index: 16;
+            background: rgba(19, 15, 28, 0.85); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8;
+            cursor: pointer; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; 
+            opacity: 1; transform: scale(1); 
+        }
+        
+        .card-tg-btn:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+
+        /* --- НОВЫЕ КНОПКИ ДЛЯ ПЛИТКИ (БАШЕНКА В ПРАВОМ ВЕРХНЕМ УГЛУ) --- */
+        .card-recordings {
+            position: absolute; right: 8px; top: 8px; z-index: 16;
+            display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+        }
+
+        .card-play-btn {
+            background: rgba(19, 15, 28, 0.85); cursor: pointer; padding: 6px; 
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .card-play-btn.tg-rec { border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; text-decoration: none; }
+        .card-play-btn.tg-rec:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+
+        .card-play-btn.boosty { border: 1px solid rgba(245, 130, 32, 0.4); color: #f58220; text-decoration: none; }
+        .card-play-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 10px rgba(245, 130, 32, 0.5); }
+
+        .card-play-btn.yt { border: 1px solid rgba(255, 74, 74, 0.4); color: #ff4a4a; text-decoration: none; }
+        .card-play-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 10px rgba(255, 74, 74, 0.5); }
+
+
+        /* --- НОВЫЕ БЕЙДЖИ ДЛЯ МОДАЛКИ --- */
         .tg-modal-badge {
             display: inline-flex; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; transition: all 0.3s ease;
             color: #38bdf8; border-color: rgba(56, 189, 248, 0.5); background: rgba(56, 189, 248, 0.05);
@@ -1256,12 +1268,25 @@
             const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
             const bannedDotMarkup = hasBannedStudios ? `<div class="banned-dot" title="Запрещенная студия!"></div>` : '';
             
-            const playIconGrid = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            const hasPost = !!movie.postUrl;
+            let copyBtnClass = 'card-copy-btn';
+            if (hasPost || hasBannedStudios) { copyBtnClass += ' shifted'; } 
 
-            let tgBtnMarkup = movie.postUrl ? `<a href="${movie.postUrl}" target="_blank" class="card-play-btn tg-post" onclick="event.stopPropagation();" title="Открыть пост в Telegram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>` : '';
-            let tgRecGridBtn = movie.tgRecordUrl ? `<a href="${movie.tgRecordUrl}" target="_blank" class="card-play-btn tg-rec" onclick="event.stopPropagation();" title="Запись в Telegram">${playIconGrid}</a>` : '';
-            let boostyGridBtn = movie.boostyUrl ? `<a href="${movie.boostyUrl}" target="_blank" class="card-play-btn boosty" onclick="event.stopPropagation();" title="Запись на Boosty">${playIconGrid}</a>` : '';
-            let ytGridBtn = movie.youtubeUrl ? `<a href="${movie.youtubeUrl}" target="_blank" class="card-play-btn yt" onclick="event.stopPropagation();" title="Запись на YouTube">${playIconGrid}</a>` : '';
+            let tgBtnMarkup = hasPost ? `
+                <a href="${movie.postUrl}" target="_blank" class="card-tg-btn" onclick="event.stopPropagation();" title="Открыть пост в Telegram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+            ` : '';
+
+            const playIconGrid = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            let recordingsMarkup = '';
+            if (movie.tgRecordUrl || movie.boostyUrl || movie.youtubeUrl) {
+                recordingsMarkup = `<div class="card-recordings">`;
+                if (movie.youtubeUrl) recordingsMarkup += `<a href="${movie.youtubeUrl}" target="_blank" class="card-play-btn yt" onclick="event.stopPropagation();" title="Запись на YouTube">${playIconGrid}</a>`;
+                if (movie.boostyUrl) recordingsMarkup += `<a href="${movie.boostyUrl}" target="_blank" class="card-play-btn boosty" onclick="event.stopPropagation();" title="Запись на Boosty">${playIconGrid}</a>`;
+                if (movie.tgRecordUrl) recordingsMarkup += `<a href="${movie.tgRecordUrl}" target="_blank" class="card-play-btn tg-rec" onclick="event.stopPropagation();" title="Запись в Telegram">${playIconGrid}</a>`;
+                recordingsMarkup += `</div>`;
+            }
 
             let gridSteamBtn = '';
             if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
@@ -1279,17 +1304,11 @@
                 <div class="card-top">
                     <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${bannedDotMarkup}
-                    
-                    <div class="card-actions-col">
-                        <button class="card-copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                        </button>
-                        ${tgBtnMarkup}
-                        ${tgRecGridBtn}
-                        ${boostyGridBtn}
-                        ${ytGridBtn}
-                    </div>
-
+                    <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    </button>
+                    ${tgBtnMarkup}
+                    ${recordingsMarkup}
                     <div class="card-overlay">
                         <div class="card-badges-top">
                             <div class="card-type-badge">${escapeHTML(movie.type || 'Игра')}</div>
@@ -1469,7 +1488,6 @@
         }
 
         const playIconModal = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
-        
         if (movie.tgRecordUrl) {
             badgesHtml += `<a href="${movie.tgRecordUrl}" target="_blank" class="outline-badge play-modal-badge tg-rec" onclick="event.stopPropagation();">${playIconModal} ТГ ЗАПИСЬ</a>`;
         }
