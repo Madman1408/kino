@@ -44,7 +44,7 @@
         .left-img { right: -185px; }
         .right-img { left: -175px; top: -365px;}
 
-        @media (max-width: 1550px) { .girl-col { display: none; } }
+       
 
         .container {
             width: 100%; max-width: 1150px; min-height: 80vh; 
@@ -418,7 +418,7 @@
         .modal-girl-img { position: absolute; height: 650px; filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)); }
         .modal-left-img { right: -185px; }
         .modal-right-img { left: -176px; }
-        @media (max-width: 1550px) { .modal-girl-col { display: none; } }
+        
 
         .modal-content {
             background: var(--bg-deep); width: 90%; max-width: 1000px; max-height: 85vh; overflow-y: auto; position: relative;
@@ -503,51 +503,113 @@
         ::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--mint-main); }
 
-        @media (max-width: 1024px) {
+        
+		
+		
+		
+		
+		/* ======================================================= */
+        /* --- НАЧАЛО АДАПТИВА --- */
+        /* ======================================================= */
+
+        /* 1. БОЛЬШИЕ ЭКРАНЫ (2K / 1440p и выше) */
+        @media (min-width: 1920px) {
+            .container { max-width: 1600px; }
+            .movies-grid { grid-template-columns: repeat(8, 1fr); gap: 20px; }
+            .modal-content { max-width: 1300px; }
+            .modal-poster { width: 250px; }
+            .header-top h1 { font-size: 54px; }
+        }
+
+        @media (min-width: 2560px) {
+            .container { max-width: 2100px; }
+            .movies-grid { grid-template-columns: repeat(10, 1fr); }
+            .modal-content { max-width: 1600px; }
+            .modal-poster { width: 300px; }
+        }
+
+        /* 2. ПРЯЧЕМ ДЕВОЧЕК ПО БОКАМ */
+        @media (max-width: 1550px) {
+            .girl-col, .modal-girl-col { display: none; }
+        }
+
+        /* 3. НЕБОЛЬШИЕ НОУТБУКИ И ПЛАНШЕТЫ (ГОРИЗОНТАЛЬНО) */
+        @media (max-width: 1150px) {
+            #viewToggleBtn { display: none !important; }
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
         }
+
+        /* 4. ПЛАНШЕТЫ (iPad Pro и схожие) - перестройка шапки */
+        @media (max-width: 1024px) {
+            .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 25px 20px 20px; }
+            .back-btn, .creator-badge { position: relative; top: auto; left: auto; right: auto; order: 1; }
+            .header-top { width: 100%; order: 2; margin-top: 15px; }
+            .header-top h1 { font-size: 38px; }
+            .controls-panel { width: 100%; order: 3; margin-top: 10px; }
+
+            .modal-body { padding: 0 20px 30px 20px; gap: 20px; }
+            .modal-poster { width: 180px; }
+        }
+
+        /* 5. ПЛАНШЕТЫ (ВЕРТИКАЛЬНО) - постер в модалке уходит в центр */
+        @media (max-width: 1023px) {
+            .modal-body { flex-direction: column; margin-top: -80px; padding: 20px; }
+            .modal-poster { display: block; width: 160px; margin: 0 auto; }
+            #modalTagsColumn { padding-left: 25px !important; }
+        }
+
+        /* 6. ТЕЛЕФОНЫ (КРУПНЫЕ) - 2 колонки, узкая шапка */
         @media (max-width: 768px) {
-            #viewToggleBtn { display: none !important; }
-        
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
-            .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
-            .modal-poster { width: 140px; margin: 0 auto; }
+            .modal-poster { width: 140px; } 
             
+            .header { flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
+            .back-btn { width: auto; margin: 0; order: 1; justify-content: center; }
+            .creator-badge { order: 2; margin: 0; }
+            .header-top { order: 3; width: 100%; margin-top: 5px; text-align: center;}
+            .header-top h1 { font-size: 28px; margin: 0 0 10px 0; text-align: center; }
+            .header-top h1::before, .header-top h1::after { display: none; }
+            .controls-panel { order: 4; flex-direction: column; align-items: center; width: 100%; gap: 10px; margin-top: 0; box-sizing: border-box; }
+            .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
+        }
+
+        /* 7. ТЕЛЕФОНЫ (ОБЫЧНЫЕ) - статистика в 1 колонку, всё по центру */
+        @media (max-width: 600px) {
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
-            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 25px !important;}
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 0 !important;}
             .grid-item.full-width { border-bottom: none; }
-            
-            .header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px; 
-                padding: 20px 10px; 
-            }
 
-            .back-btn {
-                position: relative;
-                top: 0;
-                left: 0;
-            }
+            .grid-item { align-items: center !important; text-align: center; }
+            #modalRequesterBlock, #modalTagsBlock, #modalDateWatched > div, #modalPriceCol > div > div { align-items: center !important; }
 
-            .creator-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-            }
-
-            .header-top h1 { 
-                font-size: 28px; 
-                margin: 5px 0 10px 0;
-            }
-            .header-top h1::before, .header-top h1::after { 
-                display: none; 
-            }
+            .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
+            .modal-meta-wrapper { justify-content: center; }
         }
+
+        /* 8. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
+        @media (max-width: 480px) {
+            .movies-grid { grid-template-columns: 1fr; } 
+            .header-top h1 { font-size: 24px; line-height: 1.2; }
+            .modal-title { font-size: 24px !important; }
+            .modal-poster { width: 120px; }
+        }
+        /* ======================================================= */
+        /* --- КОНЕЦ АДАПТИВА --- */
+        /* ======================================================= */
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         
         .legendary-table-badge, .legendary-badge {
             box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 0 9px #ffd700, 0 0 5px rgba(255, 215, 0, 0.5) !important;
@@ -1031,7 +1093,7 @@
             return;
         }
 
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1150) {
             renderGridMode(renderArea);
         } else {
             if (viewMode === 'list') renderTableMode(renderArea);
