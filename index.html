@@ -907,6 +907,27 @@
         event.stopPropagation(); // Отключаем открытие модалки
         const container = btn.closest('.movie-info');
         
+        container.querySelectorAll('.list-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        container.querySelectorAll('.movie-content-block').forEach(c => c.style.display = 'none');
+        container.querySelector(`.content-${tabName}`).style.display = 'block';
+    };
+
+    // НОВАЯ: Функция для разворачивания текста по клику
+    window.toggleTextExpand = function(event, element) {
+        event.stopPropagation(); // Чтобы клик не открывал модальное окно
+        element.classList.toggle('expanded'); // Добавляем/убираем класс раскрытия
+    };
+
+
+
+
+	// Функция для переключения вкладок в списке
+    window.switchListTab = function(event, btn, tabName) {
+        event.stopPropagation(); // Отключаем открытие модалки
+        const container = btn.closest('.movie-info');
+        
         // Переключаем активную кнопку
         container.querySelectorAll('.list-tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -1269,7 +1290,7 @@
             // HTML-блок с отзывом
             let reviewBlock = hasReview ? `
                 <div class="movie-content-block content-review" style="display: block;">
-                    <div class="movie-review-wrapper">
+                    <div class="movie-review-wrapper" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
                         <div class="movie-review-text">«${cleanReview}»</div>
                     </div>
                 </div>` : '';
@@ -1277,7 +1298,7 @@
             // HTML-блок с описанием (скрыт по умолчанию, если есть отзыв)
             let overviewBlock = `
                 <div class="movie-content-block content-overview" style="display: ${hasReview ? 'none' : 'block'};">
-                    <div class="movie-overview-wrapper" style="margin-top: 4px;">
+                    <div class="movie-overview-wrapper" style="margin-top: 4px;" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
                         <div class="movie-overview-text">${cleanOverview}</div>
                     </div>
                 </div>`;
