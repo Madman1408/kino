@@ -1875,7 +1875,7 @@
         }
         
         // Используем detailedDesc (детальное описание), если оно есть, иначе обычное overview
-        const overviewText = movie.detailedDesc || movie.overview || 'Данные об игре утеряны...';
+        const overviewText = movie.overview || 'Данные об игре утеряны...';
         document.getElementById('modalOverview').innerHTML = escapeHTML(overviewText).replace(/\n/g, '<br>');
 
 
