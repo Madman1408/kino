@@ -538,15 +538,17 @@
         .list-tab-btn.active { background: rgba(92, 242, 138, 0.15); border-color: var(--mint-main); border-style: solid; color: var(--mint-main); box-shadow: 0 0 10px rgba(92, 242, 138, 0.3); }
 
         /* --- ОТЗЫВ --- */
-        /* Увеличили max-height до 58px из-за внутренних отступов (padding) и запретили выделение */
-        .movie-review-wrapper { margin-top: 4px; max-height: 58px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
-        /* Убрали transition: all, оставили только анимацию цвета, чтобы убрать глич при сворачивании */
-        .movie-review-text { font-size: 14px; line-height: 1.6; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 6px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
+        /* Вернули max-height: 48px для компактности */
+        .movie-review-wrapper { margin-top: 4px; max-height: 48px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        
+        /* Добавили max-height: 36px в сам текст, чтобы жестко обрезать 2 строки (14px * 1.6 * 2) */
+        .movie-review-text { font-size: 14px; line-height: 1.6; max-height: 36px; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 6px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s, max-height 0.3s ease; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-review-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-review-text { -webkit-line-clamp: 20; color: #fff; background: rgba(92, 242, 138, 0.1); }
         /* Клик-раскрытие отзыва */
         .movie-review-wrapper.expanded { max-height: 1500px !important; }
-        .movie-review-wrapper.expanded .movie-review-text { -webkit-line-clamp: unset !important; color: #fff; background: rgba(92, 242, 138, 0.15); }
+        /* Снимаем ограничение max-height при раскрытии */
+        .movie-review-wrapper.expanded .movie-review-text { max-height: 1500px !important; -webkit-line-clamp: unset !important; color: #fff; background: rgba(92, 242, 138, 0.15); }
 		
 		
 		
