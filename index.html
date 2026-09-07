@@ -1466,7 +1466,11 @@
 
             let tgButtonHTML = '';
             if (movie.postUrl) {
-                tgButtonHTML = `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
+                tgButtonHTML += `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();" title="Открыть основной пост"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
+            }
+            if (movie.reviewUrl) {
+                // Добавлен margin-top, чтобы кнопки красиво стояли друг над другом, если их две
+                tgButtonHTML += `<a href="${movie.reviewUrl}" target="_blank" class="tg-link-btn" style="margin-top: 4px;" onclick="event.stopPropagation();" title="Читать отзыв в Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
             }
 
             const playIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
@@ -1621,6 +1625,12 @@
                 </a>
             ` : '';
 
+            let tgReviewBtnMarkup = movie.reviewUrl ? `
+                <a href="${movie.reviewUrl}" target="_blank" class="card-tg-btn" onclick="event.stopPropagation();" title="Открыть отзыв в Telegram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+            ` : '';
+
             const playIconGrid = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
             let ytGridBtn = movie.youtubeUrl ? `<a href="${movie.youtubeUrl}" target="_blank" class="card-play-btn yt" onclick="event.stopPropagation();" title="Запись на YouTube">${playIconGrid}</a>` : '';
             let boostyGridBtn = movie.boostyUrl ? `<a href="${movie.boostyUrl}" target="_blank" class="card-play-btn boosty" onclick="event.stopPropagation();" title="Запись на Boosty">${playIconGrid}</a>` : '';
@@ -1650,6 +1660,7 @@
                         ${boostyGridBtn}
                         ${tgRecGridBtn}
                         ${tgBtnMarkup}
+						${tgReviewBtnMarkup}
                     </div>
                     <div class="card-overlay">
                         <div class="card-badges-top">
@@ -1823,7 +1834,14 @@
         
         if (movie.postUrl) {
             badgesHtml += `
-            <a href="${movie.postUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();">
+            <a href="${movie.postUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();" title="Перейти к посту">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                ТГ ПОСТ
+            </a>`;
+        }
+        if (movie.reviewUrl) {
+            badgesHtml += `
+            <a href="${movie.reviewUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();" title="Перейти к отзыву">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 ТГ ПОСТ
             </a>`;
