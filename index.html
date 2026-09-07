@@ -1302,9 +1302,9 @@
             if (priceText !== "Цена скрыта") {
                 const prices = priceText.split('/').map(p => p.trim());
                 // Уменьшили ширину (width: 80%; max-width: 120px), отцентровали (margin: 0 auto 4px auto) и увеличили шрифт (font-size: 13px)
-                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 15px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
             } else {
-                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 80%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 13px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
             
             const priceColumnHTML = `
