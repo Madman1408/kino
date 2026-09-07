@@ -1301,12 +1301,14 @@
             let tablePriceBadgesMarkup = '';
             if (priceText !== "Цена скрыта") {
                 const prices = priceText.split('/').map(p => p.trim());
-                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 100%; padding: 5px 6px; font-size: 11px; cursor: default; box-sizing: border-box; margin-bottom: 4px;">${escapeHTML(p)}</span>`).join('');
+                // Уменьшили ширину (width: 80%; max-width: 120px), отцентровали (margin: 0 auto 4px auto) и увеличили шрифт (font-size: 13px)
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 80%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 13px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
             } else {
-                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 100%; opacity: 0.6; padding: 5px 6px; font-size: 11px; cursor: default; box-sizing: border-box; margin-bottom: 4px;">Нет цены</span>`;
+                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 80%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 13px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
             
-            let priceNotice = priceText.includes('~') ? `<div style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 2px; font-weight: 600;"><span style="color: var(--mint-main);">*</span> <span style="color: var(--mint-main); font-weight: 900;">~</span> конверт.</div>` : '';
+            // Убрали слово "конверт.", оставили только аккуратное обозначение * ~
+            let priceNotice = priceText.includes('~') ? `<div style="font-size: 14px; text-align: center; margin-top: 2px; font-weight: 900;"><span style="color: var(--mint-main); letter-spacing: 2px;">* ~</span></div>` : '';
 
             const priceColumnHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
