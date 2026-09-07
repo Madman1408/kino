@@ -522,7 +522,8 @@
         
         
         /* --- ОПИСАНИЕ --- */
-        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; }
+        /* Добавили user-select: none для запрета выделения и копирования текста по клику */
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
         .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
@@ -537,8 +538,10 @@
         .list-tab-btn.active { background: rgba(92, 242, 138, 0.15); border-color: var(--mint-main); border-style: solid; color: var(--mint-main); box-shadow: 0 0 10px rgba(92, 242, 138, 0.3); }
 
         /* --- ОТЗЫВ --- */
-        .movie-review-wrapper { margin-top: 4px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; }
-        .movie-review-text { font-size: 14px; line-height: 1.6; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 6px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: all 0.3s; }
+        /* Увеличили max-height до 58px из-за внутренних отступов (padding) и запретили выделение */
+        .movie-review-wrapper { margin-top: 4px; max-height: 58px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        /* Убрали transition: all, оставили только анимацию цвета, чтобы убрать глич при сворачивании */
+        .movie-review-text { font-size: 14px; line-height: 1.6; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 6px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-review-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-review-text { -webkit-line-clamp: 20; color: #fff; background: rgba(92, 242, 138, 0.1); }
         /* Клик-раскрытие отзыва */
