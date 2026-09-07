@@ -554,24 +554,51 @@
 		
 		
 		
-		/* --- ГАЛЕРЕЯ МЕДИА В МОДАЛКЕ --- */
-        .media-scroller {
-            display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px;
-            scroll-snap-type: x mandatory; scroll-behavior: smooth;
+		/* --- МЕДИАТЕКА (МИНИАТЮРЫ) --- */
+        .media-grid { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 5px; }
+        .media-thumb {
+            width: 110px; height: 65px; border-radius: 8px; object-fit: cover;
+            border: 2px solid rgba(92, 242, 138, 0.3); cursor: pointer;
+            transition: all 0.3s; background: var(--bg-velvet);
+            background-size: cover; background-position: center; position: relative;
         }
-        .media-scroller::-webkit-scrollbar { height: 6px; }
-        .media-scroller::-webkit-scrollbar-track { background: rgba(19, 15, 28, 0.5); border-radius: 4px; }
-        .media-scroller::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
-        .media-scroller::-webkit-scrollbar-thumb:hover { background: var(--mint-main); }
+        .media-thumb:hover { border-color: var(--mint-main); transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2; }
         
-        .media-item {
-            height: 160px; border-radius: 8px; object-fit: cover;
-            border: 1px solid rgba(92, 242, 138, 0.3); flex-shrink: 0;
-            scroll-snap-align: start; background: var(--bg-deep);
-            transition: border-color 0.3s, box-shadow 0.3s;
+        /* Иконка PLAY поверх миниатюры видео */
+        .video-thumb::after {
+            content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 14px; color: var(--bg-deep); background: rgba(92, 242, 138, 0.9); 
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 2px; box-sizing: border-box; box-shadow: 0 2px 8px rgba(0,0,0,0.6); transition: all 0.3s;
         }
-        .media-item:hover { border-color: var(--mint-main); box-shadow: 0 0 10px rgba(92, 242, 138, 0.4); }
-        video.media-item { width: 280px; object-fit: cover; outline: none; }
+        .video-thumb:hover::after { background: #fff; transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 15px rgba(92, 242, 138, 0.8); }
+
+        /* --- ЛАЙТБОКС (ГАЛЕРЕЯ НА ВЕСЬ ЭКРАН) --- */
+        .lightbox-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(19, 15, 28, 0.95); backdrop-filter: blur(10px); z-index: 2000; 
+            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active { display: flex; opacity: 1; }
+        .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+        .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 12px; border: 2px solid var(--mint-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; }
+        .lightbox-video { width: 80vw; max-width: 1200px; aspect-ratio: 16/9; border-radius: 12px; border: 2px solid var(--mint-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; outline: none; background: #000; }
+        
+        .lightbox-close {
+            position: absolute; top: -45px; right: 0px; color: var(--text-main); cursor: pointer;
+            background: rgba(19, 15, 28, 0.8); border: 1px solid var(--mint-main); width: 36px; height: 36px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2005;
+        }
+        .lightbox-close:hover { color: var(--bg-deep); background: var(--mint-main); transform: rotate(90deg); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
+        
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%); color: var(--mint-main); font-size: 30px; cursor: pointer;
+            background: rgba(19, 15, 28, 0.6); border: 1px solid var(--mint-main); width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2001; user-select: none; -webkit-user-select: none;
+        }
+        .lightbox-nav:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        @media (max-width: 768px) { .lightbox-nav { display: none; } }
 		
 		
 		
@@ -922,11 +949,11 @@
                             <div class="grid-item full-width border-bottom" id="modalMediaCol" style="display: none; padding: 20px 25px;">
                                 <div id="modalScreenshotsWrapper" style="display: none; margin-bottom: 20px;">
                                     <div class="grid-label" style="margin-bottom: 12px;">Скриншоты</div>
-                                    <div id="modalScreenshots" class="media-scroller"></div>
+                                    <div id="modalScreenshots" class="media-grid"></div>
                                 </div>
                                 <div id="modalTrailersWrapper" style="display: none;">
                                     <div class="grid-label" style="margin-bottom: 12px;">Видео / Трейлеры</div>
-                                    <div id="modalTrailers" class="media-scroller"></div>
+                                    <div id="modalTrailers" class="media-grid"></div>
                                 </div>
                             </div>
 							
@@ -950,11 +977,29 @@
     </div>
 </div>
 
+
+<!-- ЛАЙТБОКС (ОКНО ГАЛЕРЕИ) -->
+<div class="lightbox-overlay" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-nav lightbox-prev" onclick="changeLightboxMedia(-1, event)">&#10094;</div>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <div class="lightbox-close" onclick="closeLightbox(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        <video id="lightboxVideo" class="lightbox-video" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="lightbox-nav lightbox-next" onclick="changeLightboxMedia(1, event)">&#10095;</div>
+</div>
+
+
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
     let viewMode = localStorage.getItem('siteViewModeGames') || 'list'; 
+    let modalMediaItems = []; // Массив медиа для галереи
+    let currentLightboxIndex = 0; // Текущий слайд
+    let hlsInstance = null; // Инстанс видеоплеера 
 
 
 	// Функция для переключения вкладок в списке
@@ -975,7 +1020,59 @@
         element.classList.toggle('expanded'); // Добавляем/убираем класс раскрытия
     };
 
+	// Открытие лайтбокса
+    window.openLightbox = function(index) {
+        currentLightboxIndex = index;
+        const item = modalMediaItems[index];
+        const lightbox = document.getElementById('lightboxModal');
+        const imgEl = document.getElementById('lightboxImg');
+        const videoEl = document.getElementById('lightboxVideo');
 
+        imgEl.style.display = 'none';
+        videoEl.style.display = 'none';
+        videoEl.pause();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+
+        if (item.type === 'image') {
+            imgEl.src = item.src;
+            imgEl.style.display = 'block';
+        } else if (item.type === 'video') {
+            videoEl.style.display = 'block';
+            if (item.src.includes('.m3u8')) {
+                if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+                    hlsInstance = new Hls();
+                    hlsInstance.loadSource(item.src);
+                    hlsInstance.attachMedia(videoEl);
+                    hlsInstance.on(Hls.Events.MANIFEST_PARSED, function() { videoEl.play().catch(e => console.log(e)); });
+                } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+                    videoEl.src = item.src;
+                    videoEl.play().catch(e => console.log(e));
+                }
+            } else {
+                videoEl.src = item.src;
+                videoEl.play().catch(e => console.log(e));
+            }
+        }
+        lightbox.classList.add('active');
+    };
+
+    // Закрытие лайтбокса
+    window.closeLightbox = function(event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        document.getElementById('lightboxModal').classList.remove('active');
+        const videoEl = document.getElementById('lightboxVideo');
+        videoEl.pause(); videoEl.removeAttribute('src'); videoEl.load();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+    };
+
+    // Листание слайдов (вправо/влево)
+    window.changeLightboxMedia = function(dir, event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        let newIndex = currentLightboxIndex + dir;
+        if (newIndex < 0) newIndex = modalMediaItems.length - 1;
+        if (newIndex >= modalMediaItems.length) newIndex = 0;
+        openLightbox(newIndex);
+    };
 
 
 	// Функция для переключения вкладок в списке
@@ -1781,55 +1878,54 @@
         const overviewText = movie.detailedDesc || movie.overview || 'Данные об игре утеряны...';
         document.getElementById('modalOverview').innerHTML = escapeHTML(overviewText).replace(/\n/g, '<br>');
 
-        // --- МЕДИАТЕКА (Скриншоты и Видео) ---
+
+
+
+
+        // --- МЕДИАТЕКА (Скриншоты и Видео: Компактная Сетка) ---
         const mediaCol = document.getElementById('modalMediaCol');
         const screenshotsWrapper = document.getElementById('modalScreenshotsWrapper');
         const trailersWrapper = document.getElementById('modalTrailersWrapper');
         const screenshotsContainer = document.getElementById('modalScreenshots');
         const trailersContainer = document.getElementById('modalTrailers');
 
-        let hasMedia = false;
+        modalMediaItems = []; // Сбрасываем массив для нового окна
 
-        // 1. Отрисовка скриншотов
+        let screenshotsHtml = '';
         if (movie.screenshots && Array.isArray(movie.screenshots) && movie.screenshots.length > 0) {
-            screenshotsContainer.innerHTML = movie.screenshots.map(src => `<img src="${src}" class="media-item" alt="Скриншот">`).join('');
+            movie.screenshots.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'image', src: src });
+                screenshotsHtml += `<img src="${src}" class="media-thumb" onclick="openLightbox(${index})" alt="Скриншот">`;
+            });
+            screenshotsContainer.innerHTML = screenshotsHtml;
             screenshotsWrapper.style.display = 'block';
-            hasMedia = true;
         } else {
             screenshotsWrapper.style.display = 'none';
-            screenshotsContainer.innerHTML = '';
         }
 
-        // 2. Отрисовка трейлеров (интеграция HLS.js для Steam)
+        let trailersHtml = '';
         if (movie.trailers && Array.isArray(movie.trailers) && movie.trailers.length > 0) {
-            trailersContainer.innerHTML = movie.trailers.map((src, i) => `<video id="video_player_${i}" src="${src}" controls class="media-item video-item" preload="metadata" playsinline></video>`).join('');
+            // Для миниатюры видео используем фон игры (backdrop) или постер
+            const bgImg = movie.backdrop && !movie.backdrop.includes('via.placeholder') ? movie.backdrop : fallbackBackdropUrl;
+            movie.trailers.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'video', src: src });
+                trailersHtml += `<div class="media-thumb video-thumb" style="background-image: url('${bgImg}')" onclick="openLightbox(${index})" title="Смотреть трейлер"></div>`;
+            });
+            trailersContainer.innerHTML = trailersHtml;
             trailersWrapper.style.display = 'block';
-            hasMedia = true;
-
-            // Подключаем HLS.js для m3u8 форматов
-            setTimeout(() => {
-                if (typeof Hls !== 'undefined') {
-                    movie.trailers.forEach((src, i) => {
-                        const video = document.getElementById(`video_player_${i}`);
-                        if (video && src.includes('.m3u8')) {
-                            if (Hls.isSupported()) {
-                                const hls = new Hls();
-                                hls.loadSource(src);
-                                hls.attachMedia(video);
-                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                                video.src = src; // Нативная поддержка Safari
-                            }
-                        }
-                    });
-                }
-            }, 100);
         } else {
             trailersWrapper.style.display = 'none';
-            trailersContainer.innerHTML = '';
         }
 
-        mediaCol.style.display = hasMedia ? 'block' : 'none';
+        mediaCol.style.display = modalMediaItems.length > 0 ? 'block' : 'none';
         
+		
+		
+		
+		
+		
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
              dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>`;
@@ -1977,6 +2073,7 @@
                 video.pause();
                 video.removeAttribute('src'); 
                 video.load();
+				closeLightbox();
             });
         }
     }
