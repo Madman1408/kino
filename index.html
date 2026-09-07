@@ -1307,16 +1307,12 @@
                 tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 80%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 13px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
             
-            // Убрали слово "конверт.", оставили только аккуратное обозначение * ~
-            let priceNotice = priceText.includes('~') ? `<div style="font-size: 14px; text-align: center; margin-top: 2px; font-weight: 900;"><span style="color: var(--mint-main); letter-spacing: 2px;">* ~</span></div>` : '';
-
             const priceColumnHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
                     <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px; text-align: center;">Обновлено:<br><span style="color: var(--mint-light); font-size: 12px;">${datePriceText}</span></div>
                     <div style="width: 100%;">
                         ${tablePriceBadgesMarkup}
                     </div>
-                    ${priceNotice}
                 </div>
             `;
             // ---------------------------------------------
