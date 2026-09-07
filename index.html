@@ -554,6 +554,29 @@
 		
 		
 		
+		/* --- ГАЛЕРЕЯ МЕДИА В МОДАЛКЕ --- */
+        .media-scroller {
+            display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px;
+            scroll-snap-type: x mandatory; scroll-behavior: smooth;
+        }
+        .media-scroller::-webkit-scrollbar { height: 6px; }
+        .media-scroller::-webkit-scrollbar-track { background: rgba(19, 15, 28, 0.5); border-radius: 4px; }
+        .media-scroller::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
+        .media-scroller::-webkit-scrollbar-thumb:hover { background: var(--mint-main); }
+        
+        .media-item {
+            height: 160px; border-radius: 8px; object-fit: cover;
+            border: 1px solid rgba(92, 242, 138, 0.3); flex-shrink: 0;
+            scroll-snap-align: start; background: var(--bg-deep);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .media-item:hover { border-color: var(--mint-main); box-shadow: 0 0 10px rgba(92, 242, 138, 0.4); }
+        video.media-item { width: 280px; object-fit: cover; outline: none; }
+		
+		
+		
+		
+		
 		/* ======================================================= */
         /* --- НАЧАЛО АДАПТИВА --- */
         /* ======================================================= */
@@ -702,6 +725,10 @@
         .card-play-btn.tg { border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; }
         .card-play-btn.tg:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
     </style>
+	
+	<!-- Библиотека для воспроизведения Steam-трейлеров (.m3u8) -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+	
 </head>
 <body>
 
@@ -819,7 +846,15 @@
                         <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
                         
                        
-                        <div class="modal-overview" id="modalOverview"></div>
+                       <!-- ОТЗЫВ СТРИМЕРА -->
+                        <div id="modalReviewBlock" style="display: none; margin-bottom: 25px;">
+                            <div style="font-size: 11px; color: var(--warm-star); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;">✨ Отзыв от стримера</div>
+                            <div class="modal-review-text" style="font-size: 15px; line-height: 1.6; color: #fff; font-style: italic; border-left: 3px solid var(--warm-star); padding: 12px 16px; background: rgba(252, 232, 161, 0.05); border-radius: 0 12px 12px 0;"></div>
+                        </div>
+
+                        <!-- ОПИСАНИЕ ИГРЫ -->
+                        <div style="font-size: 11px; color: var(--mint-main); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;" id="modalOverviewLabel">📖 Описание</div>
+                        <div class="modal-overview" id="modalOverview" style="margin-bottom: 30px;"></div>
                         
                         
                         <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
@@ -883,6 +918,19 @@
                                 </div>
                             </div>
                             
+							<!-- МЕДИАТЕКА (Скриншоты и Трейлеры) -->
+                            <div class="grid-item full-width border-bottom" id="modalMediaCol" style="display: none; padding: 20px 25px;">
+                                <div id="modalScreenshotsWrapper" style="display: none; margin-bottom: 20px;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Скриншоты</div>
+                                    <div id="modalScreenshots" class="media-scroller"></div>
+                                </div>
+                                <div id="modalTrailersWrapper" style="display: none;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Видео / Трейлеры</div>
+                                    <div id="modalTrailers" class="media-scroller"></div>
+                                </div>
+                            </div>
+							
+							
                             <div class="grid-item full-width" style="border-bottom: none;">
                                 <div class="grid-label">Разработчик / Издатель</div>
                                 <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
@@ -1720,7 +1768,67 @@
         }
         document.getElementById('modalGenres').innerHTML = genresHtml;
 
-        document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
+        // --- ОТЗЫВ И ОПИСАНИЕ В МОДАЛКЕ ---
+        const reviewBlock = document.getElementById('modalReviewBlock');
+        if (movie.reviewText && movie.reviewText.trim() !== "") {
+            reviewBlock.style.display = 'block';
+            reviewBlock.querySelector('.modal-review-text').innerHTML = escapeHTML(movie.reviewText).replace(/\n/g, '<br>');
+        } else {
+            reviewBlock.style.display = 'none';
+        }
+        
+        // Используем detailedDesc (детальное описание), если оно есть, иначе обычное overview
+        const overviewText = movie.detailedDesc || movie.overview || 'Данные об игре утеряны...';
+        document.getElementById('modalOverview').innerHTML = escapeHTML(overviewText).replace(/\n/g, '<br>');
+
+        // --- МЕДИАТЕКА (Скриншоты и Видео) ---
+        const mediaCol = document.getElementById('modalMediaCol');
+        const screenshotsWrapper = document.getElementById('modalScreenshotsWrapper');
+        const trailersWrapper = document.getElementById('modalTrailersWrapper');
+        const screenshotsContainer = document.getElementById('modalScreenshots');
+        const trailersContainer = document.getElementById('modalTrailers');
+
+        let hasMedia = false;
+
+        // 1. Отрисовка скриншотов
+        if (movie.screenshots && Array.isArray(movie.screenshots) && movie.screenshots.length > 0) {
+            screenshotsContainer.innerHTML = movie.screenshots.map(src => `<img src="${src}" class="media-item" alt="Скриншот">`).join('');
+            screenshotsWrapper.style.display = 'block';
+            hasMedia = true;
+        } else {
+            screenshotsWrapper.style.display = 'none';
+            screenshotsContainer.innerHTML = '';
+        }
+
+        // 2. Отрисовка трейлеров (интеграция HLS.js для Steam)
+        if (movie.trailers && Array.isArray(movie.trailers) && movie.trailers.length > 0) {
+            trailersContainer.innerHTML = movie.trailers.map((src, i) => `<video id="video_player_${i}" src="${src}" controls class="media-item video-item" preload="metadata" playsinline></video>`).join('');
+            trailersWrapper.style.display = 'block';
+            hasMedia = true;
+
+            // Подключаем HLS.js для m3u8 форматов
+            setTimeout(() => {
+                if (typeof Hls !== 'undefined') {
+                    movie.trailers.forEach((src, i) => {
+                        const video = document.getElementById(`video_player_${i}`);
+                        if (video && src.includes('.m3u8')) {
+                            if (Hls.isSupported()) {
+                                const hls = new Hls();
+                                hls.loadSource(src);
+                                hls.attachMedia(video);
+                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                                video.src = src; // Нативная поддержка Safari
+                            }
+                        }
+                    });
+                }
+            }, 100);
+        } else {
+            trailersWrapper.style.display = 'none';
+            trailersContainer.innerHTML = '';
+        }
+
+        mediaCol.style.display = hasMedia ? 'block' : 'none';
         
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
@@ -1863,6 +1971,13 @@
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             document.getElementById('movieModal').classList.remove('active'); 
             document.body.style.overflow = ''; 
+            
+            // Останавливаем все видео при закрытии
+            document.querySelectorAll('.video-item').forEach(video => {
+                video.pause();
+                video.removeAttribute('src'); 
+                video.load();
+            });
         }
     }
     
