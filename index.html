@@ -1059,18 +1059,16 @@
         const partsJson = encodeURIComponent(JSON.stringify(parts));
         
         if (styleType === 'table') {
-            // Обычная кнопка
             if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="play-link-btn ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
-            // Кнопка с меню (без счетчика частей)
-            return `<button class="play-link-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="border-style: dashed; cursor: pointer; font-family: var(--font-text);">${svgIcon} ${label}</button>`;
+            return `<div class="play-link-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="border-style: dashed; cursor: pointer;">${svgIcon} ${label}</div>`;
         }
         if (styleType === 'grid') {
             if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="card-play-btn ${cssClass}" onclick="event.stopPropagation();" title="${label}">${svgIcon}</a>`;
-            return `<button class="card-play-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" title="${label} (Несколько частей)" style="cursor: pointer; border-style: dashed;">${svgIcon}</button>`;
+            return `<div class="card-play-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" title="${label} (Несколько частей)" style="cursor: pointer; border-style: dashed;">${svgIcon}</div>`;
         }
         if (styleType === 'modal') {
             if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="outline-badge play-modal-badge ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
-            return `<button class="outline-badge play-modal-badge ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="cursor: pointer; border-style: dashed; background: transparent; font-family: var(--font-text);">${svgIcon} ${label}</button>`;
+            return `<div class="outline-badge play-modal-badge ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="cursor: pointer; border-style: dashed;">${svgIcon} ${label}</div>`;
         }
         return '';
     };
