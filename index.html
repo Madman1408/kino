@@ -1078,13 +1078,24 @@
     window.openPartsModal = function(event, platform, title, partsJson, cssClass) {
         event.stopPropagation();
         const parts = JSON.parse(decodeURIComponent(partsJson));
+        
         let color = 'var(--mint-main)';
-        if (cssClass === 'yt') color = '#ff4a4a';
-        else if (cssClass === 'boosty') color = '#f58220';
-        else if (cssClass === 'tg' || cssClass === 'tg-rec') color = '#38bdf8';
+        let beautifulPlatformName = 'ЗАПИСИ ПРОХОЖДЕНИЯ'; // Значение по умолчанию
+        
+        // Назначаем красивые названия и цвета в зависимости от платформы
+        if (cssClass === 'yt') {
+            color = '#ff4a4a';
+            beautifulPlatformName = 'ЗАПИСИ НА YOUTUBE';
+        } else if (cssClass === 'boosty') {
+            color = '#f58220';
+            beautifulPlatformName = 'ЗАПИСИ НА BOOSTY';
+        } else if (cssClass === 'tg' || cssClass === 'tg-rec') {
+            color = '#38bdf8';
+            beautifulPlatformName = 'ЗАПИСИ В TELEGRAM';
+        }
         
         document.getElementById('partsModalTitle').textContent = title;
-        document.getElementById('partsModalPlatform').textContent = `Записи: ${platform}`;
+        document.getElementById('partsModalPlatform').textContent = beautifulPlatformName;
         document.getElementById('partsModalPlatform').style.color = color;
         
         document.getElementById('partsContainer').innerHTML = parts.map(p => `
@@ -1093,6 +1104,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
             </a>
         `).join('');
+        
         document.getElementById('partsModalOverlay').classList.add('active');
     };
 
