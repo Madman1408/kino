@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "MadMan1408",
-    "lastUpdated": "10.09.2026 09:05",
+    "lastUpdated": "10.09.2026 09:28",
     "isOnlineBtnVisible": true
   },
   "cherteya": [
@@ -534,10 +534,10 @@
       ],
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "dateRequested": "05.09.2026",
-      "status": "В очереди",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "burned": false,
+      "status": "Пройдено",
+      "ourRating": "7",
+      "cried": true,
+      "burned": true,
       "isAuction": false,
       "difficulty": "Сложная",
       "postUrl": "",
@@ -547,7 +547,8 @@
       "reviewUrl": "https://t.me/cherteyart/794",
       "reviewText": "Ну что сказать, фильм мне зашел (пруф, что понравился: привезла попкорн домой, потому что увлеклась фильмом) \nПоплакали с Алёной и фильмом остались довольны, ставлю твердую 8 😏\nТеперь жду Мстителей 🥺\n\nА еще мне Алёна привезла подарочки из Турции, сладости и украшения 😌",
       "tgRecordUrl2": "https://t.me/cherteyart/305",
-      "tgRecordUrl3": "https://t.me/cherteyart/805"
+      "tgRecordUrl3": "https://t.me/cherteyart/805",
+      "dateWatched": "10.09.2026"
     }
   ],
   "cross_loss": []
