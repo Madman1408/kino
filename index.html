@@ -691,30 +691,40 @@
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
-            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 0 !important;}
+            
+            /* Исправлено: Возвращаем симметричный padding, чтобы убрать кривой сдвиг блока */
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding: 20px 25px !important;}
             .grid-item.full-width { border-bottom: none; }
 
             .grid-item { align-items: center !important; text-align: center; }
-            #modalRequesterBlock, #modalDateWatched > div, #modalPriceCol > div > div { align-items: center !important; }
-            #modalTagsBlock { align-items: center !important; width: 100% !important; }
+            
+            /* Железобетонное центрирование контейнеров (Отметки, Дата, Заказчик) */
+            #modalRequesterBlock, #modalTagsBlock, #modalDateWatched > div, #modalPriceCol > div > div { 
+                align-items: center !important; 
+                justify-content: center !important; 
+                width: 100% !important; 
+            }
+            
+            /* Форсируем центровку самих кнопок внутри, полностью убивая десктопные стили */
+            #modalTagsBlock .modal-grid-box, #modalRequesterBlock .modal-requester-link { 
+                align-self: center !important; 
+                margin-left: auto !important; 
+                margin-right: auto !important; 
+            }
 
             .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
             .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
             .modal-title-extras { justify-content: center; margin-top: 8px; }
             .modal-meta-wrapper { justify-content: center; }
             
-            /* Новое: Центрируем жанры, заголовки медиа и сами миниатюры */
+            /* Центрируем жанры, заголовки медиа и сами миниатюры */
             #modalGenres { justify-content: center !important; }
             #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
             .media-grid { justify-content: center !important; }
-			
-			/* Выстраиваем цены в аккуратный столбик на телефонах */
-            .modal-prices-wrapper { flex-direction: column !important; align-items: center !important; }
-            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 !important; }
-			
-			/* Центрирование списков строго на телефонах */
-            #modalRequesterBlock, #modalTagsBlock { align-items: center !important; }
-			
+            
+            /* Исправлено: Принудительно выстраиваем цены в аккуратный столбик */
+            .modal-prices-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
         }
 
         /* 8. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
@@ -727,14 +737,6 @@
         /* ======================================================= */
         /* --- КОНЕЦ АДАПТИВА --- */
         /* ======================================================= */
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
         
