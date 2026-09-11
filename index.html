@@ -613,6 +613,9 @@
 		
 		
 		
+		/* Базовый стиль контейнера цен модалки */
+        .modal-prices-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px; }
+		
 		
 		/* ======================================================= */
         /* --- НАЧАЛО АДАПТИВА --- */
@@ -700,6 +703,11 @@
             #modalGenres { justify-content: center !important; }
             #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
             .media-grid { justify-content: center !important; }
+			
+			/* Выстраиваем цены в аккуратный столбик на телефонах */
+            .modal-prices-wrapper { flex-direction: column !important; align-items: center !important; }
+            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 !important; }
+			
         }
 
         /* 8. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
@@ -915,7 +923,7 @@
                             
                             <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
                                 <div class="grid-label">Отметки</div>
-                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%;"></div>
                             </div>
 
                             <div class="grid-item border-bottom border-right" id="modalDateReqCol">
@@ -2141,7 +2149,7 @@
             modalPriceBadgesMarkup = `<span class="price-badge" style="flex: 0 0 auto; opacity: 0.6; padding: 6px 14px; font-size: 15px; cursor: default;">Нет цены</span>`;
         }
         
-        priceEl.innerHTML = `<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px;">${modalPriceBadgesMarkup}</div>`;
+        priceEl.innerHTML = `<div class="modal-prices-wrapper">${modalPriceBadgesMarkup}</div>`;
         
 
         if (priceText.includes('~')) {
