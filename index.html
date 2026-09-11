@@ -680,8 +680,8 @@
             .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
         }
 
-        /* 7. ТЕЛЕФОНЫ (ОБЫЧНЫЕ) - статистика в 1 колонку, всё по центру */
-        @media (max-width: 600px) {
+        /* 7. ТЕЛЕФОНЫ И ПЛАНШЕТЫ (Строго до 768px) - всё по центру */
+        @media (max-width: 767px) {
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
@@ -693,7 +693,13 @@
 
             .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
             .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
+            .modal-title-extras { justify-content: center; margin-top: 8px; }
             .modal-meta-wrapper { justify-content: center; }
+            
+            /* Новое: Центрируем жанры, заголовки медиа и сами миниатюры */
+            #modalGenres { justify-content: center !important; }
+            #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
+            .media-grid { justify-content: center !important; }
         }
 
         /* 8. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
@@ -1510,7 +1516,6 @@
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
             const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
-            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Игра')}</span>`;
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -1615,7 +1620,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="badges-container">${typeLabel} ${idBadge}</div>
+                        <div class="badges-container">${idBadge}</div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
                         ${tabsHTML}
                         ${reviewBlock}
@@ -1756,8 +1761,7 @@
 						${tgReviewBtnMarkup}
                     </div>
                     <div class="card-overlay">
-                        <div class="card-badges-top">
-                            <div class="card-type-badge">${escapeHTML(movie.type || 'Игра')}</div>
+                        <div class="card-badges-top" style="justify-content: flex-end;">
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -1913,8 +1917,6 @@
         }, 10);
         
         let badgesHtml = '';
-        let displayType = escapeHTML(movie.type || 'Игра');
-        badgesHtml += `<span class="outline-badge">${displayType}</span>`;
         badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
