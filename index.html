@@ -616,6 +616,9 @@
 		/* Базовый стиль контейнера цен модалки */
         .modal-prices-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px; }
 		
+		/* Выравнивание списков модалки на ПК (влево) */
+        #modalRequesterBlock, #modalTagsBlock { align-items: flex-start; }
+		
 		
 		/* ======================================================= */
         /* --- НАЧАЛО АДАПТИВА --- */
@@ -708,6 +711,9 @@
 			/* Выстраиваем цены в аккуратный столбик на телефонах */
             .modal-prices-wrapper { flex-direction: column !important; align-items: center !important; }
             .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 !important; }
+			
+			/* Центрирование списков строго на телефонах */
+            #modalRequesterBlock, #modalTagsBlock { align-items: center !important; }
 			
         }
 
@@ -913,7 +919,7 @@
                             
                             <div class="grid-item border-bottom border-right" id="modalRequesterCol">
                                 <div class="grid-label">Заказал</div>
-                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; gap: 4px; width: 100%;"></div>
                             </div>
                             
                             <div class="grid-item border-bottom" id="modalStatusCol">
@@ -924,7 +930,7 @@
                             
                             <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
                                 <div class="grid-label">Отметки</div>
-                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; gap: 8px; width: 100%;"></div>
                             </div>
 
                             <div class="grid-item border-bottom border-right" id="modalDateReqCol">
