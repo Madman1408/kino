@@ -1515,7 +1515,7 @@
             if (tagsDetails) watchedDetails += `<div style="display:flex; gap:6px; margin-top:4px; flex-wrap: wrap; justify-content: center;">${tagsDetails}</div>`;
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
-            const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
+            const idBadge = (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) ? `<span class="outline-badge">AppID: ${movie.steamAppId}</span>` : '';
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -1917,7 +1917,9 @@
         }, 10);
         
         let badgesHtml = '';
-        badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
+        if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+            badgesHtml += `<span class="outline-badge">AppID: ${movie.steamAppId}</span>`;
+        }
         
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
             badgesHtml += `
