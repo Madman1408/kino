@@ -692,7 +692,8 @@
             .grid-item.full-width { border-bottom: none; }
 
             .grid-item { align-items: center !important; text-align: center; }
-            #modalRequesterBlock, #modalTagsBlock, #modalDateWatched > div, #modalPriceCol > div > div { align-items: center !important; }
+            #modalRequesterBlock, #modalDateWatched > div, #modalPriceCol > div > div { align-items: center !important; }
+            #modalTagsBlock { align-items: center !important; width: 100% !important; }
 
             .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
             .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
@@ -923,7 +924,7 @@
                             
                             <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
                                 <div class="grid-label">Отметки</div>
-                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%;"></div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
                             </div>
 
                             <div class="grid-item border-bottom border-right" id="modalDateReqCol">
