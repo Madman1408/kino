@@ -639,9 +639,9 @@
 
         /* 1. БОЛЬШИЕ ЭКРАНЫ (2K / 1440p и выше) */
         @media (min-width: 2560px) {
-            .container { max-width: 2100px; }
+            .container { max-width: 1900px; }
             .movies-grid { grid-template-columns: repeat(10, 1fr); }
-            .modal-content { max-width: 1600px; }
+            .modal-content { max-width: 1500px; }
             .modal-poster { width: 300px; }
             
             /* Включаем звезды строго от 2560px */
@@ -653,9 +653,9 @@
                 position: fixed;
                 top: 0; left: 0;
                 width: 100%; height: 100%;
-                background: rgba(19, 15, 28, 0.5); 
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
+                background: rgba(19, 15, 28, 0); 
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 z-index: -2;
                 pointer-events: none;
             }
