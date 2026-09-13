@@ -660,14 +660,14 @@
                 pointer-events: none;
             }
 
-            /* Сбалансированные колонки: даем Описанию дышать */
-            th:nth-child(1), td:nth-child(1) { width: 180px !important; min-width: 180px !important; }
-            .poster-wrapper { width: 150px !important; height: 225px !important; } 
+            /* --- СУЖАЕМ ОПИСАНИЕ: Отдаем пространство боковым колонкам --- */
+            th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
+            .poster-wrapper { width: 170px !important; height: 255px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 160px !important; min-width: 160px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 180px !important; min-width: 180px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 160px !important; min-width: 160px !important; }
+            th:nth-child(3), td:nth-child(3) { width: 250px !important; min-width: 250px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 250px !important; min-width: 250px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 300px !important; min-width: 300px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 250px !important; min-width: 250px !important; }
             
             .movie-overview-text { font-size: 16px; line-height: 1.6; }
         }
@@ -1591,7 +1591,7 @@
             const hasReview = movie.reviewText && movie.reviewText.trim() !== ""; 
             // Заменяем \n на <br>, чтобы абзацы из отзыва сохранились в HTML
             const cleanReview = hasReview ? escapeHTML(movie.reviewText).replace(/\n/g, '<br>') : "";
-            const cleanOverview = escapeHTML(movie.overview || 'Описание утеряно во времени...');
+            const cleanOverview = escapeHTML(movie.overview || 'Описание утеряно во времени...').replace(/&amp;quot;/g, '&quot;');
 
             let tabsHTML = `<div class="list-tabs-container">`;
             if (hasReview) {
