@@ -134,7 +134,7 @@
         th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
         tr:last-child td { border-bottom: none; }
-        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
+        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) { text-align: center; }
         tr.movie-row { cursor: pointer; transition: all 0.3s ease; position: relative; }
         tr.movie-row:hover { background-color: rgba(92, 242, 138, 0.04); } 
         td:nth-child(2) { text-align: left; position: relative; z-index: 1; overflow: hidden; }
@@ -162,7 +162,7 @@
         .movie-genres { font-size: 14px; color: #fff; font-weight: 600; opacity: 0.9; }
         .movie-studios-list { font-size: 12px; color: var(--warm-star); font-weight: 600; letter-spacing: 0.5px; margin-top: 2px; }
 
-        /* ОПИСАНИЕ И ОТЗЫВ (Из первого кода) */
+        /* ОПИСАНИЕ И ОТЗЫВ */
         .movie-overview-wrapper, .movie-review-wrapper { margin-top: 4px; max-height: 48px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
         .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
         .movie-review-text { font-size: 14px; line-height: 1.5; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 4px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
@@ -524,8 +524,9 @@
             th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
             .poster-wrapper { width: 170px !important; height: 255px !important; } 
             th:nth-child(3), td:nth-child(3) { width: 180px !important; min-width: 180px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 250px !important; min-width: 250px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 200px !important; min-width: 200px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 200px !important; min-width: 200px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; }
             .movie-overview-text { font-size: 16px; line-height: 1.6; }
         }
 
@@ -1073,7 +1074,8 @@
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
                         <th style="width: 145px; min-width: 145px;">Добавлено</th>
-                        <th style="width: 155px; min-width: 155px;">Ссылки</th>
+                        <th style="width: 145px; min-width: 145px;">Ссылки</th>
+                        <th style="width: 160px; min-width: 160px;">Донат</th>
                         <th style="width: 130px; min-width: 130px;">Цена</th>
                     </tr>
                 </thead>
@@ -1089,7 +1091,6 @@
             
             const posterUrl = getSafePoster(movie.altPoster || movie.poster);
             const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
-            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Игра')}</span>`;
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
             let displayStudios = movie.studios && movie.studios !== "Нет данных" ? movie.studios : "";
@@ -1139,20 +1140,18 @@
             let ytButtonHTML = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIcon, 'table');
 
             let donateButtonsHTML = `
-                <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: 4px; border-top: 1px dashed rgba(92, 242, 138, 0.2); padding-top: 12px;">
-                    <a href="https://www.donationalerts.com/r/cherteya" target="_blank" class="list-don-btn list-da-btn" onclick="event.stopPropagation();" title="Донат через DonationAlerts">
-                        <svg width="14" height="14" viewBox="0 0 69 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M34.8586103,46.5882227 L29.4383109,46.5882227 C29.1227896,46.5896404 28.8214241,46.4709816 28.6091788,46.2617625 C28.3969336,46.0525435 28.2937566,45.7724279 28.325313,45.4910942 L28.8039021,40.6038855 C28.8504221,40.0844231 29.3353656,39.684617 29.9168999,39.6862871 L35.3371993,39.6862871 C35.6527206,39.6848694 35.9540862,39.8035282 36.1663314,40.0127473 C36.3785767,40.2219663 36.4817536,40.5020819 36.4501972,40.7834156 L35.9716081,45.6706244 C35.9250881,46.1900867 35.4401446,46.5898928 34.8586103,46.5882227 Z M35.7273704,37.0196078 L30.2062624,37.0196078 C29.5964177,37.0196078 29.1020408,36.5436108 29.1020408,35.9564386 L30.6037822,19.445421 C30.6711655,18.9085577 31.1463683,18.5059261 31.7080038,18.5098321 L37.2291117,18.5098321 C37.8389565,18.5098321 38.3333333,18.9858292 38.3333333,19.5730013 L36.7874231,36.0946506 C36.71732,36.6114677 36.2684318,37.0031485 35.7273704,37.0196078 Z M68.1907868,17.7655375 C68.7783609,18.4477209 69.0654113,19.3359027 68.9874243,20.2304671 L66.8294442,44.7595227 C66.7602449,45.5618649 66.4022166,46.3125114 65.8210422,46.8737509 L48.1740082,63.9078173 C47.5440361,64.5136721 46.7011436,64.8515656 45.8244317,64.849701 L27.0379034,64.849701 L10.5001116,80 L11.780782,64.8396809 L3.37070981,64.8396809 C2.42614186,64.8404154 1.52467299,64.4469919 0.886144518,63.7553546 C0.247616048,63.0637173 -0.0692823639,62.1374374 0.0127313353,61.2024067 L5.14549723,3.00601995 C5.32162283,1.29571214 6.77326374,-0.00377492304 8.50347571,8.23911697e-06 L51.3303063,8.23911697e-06 C52.3155567,-0.000274507348 53.2515294,0.428127083 53.8916472,1.17235281 L68.1907868,17.7655375 Z M55.1118136,40.0801644 L56.4832402,24.9398854 C56.5364472,24.0422509 56.2238954,23.1611024 55.6160145,22.4949959 L47.548799,13.2364798 C46.9095165,12.5050105 45.982605,12.084699 45.0076261,12.0841753 L19.5958971,12.0841753 C17.8656851,12.0803922 16.4140442,13.3798792 16.2379186,15.090187 L13.2127128,49.1583198 C13.1430685,50.0904539 13.4642119,51.0097453 14.1001037,51.6985265 C14.7359954,52.3873077 15.6300918,52.7843324 16.5706913,52.795594 L41.5588914,52.795594 C42.4258216,52.7976549 43.2601656,52.4674704 43.8882999,51.8737504 L54.1034116,42.2044127 C54.6867718,41.6406314 55.0449815,40.8860452 55.1118136,40.0801644 Z" /></svg>
-                        DONATIONALERTS
-                    </a>
-                    <a href="https://donatepay.eu/don/cherteya" target="_blank" class="list-don-btn list-dp-btn" onclick="event.stopPropagation();" title="Донат через DonatePay">
-                        <svg width="24" height="12" viewBox="0 0 103 51" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M74.3415 17.993C74.3415 16.1862 75.7887 14.7216 77.5738 14.7216C79.3589 14.7216 80.806 16.1862 80.806 17.993C80.806 19.7998 79.3589 21.2645 77.5738 21.2645C75.7887 21.2645 74.3415 19.7998 74.3415 17.993Z"/><path d="M67.3384 25.0812C67.3384 23.2744 68.7855 21.8097 70.5706 21.8097C72.3557 21.8097 73.8028 23.2744 73.8028 25.0812C73.8028 26.888 72.3557 28.3526 70.5706 28.3526C68.7855 28.3526 67.3384 26.888 67.3384 25.0812Z"/><path d="M84.577 21.8097C82.7919 21.8097 81.3447 23.2744 81.3447 25.0812C81.3447 26.888 82.7919 28.3526 84.577 28.3526C86.3621 28.3526 87.8092 26.888 87.8092 25.0812C87.8092 23.2744 86.3621 21.8097 84.577 21.8097Z"/><path d="M74.3415 32.1693C74.3415 30.3626 75.7887 28.8979 77.5738 28.8979C79.3589 28.8979 80.806 30.3626 80.806 32.1693C80.806 33.9761 79.3589 35.4408 77.5738 35.4408C75.7887 35.4408 74.3415 33.9761 74.3415 32.1693Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M55.4269 37.5751L55.4358 37.5872L55.4443 37.5997C60.4774 44.9501 66.8695 50.7076 77.3044 50.7076C91.1167 50.7076 102.354 39.3337 102.354 25.3538C102.354 11.3928 91.0981 0 77.3044 0C69.6291 0 63.6861 3.3237 59.3025 7.92784C55.0182 12.4313 52.0051 18.0277 49.039 23.5503L48.742 24.1031L48.7417 24.1036C45.7056 29.7455 42.6403 35.2509 39.0083 39.0912C37.1937 41.0137 35.2782 42.586 33.0082 43.6716C30.7321 44.7602 28.1549 45.3331 25.0499 45.3331C14.1047 45.3331 5.3101 36.4318 5.3101 25.3538C5.3101 14.3325 14.1607 5.37454 25.0499 5.37454C33.8857 5.37454 39.1379 10.4392 43.5342 17.2044C44.4593 15.5516 45.4469 13.8724 46.497 12.1729C41.5191 5.27928 35.1538 0 25.0499 0C11.2376 0 0 11.3739 0 25.3538C0 39.3148 11.2562 50.7076 25.0499 50.7076C32.6535 50.7076 38.5951 47.3844 42.9327 42.7796C45.8596 39.6748 48.1842 36.0343 50.3199 32.2457L51.3092 30.4908L52.2156 32.2909C52.9035 33.6568 54.2397 35.94 55.4269 37.5751ZM57.711 31.4522L57.7204 31.468C62.3451 39.2007 67.7572 45.3331 77.3044 45.3331C88.1936 45.3331 97.0442 36.3751 97.0442 25.3538C97.0442 14.2758 88.2496 5.37454 77.3044 5.37454C70.9286 5.37454 66.8235 7.71613 63.114 11.613C60.0915 14.7852 57.2931 19.7877 54.8227 24.278L54.6314 24.6257L54.7064 25.0164C54.8703 25.8711 55.4345 27.1135 55.9954 28.237C56.5794 29.4068 57.2445 30.6093 57.7021 31.4362L57.711 31.4522Z"/></svg>
-                        DONATEPAY
-                    </a>
-                    <a href="https://send.monobank.ua/jar/4a3WxHS5aB" target="_blank" class="list-don-btn list-mono-btn" onclick="event.stopPropagation();" title="Донат через monobank">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7A7.982 7.982 0 0 1 21 15c0 4.42-4.03 8-9 8s-9-3.58-9-8c0-2.34.89-4.5 2-6.14 0 0-1.82-6.42-.42-7 1.39-.58 4.64.26 6.42 2.26.65-.17 1.33-.26 2-.26z"></path></svg>
-                        MONOBANK
-                    </a>
-                </div>
+                <a href="https://www.donationalerts.com/r/cherteya" target="_blank" class="list-don-btn list-da-btn" onclick="event.stopPropagation();" title="Донат через DonationAlerts">
+                    <svg width="14" height="14" viewBox="0 0 69 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M34.8586103,46.5882227 L29.4383109,46.5882227 C29.1227896,46.5896404 28.8214241,46.4709816 28.6091788,46.2617625 C28.3969336,46.0525435 28.2937566,45.7724279 28.325313,45.4910942 L28.8039021,40.6038855 C28.8504221,40.0844231 29.3353656,39.684617 29.9168999,39.6862871 L35.3371993,39.6862871 C35.6527206,39.6848694 35.9540862,39.8035282 36.1663314,40.0127473 C36.3785767,40.2219663 36.4817536,40.5020819 36.4501972,40.7834156 L35.9716081,45.6706244 C35.9250881,46.1900867 35.4401446,46.5898928 34.8586103,46.5882227 Z M35.7273704,37.0196078 L30.2062624,37.0196078 C29.5964177,37.0196078 29.1020408,36.5436108 29.1020408,35.9564386 L30.6037822,19.445421 C30.6711655,18.9085577 31.1463683,18.5059261 31.7080038,18.5098321 L37.2291117,18.5098321 C37.8389565,18.5098321 38.3333333,18.9858292 38.3333333,19.5730013 L36.7874231,36.0946506 C36.71732,36.6114677 36.2684318,37.0031485 35.7273704,37.0196078 Z M68.1907868,17.7655375 C68.7783609,18.4477209 69.0654113,19.3359027 68.9874243,20.2304671 L66.8294442,44.7595227 C66.7602449,45.5618649 66.4022166,46.3125114 65.8210422,46.8737509 L48.1740082,63.9078173 C47.5440361,64.5136721 46.7011436,64.8515656 45.8244317,64.849701 L27.0379034,64.849701 L10.5001116,80 L11.780782,64.8396809 L3.37070981,64.8396809 C2.42614186,64.8404154 1.52467299,64.4469919 0.886144518,63.7553546 C0.247616048,63.0637173 -0.0692823639,62.1374374 0.0127313353,61.2024067 L5.14549723,3.00601995 C5.32162283,1.29571214 6.77326374,-0.00377492304 8.50347571,8.23911697e-06 L51.3303063,8.23911697e-06 C52.3155567,-0.000274507348 53.2515294,0.428127083 53.8916472,1.17235281 L68.1907868,17.7655375 Z M55.1118136,40.0801644 L56.4832402,24.9398854 C56.5364472,24.0422509 56.2238954,23.1611024 55.6160145,22.4949959 L47.548799,13.2364798 C46.9095165,12.5050105 45.982605,12.084699 45.0076261,12.0841753 L19.5958971,12.0841753 C17.8656851,12.0803922 16.4140442,13.3798792 16.2379186,15.090187 L13.2127128,49.1583198 C13.1430685,50.0904539 13.4642119,51.0097453 14.1001037,51.6985265 C14.7359954,52.3873077 15.6300918,52.7843324 16.5706913,52.795594 L41.5588914,52.795594 C42.4258216,52.7976549 43.2601656,52.4674704 43.8882999,51.8737504 L54.1034116,42.2044127 C54.6867718,41.6406314 55.0449815,40.8860452 55.1118136,40.0801644 Z" /></svg>
+                    DONATIONALERTS
+                </a>
+                <a href="https://donatepay.eu/don/cherteya" target="_blank" class="list-don-btn list-dp-btn" onclick="event.stopPropagation();" title="Донат через DonatePay">
+                    <svg width="24" height="12" viewBox="0 0 103 51" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M74.3415 17.993C74.3415 16.1862 75.7887 14.7216 77.5738 14.7216C79.3589 14.7216 80.806 16.1862 80.806 17.993C80.806 19.7998 79.3589 21.2645 77.5738 21.2645C75.7887 21.2645 74.3415 19.7998 74.3415 17.993Z"/><path d="M67.3384 25.0812C67.3384 23.2744 68.7855 21.8097 70.5706 21.8097C72.3557 21.8097 73.8028 23.2744 73.8028 25.0812C73.8028 26.888 72.3557 28.3526 70.5706 28.3526C68.7855 28.3526 67.3384 26.888 67.3384 25.0812Z"/><path d="M84.577 21.8097C82.7919 21.8097 81.3447 23.2744 81.3447 25.0812C81.3447 26.888 82.7919 28.3526 84.577 28.3526C86.3621 28.3526 87.8092 26.888 87.8092 25.0812C87.8092 23.2744 86.3621 21.8097 84.577 21.8097Z"/><path d="M74.3415 32.1693C74.3415 30.3626 75.7887 28.8979 77.5738 28.8979C79.3589 28.8979 80.806 30.3626 80.806 32.1693C80.806 33.9761 79.3589 35.4408 77.5738 35.4408C75.7887 35.4408 74.3415 33.9761 74.3415 32.1693Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M55.4269 37.5751L55.4358 37.5872L55.4443 37.5997C60.4774 44.9501 66.8695 50.7076 77.3044 50.7076C91.1167 50.7076 102.354 39.3337 102.354 25.3538C102.354 11.3928 91.0981 0 77.3044 0C69.6291 0 63.6861 3.3237 59.3025 7.92784C55.0182 12.4313 52.0051 18.0277 49.039 23.5503L48.742 24.1031L48.7417 24.1036C45.7056 29.7455 42.6403 35.2509 39.0083 39.0912C37.1937 41.0137 35.2782 42.586 33.0082 43.6716C30.7321 44.7602 28.1549 45.3331 25.0499 45.3331C14.1047 45.3331 5.3101 36.4318 5.3101 25.3538C5.3101 14.3325 14.1607 5.37454 25.0499 5.37454C33.8857 5.37454 39.1379 10.4392 43.5342 17.2044C44.4593 15.5516 45.4469 13.8724 46.497 12.1729C41.5191 5.27928 35.1538 0 25.0499 0C11.2376 0 0 11.3739 0 25.3538C0 39.3148 11.2562 50.7076 25.0499 50.7076C32.6535 50.7076 38.5951 47.3844 42.9327 42.7796C45.8596 39.6748 48.1842 36.0343 50.3199 32.2457L51.3092 30.4908L52.2156 32.2909C52.9035 33.6568 54.2397 35.94 55.4269 37.5751ZM57.711 31.4522L57.7204 31.468C62.3451 39.2007 67.7572 45.3331 77.3044 45.3331C88.1936 45.3331 97.0442 36.3751 97.0442 25.3538C97.0442 14.2758 88.2496 5.37454 77.3044 5.37454C70.9286 5.37454 66.8235 7.71613 63.114 11.613C60.0915 14.7852 57.2931 19.7877 54.8227 24.278L54.6314 24.6257L54.7064 25.0164C54.8703 25.8711 55.4345 27.1135 55.9954 28.237C56.5794 29.4068 57.2445 30.6093 57.7021 31.4362L57.711 31.4522Z"/></svg>
+                    DONATEPAY
+                </a>
+                <a href="https://send.monobank.ua/jar/4a3WxHS5aB" target="_blank" class="list-don-btn list-mono-btn" onclick="event.stopPropagation();" title="Донат через monobank">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7A7.982 7.982 0 0 1 21 15c0 4.42-4.03 8-9 8s-9-3.58-9-8c0-2.34.89-4.5 2-6.14 0 0-1.82-6.42-.42-7 1.39-.58 4.64.26 6.42 2.26.65-.17 1.33-.26 2-.26z"></path></svg>
+                    MONOBANK
+                </a>
             `;
 
             const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена";
@@ -1177,7 +1176,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="badges-container">${typeLabel} ${idBadge}</div>
+                        <div class="badges-container">${idBadge}</div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
                         ${studiosHTML}
                         ${tabsHTML}
@@ -1186,7 +1185,8 @@
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; padding-top: 10px;">${movie.dateRequested ? `<div class="date-badge" style="margin-top: 0;">${movie.dateRequested}</div>` : ''}</div></td>
-                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; height: 100%; padding-top: 10px; width: 100%; box-sizing: border-box;">${steamButtonHTML}${tgButtonHTML}${ytButtonHTML}${boostyButtonHTML}${tgRecButtonHTML}${donateButtonsHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; height: 100%; padding-top: 10px; width: 100%; box-sizing: border-box;">${steamButtonHTML}${tgButtonHTML}${ytButtonHTML}${boostyButtonHTML}${tgRecButtonHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; height: 100%; padding-top: 10px; width: 100%; box-sizing: border-box;">${donateButtonsHTML}</div></td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; padding-top: 10px; width: 100%; box-sizing: border-box;">${priceBadgesMarkup}</div></td>
             `;
             tbody.appendChild(tr);
@@ -1431,8 +1431,6 @@
         }, 10);
         
         let badgesHtml = '';
-        let displayType = escapeHTML(movie.type || 'Игра');
-        badgesHtml += `<span class="outline-badge">${displayType}</span>`;
         badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
