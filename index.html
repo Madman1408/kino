@@ -535,6 +535,14 @@
         @media (min-width: 2560px) {
             #starsCanvas { display: block !important; }
         }
+		
+		
+		
+		/* Прячем кнопку переключения на планшетах и небольших ноутах */
+        @media (max-width: 1150px) {
+            #viewToggleBtn { display: none !important; }
+        }
+		
 
         @media (max-width: 1024px) {
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1102,7 +1110,7 @@
             return;
         }
 
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1150) {
             renderGridMode(renderArea);
         } else {
             if (viewMode === 'list') renderTableMode(renderArea);
