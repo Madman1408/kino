@@ -530,26 +530,70 @@
             .movie-overview-text { font-size: 16px; line-height: 1.6; }
         }
 
+        /* Прячем звезды по умолчанию, они включатся только на 2K */
+        #starsCanvas { display: none !important; }
+        @media (min-width: 2560px) {
+            #starsCanvas { display: block !important; }
+        }
+
         @media (max-width: 1024px) {
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
+            /* Центрируем постер в модалке на планшетах */
+            .modal-body { flex-direction: column; margin-top: -80px; padding: 20px; }
+            .modal-poster { display: block; width: 160px; margin: 0 auto; }
         }
+
+        /* 1. ТЕЛЕФОНЫ (КРУПНЫЕ) - 2 колонки, умная шапка с order */
         @media (max-width: 768px) {
             #viewToggleBtn { display: none !important; }
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
-            .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
-            .modal-poster { width: 140px; margin: 0 auto; }
+            .modal-poster { width: 140px; } 
+            
+            .header { flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
+            .back-btn { position: static; width: auto; margin: 0; order: 1; justify-content: center; }
+            .creator-badge { position: static; order: 2; margin: 0; }
+            .header-top { order: 3; width: 100%; margin-top: 5px; text-align: center;}
+            .header-top h1 { font-size: 28px; margin: 0 0 10px 0; text-align: center; }
+            .header-top h1::before, .header-top h1::after { display: none; }
+            .controls-panel { order: 4; flex-direction: column; align-items: center; width: 100%; gap: 10px; margin-top: 0; box-sizing: border-box; }
+            .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
+        }
+
+        /* 2. ТЕЛЕФОНЫ (Стандарт) - всё по центру */
+        @media (max-width: 767px) {
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
-            .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
+            .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); align-items: center !important; text-align: center; }
             .grid-item.full-width { border-bottom: none; }
+
+            /* Железобетонное центрирование контейнеров */
+            #modalDateReqCol > div, #modalStudiosCol > div, #modalPriceCol > div > div { 
+                align-items: center !important; justify-content: center !important; width: 100% !important; 
+            }
+
+            .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
+            .modal-title-extras { justify-content: center; margin-top: 8px; }
+            .modal-meta-wrapper { justify-content: center; }
             
-            .header { display: flex; flex-direction: column; align-items: center; gap: 15px;  padding: 20px 10px; }
-            .back-btn { position: relative; top: 0; left: 0; }
-            .creator-badge { position: relative; top: 0; right: 0; }
-            .header-top h1 { font-size: 28px; margin: 5px 0 10px 0; }
-            .header-top h1::before, .header-top h1::after { display: none; }
+            #modalGenres { justify-content: center !important; }
+            #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
+            .media-grid { justify-content: center !important; }
+            
+            /* Цены в столбик */
+            #modalPrice > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
         }
+
+        /* 3. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
+        @media (max-width: 480px) {
+            .movies-grid { grid-template-columns: 1fr; } 
+            .header-top h1 { font-size: 24px; line-height: 1.2; }
+            .modal-title { font-size: 24px !important; }
+            .modal-poster { width: 120px; }
+        }
+    </style>
     </style>
     <!-- Библиотека HLS для видео -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
@@ -1581,5 +1625,74 @@
     
     loadMovies();
 </script>
+
+<!-- ЗВЕЗДНЫЙ ФОН НА CANVAS -->
+<script>
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starsCanvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1'; 
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function initStars() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        stars = [];
+        
+        const numStars = Math.floor((width * height) / 4000); 
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5 + 0.3, 
+                velocity: Math.random() * 0.4 + 0.1, 
+                alpha: Math.random(), 
+                twinkleSpeed: (Math.random() * 0.02) + 0.005, 
+                fadeDir: Math.random() > 0.5 ? 1 : -1 
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, width, height);
+        
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+            ctx.fill();
+            
+            star.y -= star.velocity;
+            
+            if (star.y < 0) {
+                star.y = height;
+                star.x = Math.random() * width;
+            }
+
+            star.alpha += star.twinkleSpeed * star.fadeDir;
+            if (star.alpha <= 0.1) {
+                star.alpha = 0.1;
+                star.fadeDir = 1;
+            } else if (star.alpha >= 1) {
+                star.alpha = 1;
+                star.fadeDir = -1;
+            }
+        });
+        requestAnimationFrame(drawStars);
+    }
+    
+    initStars();
+    drawStars();
+    window.addEventListener('resize', initStars);
+</script>
+
 </body>
 </html>
