@@ -695,16 +695,46 @@
 		
 		
 		
-		/* 3. НЕБОЛЬШИЕ НОУТБУКИ (1280px - 1400px) - Расширяем Описание */
+		/* 3. НЕБОЛЬШИЕ НОУТБУКИ (1280px - 1400px) - Баланс колонок */
         @media (max-width: 1400px) {
-            /* Уменьшаем боковые колонки и отступы, чтобы отдать место Описанию */
-            th:nth-child(1), td:nth-child(1) { width: 135px !important; min-width: 135px !important; padding-left: 5px !important; padding-right: 5px !important; }
-            .poster-wrapper { width: 115px !important; height: 175px !important; } /* Постер чуть компактнее */
+            /* Немного заужаем Постер и Заказчика */
+            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            .poster-wrapper { width: 105px !important; height: 160px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 125px !important; min-width: 125px !important; padding-left: 5px !important; padding-right: 5px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 125px !important; min-width: 125px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            
+            /* Увеличиваем ширину для Ссылок и Статуса */
             th:nth-child(5), td:nth-child(5) { width: 140px !important; min-width: 140px !important; padding-left: 5px !important; padding-right: 5px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 125px !important; min-width: 125px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 135px !important; min-width: 135px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            
+            /* Ссылки занимают 100% ячейки, шрифт чуть меньше, отступы компактнее */
+            .steam-link-btn, .play-link-btn, .tg-link-btn { 
+                width: 100% !important; 
+                font-size: 11px !important; 
+                padding: 4px !important; 
+                box-sizing: border-box !important; 
+            }
+            
+            /* Отметки адаптируются, длинный текст аккуратно переносится, не ломая рамки */
+            .date-badge { 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                font-size: 11px !important; 
+                padding: 4px 6px !important; 
+                box-sizing: border-box !important; 
+                white-space: normal !important; 
+                text-align: center !important; 
+                line-height: 1.1 !important; 
+            }
+            
+            .badge-status { 
+                font-size: 11px !important; 
+                padding: 4px 10px !important; 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                box-sizing: border-box !important; 
+            }
         }
 		
 		
