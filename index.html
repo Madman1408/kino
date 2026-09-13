@@ -44,14 +44,14 @@
         .left-img { right: -185px; }
         .right-img { left: -175px; top: -365px;}
 
-        /* Прячем звезды по умолчанию */
-        #starsCanvas { display: none !important; }
+        @media (max-width: 1550px) { .girl-col { display: none; } }
 
         .container {
             width: 100%; max-width: 1150px; min-height: 80vh; 
             background: rgba(19, 15, 28, 0.85); backdrop-filter: blur(12px); 
             position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(92, 242, 138, 0.15); 
             border: 2px solid var(--mint-dark); border-radius: 24px; padding: 4px; 
+            display: flex; flex-direction: column; /* FIX: для прижатия футера */
         }
 
         .container::before {
@@ -59,7 +59,16 @@
             border: 1px dashed rgba(92, 242, 138, 0.3); border-radius: 18px; pointer-events: none; z-index: 10;
         }
 
-        .content-wrapper { background: rgba(34, 24, 54, 0.8); position: relative; z-index: 2; height: 100%; border-radius: 18px; min-height: 80vh; }
+        .content-wrapper { 
+            background: rgba(34, 24, 54, 0.8); position: relative; z-index: 2; height: 100%; 
+            border-radius: 18px; min-height: 80vh; 
+            display: flex; flex-direction: column; /* FIX: для прижатия футера */
+        }
+
+        #render-area {
+            flex-grow: 1; /* Заполняет пустое место, толкая футер вниз */
+            display: flex; flex-direction: column;
+        }
 
         .header {
             padding: 35px 30px 25px; text-align: center; position: relative;
@@ -163,8 +172,8 @@
         .movie-genres { font-size: 14px; color: #fff; font-weight: 600; opacity: 0.9; }
         .movie-studios-list { font-size: 12px; color: var(--warm-star); font-weight: 600; letter-spacing: 0.5px; margin-top: 2px; }
 
-        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
-        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; user-select: none; -webkit-user-select: none;}
+        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s;}
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
         .movie-overview-wrapper.expanded { max-height: 1500px !important; }
@@ -184,8 +193,7 @@
         .movie-review-wrapper.expanded .movie-review-text { -webkit-line-clamp: unset !important; color: #fff; background: rgba(92, 242, 138, 0.15); }
         
         .date-badge { font-size: 14px; color: #fff; font-weight: 600; background: rgba(19, 15, 28, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 6px 14px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 6px; margin-top: 10px; }
-        .badge-status { font-size: 11px; font-weight: 800; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); color: var(--bg-deep); border-radius: 10px; padding: 4px 12px; margin-bottom: 8px; background: var(--mint-main); box-shadow: 0 2px 8px rgba(92, 242, 138, 0.4); min-width: 85px; }
-
+        
         .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); width: 100%; box-sizing: border-box; }
         .steam-link-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); transform: translateY(-2px); }
 
@@ -284,7 +292,7 @@
         }
         .card-queue-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 4px; }
         .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
-        .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--bg-deep); color: var(--mint-main); }
+        .card-user-avatar { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--mint-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-title); font-weight: 900; background: var(--mint-main); color: var(--bg-deep); }
         .card-queue-name { font-size: 13px; font-weight: 700; color: var(--mint-light); white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; }
 
         .banned-dot { position: absolute; left: 10px; bottom: 10px; width: 14px; height: 14px; background-color: #ff4757; border-radius: 50%; z-index: 15; box-shadow: 0 0 10px rgba(255, 71, 87, 0.8); border: 2px solid var(--bg-deep); }
@@ -379,7 +387,7 @@
         .modal-requester-link { cursor: default; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
         .modal-requester-link span.name-text { font-family: var(--font-text); font-size: 16px; color: var(--mint-light); transition: color 0.3s; font-weight: 700; }
 
-        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 30px; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.8; }
+        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: auto; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.8; }
         .footer-badge:hover { opacity: 1; }
         .footer-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--text-muted); transition: all 0.3s ease; }
         .footer-badge:hover img { border-color: var(--mint-main); box-shadow: 0 0 12px rgba(92, 242, 138, 0.4); }
@@ -442,15 +450,12 @@
         #partsContainer::-webkit-scrollbar { width: 6px; } #partsContainer::-webkit-scrollbar-track { background: rgba(19, 15, 28, 0.5); border-radius: 4px; } #partsContainer::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
 
         /* Цены в модалке */
-        .modal-prices-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px; }
-        #modalRequesterBlock { align-items: flex-start; }
+        .modal-prices-wrapper { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; margin-top: 4px; }
+        .modal-prices-wrapper .price-badge { width: 100%; max-width: 250px; margin: 0; }
 
         /* ======================================================= */
         /* --- НАЧАЛО АДАПТИВА --- */
         /* ======================================================= */
-
-        /* Прячем звезды по умолчанию */
-        #starsCanvas { display: none !important; }
 
         /* 1. БОЛЬШИЕ ЭКРАНЫ (2K / 1440p и выше) */
         @media (min-width: 2560px) {
@@ -467,30 +472,26 @@
                 z-index: -2; pointer-events: none;
             }
 
-            /* --- СУЖАЕМ ОПИСАНИЕ: Отдаем пространство боковым колонкам --- */
+            /* --- СУЖАЕМ ОПИСАНИЕ: 6 Компактных колонок --- */
             th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
             .poster-wrapper { width: 170px !important; height: 255px !important; } 
             
-            /* Новые 6 колонок для 2K */
-            th:nth-child(3), td:nth-child(3) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(3), td:nth-child(3) { width: 200px !important; min-width: 200px !important; } 
+            th:nth-child(4), td:nth-child(4) { width: 220px !important; min-width: 220px !important; } 
+            th:nth-child(5), td:nth-child(5) { width: 250px !important; min-width: 250px !important; } 
+            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; } 
             
             .movie-overview-text { font-size: 16px; line-height: 1.6; }
             
-            /* Делаем кнопки ссылок компактнее, отменяя 100% */
             .steam-link-btn, .play-link-btn, .tg-link-btn { width: 140px !important; }
             .date-badge { white-space: nowrap !important; }
         }
 
         /* 3. НЕБОЛЬШИЕ НОУТБУКИ (1280px - 1400px) - Баланс колонок */
         @media (max-width: 1400px) {
-            /* Немного заужаем Постер и Заказчика */
             th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
             .poster-wrapper { width: 105px !important; height: 160px !important; } 
             
-            /* 6 колонок для 1280px */
             th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
             th:nth-child(4), td:nth-child(4) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
             th:nth-child(5), td:nth-child(5) { width: 140px !important; min-width: 140px !important; padding-left: 5px !important; padding-right: 5px !important; }
@@ -521,7 +522,7 @@
         }
 
         @media (max-width: 768px) {
-            th:nth-child(4), td:nth-child(4) { display: none; }
+            th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
             .modal-poster { width: 140px; } 
             
@@ -543,16 +544,10 @@
 
             .grid-item { align-items: center !important; text-align: center; }
             
-            #modalRequesterBlock, #modalDateWatched > div, #modalPriceCol > div > div { 
+            #modalDateWatched > div, #modalPriceCol > div > div { 
                 align-items: center !important; 
                 justify-content: center !important; 
                 width: 100% !important; 
-            }
-            
-            #modalRequesterBlock .modal-requester-link { 
-                align-self: center !important; 
-                margin-left: auto !important; 
-                margin-right: auto !important; 
             }
 
             .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
@@ -563,9 +558,6 @@
             #modalGenres { justify-content: center !important; }
             #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
             .media-grid { justify-content: center !important; }
-            
-            .modal-prices-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; }
-            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
         }
 
         @media (max-width: 480px) {
@@ -579,7 +571,6 @@
         /* ======================================================= */
     </style>
     
-    <!-- Библиотека для воспроизведения Steam-трейлеров (.m3u8) -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 </head>
 <body>
@@ -651,6 +642,7 @@
                 <div class="modal-body">
                     <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
                     <div class="modal-info-main">
+                        
                         <div class="modal-title-wrapper">
                             <h2 class="modal-title" id="modalTitle">Название</h2>
                             <div class="modal-title-extras">
@@ -673,11 +665,8 @@
                         <div class="modal-overview" id="modalOverview" style="margin-bottom: 30px;"></div>
                         
                         <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
-                            <div class="grid-item border-bottom border-right" id="modalRequesterCol">
-                                <div class="grid-label">Заказал</div>
-                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; gap: 4px; width: 100%;"></div>
-                            </div>
-                            <div class="grid-item border-bottom" id="modalDateReqCol">
+                            
+                            <div class="grid-item full-width border-bottom" id="modalDateReqCol">
                                 <div class="grid-label">Добавлено в вишлист</div>
                                 <div id="modalDateReq"></div>
                             </div>
@@ -701,20 +690,6 @@
                                         <button class="copy-btn" id="modalPriceCopyBtn" onclick="copyUpdateCmdFromModal(this)" style="padding: 8px; margin: 0; position: static; opacity: 1; transform: scale(1); border-radius: 8px;" title="Скопировать команду">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                                         </button>
-                                    </div>
-                                    <div class="donate-buttons-grid" style="margin-top: 10px; max-width: 500px;">
-                                        <a href="https://www.donationalerts.com/r/cherteya" target="_blank" class="list-don-btn list-da-btn" style="height: 42px; border-radius: 10px; font-size: 12px;" title="Донат через DonationAlerts">
-                                            <svg width="18" height="18" viewBox="0 0 69 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M34.8586103,46.5882227 L29.4383109,46.5882227 C29.1227896,46.5896404 28.8214241,46.4709816 28.6091788,46.2617625 C28.3969336,46.0525435 28.2937566,45.7724279 28.325313,45.4910942 L28.8039021,40.6038855 C28.8504221,40.0844231 29.3353656,39.684617 29.9168999,39.6862871 L35.3371993,39.6862871 C35.6527206,39.6848694 35.9540862,39.8035282 36.1663314,40.0127473 C36.3785767,40.2219663 36.4817536,40.5020819 36.4501972,40.7834156 L35.9716081,45.6706244 C35.9250881,46.1900867 35.4401446,46.5898928 34.8586103,46.5882227 Z M35.7273704,37.0196078 L30.2062624,37.0196078 C29.5964177,37.0196078 29.1020408,36.5436108 29.1020408,35.9564386 L30.6037822,19.445421 C30.6711655,18.9085577 31.1463683,18.5059261 31.7080038,18.5098321 L37.2291117,18.5098321 C37.8389565,18.5098321 38.3333333,18.9858292 38.3333333,19.5730013 L36.7874231,36.0946506 C36.71732,36.6114677 36.2684318,37.0031485 35.7273704,37.0196078 Z M68.1907868,17.7655375 C68.7783609,18.4477209 69.0654113,19.3359027 68.9874243,20.2304671 L66.8294442,44.7595227 C66.7602449,45.5618649 66.4022166,46.3125114 65.8210422,46.8737509 L48.1740082,63.9078173 C47.5440361,64.5136721 46.7011436,64.8515656 45.8244317,64.849701 L27.0379034,64.849701 L10.5001116,80 L11.780782,64.8396809 L3.37070981,64.8396809 C2.42614186,64.8404154 1.52467299,64.4469919 0.886144518,63.7553546 C0.247616048,63.0637173 -0.0692823639,62.1374374 0.0127313353,61.2024067 L5.14549723,3.00601995 C5.32162283,1.29571214 6.77326374,-0.00377492304 8.50347571,8.23911697e-06 L51.3303063,8.23911697e-06 C52.3155567,-0.000274507348 53.2515294,0.428127083 53.8916472,1.17235281 L68.1907868,17.7655375 Z M55.1118136,40.0801644 L56.4832402,24.9398854 C56.5364472,24.0422509 56.2238954,23.1611024 55.6160145,22.4949959 L47.548799,13.2364798 C46.9095165,12.5050105 45.982605,12.084699 45.0076261,12.0841753 L19.5958971,12.0841753 C17.8656851,12.0803922 16.4140442,13.3798792 16.2379186,15.090187 L13.2127128,49.1583198 C13.1430685,50.0904539 13.4642119,51.0097453 14.1001037,51.6985265 C14.7359954,52.3873077 15.6300918,52.7843324 16.5706913,52.795594 L41.5588914,52.795594 C42.4258216,52.7976549 43.2601656,52.4674704 43.8882999,51.8737504 L54.1034116,42.2044127 C54.6867718,41.6406314 55.0449815,40.8860452 55.1118136,40.0801644 Z"/></svg>
-                                            DONATIONALERTS
-                                        </a>
-                                        <a href="https://donatepay.eu/don/cherteya" target="_blank" class="list-don-btn list-dp-btn" style="height: 42px; border-radius: 10px; font-size: 12px;" title="Донат через DonatePay">
-                                            <svg width="28" height="16" viewBox="0 0 103 51" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M74.3415 17.993C74.3415 16.1862 75.7887 14.7216 77.5738 14.7216C79.3589 14.7216 80.806 16.1862 80.806 17.993C80.806 19.7998 79.3589 21.2645 77.5738 21.2645C75.7887 21.2645 74.3415 19.7998 74.3415 17.993Z"/><path d="M67.3384 25.0812C67.3384 23.2744 68.7855 21.8097 70.5706 21.8097C72.3557 21.8097 73.8028 23.2744 73.8028 25.0812C73.8028 26.888 72.3557 28.3526 70.5706 28.3526C68.7855 28.3526 67.3384 26.888 67.3384 25.0812Z"/><path d="M84.577 21.8097C82.7919 21.8097 81.3447 23.2744 81.3447 25.0812C81.3447 26.888 82.7919 28.3526 84.577 28.3526C86.3621 28.3526 87.8092 26.888 87.8092 25.0812C87.8092 23.2744 86.3621 21.8097 84.577 21.8097Z"/><path d="M74.3415 32.1693C74.3415 30.3626 75.7887 28.8979 77.5738 28.8979C79.3589 28.8979 80.806 30.3626 80.806 32.1693C80.806 33.9761 79.3589 35.4408 77.5738 35.4408C75.7887 35.4408 74.3415 33.9761 74.3415 32.1693Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M55.4269 37.5751L55.4358 37.5872L55.4443 37.5997C60.4774 44.9501 66.8695 50.7076 77.3044 50.7076C91.1167 50.7076 102.354 39.3337 102.354 25.3538C102.354 11.3928 91.0981 0 77.3044 0C69.6291 0 63.6861 3.3237 59.3025 7.92784C55.0182 12.4313 52.0051 18.0277 49.039 23.5503L48.742 24.1031L48.7417 24.1036C45.7056 29.7455 42.6403 35.2509 39.0083 39.0912C37.1937 41.0137 35.2782 42.586 33.0082 43.6716C30.7321 44.7602 28.1549 45.3331 25.0499 45.3331C14.1047 45.3331 5.3101 36.4318 5.3101 25.3538C5.3101 14.3325 14.1607 5.37454 25.0499 5.37454C33.8857 5.37454 39.1379 10.4392 43.5342 17.2044C44.4593 15.5516 45.4469 13.8724 46.497 12.1729C41.5191 5.27928 35.1538 0 25.0499 0C11.2376 0 0 11.3739 0 25.3538C0 39.3148 11.2562 50.7076 25.0499 50.7076C32.6535 50.7076 38.5951 47.3844 42.9327 42.7796C45.8596 39.6748 48.1842 36.0343 50.3199 32.2457L51.3092 30.4908L52.2156 32.2909C52.9035 33.6568 54.2397 35.94 55.4269 37.5751ZM57.711 31.4522L57.7204 31.468C62.3451 39.2007 67.7572 45.3331 77.3044 45.3331C88.1936 45.3331 97.0442 36.3751 97.0442 25.3538C97.0442 14.2758 88.2496 5.37454 77.3044 5.37454C70.9286 5.37454 66.8235 7.71613 63.114 11.613C60.0915 14.7852 57.2931 19.7877 54.8227 24.278L54.6314 24.6257L54.7064 25.0164C54.8703 25.8711 55.4345 27.1135 55.9954 28.237C56.5794 29.4068 57.2445 30.6093 57.7021 31.4362L57.711 31.4522Z"/></svg>
-                                            DONATEPAY
-                                        </a>
-                                        <a href="https://send.monobank.ua/jar/4a3WxHS5aB" target="_blank" class="list-don-btn list-mono-btn" style="height: 42px; border-radius: 10px; font-size: 12px;" title="Донат через monobank">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7A7.982 7.982 0 0 1 21 15c0 4.42-4.03 8-9 8s-9-3.58-9-8c0-2.34.89-4.5 2-6.14 0 0-1.82-6.42-.42-7 1.39-.58 4.64.26 6.42 2.26.65-.17 1.33-.26 2-.26z"></path></svg>
-                                            MONOBANK
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -779,7 +754,6 @@
     let currentLightboxIndex = 0; 
     let hlsInstance = null; 
 
-    // Функции вкладок, галереи и кнопок (Взято из Игровой)
     window.switchListTab = function(event, btn, tabName) {
         event.stopPropagation();
         const container = btn.closest('.movie-info');
@@ -1019,16 +993,15 @@
                     rawMoviesData.push({ ...movie, dateRequested: cleanReq, parsedDate: parseDateObj(movie.dateRequested), requestedBy: movie.requestedBy || 'Аноним' });
                 });
             } else if (typeof data === 'object' && data !== null) {
-                for (const user in data) {
-                    if (user === "_metadata_" || user === "_wishlist_") continue; 
-                    if (Array.isArray(data[user])) {
-                        data[user].forEach(movie => {
-                            const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
-                            rawMoviesData.push({ ...movie, requestedBy: user, dateRequested: cleanReq, parsedDate: parseDateObj(movie.dateRequested) });
-                        });
-                    }
+                const wishlistArray = data["_wishlist_"] || data["wishlist"] || Object.values(data).find(Array.isArray);
+                if (wishlistArray) {
+                    wishlistArray.forEach(movie => {
+                        const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
+                        rawMoviesData.push({ ...movie, dateRequested: cleanReq, parsedDate: parseDateObj(movie.dateRequested), requestedBy: movie.requestedBy || 'Аноним' });
+                    });
                 }
             }
+            
             populateUserFilter();
             updateToggleButton();
             applyFilters();
@@ -1036,7 +1009,7 @@
             renderArea.innerHTML = `<div style="text-align: center; padding: 60px; color: var(--mint-main); font-family: var(--font-text); font-weight: 700; font-size: 20px;">Вишлист пока недоступен (Ошибка)</div>`;
         }
     }
-    
+
     function populateUserFilter() {
         const filterEl = document.getElementById('userFilter');
         if (!filterEl) return;
@@ -1105,7 +1078,7 @@
                     <tr>
                         <th style="width: 140px; min-width: 140px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
-                        <th style="width: 130px; min-width: 130px;">Заказал</th>
+                        <th style="width: 130px; min-width: 130px;">Добавлено</th>
                         <th style="width: 130px; min-width: 130px;">Цена</th>
                         <th style="width: 160px; min-width: 160px;">Донаты</th>
                         <th style="width: 140px; min-width: 140px;">Ссылки</th>
@@ -1123,7 +1096,7 @@
             
             const cleanNick = movie.requestedBy.replace('@', '').trim();
             const posterUrl = getSafePoster(movie.altPoster || movie.poster);
-            const idBadge = (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) ? `<span class="outline-badge">ID: ${movie.steamAppId}</span>` : '';
+            const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
             const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Игра')}</span>`;
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -1163,7 +1136,7 @@
 
             let tgButtonHTML = '';
             if (movie.postUrl) {
-                tgButtonHTML += `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
+                tgButtonHTML += `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();" title="Открыть основной пост"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
             }
             if (movie.reviewUrl) {
                 tgButtonHTML += `<a href="${movie.reviewUrl}" target="_blank" class="tg-link-btn" style="margin-top: 4px;" onclick="event.stopPropagation();" title="Читать отзыв в Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
@@ -1177,7 +1150,7 @@
             let donateButtonsHTML = `
                 <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
                     <a href="https://www.donationalerts.com/r/cherteya" target="_blank" class="list-don-btn list-da-btn" onclick="event.stopPropagation();" title="Донат через DonationAlerts">
-                        <svg width="14" height="14" viewBox="0 0 69 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;"><path d="M34.8586103,46.5882227 L29.4383109,46.5882227 C29.1227896,46.5896404 28.8214241,46.4709816 28.6091788,46.2617625 C28.3969336,46.0525435 28.2937566,45.7724279 28.325313,45.4910942 L28.8039021,40.6038855 C28.8504221,40.0844231 29.3353656,39.684617 29.9168999,39.6862871 L35.3371993,39.6862871 C35.6527206,39.6848694 35.9540862,39.8035282 36.1663314,40.0127473 C36.3785767,40.2219663 36.4817536,40.5020819 36.4501972,40.7834156 L35.9716081,45.6706244 C35.9250881,46.1900867 35.4401446,46.5898928 34.8586103,46.5882227 Z M35.7273704,37.0196078 L30.2062624,37.0196078 C29.5964177,37.0196078 29.1020408,36.5436108 29.1020408,35.9564386 L30.6037822,19.445421 C30.6711655,18.9085577 31.1463683,18.5059261 31.7080038,18.5098321 L37.2291117,18.5098321 C37.8389565,18.5098321 38.3333333,18.9858292 38.3333333,19.5730013 L36.7874231,36.0946506 C36.71732,36.6114677 36.2684318,37.0031485 35.7273704,37.0196078 Z M68.1907868,17.7655375 C68.7783609,18.4477209 69.0654113,19.3359027 68.9874243,20.2304671 L66.8294442,44.7595227 C66.7602449,45.5618649 66.4022166,46.3125114 65.8210422,46.8737509 L48.1740082,63.9078173 C47.5440361,64.5136721 46.7011436,64.8515656 45.8244317,64.849701 L27.0379034,64.849701 L10.5001116,80 L11.780782,64.8396809 L3.37070981,64.8396809 C2.42614186,64.8404154 1.52467299,64.4469919 0.886144518,63.7553546 C0.247616048,63.0637173 -0.0692823639,62.1374374 0.0127313353,61.2024067 L5.14549723,3.00601995 C5.32162283,1.29571214 6.77326374,-0.00377492304 8.50347571,8.23911697e-06 L51.3303063,8.23911697e-06 C52.3155567,-0.000274507348 53.2515294,0.428127083 53.8916472,1.17235281 L68.1907868,17.7655375 Z M55.1118136,40.0801644 L56.4832402,24.9398854 C56.5364472,24.0422509 56.2238954,23.1611024 55.6160145,22.4949959 L47.548799,13.2364798 C46.9095165,12.5050105 45.982605,12.084699 45.0076261,12.0841753 L19.5958971,12.0841753 C17.8656851,12.0803922 16.4140442,13.3798792 16.2379186,15.090187 L13.2127128,49.1583198 C13.1430685,50.0904539 13.4642119,51.0097453 14.1001037,51.6985265 C14.7359954,52.3873077 15.6300918,52.7843324 16.5706913,52.795594 L41.5588914,52.795594 C42.4258216,52.7976549 43.2601656,52.4674704 43.8882999,51.8737504 L54.1034116,42.2044127 C54.6867718,41.6406314 55.0449815,40.8860452 55.1118136,40.0801644 Z" /></svg>
+                        <svg width="14" height="14" viewBox="0 0 69 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;"><path d="M34.8586103,46.5882227 L29.4383109,46.5882227 C29.1227896,46.5896404 28.8214241,46.4709816 28.6091788,46.2617625 C28.3969336,46.0525435 28.2937566,45.7724279 28.325313,45.4910942 L28.8039021,40.6038855 C28.8504221,40.0844231 29.3353656,39.684617 29.9168999,39.6862871 L35.3371993,39.6862871 C35.6527206,39.6848694 35.9540862,39.8035282 36.1663314,40.0127473 C36.3785767,40.2219663 36.4817536,40.5020819 36.4501972,40.7834156 L35.9716081,45.6706244 C35.9250881,46.1900867 35.4401446,46.5898928 34.8586103,46.5882227 Z M35.7273704,37.0196078 L30.2062624,37.0196078 C29.5964177,37.0196078 29.1020408,36.5436108 29.1020408,35.9564386 L30.6037822,19.445421 C30.6711655,18.9085577 31.1463683,18.5059261 31.7080038,18.5098321 L37.2291117,18.5098321 C37.8389565,18.5098321 38.3333333,18.9858292 38.3333333,19.5730013 L36.7874231,36.0946506 C36.71732,36.6114677 36.2684318,37.0031485 35.7273704,37.0196078 Z M68.1907868,17.7655375 C68.7783609,18.4477209 69.0654113,19.3359027 68.9874243,20.2304671 L66.8294442,44.7595227 C66.7602449,45.5618649 66.4022166,46.3125114 65.8210422,46.8737509 L48.1740082,63.9078173 C47.5440361,64.5136721 46.7011436,64.8515656 45.8244317,64.849701 L27.0379034,64.849701 L10.5001116,80 L11.780782,64.8396809 L3.37070981,64.8396809 C2.42614186,64.8404154 1.52467299,64.4469919 0.886144518,63.7553546 C0.247616048,63.0637173 -0.0692823639,62.1374374 0.0127313353,61.2024067 L5.14549723,3.00601995 C5.32162283,1.29571214 6.77326374,-0.00377492304 8.50347571,8.23911697e-06 L51.3303063,8.23911697e-06 C52.3155567,-0.000274507348 53.2515294,0.428127083 53.8916472,1.17235281 L68.1907868,17.7655375 Z M55.1118136,40.0801644 L56.4832402,24.9398854 C56.5364472,24.0422509 56.2238954,23.1611024 55.6160145,22.4949959 L47.548799,13.2364798 C46.9095165,12.5050105 45.982605,12.084699 45.0076261,12.0841753 L19.5958971,12.0841753 C17.8656851,12.0803922 16.4140442,13.3798792 16.2379186,15.090187 L13.2127128,49.1583198 C13.1430685,50.0904539 13.4642119,51.0097453 14.1001037,51.6985265 C14.7359954,52.3873077 15.6300918,52.7843324 16.5706913,52.795594 L41.5588914,52.795594 C42.4258216,52.7976549 43.2601656,52.4674704 43.8882999,51.8737504 L54.1034116,42.2044127 C54.6867718,41.6406314 55.0449815,40.8860452 55.1118136,40.0801644 Z"/></svg>
                         DONATIONALERTS
                     </a>
                     <a href="https://donatepay.eu/don/cherteya" target="_blank" class="list-don-btn list-dp-btn" onclick="event.stopPropagation();" title="Донат через DonatePay">
@@ -1197,9 +1170,9 @@
             let tablePriceBadgesMarkup = '';
             if (priceText !== "Цена скрыта") {
                 const prices = priceText.split('/').map(p => p.trim());
-                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 85%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
             } else {
-                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 85%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
             
             const priceColumnHTML = `
@@ -1298,7 +1271,6 @@
                 </a>`;
             }
             
-            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: ${userColor}; border-color: ${userColor}; color: var(--bg-deep); font-weight: 900;">${getInitials(cleanNick)}</div>`;
             const auctionHTML = movie.isAuction ? `<div class="card-mini-badge auction">✦ Аукцион ✦</div>` : '';
 
             const card = document.createElement('div');
@@ -1589,7 +1561,7 @@
 
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
-             dateReqEl.innerHTML = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateRequested}</div>`;
+             dateReqEl.innerHTML = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateRequested.split(' ')[0]}</div>`;
         } else {
              dateReqEl.innerHTML = `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         }
@@ -1627,11 +1599,11 @@
         const cleanNickModal = movie.requestedBy.replace('@', '').trim();
         const userColorModal = stringToColor(cleanNickModal);
         let avatarMarkupModal = movie.userAvatar && movie.userAvatar.startsWith('http') 
-            ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:36px; height:36px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:12px;" alt="">` 
-            : `<div class="req-avatar" style="width:36px; height:36px; font-size:15px; border-width:2px; background-color: ${userColorModal}; border-color: ${userColorModal}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:12px; color:var(--bg-deep); font-weight:900;">${getInitials(cleanNickModal)}</div>`;
+            ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:36px; height:36px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);" alt="">` 
+            : `<div class="req-avatar" style="width:36px; height:36px; font-size:15px; border-width:2px; background-color: ${userColorModal}; border-color: ${userColorModal}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:12px; color:var(--bg-deep); font-weight:900; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">${getInitials(cleanNickModal)}</div>`;
             
-        let reqInner = `<div class="modal-requester-link" onclick="window.open('https://twitch.tv/${cleanNickModal}', '_blank')" style="display:flex; align-items:center;">${avatarMarkupModal}<span class="name-text">${cleanNickModal}</span></div>`;
-        if (movie.isAuction) reqInner += `<div class="modal-grid-box" style="margin-top: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(34, 24, 54, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">✦ Аукцион ✦</div>`;
+        let reqInner = `<div class="modal-requester-link hover-active" onclick="window.open('https://twitch.tv/${cleanNickModal}', '_blank')" style="display:flex; align-items:center; margin-bottom: 10px;">${avatarMarkupModal}<span class="name-text">${cleanNickModal}</span></div>`;
+        if (movie.isAuction) reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(163, 85, 115, 0.9); font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 900;">✦ Аукцион ✦</div>`;
         
         document.getElementById('modalRequesterBlock').innerHTML = reqInner;
 
@@ -1676,45 +1648,49 @@
         height = canvas.height = window.innerHeight;
         stars = [];
         
-        const numStars = Math.floor((width * height) / 4000); 
-        for (let i = 0; i < numStars; i++) {
-            stars.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 1.5 + 0.3, 
-                velocity: Math.random() * 0.4 + 0.1, 
-                alpha: Math.random(), 
-                twinkleSpeed: (Math.random() * 0.02) + 0.005, 
-                fadeDir: Math.random() > 0.5 ? 1 : -1 
-            });
+        if (width >= 2560) {
+            const numStars = Math.floor((width * height) / 4000); 
+            for (let i = 0; i < numStars; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 1.5 + 0.3, 
+                    velocity: Math.random() * 0.4 + 0.1, 
+                    alpha: Math.random(), 
+                    twinkleSpeed: (Math.random() * 0.02) + 0.005, 
+                    fadeDir: Math.random() > 0.5 ? 1 : -1 
+                });
+            }
         }
     }
 
     function drawStars() {
-        ctx.clearRect(0, 0, width, height);
-        
-        stars.forEach(star => {
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-            ctx.fill();
+        if (window.innerWidth >= 2560) {
+            ctx.clearRect(0, 0, width, height);
             
-            star.y -= star.velocity;
-            
-            if (star.y < 0) {
-                star.y = height;
-                star.x = Math.random() * width;
-            }
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                ctx.fill();
+                
+                star.y -= star.velocity;
+                
+                if (star.y < 0) {
+                    star.y = height;
+                    star.x = Math.random() * width;
+                }
 
-            star.alpha += star.twinkleSpeed * star.fadeDir;
-            if (star.alpha <= 0.1) {
-                star.alpha = 0.1;
-                star.fadeDir = 1;
-            } else if (star.alpha >= 1) {
-                star.alpha = 1;
-                star.fadeDir = -1;
-            }
-        });
+                star.alpha += star.twinkleSpeed * star.fadeDir;
+                if (star.alpha <= 0.1) {
+                    star.alpha = 0.1;
+                    star.fadeDir = 1;
+                } else if (star.alpha >= 1) {
+                    star.alpha = 1;
+                    star.fadeDir = -1;
+                }
+            });
+        }
         requestAnimationFrame(drawStars);
     }
     
