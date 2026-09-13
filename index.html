@@ -660,18 +660,16 @@
                 pointer-events: none;
             }
 
-            /* --- СУЖАЕМ ОПИСАНИЕ: Увеличиваем боковые колонки --- */
-            th:nth-child(1), td:nth-child(1) { width: 220px !important; min-width: 220px !important; }
-            .poster-wrapper { width: 180px !important; height: 270px !important; } /* Большой красивый постер */
+            /* Сбалансированные колонки: даем Описанию дышать */
+            th:nth-child(1), td:nth-child(1) { width: 180px !important; min-width: 180px !important; }
+            .poster-wrapper { width: 150px !important; height: 225px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 300px !important; min-width: 300px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 280px !important; min-width: 280px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 250px !important; min-width: 250px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 250px !important; min-width: 250px !important; }
+            th:nth-child(3), td:nth-child(3) { width: 160px !important; min-width: 160px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 180px !important; min-width: 180px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 160px !important; min-width: 160px !important; }
             
-            /* Делаем шрифт чуть крупнее для 2K */
-            .movie-title { font-size: 30px !important; }
-            .movie-overview-text { font-size: 17px; line-height: 1.7; }
+            .movie-overview-text { font-size: 16px; line-height: 1.6; }
         }
 
         /* 2. ПРЯЧЕМ ДЕВОЧЕК ПО БОКАМ */
@@ -1868,11 +1866,13 @@
     function autoResizeTitles() {
         setTimeout(() => {
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                let currentSize = 24; 
+                // Если экран 2K+, стартуем с 30px, иначе с 24px
+                let currentSize = window.innerWidth >= 2560 ? 30 : 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
                 titleEl.style.whiteSpace = 'nowrap'; 
                 titleEl.style.display = 'block';
-                let minSize = 18;
+                // Минимальный размер тоже делаем чуть больше для 2K
+                let minSize = window.innerWidth >= 2560 ? 20 : 18;
                 
                 while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
                     currentSize -= 1; 
