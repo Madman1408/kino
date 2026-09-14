@@ -131,7 +131,11 @@
         .view-toggle-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); }
 
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
+        th { 
+            text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; 
+            padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; 
+            position: sticky; top: 0; z-index: 20; background: rgba(34, 24, 54, 0.95); backdrop-filter: blur(10px);
+        }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
         tr:last-child td { border-bottom: none; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) { text-align: center; }
@@ -524,9 +528,9 @@
             th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
             .poster-wrapper { width: 170px !important; height: 255px !important; } 
             th:nth-child(3), td:nth-child(3) { width: 180px !important; min-width: 180px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 200px !important; min-width: 200px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 200px !important; min-width: 200px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; } /* Цены */
+            th:nth-child(5), td:nth-child(5) { width: 200px !important; min-width: 200px !important; } /* Ссылки */
+            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; } /* Донат */
             .movie-overview-text { font-size: 16px; line-height: 1.6; }
         }
 
@@ -1126,9 +1130,9 @@
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
                         <th style="width: 145px; min-width: 145px;">Добавлено</th>
+                        <th style="width: 130px; min-width: 130px;">Цены</th>
                         <th style="width: 145px; min-width: 145px;">Ссылки</th>
                         <th style="width: 160px; min-width: 160px;">Донат</th>
-                        <th style="width: 130px; min-width: 130px;">Цена</th>
                     </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -1236,9 +1240,9 @@
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; padding-top: 10px;">${movie.dateRequested ? `<div class="date-badge" style="margin-top: 0;">${movie.dateRequested}</div>` : ''}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; padding-top: 10px; width: 100%; box-sizing: border-box;">${priceBadgesMarkup}</div></td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; height: 100%; padding-top: 10px; width: 100%; box-sizing: border-box;">${steamButtonHTML}${tgButtonHTML}${ytButtonHTML}${boostyButtonHTML}${tgRecButtonHTML}</div></td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; height: 100%; padding-top: 10px; width: 100%; box-sizing: border-box;">${donateButtonsHTML}</div></td>
-                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; padding-top: 10px; width: 100%; box-sizing: border-box;">${priceBadgesMarkup}</div></td>
             `;
             tbody.appendChild(tr);
         });
