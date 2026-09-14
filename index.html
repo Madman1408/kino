@@ -604,6 +604,9 @@
             .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
         }
 
+
+
+
         /* 2. ТЕЛЕФОНЫ (Стандарт) - всё по центру */
         @media (max-width: 767px) {
             .modal-grid { grid-template-columns: 1fr !important; }
@@ -628,7 +631,18 @@
             /* Цены в столбик */
             #modalPrice > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
             .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
+            
+            /* --- НОВЫЕ ФИКСЫ ДЛЯ ВИШЛИСТА --- */
+            /* 1. Выстраиваем кнопки доната в модалке аккуратным столбиком */
+            #modalPriceCol .donate-buttons-grid { flex-direction: column !important; align-items: center !important; }
+            #modalPriceCol .list-don-btn { width: 100% !important; max-width: 250px !important; }
+            
+            /* 2. Запрещаем длинному тексту команды ломать ширину окна */
+            #modalUpdateCmd { white-space: normal !important; word-break: break-word !important; text-align: center; display: block; max-width: 250px; }
         }
+
+
+
 
         /* 3. ОЧЕНЬ УЗКИЕ ЭКРАНЫ */
         @media (max-width: 480px) {
