@@ -562,21 +562,34 @@
             .price-badge { max-width: 120px !important; }
         }
 
-        /* Адаптация для 1280px (Небольшие ноутбуки): Сжимаем боковые колонки и отступы, чтобы дать место описанию */
+        /* 3. НЕБОЛЬШИЕ НОУТБУКИ (1280px - 1400px) - Баланс колонок */
         @media (max-width: 1400px) {
-            th, td { padding-left: 8px !important; padding-right: 8px !important; }
-            
-            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; } /* Постер */
+            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
             .poster-wrapper { width: 105px !important; height: 160px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; } /* Добавлено */
-            th:nth-child(4), td:nth-child(4) { width: 100px !important; min-width: 100px !important; } /* Цены */
-            th:nth-child(5), td:nth-child(5) { width: 100px !important; min-width: 100px !important; } /* Ссылки - уменьшили */
-            th:nth-child(6), td:nth-child(6) { width: 155px !important; min-width: 155px !important; } /* Донат - увеличили */
+            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
             
-            /* Уменьшаем шрифты кнопок, чтобы они аккуратно влезли в узкие колонки */
-            .steam-link-btn, .tg-link-btn, .play-link-btn, .list-don-btn { font-size: 11px !important; padding: 4px !important; }
-            .date-badge { font-size: 12px !important; padding: 4px 8px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 130px !important; min-width: 130px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 150px !important; min-width: 150px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            
+            .steam-link-btn, .play-link-btn, .tg-link-btn, .list-don-btn { 
+                width: 95% !important; 
+                font-size: 11px !important; 
+                padding: 4px !important; 
+                box-sizing: border-box !important; 
+            }
+            
+            .date-badge { 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                font-size: 11px !important; 
+                padding: 4px 6px !important; 
+                box-sizing: border-box !important; 
+                white-space: normal !important; 
+                text-align: center !important; 
+                line-height: 1.1 !important; 
+            }
             .price-badge { font-size: 11px !important; padding: 4px !important; }
         }
 
@@ -590,29 +603,43 @@
 		
 		
 		
-		/* Прячем кнопку переключения на планшетах и небольших ноутах */
+		/* 3. НЕБОЛЬШИЕ НОУТБУКИ И ПЛАНШЕТЫ (ГОРИЗОНТАЛЬНО) */
         @media (max-width: 1150px) {
             #viewToggleBtn { display: none !important; }
-        }
-		
-
-        @media (max-width: 1024px) {
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
-            /* Центрируем постер в модалке на планшетах и поднимаем его выше (с -80px до -120px) */
-            .modal-body { flex-direction: column; margin-top: -160px; padding: 20px; gap: 20px !important; }
+        }
+
+        /* 4. ПЛАНШЕТЫ (iPad Pro и схожие) - перестройка шапки */
+        @media (max-width: 1024px) {
+            .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 25px 20px 20px; }
+            .back-btn, .creator-badge { position: relative; top: auto; left: auto; right: auto; order: 1; }
+            .header-top { width: 100%; order: 2; margin-top: 15px; }
+            .header-top h1 { font-size: 38px; }
+            .controls-panel { width: 100%; order: 3; margin-top: 10px; }
+
+            .modal-body { padding: 0 20px 30px 20px; gap: 20px; }
+            .modal-poster { width: 180px; }
+        }
+
+        /* 5. ПЛАНШЕТЫ (ВЕРТИКАЛЬНО) - постер в модалке уходит в центр */
+        @media (max-width: 1023px) {
+            .modal-body { flex-direction: column; margin-top: -120px; padding: 20px; }
             .modal-poster { display: block; width: 160px; margin: 0 auto; }
         }
+		
+		
+		
+		
 
-        /* 1. ТЕЛЕФОНЫ (КРУПНЫЕ) - 2 колонки, умная шапка с order */
+        /* 6. ТЕЛЕФОНЫ (КРУПНЫЕ) - 2 колонки, узкая шапка */
         @media (max-width: 768px) {
-            #viewToggleBtn { display: none !important; }
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
             .modal-poster { width: 140px; } 
             
-            .header { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
-            .back-btn { position: static; width: auto; margin: 0; order: 1; justify-content: center; }
-            .creator-badge { position: static; order: 2; margin: 0; width: fit-content; align-self: center; }
+            .header { flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
+            .back-btn { width: auto; margin: 0; order: 1; justify-content: center; }
+            .creator-badge { order: 2; margin: 0; }
             .header-top { order: 3; width: 100%; margin-top: 5px; text-align: center;}
             .header-top h1 { font-size: 28px; margin: 0 0 10px 0; text-align: center; }
             .header-top h1::before, .header-top h1::after { display: none; }
