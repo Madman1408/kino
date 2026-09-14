@@ -506,6 +506,13 @@
         #partsContainer::-webkit-scrollbar-track { background: rgba(19, 15, 28, 0.5); border-radius: 4px; }
         #partsContainer::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
 
+
+
+
+
+
+
+
         /* АДАПТИВ 2K+ И ОБЩИЕ ПРАВКИ */
         @media (min-width: 1920px) {
             .container { max-width: 1450px; }
@@ -527,14 +534,37 @@
                 z-index: -2; pointer-events: none;
             }
             
-            th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
-            .poster-wrapper { width: 170px !important; height: 255px !important; } 
-            th:nth-child(3), td:nth-child(3) { width: 180px !important; min-width: 180px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; } /* Цены */
-            th:nth-child(5), td:nth-child(5) { width: 200px !important; min-width: 200px !important; } /* Ссылки */
-            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; } /* Донат */
-            .movie-overview-text { font-size: 16px; line-height: 1.6; }
+            /* Расширяем боковые колонки, чтобы сжать описание к центру */
+            th:nth-child(1), td:nth-child(1) { width: 220px !important; min-width: 220px !important; }
+            .poster-wrapper { width: 180px !important; height: 270px !important; } 
+            th:nth-child(3), td:nth-child(3) { width: 200px !important; min-width: 200px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 200px !important; min-width: 200px !important; } /* Цены */
+            th:nth-child(5), td:nth-child(5) { width: 250px !important; min-width: 250px !important; } /* Ссылки */
+            th:nth-child(6), td:nth-child(6) { width: 250px !important; min-width: 250px !important; } /* Донат */
+            
+            /* Ограничиваем максимальную ширину текста и увеличиваем шрифт */
+            .movie-overview-text, .movie-review-text { font-size: 17px; line-height: 1.6; max-width: 900px; }
         }
+
+        /* Адаптация для 1280px (Небольшие ноутбуки): Сжимаем боковые колонки и отступы, чтобы дать место описанию */
+        @media (max-width: 1400px) {
+            th, td { padding-left: 8px !important; padding-right: 8px !important; }
+            
+            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; } /* Постер */
+            .poster-wrapper { width: 105px !important; height: 160px !important; } 
+            
+            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; } /* Добавлено */
+            th:nth-child(4), td:nth-child(4) { width: 100px !important; min-width: 100px !important; } /* Цены */
+            th:nth-child(5), td:nth-child(5) { width: 130px !important; min-width: 130px !important; } /* Ссылки */
+            th:nth-child(6), td:nth-child(6) { width: 130px !important; min-width: 130px !important; } /* Донат */
+            
+            /* Уменьшаем шрифты кнопок, чтобы они аккуратно влезли в узкие колонки */
+            .steam-link-btn, .tg-link-btn, .play-link-btn, .list-don-btn { font-size: 11px !important; padding: 4px !important; }
+            .date-badge { font-size: 12px !important; padding: 4px 8px !important; }
+            .price-badge { font-size: 11px !important; padding: 4px !important; }
+        }
+
+
 
         /* Прячем звезды по умолчанию, они включатся только на 2K */
         #starsCanvas { display: none !important; }
