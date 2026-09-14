@@ -65,12 +65,14 @@
             border-bottom: 2px solid rgba(92, 242, 138, 0.2); 
             background: radial-gradient(circle at 50% 0%, rgba(92, 242, 138, 0.05) 0%, transparent 80%);
             border-top-left-radius: 18px; border-top-right-radius: 18px;
+            z-index: 30; /* Поднимаем главную шапку над таблицей */
         }
         
         .header::after {
             content: '✨'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%);
             color: var(--mint-main); font-size: 20px; background: var(--bg-deep); padding: 0 15px;
             border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.3); text-shadow: 0 0 10px var(--mint-main);
+            z-index: 31; /* Звездочки гарантированно поверх всего */
         }
 
         .header-top h1 { 
@@ -157,8 +159,13 @@
         }
         
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
+        th { 
+            text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; 
+            padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; 
+            position: sticky; top: 0; z-index: 20; background: rgba(34, 24, 54, 0.95); backdrop-filter: blur(10px);
+        }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
+		
         tr:last-child td { border-bottom: none; }
         td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) { text-align: center; }
         tr.movie-row { cursor: pointer; transition: all 0.3s ease; position: relative; }
