@@ -544,6 +544,11 @@
             
             /* Ограничиваем максимальную ширину текста и увеличиваем шрифт */
             .movie-overview-text, .movie-review-text { font-size: 17px; line-height: 1.6; max-width: 900px; }
+
+            /* Ограничиваем ширину плашек, чтобы они не растягивались на всю 2K колонку */
+            .steam-link-btn, .tg-link-btn, .play-link-btn { max-width: 140px !important; }
+            .list-don-btn { max-width: 160px !important; }
+            .price-badge { max-width: 120px !important; }
         }
 
         /* Адаптация для 1280px (Небольшие ноутбуки): Сжимаем боковые колонки и отступы, чтобы дать место описанию */
@@ -555,8 +560,8 @@
             
             th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; } /* Добавлено */
             th:nth-child(4), td:nth-child(4) { width: 100px !important; min-width: 100px !important; } /* Цены */
-            th:nth-child(5), td:nth-child(5) { width: 130px !important; min-width: 130px !important; } /* Ссылки */
-            th:nth-child(6), td:nth-child(6) { width: 130px !important; min-width: 130px !important; } /* Донат */
+            th:nth-child(5), td:nth-child(5) { width: 100px !important; min-width: 100px !important; } /* Ссылки - уменьшили */
+            th:nth-child(6), td:nth-child(6) { width: 155px !important; min-width: 155px !important; } /* Донат - увеличили */
             
             /* Уменьшаем шрифты кнопок, чтобы они аккуратно влезли в узкие колонки */
             .steam-link-btn, .tg-link-btn, .play-link-btn, .list-don-btn { font-size: 11px !important; padding: 4px !important; }
