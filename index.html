@@ -1341,7 +1341,7 @@
             let priceBadgesMarkup = '';
             if (priceText !== "Цена не найдена") {
                 const prices = priceText.split('/').map(p => p.trim());
-                priceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="flex: 1 1 calc(50% - 4px); margin: 0; padding: 6px 2px; font-size: 14px; letter-spacing: 1px;">${escapeHTML(p)}</span>`).join('');
+                priceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="flex: 1 1 calc(50% - 4px); margin: 0; padding: 6px 2px; font-size: 13px; letter-spacing: 1px;">${escapeHTML(p)}</span>`).join('');
             } else {
                 priceBadgesMarkup = `<span class="price-badge text-3d-effect" style="flex: 1 1 100%; opacity: 0.6; display: flex; align-items: center; justify-content: center; padding: 6px; font-size: 15px;">Нет цены</span>`;
             }
