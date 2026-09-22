@@ -199,7 +199,6 @@
         .movie-genres { font-size: 12px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
         .movie-studios-list { font-size: 14px; color: var(--accent-light); font-weight: 600; letter-spacing: 1px; margin-top: 2px; font-family: var(--font-title); }
 
-        /* Вкладки как в Играх */
         .list-tabs-container { display: flex; gap: 8px; margin-top: 8px; margin-bottom: 4px; }
         .list-tab-btn { background: rgba(3, 6, 36, 0.6); border: 1px dashed rgba(254, 0, 0, 0.3); color: var(--text-muted); padding: 2px 10px 2px 8px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px;}
         .list-tab-btn:hover { border-color: var(--accent-main); color: var(--accent-light); }
@@ -208,7 +207,6 @@
         .movie-overview-wrapper, .movie-review-wrapper { margin-top: 4px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; user-select: none; }
         .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); font-family: var(--font-text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
         
-        /* Стили отзывов как в Играх */
         .movie-review-text { font-size: 14px; line-height: 1.5; color: var(--text-main); font-style: italic; border-left: 2px solid var(--accent-main); padding: 6px 10px; background: rgba(254, 0, 0, 0.05); border-radius: 0 2px 2px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
         
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper, tr.movie-row:has(.poster-wrapper:hover) .movie-review-wrapper { max-height: 250px; }
@@ -222,7 +220,6 @@
         .date-badge { font-size: 12px; color: var(--accent-light); font-weight: 600; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 14px; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 6px; font-family: var(--font-title); letter-spacing: 1px; margin-top: 10px;}
         .badge-status { font-size: 12px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
 
-        /* Кнопки ссылок и записей (как в Играх) */
         .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(254, 0, 0, 0.15); color: #ffffff !important; border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 12px; border-radius: 2px; text-decoration: none; font-family: var(--font-title); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5); text-transform: uppercase; letter-spacing: 1px; width: 100%; box-sizing: border-box; }
         .steam-link-btn:hover { background: var(--accent-main); color: #ffffff !important; box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); transform: translateY(-2px); }
 
@@ -350,7 +347,6 @@
         }
         .tg-modal-badge:hover { background: rgba(41, 128, 185, 1); box-shadow: 0 0 15px rgba(41, 128, 185, 0.8); border-color: rgba(41, 128, 185, 1); }
 
-        /* Стили Медиа-Скриншотов и Видео как в Играх */
         .media-grid { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 5px; }
         .media-thumb {
             width: 110px; height: 65px; border-radius: 2px; object-fit: cover;
@@ -495,7 +491,6 @@
         .don-btn svg { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .don-btn:hover svg { transform: scale(1.15); }
 
-        /* Оверлей лайтбокса (открытие скриншотов) */
         .lightbox-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 6, 36, 0.95); backdrop-filter: blur(10px); z-index: 2000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .lightbox-overlay.active { display: flex; opacity: 1; }
         .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
@@ -508,7 +503,6 @@
         .lightbox-prev { left: 20px; }
         .lightbox-next { right: 20px; }
 
-        /* Модалка выбора частей записей */
         #partsModalOverlay { z-index: 3000; }
         .parts-modal-content { background: var(--bg-deep); padding: 25px 20px 20px; border-radius: 4px; border: 2px solid var(--accent-main); box-shadow: 0 15px 50px rgba(0,0,0,0.9); width: 320px; max-width: 90vw; position: relative; }
         .part-item-btn { display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; background: rgba(254, 0, 0, 0.05); border: 1px dashed rgba(254, 0, 0, 0.3); border-radius: 2px; color: var(--text-main); text-decoration: none; font-family: var(--font-title); font-weight: 800; font-size: 15px; transition: all 0.3s; letter-spacing: 1px; }
@@ -522,7 +516,7 @@
         ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 2px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-main); }
 
-        /* --- ИЗМЕНЕНИЯ ШИРИНЫ КОЛОНОК (Чтобы "Описание" было как в Игровой) --- */
+
         @media (min-width: 1920px) {
             .container { max-width: 1450px; }
             .movies-grid { grid-template-columns: repeat(7, 1fr); gap: 20px; }
@@ -542,7 +536,7 @@
             th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
             .poster-wrapper { width: 170px !important; height: 255px !important; } 
             
-            /* Сбалансированные ширины для ультра-широких мониторов */
+            /* Сужаем правые колонки на 2К мониторах, чтобы Описание не сжималось */
             th:nth-child(3), td:nth-child(3) { width: 160px !important; min-width: 160px !important; }
             th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; }
             th:nth-child(5), td:nth-child(5) { width: 180px !important; min-width: 180px !important; }
@@ -560,7 +554,7 @@
             th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
             .poster-wrapper { width: 105px !important; height: 160px !important; } 
             
-            /* Адаптив для правых колонок, чтобы не съедали описание */
+            /* Адаптив для правых колонок, чтобы не съедали описание на ноутбуках */
             th:nth-child(3), td:nth-child(3) { width: 100px !important; min-width: 100px !important; padding-left: 5px !important; padding-right: 5px !important; }
             th:nth-child(4), td:nth-child(4) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
             th:nth-child(5), td:nth-child(5) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
@@ -1186,10 +1180,10 @@
                     <tr>
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
-                        <th style="width: 130px; min-width: 130px;">Добавлено</th>
-                        <th style="width: 120px; min-width: 120px;">Цены</th>
+                        <th style="width: 120px; min-width: 120px;">Добавлено</th>
+                        <th style="width: 140px; min-width: 140px;">Цены</th>
                         <th style="width: 130px; min-width: 130px;">Ссылки</th>
-                        <th style="width: 135px; min-width: 135px;">Донат</th>
+                        <th style="width: 140px; min-width: 140px;">Донат</th>
                     </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -1282,19 +1276,19 @@
             `;
 
             const datePriceText = movie.datePriceUpdated ? movie.datePriceUpdated.split(' ')[0] : 'неизвестно';
-            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена / Скрыта";
+            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена";
             
             let tablePriceBadgesMarkup = '';
-            if (priceText !== "Цена не найдена / Скрыта") {
+            if (priceText !== "Цена не найдена") {
                 const prices = priceText.split('/').map(p => p.trim());
-                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 100px; margin: 0 auto 4px auto; padding: 4px 2px; font-size: 13px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 130px; margin: 0 auto 6px auto; padding: 6px 4px; font-size: 16px; cursor: default; box-sizing: border-box; letter-spacing: 1px;">${escapeHTML(p)}</span>`).join('');
             } else {
-                tablePriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 100px; margin: 0 auto 4px auto; opacity: 0.6; padding: 4px 2px; font-size: 13px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+                tablePriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 130px; margin: 0 auto 6px auto; opacity: 0.6; padding: 6px 4px; font-size: 15px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
             
             const priceColumnHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
-                    <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Обновлено:<br><span style="color: var(--text-main); font-size: 11px; display: inline-block; margin-top: 2px;">${datePriceText}</span></div>
+                    <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; text-align: center;">Обновлено:<br><span class="text-3d-effect" style="color: #ffffff; font-size: 15px; font-weight: 900; display: inline-block; margin-top: 4px; letter-spacing: 1px;">${datePriceText}</span></div>
                     <div style="width: 100%;">
                         ${tablePriceBadgesMarkup}
                     </div>
@@ -1345,9 +1339,9 @@
             let priceBadgesMarkup = '';
             if (priceText !== "Цена не найдена") {
                 const prices = priceText.split('/').map(p => p.trim());
-                priceBadgesMarkup = prices.map(p => `<span class="price-badge">${escapeHTML(p)}</span>`).join('');
+                priceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="flex: none; width: 100%; margin-bottom: 6px; padding: 6px; font-size: 16px; letter-spacing: 1px;">${escapeHTML(p)}</span>`).join('');
             } else {
-                priceBadgesMarkup = `<span class="price-badge" style="opacity: 0.6; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">Нет цены</span>`;
+                priceBadgesMarkup = `<span class="price-badge text-3d-effect" style="flex: none; width: 100%; opacity: 0.6; padding: 6px; font-size: 15px;">Нет цены</span>`;
             }
 
             const hasPost = !!movie.postUrl;
@@ -1679,9 +1673,9 @@
         let modalPriceBadgesMarkup = '';
         if (priceText !== "Цена не найдена / Скрыта") {
             const prices = priceText.split('/').map(p => p.trim());
-            modalPriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="flex: 0 0 auto; padding: 6px 14px; font-size: 18px; cursor: default;">${escapeHTML(p)}</span>`).join('');
+            modalPriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="flex: 0 0 auto; padding: 6px 16px; font-size: 18px; cursor: default; letter-spacing: 1px;">${escapeHTML(p)}</span>`).join('');
         } else {
-            modalPriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="flex: 0 0 auto; opacity: 0.6; padding: 6px 14px; font-size: 15px; cursor: default;">Нет цены</span>`;
+            modalPriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="flex: 0 0 auto; opacity: 0.6; padding: 6px 16px; font-size: 16px; cursor: default;">Нет цены</span>`;
         }
         
         priceEl.innerHTML = `<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px;">${modalPriceBadgesMarkup}</div>`;
