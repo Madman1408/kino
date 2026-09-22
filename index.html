@@ -131,6 +131,7 @@
         .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
         .creator-badge img { width: 35px; height: 35px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; border-radius: 2px; }
         .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
+        .creator-label { font-size: 10px; color: var(--accent-light); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); display: none; }
         .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
 
@@ -521,7 +522,7 @@
         ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 2px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-main); }
 
-
+        /* --- ИЗМЕНЕНИЯ ШИРИНЫ КОЛОНОК (Чтобы "Описание" было как в Игровой) --- */
         @media (min-width: 1920px) {
             .container { max-width: 1450px; }
             .movies-grid { grid-template-columns: repeat(7, 1fr); gap: 20px; }
@@ -541,10 +542,11 @@
             th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
             .poster-wrapper { width: 170px !important; height: 255px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(4), td:nth-child(4) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 220px !important; min-width: 220px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; }
+            /* Сбалансированные ширины для ультра-широких мониторов */
+            th:nth-child(3), td:nth-child(3) { width: 160px !important; min-width: 160px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 180px !important; min-width: 180px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 180px !important; min-width: 180px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 200px !important; min-width: 200px !important; }
             
             .movie-overview-text, .movie-review-text { font-size: 16px; line-height: 1.6; }
 
@@ -558,10 +560,11 @@
             th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
             .poster-wrapper { width: 105px !important; height: 160px !important; } 
             
-            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            /* Адаптив для правых колонок, чтобы не съедали описание */
+            th:nth-child(3), td:nth-child(3) { width: 100px !important; min-width: 100px !important; padding-left: 5px !important; padding-right: 5px !important; }
             th:nth-child(4), td:nth-child(4) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
-            th:nth-child(5), td:nth-child(5) { width: 130px !important; min-width: 130px !important; padding-left: 5px !important; padding-right: 5px !important; }
-            th:nth-child(6), td:nth-child(6) { width: 150px !important; min-width: 150px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 125px !important; min-width: 125px !important; padding-left: 5px !important; padding-right: 5px !important; }
             
             .steam-link-btn, .play-link-btn, .tg-link-btn, .list-don-btn { 
                 width: 95% !important; font-size: 11px !important; padding: 4px !important; box-sizing: border-box !important; 
@@ -892,7 +895,6 @@
     let currentLightboxIndex = 0; 
     let hlsInstance = null; 
 
-    // Функции для работы с вкладками и разворачиванием
     window.switchListTab = function(event, btn, tabName) {
         event.stopPropagation(); 
         const container = btn.closest('.movie-info');
@@ -907,7 +909,6 @@
         element.classList.toggle('expanded');
     };
 
-    // Функция генерации кнопок записей
     window.getMediaButtonHtml = function(movie, baseKey, label, cssClass, svgIcon, styleType) {
         let parts = [];
         if (movie[baseKey]) parts.push({ part: 1, url: movie[baseKey] });
@@ -960,7 +961,6 @@
         document.getElementById('partsModalOverlay').classList.remove('active');
     };
 
-    // Функции лайтбокса
     window.openLightbox = function(index) {
         currentLightboxIndex = index;
         const item = modalMediaItems[index];
@@ -1186,10 +1186,10 @@
                     <tr>
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
-                        <th style="width: 145px; min-width: 145px;">Добавлено</th>
-                        <th style="width: 155px; min-width: 155px;">Цены</th>
-                        <th style="width: 145px; min-width: 145px;">Ссылки</th>
-                        <th style="width: 180px; min-width: 180px;">Донат</th>
+                        <th style="width: 130px; min-width: 130px;">Добавлено</th>
+                        <th style="width: 120px; min-width: 120px;">Цены</th>
+                        <th style="width: 130px; min-width: 130px;">Ссылки</th>
+                        <th style="width: 135px; min-width: 135px;">Донат</th>
                     </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -1248,7 +1248,7 @@
                 tgButtonHTML += `<a href="${movie.reviewUrl}" target="_blank" class="tg-link-btn" style="margin-top: 4px;" onclick="event.stopPropagation();" title="Читать отзыв в Telegram"><svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ОТЗЫВ</a>`;
             }
 
-            const playIcon = `<svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            const playIcon = `<svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
             let tgRecButtonHTML = getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg-rec', playIcon, 'table');
             let boostyButtonHTML = getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIcon, 'table');
             let ytButtonHTML = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIcon, 'table');
@@ -1282,21 +1282,21 @@
             `;
 
             const datePriceText = movie.datePriceUpdated ? movie.datePriceUpdated.split(' ')[0] : 'неизвестно';
-            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена";
+            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена / Скрыта";
             
-            let priceBadgesMarkup = '';
-            if (priceText !== "Цена не найдена") {
+            let tablePriceBadgesMarkup = '';
+            if (priceText !== "Цена не найдена / Скрыта") {
                 const prices = priceText.split('/').map(p => p.trim());
-                priceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 100px; margin: 0 auto 4px auto; padding: 4px 2px; font-size: 13px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
             } else {
-                priceBadgesMarkup = `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+                tablePriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="display: block; width: 90%; max-width: 100px; margin: 0 auto 4px auto; opacity: 0.6; padding: 4px 2px; font-size: 13px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
             }
-
+            
             const priceColumnHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
-                    <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px; text-align: center; font-family: var(--font-title);">Обновлено:<br><span style="color: var(--accent-light); font-size: 12px;">${datePriceText}</span></div>
+                    <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Обновлено:<br><span style="color: var(--text-main); font-size: 11px; display: inline-block; margin-top: 2px;">${datePriceText}</span></div>
                     <div style="width: 100%;">
-                        ${priceBadgesMarkup}
+                        ${tablePriceBadgesMarkup}
                     </div>
                 </div>
             `;
